@@ -13,6 +13,13 @@ use Illuminate\Support\Facades\Route;
   |
  */
 
-Route::match(['get', 'post'], '/', ['as' => 'home', 'uses' => 'frontend\HomeController@homepage']);
-Route::match(['get', 'post'], 'property_list', ['as' => 'property_list', 'uses' => 'frontend\PropertyController@propertylist']);
+Route::match(['get', 'post'], '/', ['as' => 'home', 'uses' => 'frontend\HomeController@home']);
+
+// property
+Route::match(['get', 'post'], 'property', ['as' => 'property', 'uses' => 'frontend\PropertyController@propertylist']);
+Route::match(['get', 'post'], 'property-details/{id}', ['as' => 'property-details', 'uses' => 'frontend\PropertyController@propertydetails']);
+
+// blog
+Route::match(['get', 'post'], 'blog', ['as' => 'blog', 'uses' => 'frontend\BlogController@blog']);
+Route::match(['get', 'post'], 'blog-details/{id}', ['as' => 'blog-details', 'uses' => 'frontend\BlogController@blogdetails']);
 
