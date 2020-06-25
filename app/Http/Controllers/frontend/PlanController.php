@@ -11,18 +11,21 @@ class PlanController extends Controller
 
     }
 
-    public function services(Request $request){
+    public function plan(Request $request){
 
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Plan';
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Plan';
         $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Plan';
 
-        $data['css'] = array();
+        $data['css'] = array(
+            'owl-carousel/owl.carousel.min.css',
+        );
 
-        $data['plugincss'] = array();
+        $data['plugincss'] = array(
+            
+        );
         $data['pluginjs'] = array(
-            'jquery.appear.js',
-            'counter/jquery.countTo.js',
+            'owl-carousel/owl.carousel.min.js',
         );
 
         $data['js'] = array();
