@@ -5,13 +5,7 @@
     <div class="col-md-12">
         <!-- BEGIN EXAMPLE TABLE PORTLET-->
         <div class="portlet light bordered">
-            <div class="portlet-title">
-                <div class="caption font-dark">
-                    <i class="icon-settings font-dark"></i>
-                    <span class="caption-subject bold uppercase"> Managed Table</span>
-                </div>
-                
-            </div>
+            
             <div class="portlet-body">
                 <div class="table-toolbar">
                     <div class="row">
