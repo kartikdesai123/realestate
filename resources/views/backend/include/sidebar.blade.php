@@ -1,4 +1,8 @@
- <!-- BEGIN SIDEBAR -->
+@php
+
+$currentRoute = Route::current()->getName();
+@endphp
+<!-- BEGIN SIDEBAR -->
  <div class="page-sidebar-wrapper">
    
     <div class="page-sidebar navbar-collapse collapse">
@@ -13,11 +17,24 @@
                 </div>
             </li>
             
-            <li class="nav-item start active open">
+            <li class="nav-item start {{ $currentRoute == "admin-dashboard" ? "active": ""}}  open">
             <a href="{{ route('admin-dashboard') }}" class="nav-link ">
                     <i class="icon-home"></i>
                     <span class="title">Dashboard</span>
+                    @if($currentRoute == "admin-dashboard")
+                        <span class="selected"></span>
+                    @endif
+                    
+                </a>
+            </li>
+
+            <li class="nav-item start {{ $currentRoute == "extra-facilities" ? "active": ""}} {{ $currentRoute == "add-extra-facilities" ? "active": ""}} {{ $currentRoute == "edit-extra-facilities" ? "active": ""}} open">
+            <a href="{{ route('extra-facilities') }}" class="nav-link ">
+                    <i class="fa fa-archive" aria-hidden="true"></i>
+                    <span class="title">Extra Facailies</span>
+                    @if($currentRoute == "extra-facilities" || $currentRoute == "add-extra-facilities")
                     <span class="selected"></span>
+                @endif
                 </a>
             </li>
 

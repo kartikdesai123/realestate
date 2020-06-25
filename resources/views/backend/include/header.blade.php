@@ -26,6 +26,28 @@
     <link href="{{ asset('public/backend/assets/layouts/layout/css/layout.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('public/backend/assets/layouts/layout/css/themes/darkblue.min.css') }}" rel="stylesheet" type="text/css" id="style_color" />
     <link href="{{ asset('public/backend/assets/layouts/layout/css/custom.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('public/backend/assets/pages/css/style.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('public/backend/assets/layouts/layout/css/custom.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- END THEME LAYOUT STYLES -->
     <link rel="shortcut icon" href="favicon.ico" /> 
+
+    @if (!empty($plugincss))
+        @foreach ($plugincss as $value)
+            @if(!empty($value))
+                <link rel="stylesheet" href="{{ asset('public/backend/assets/'.$value) }}">
+            @endif
+        @endforeach
+    @endif
+    
+    @if (!empty($css))
+        @foreach ($css as $value)
+            @if(!empty($value))
+                <link rel="stylesheet" href="{{ asset('public/backend/assets/customcss/'.$value) }}">
+            @endif
+        @endforeach
+    @endif
+
+    <script>
+        var baseurl = "{{ asset('/') }}";
+    </script>
 </head>
