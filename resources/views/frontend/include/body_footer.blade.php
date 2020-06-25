@@ -18,18 +18,17 @@
                      <div class="footer-link">
                         <h5 class="text-primary mb-4">Useful links</h5>
                         <ul class="list-unstyled mb-0">
-                           <li> <a href="#">Commercial </a> </li>
-                           <li> <a href="#">House </a> </li>
-                           <li> <a href="#">Office </a> </li>
-                           <li> <a href="#">Residential </a> </li>
-                           <li> <a href="#">Residential Tower </a> </li>
+                           <li> <a href="{{ route('home') }}">Home </a> </li>
+                           <li> <a href="{{ route('property') }}">Property </a> </li>
+                           <li> <a href="{{ route('services') }}">Services </a> </li>
+                           <li> <a href="{{ route('plan') }}">Plans </a> </li>
+                           <li> <a href="{{ route('blog') }}">Blogs</a> </li>
                         </ul>
                         <ul class="list-unstyled mb-0">
-                           <li> <a href="#">Beverly Hills </a> </li>
-                           <li> <a href="#">Los angeles </a> </li>
-                           <li> <a href="#">Mission Viejo </a> </li>
-                           <li> <a href="#">Newport  </a> </li>
-                           <li> <a href="#">Beach Pasadena </a> </li>
+                           <li> <a href="{{ route('faq') }}">FAQs</a> </li>
+                           <li> <a href="{{ route('term-condition') }}">Terms & Conditions</a> </li>
+                           <li> <a href="{{ route('about-us') }}">About Us</a> </li>
+                           <li> <a href="{{ route('contact-us') }}">Contact Us</a> </li>
                         </ul>
                      </div>
                   </div>

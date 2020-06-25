@@ -49,4 +49,26 @@ class PropertyController extends Controller
         $data['funinit'] = array();
         return view('frontend.pages.property.propertydetails', $data);
     }
+
+    public function submitproperty(Request $request){
+        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Submit Property Details';
+        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Submit Property Details';
+        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Submit Property Details';
+        $data['css'] = array(
+            'owl-carousel/owl.carousel.min.css',
+            'magnific-popup/magnific-popup.css',
+            'select2/select2.css',
+        );
+        $data['plugincss'] = array();
+        $data['pluginjs'] = array(
+            'jquery.appear.js',
+            'counter/jquery.countTo.js',
+            'owl-carousel/owl.carousel.min.js',
+            'select2/select2.full.js',
+            'magnific-popup/jquery.magnific-popup.min.js',
+        );
+        $data['js'] = array();
+        $data['funinit'] = array();
+        return view('frontend.pages.property.submitproperty', $data);
+    }
 }
