@@ -50,7 +50,7 @@ class Blogcategory extends Model
         foreach ($resultArr as $row) {
             $actionhtml = '';
             $actionhtml = '<a href="'.route('edit-blog-category',$row['id']).'"  class="btn btn-icon primary"  ><i class="fa fa-edit"></i></a>'
-                    . '<a href="" data-toggle="modal" data-target="#deleteModel" class="btn btn-icon  deletefacilities" data-id="' . $row["id"] . '" ><i class="fa fa-trash" ></i></a>';
+                    . '<a href="" data-toggle="modal" data-target="#deleteModel" class="btn btn-icon  deleteBlogcategory" data-id="' . $row["id"] . '" ><i class="fa fa-trash" ></i></a>';
             $i++;
             $nestedData = array();
             $nestedData[] = $i;
@@ -131,10 +131,14 @@ class Blogcategory extends Model
             }else{
                 return "false";
             }
-            
         }else{
             return "exits";
         }
-        
+    }
+    public function deleteBlogcategory($data){
+        $objBlogcategory = Blogcategory::find($data['id']);
+        $objBlogcategory->is_deleted = "1";
+        $objBlogcategory->updated_at = date("Y-m-d h:i:s");
+        return $objBlogcategory->save();
     }
 }

@@ -140,8 +140,6 @@ class BlogCategoryController extends Controller
         return view('backend.pages.blog.blogcategory.edit', $data);
     }
 
-
-
     public function ajaxAction(Request $request){
         $action = $request->input('action');
 
@@ -153,13 +151,13 @@ class BlogCategoryController extends Controller
                 echo json_encode($list);
                 break;
 
-            case 'deletefacilities':
+            case 'deleteBlogcategory':
                     $objExtrafacilities = new Blogcategory();
-                    $result = $objExtrafacilities->deletefacilities($request->input('data'));
+                    $result = $objExtrafacilities->deleteBlogcategory($request->input('data'));
                     if ($result) {
                         $return['status'] = 'success';
-                        $return['message'] = 'Facilities details successfully deleted';
-                        $return['redirect'] = route('extra-facilities');
+                        $return['message'] = 'Blog category successfully deleted';
+                        $return['redirect'] = route('blog-category');
                     } else {
                         $return['status'] = 'error';
                         $return['message'] = 'Something goes to wrong.';

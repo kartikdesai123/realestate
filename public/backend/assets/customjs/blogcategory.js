@@ -18,7 +18,7 @@ var Blogcategory = function (){
         getDataTable(arrList);
 
 
-        $("body").on("click", ".deletefacilities", function () {
+        $("body").on("click", ".deleteBlogcategory", function () {
             var id = $(this).data('id');
             setTimeout(function () {
                 $('.yes-sure:visible').attr('data-id', id);
@@ -33,8 +33,8 @@ var Blogcategory = function (){
                 headers: {
                     'X-CSRF-TOKEN': $('input[name="_token"]').val(),
                 },
-                url: baseurl + "extrafacilities-ajaxAction",
-                data: {'action': 'deletefacilities', 'data': data},
+                url: baseurl + "blog-category-ajaxAction",
+                data: {'action': 'deleteBlogcategory', 'data': data},
                 success: function (data) {
                     handleAjaxResponse(data);
                 }
