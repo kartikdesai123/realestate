@@ -8,18 +8,20 @@
             @csrf
             <div class="portlet-body">
                 <!-- BEGIN FORM-->
-                <form id="add-facilities" class="form-horizontal" method="post">@csrf
+                <form id="edit-category" class="form-horizontal" method="POST">
+                    @csrf
+                    <input name="id" type="hidden" class="form-control" value="{{ $details[0]->id }}"> 
                     <div class="form-body">
                         <div class="form-group">
-                            <label class="control-label col-md-2">Facilities</label>
+                            <label class="control-label col-md-2">Category Name</label>
                             <div class="col-md-10">
-                                <input name="facilities" type="text" class="form-control">
+                            <input name="category" type="text" class="form-control" value="{{ $details[0]->blogCategoryName }}"> </div>
                             </div>
-                        </div>
                     </div>
                     <div class="form-actions">
                         <div class="row">
-                            <div class="col-md-offset-3 col-md-9">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-8">
                                 <button type="submit" class="btn green">Submit</button>
                                 <button type="button" class="btn default">Cancel</button>
                             </div>

@@ -29,13 +29,40 @@ $currentRoute = Route::current()->getName();
             </li>
 
             <li class="nav-item start {{ $currentRoute == "extra-facilities" ? "active": ""}} {{ $currentRoute == "add-extra-facilities" ? "active": ""}} {{ $currentRoute == "edit-extra-facilities" ? "active": ""}} open">
-            <a href="{{ route('extra-facilities') }}" class="nav-link ">
+                <a href="{{ route('extra-facilities') }}" class="nav-link ">
                     <i class="fa fa-archive" aria-hidden="true"></i>
-                    <span class="title">Extra Facailies</span>
-                    @if($currentRoute == "extra-facilities" || $currentRoute == "add-extra-facilities")
-                    <span class="selected"></span>
-                @endif
+                        <span class="title">Extra Facailies</span>
+                        @if($currentRoute == "extra-facilities" || $currentRoute == "add-extra-facilities")
+                            <span class="selected"></span>
+                        @endif
                 </a>
+            </li>
+
+
+            <li class="nav-item start {{ $currentRoute == "blog-category" ? "active": ""}}  {{ $currentRoute == "add-blog-category" ? "active": ""}} {{ $currentRoute == "edit-blog-category" ? "active": ""}}">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="fa fa-newspaper-o"></i>
+                    <span class="title">Blog</span>
+                    <span class="arrow"></span>
+                    @if($currentRoute == "blog-category" || $currentRoute == "add-blog-category" || $currentRoute == "edit-blog-category")
+                            <span class="selected"></span>
+                    @endif
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item start {{ $currentRoute == "blog-category" ? "active": ""}} {{ $currentRoute == "add-blog-category" ? "active": ""}} {{ $currentRoute == "edit-blog-category" ? "active": ""}}">
+                        <a href="{{ route('blog-category') }}" class="nav-link ">
+                            <i class="fa fa-hand-o-right"></i>
+                            <span class="title">Blog Category</span>
+                        </a>
+                    </li>
+                    <li class="nav-item start {{ $currentRoute == "blog" ? "active": ""}} {{ $currentRoute == "add-blog" ? "active": ""}} {{ $currentRoute == "edit-blog" ? "active": ""}}">
+                        <a href="{{ route('blog-category') }}" class="nav-link ">                            
+                            <i class="fa fa-hand-o-right"></i>
+                            <span class="title">Blog</span>
+                        </a>
+                    </li>
+                    
+                </ul>
             </li>
 
         </ul>

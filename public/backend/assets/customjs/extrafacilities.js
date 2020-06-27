@@ -1,7 +1,7 @@
 var Extrafacilities = function (){
-    var add = function (){
+    var list = function (){
         var dataArr = {};
-        var columnWidth = {"width": "10%", "targets": 0};
+        var columnWidth = {};
         var arrList = {
             'tableID': '#extrafacilities',
             'ajaxURL': baseurl + "extrafacilities-ajaxAction",
@@ -73,7 +73,7 @@ var Extrafacilities = function (){
     };
     return {
         init : function (){
-            add();
+            list();
         },
         add : function (){
             addextrafacilities();

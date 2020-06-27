@@ -18,13 +18,14 @@ class LoginController extends Controller
     public function login(Request $request){
 
         if ( $request->isMethod( 'post' ) ) {
-            if ( Auth::guard('admin')->attempt( ['email' => $request->input( 'email' ), 'password' => $request->input( 'password' )] ) ) {
+            if ( Auth::guard('admin')->attempt( ['email' => $request->input( 'email' ), 'password' => $request->input( 'password' ) , 'roles' => "A" ,"isDeleted"=>"0"] ) ) {
 
                 $loginData = array(
                     'firstname' => Auth::guard('admin')->user()->firstname,
                     'lastname' => Auth::guard('admin')->user()->lastname,
                     'email' => Auth::guard('admin')->user()->email,
                     'userimage' => Auth::guard('admin')->user()->userimage,
+                    'roles' => Auth::guard('admin')->user()->roles,
                     'id' => Auth::guard('admin')->user()->id
                 );
 
