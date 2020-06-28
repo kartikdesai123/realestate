@@ -37,5 +37,11 @@ Route::group(['prefix' => $adminPrefix, 'middleware' => ['admin']], function() {
     Route::match(['get', 'post'], 'admin-edit-blog/{id}', ['as' => 'admin-edit-blog', 'uses' => 'backend\blog\BlogController@edit']);
     Route::match(['get', 'post'], 'admin-view-blog/{id}', ['as' => 'admin-view-blog', 'uses' => 'backend\blog\BlogController@view']);
     Route::match(['get', 'post'], 'admin-blog-ajaxAction', ['as' => 'admin-blog-ajaxAction', 'uses' => 'backend\blog\BlogController@ajaxAction']);
+    // Plan
+    Route::match(['get', 'post'], 'admin-plan', ['as' => 'admin-plan', 'uses' => 'backend\plan\PlanController@list']);
+    Route::match(['get', 'post'], 'admin-add-plan', ['as' => 'admin-add-plan', 'uses' => 'backend\plan\PlanController@add']);
+    Route::match(['get', 'post'], 'admin-edit-plan/{id}', ['as' => 'admin-edit-plan', 'uses' => 'backend\plan\PlanController@edit']);
+    Route::match(['get', 'post'], 'admin-view-plan/{id}', ['as' => 'admin-view-plan', 'uses' => 'backend\plan\PlanController@view']);
+    Route::match(['get', 'post'], 'admin-plan-ajaxAction', ['as' => 'admin-plan-ajaxAction', 'uses' => 'backend\plan\PlanController@ajaxAction']);
     
 });
