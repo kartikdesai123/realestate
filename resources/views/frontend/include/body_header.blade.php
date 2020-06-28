@@ -67,14 +67,12 @@ $currentRoute = Route::current()->getName();
                      </ul>
                   </div>
                   <div class="d-flex align-items-center">
-                     <div class="call mr-4">
-                        <a href="tel:1-800-555-1234"><i class="fa fa-phone mr-2 fa-flip-horizontal"></i>1-800-555-1234 </a>
-                     </div>
                      <div class="login mr-4">
-                        <a data-toggle="modal" data-target="#loginModal" href="#">Hello sign in<i class="fa fa-user pl-2"></i></a>
+                        <!--<a data-toggle="modal" data-target="#loginModal" href="#">Hello sign in<i class="fa fa-user pl-2"></i></a>-->
+                         <a href="{{ route('signin') }}"> <i class="fa fa-user pl-2"></i>Sign in </a>
                      </div>
                      <div class="add-listing d-none d-sm-block">
-                        <a class="btn btn-primary btn-md" href="submit-property.html"> <i class="fa fa-plus-circle"></i>Add listing </a>
+                        <a class="btn btn-primary btn-md" href="{{ route('submit-property') }}"> <i class="fa fa-plus-circle"></i>Add listing </a>
                      </div>
                   </div>
                </div>

@@ -126,9 +126,9 @@ Contact -->
           <div class="d-flex">
             <i class="flaticon-group font-xlll text-primary"></i>
             <div class="ml-4">
-              <h5>Chat to us online</h5>
-              <p class="mb-0">Chat to us online if you have a question about using our Mortgage calculator.</p>
-              <a class="btn btn-primary btn-sm mt-3" href="#"> Start web chat</a>
+              <h5>Chat to us </h5>
+              <p class="mb-0">Chat to us if you have a question about using our Mortgage calculator.</p>
+              <!--<a class="btn btn-primary btn-sm mt-3" href="#"> Start web chat</a>-->
             </div>
           </div>
         </div>

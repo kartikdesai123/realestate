@@ -5,7 +5,7 @@ Frequently -->
 <section class="space-ptb">
     <div class="container">
       <div class="row">
-        <div class="col-lg-8 col-md-7">
+        <div class="col-lg-12 col-md-12">
           <div class="section-title">
             <h2>Frequently asked questions</h2>
           </div>
@@ -107,38 +107,7 @@ Frequently -->
             </div>
           </div>
         </div>
-        <div class="col-lg-4 col-md-5 mt-5 mt-md-0">
-          <div class="blog-sidebar sidebar">
-            <div class="widget">
-              <div class="widget-title">
-                <h6>Search</h6>
-              </div>
-              <div class="search">
-                <i class="fas fa-search"></i>
-                <input type="text" class="form-control" placeholder="Search....">
-              </div>
-            </div>
-            <div class="widget">
-              <div class="widget-title">
-                <h6>Submit your question</h6>
-              </div>
-              <form>
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Name">
-                </div>
-                <div class="form-group">
-                  <input type="email" class="form-control" placeholder="Email">
-                </div>
-                <div class="form-group">
-                  <textarea class="form-control" rows="4" placeholder="Message"></textarea>
-                </div>
-                <div class="form-group">
-                  <button type="submit" class="btn btn-primary btn-block">Submit</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
+        
       </div>
     </div>
   </section>

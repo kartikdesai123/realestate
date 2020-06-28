@@ -107,6 +107,35 @@
                                           </select>
                                        </div>
                                     </div>
+                                     <div class="form-row">
+                                         <div class="form-group col-md-4">
+                                          <label>Agent</label>
+                                          <select class="form-control basic-select">
+                                             <option>Select Agent</option>
+                                             <option>Agent1</option>
+                                             <option>Agent2</option>
+                                             <option>Agent3</option>
+                                          </select>
+                                       </div>
+                                         <div class="form-group col-md-4">
+                                          <label>Agencies</label>
+                                          <select class="form-control basic-select">
+                                             <option>Select Agencies</option>
+                                             <option>Agencies1</option>
+                                             <option>Agencies2</option>
+                                             <option>Agencies3</option>
+                                          </select>
+                                       </div>
+                                         <div class="form-group col-md-4">
+                                          <label>Company</label>
+                                          <select class="form-control basic-select">
+                                             <option>Select Company</option>
+                                             <option>Company1</option>
+                                             <option>Company2</option>
+                                             <option>Company3</option>
+                                          </select>
+                                       </div>
+                                     </div>
                                     <div class="form-row">
                                        <div class="form-group col-md-3">
                                           <label>Min Area (sq ft)</label>

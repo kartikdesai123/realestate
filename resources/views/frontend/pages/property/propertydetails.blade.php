@@ -29,12 +29,10 @@
                     <li> <a href="#"><i class="fab fa-twitter"></i></a> </li>
                     <li> <a href="#"><i class="fab fa-linkedin"></i></a> </li>
                     <li> <a href="#"><i class="fab fa-instagram"></i></a> </li>
-                    <li> <a href="#"><i class="fab fa-pinterest"></i></a> </li>
                   </ul>
                 </li>
                 <li><a href="#"> <i class="fas fa-heart"></i> </a></li>
                 <li><a href="#"> <i class="fas fa-exchange-alt"></i> </a></li>
-                <li><a href="#"> <i class="fas fa-print"></i> </a></li>
               </ul>
             </div>
           </div>
@@ -56,7 +54,7 @@
                     </div>
                     <div class="d-flex mb-4 align-items-center">
                       <h6 class="text-primary border p-2 mb-0"><a href="#"><i class="fas fa-phone-volume text-white pr-2"></i>(123) 345-6789</a></h6>
-                      <a class="btn btn-link p-0 ml-auto text-white" href="property-list.html"><u>View all listing </u></a>
+                      <a class="btn btn-link p-0 ml-auto text-white" href="{{ route('property') }}"><u>View all listing </u></a>
                     </div>
                     <form>
                       <div class="form-group">
@@ -188,9 +186,6 @@
                 <li class="nav-item">
                   <a class="nav-link shadow" id="map-tab" data-toggle="pill" href="#map" role="tab" aria-controls="map" aria-selected="false">Map</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link shadow" id="street-map-view-tab" data-toggle="pill" href="#street-map-view" role="tab" aria-controls="street-map-view" aria-selected="false">Street view</a>
-                </li>
               </ul>
               <div class="tab-content" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="photo" role="tabpanel" aria-labelledby="photo-tab">
@@ -216,9 +211,9 @@
                 <div class="tab-pane fade" id="map" role="tabpanel" aria-labelledby="map-tab">
                   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8351288872545!2d144.9556518!3d-37.8173306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4c2b349649%3A0xb6899234e561db11!2sEnvato!5e0!3m2!1sen!2sin!4v1443621171568" style="border:0; width: 100%; height: 100%;"></iframe>
                 </div>
-                <div class="tab-pane fade" id="street-map-view" role="tabpanel" aria-labelledby="street-map-view-tab">
+<!--                <div class="tab-pane fade" id="street-map-view" role="tabpanel" aria-labelledby="street-map-view-tab">
                   <div id="street-view"></div>
-                </div>
+                </div>-->
               </div>
             </div>
             <div class="property-info mt-5">
@@ -394,153 +389,60 @@
               </div>
             </div>
             <hr class="mt-4 mb-4 mb-sm-5 mt-sm-5">
-            <div class="property-walk-score">
-              <div class="row">
-                <div class="col-sm-3 mb-3 mb-sm-0">
-                  <h5>WalkScore</h5>
-                </div>
-                <div class="col-sm-9">
-                  <div class="walk-score-info d-sm-flex">
-                    <div class="mb-2 mb-sm-0">
-                      <img src="{{ asset('public/frontend/assets/images/property/walk-score.png') }}" alt="">
-                      <p class="mb-0 d-block mt-2">walkscore96 / Walker's Paradise</p>
-                    </div>
-                    <a class="btn btn-primary btn-sm ml-auto" href="#">More details here</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <hr class="mt-4 mb-4 mb-sm-5 mt-sm-5">
-            <div class="property-nearby">
-              <div class="row">
-                <div class="col-sm-3 mb-3 mb-sm-0">
-                  <h5>What's nearby</h5>
-                </div>
-                <div class="col-sm-9">
-                  <div class="nearby-info mb-4">
-                    <span class="nearby-title mb-2 d-block text-info">
-                      <i class="fas fa-graduation-cap mr-2"></i><b>Education</b>
-                    </span>
-                    <div class="nearby-list">
-                      <ul class="property-list list-unstyled mb-0">
-                        <li class="d-flex">
-                          <span class="mr-1"><b>Case Western Reserve University</b> (2.10 km)</span>
-                          <ul class="list-unstyled list-inline ml-auto">
-                            <li class="list-inline-item m-0 text-warning"><i class="fas fa-star fa-xs"></i></li>
-                            <li class="list-inline-item m-0 text-warning"><i class="fas fa-star fa-xs"></i></li>
-                            <li class="list-inline-item m-0 text-warning"><i class="fas fa-star fa-xs"></i></li>
-                            <li class="list-inline-item m-0 text-warning"><i class="fas fa-star fa-xs"></i></li>
-                            <li class="list-inline-item m-0 text-warning"><i class="fas fa-star-half-alt fa-xs"></i></li>
-                          </ul>
-                        </li>
-                        <li class="d-flex">
-                          <span class="mr-1"><b>Georgia Institute of Technology</b> (1.42 km)</span>
-                          <ul class="list-unstyled list-inline ml-auto">
-                            <li class="list-inline-item m-0 text-warning"><i class="fas fa-star fa-xs"></i></li>
-                            <li class="list-inline-item m-0 text-warning"><i class="fas fa-star fa-xs"></i></li>
-                            <li class="list-inline-item m-0 text-warning"><i class="fas fa-star fa-xs"></i></li>
-                            <li class="list-inline-item m-0 text-warning"><i class="fas fa-star-half-alt fa-xs"></i></li>
-                            <li class="list-inline-item m-0 text-warning"><i class="far fa-star fa-xs"></i></li>
-                          </ul>
-                        </li>
-                        <li class="d-flex">
-                          <span class="mr-1"><b>Harvey Mudd College</b> (1.64 km)</span>
-                          <ul class="list-unstyled list-inline ml-auto">
-                            <li class="list-inline-item m-0 text-warning"><i class="fas fa-star fa-xs"></i></li>
-                            <li class="list-inline-item m-0 text-warning"><i class="fas fa-star fa-xs"></i></li>
-                            <li class="list-inline-item m-0 text-warning"><i class="fas fa-star-half-alt fa-xs"></i></li>
-                            <li class="list-inline-item m-0 text-warning"><i class="far fa-star fa-xs"></i></li>
-                            <li class="list-inline-item m-0 text-warning"><i class="far fa-star fa-xs"></i></li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="nearby-info mb-4">
-                    <span class="nearby-title mb-2 d-block text-success">
-                      <i class="fas fa-user-md mr-2"></i><b>Health & Medical</b>
-                    </span>
-                    <div class="nearby-list">
-                      <ul class="property-list list-unstyled mb-0">
-                        <li class="d-flex">
-                          <span class="mr-1"><b>Hopedale Community Hospital</b> (2.04 km)</span>
-                          <ul class="list-unstyled list-inline ml-auto">
-                            <li class="list-inline-item m-0 text-warning"><i class="fas fa-star fa-xs"></i></li>
-                            <li class="list-inline-item m-0 text-warning"><i class="fas fa-star fa-xs"></i></li>
-                            <li class="list-inline-item m-0 text-warning"><i class="fas fa-star fa-xs"></i></li>
-                            <li class="list-inline-item m-0 text-warning"><i class="fas fa-star fa-xs"></i></li>
-                            <li class="list-inline-item m-0 text-warning"><i class="fas fa-star-half-alt fa-xs"></i></li>
-                          </ul>
-                        </li>
-                        <li class="d-flex">
-                          <span class="mr-1"><b>North Star Medical Clinic</b> (1.45 km)</span>
-                          <ul class="list-unstyled list-inline ml-auto">
-                            <li class="list-inline-item m-0 text-warning"><i class="fas fa-star fa-xs"></i></li>
-                            <li class="list-inline-item m-0 text-warning"><i class="fas fa-star fa-xs"></i></li>
-                            <li class="list-inline-item m-0 text-warning"><i class="fas fa-star fa-xs"></i></li>
-                            <li class="list-inline-item m-0 text-warning"><i class="fas fa-star-half-alt fa-xs"></i></li>
-                            <li class="list-inline-item m-0 text-warning"><i class="far fa-star fa-xs"></i></li>
-                          </ul>
-                        </li>
-                        <li class="d-flex">
-                          <span class="mr-1"><b>Maple Valley General Hospital</b> (2.64 km)</span>
-                          <ul class="list-unstyled list-inline ml-auto">
-                            <li class="list-inline-item m-0 text-warning"><i class="fas fa-star fa-xs"></i></li>
-                            <li class="list-inline-item m-0 text-warning"><i class="fas fa-star fa-xs"></i></li>
-                            <li class="list-inline-item m-0 text-warning"><i class="fas fa-star-half-alt fa-xs"></i></li>
-                            <li class="list-inline-item m-0 text-warning"><i class="far fa-star fa-xs"></i></li>
-                            <li class="list-inline-item m-0 text-warning"><i class="far fa-star fa-xs"></i></li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="nearby-info">
-                    <span class="nearby-title mb-2 d-block text-danger">
-                      <i class="fas fa-bus-alt mr-2"></i><b>Transportation</b>
-                    </span>
-                    <div class="nearby-list">
-                      <ul class="property-list list-unstyled mb-0">
-                        <li class="d-flex">
-                          <span class="mr-1"><b>Central bus depot </b> (2.04 km)</span>
-                          <ul class="list-unstyled list-inline ml-auto">
-                            <li class="list-inline-item m-0 text-warning"><i class="fas fa-star fa-xs"></i></li>
-                            <li class="list-inline-item m-0 text-warning"><i class="fas fa-star fa-xs"></i></li>
-                            <li class="list-inline-item m-0 text-warning"><i class="fas fa-star fa-xs"></i></li>
-                            <li class="list-inline-item m-0 text-warning"><i class="fas fa-star fa-xs"></i></li>
-                            <li class="list-inline-item m-0 text-warning"><i class="fas fa-star-half-alt fa-xs"></i></li>
-                          </ul>
-                        </li>
-                        <li class="d-flex">
-                          <span class="mr-1"><b>Travello & Bus Charter Express</b> (2.54 km)</span>
-                          <ul class="list-unstyled list-inline ml-auto">
-                            <li class="list-inline-item m-0 text-warning"><i class="fas fa-star fa-xs"></i></li>
-                            <li class="list-inline-item m-0 text-warning"><i class="fas fa-star fa-xs"></i></li>
-                            <li class="list-inline-item m-0 text-warning"><i class="fas fa-star fa-xs"></i></li>
-                            <li class="list-inline-item m-0 text-warning"><i class="fas fa-star-half-alt fa-xs"></i></li>
-                            <li class="list-inline-item m-0 text-warning"><i class="far fa-star fa-xs"></i></li>
-                          </ul>
-                        </li>
-                        <li class="d-flex">
-                          <span class="mr-1"><b>Charing Cross & Paddington Shipping</b> (2.64 km)</span>
-                          <ul class="list-unstyled list-inline ml-auto">
-                            <li class="list-inline-item m-0 text-warning"><i class="fas fa-star fa-xs"></i></li>
-                            <li class="list-inline-item m-0 text-warning"><i class="fas fa-star fa-xs"></i></li>
-                            <li class="list-inline-item m-0 text-warning"><i class="fas fa-star-half-alt fa-xs"></i></li>
-                            <li class="list-inline-item m-0 text-warning"><i class="far fa-star fa-xs"></i></li>
-                            <li class="list-inline-item m-0 text-warning"><i class="far fa-star fa-xs"></i></li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <hr class="mt-4 mb-4 mb-sm-5 mt-sm-5">
             <div class="property-schedule">
+                <ul class="nav nav-tabs nav-tabs-02 mb-4" id="pills-tab" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link shadow active" id="video-tab" data-toggle="pill" href="#video" role="tab" aria-controls="video" aria-selected="true">Video call</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link shadow" id="tour-tab" data-toggle="pill" href="#tour" role="tab" aria-controls="tour" aria-selected="false">Visit</a>
+                </li>
+              </ul>
               <div class="row">
-                <div class="col-sm-3 mb-3 mb-sm-0">
+                  <div class="tab-content" id="pills-tabContent">
+                      <div class="tab-pane show fade active" id="video" role="tabpanel" aria-labelledby="video-tab">
+                <div class="col-sm-4 mb-4 mb-sm-0">
+                  <h5>Schedule a video call</h5>
+                </div>
+                <div class="col-sm-9">
+                  <div class="form-row">
+                    <div class="form-group col-sm-6 datetimepickers">
+                      <div class="input-group date" id="datetimepicker-01" data-target-input="nearest">
+                        <input type="text" class="form-control datetimepicker-input" placeholder="Date" data-target="#datetimepicker-01">
+                        <div class="input-group-append" data-target="#datetimepicker-01" data-toggle="datetimepicker">
+                          <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group col-sm-6 datetimepickers">
+                      <div class="input-group date" id="datetimepicker-03" data-target-input="nearest">
+                        <input type="text" class="form-control datetimepicker-input" placeholder="Time" data-target="#datetimepicker-03"/>
+                        <div class="input-group-append" data-target="#datetimepicker-03" data-toggle="datetimepicker">
+                          <div class="input-group-text"><i class="far fa-clock"></i></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group col-sm-12">
+                      <input type="text" class="form-control" placeholder="Name">
+                    </div>
+                    <div class="form-group col-sm-12">
+                      <input type="email" class="form-control" placeholder="Email">
+                    </div>
+                    <div class="form-group col-sm-12">
+                      <input type="number" class="form-control" placeholder="Phones">
+                    </div>
+                    <div class="form-group col-sm-12">
+                      <textarea class="form-control" rows="4" placeholder="Message"></textarea>
+                    </div>
+                    <div class="form-group col-sm-12">
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                    <div class="col-sm-6"></div>
+                  </div>
+                </div>
+                  </div>
+                  <div class="tab-pane fade" id="tour" role="tabpanel" aria-labelledby="tour-tab">
+                <div class="col-sm-4 mb-4 mb-sm-0">
                   <h5>Schedule a tour</h5>
                 </div>
                 <div class="col-sm-9">
@@ -579,18 +481,11 @@
                     <div class="col-sm-6"></div>
                   </div>
                 </div>
+                  </div>
+                  </div>
+                  
               </div>
-            </div>
-            <hr class="mt-4 mb-4 mb-sm-5 mt-sm-5">
-            <div class="property-statistics">
-              <div class="row">
-                <div class="col-sm-3 mb-3 mb-sm-0">
-                  <h5>Page views statistics</h5>
-                </div>
-                <div class="col-sm-9">
-                  <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/views--statistics.jpg') }}" alt="">
-                </div>
-              </div>
+               
             </div>
           </div>
   

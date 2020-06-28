@@ -3,7 +3,7 @@
          <footer class="footer bg-dark space-pt">
             <div class="container">
                <div class="row">
-                  <div class="col-lg-3 col-md-6">
+                  <div class="col-lg-6 col-md-6">
                      <div class="footer-contact-info">
                         <h5 class="text-primary mb-4">About real villa</h5>
                         <p class="text-white mb-4">Real Villa helped thousands of clients to find the right property for their needs.</p>
@@ -14,7 +14,7 @@
                         </ul>
                      </div>
                   </div>
-                  <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
+                  <div class="col-lg-6 col-md-6 mt-4 mt-md-0">
                      <div class="footer-link">
                         <h5 class="text-primary mb-4">Useful links</h5>
                         <ul class="list-unstyled mb-0">
@@ -32,45 +32,7 @@
                         </ul>
                      </div>
                   </div>
-                  <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
-                     <div class="footer-recent-List">
-                        <h5 class="text-primary mb-4">Recently listed properties</h5>
-                        <ul class="list-unstyled mb-0">
-                           <li>
-                              <div class="footer-recent-list-item">
-                                 <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/list/01.jpg') }}" alt="">
-                                 <div class="footer-recent-list-item-info">
-                                    <h6 class="text-white"><a class="category font-md mb-2" href="property-detail-style-01.html">Awesome family home</a></h6>
-                                    <a class="address mb-2 font-sm" href="#">Vermont dr. hephzibah</a>
-                                    <span class="price text-white">$3,456,235 </span>
-                                 </div>
-                              </div>
-                           </li>
-                           <li>
-                              <div class="footer-recent-list-item">
-                                 <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/list/02.jpg') }}" alt="">
-                                 <div class="footer-recent-list-item-info">
-                                    <h6 class="text-white"><a class="category font-md mb-2" href="property-detail-style-01.html">Lawn court villa</a></h6>
-                                    <a class="address mb-2 font-sm" href="#">Newport st. mebane, nc</a>
-                                    <span class="price text-white">$1,265,456 </span>
-                                 </div>
-                              </div>
-                           </li>
-                        </ul>
-                     </div>
-                  </div>
-                  <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
-                     <h5 class="text-primary mb-4">Subscribe us</h5>
-                     <div class="footer-subscribe">
-                        <p class="text-white">Sign up to our newsletter to get the latest news and offers.</p>
-                        <form>
-                           <div class="form-group">
-                              <input type="email" class="form-control" placeholder="Enter email">
-                           </div>
-                           <button type="submit" class="btn btn-primary btn-sm">Get notified</button>
-                        </form>
-                     </div>
-                  </div>
+                  
                </div>
             </div>
             <div class="footer-bottom">

@@ -27,8 +27,8 @@ Terms and conditions -->
           </ul>
           <h6 class="text-primary mt-4">5. International Use</h6>
           <p class="mb-4">Sapiente, distinctio iste praesentium totam quasi tempore, lorem ipsum dolor sit amet, consectetur adipisicing elit. magnam ipsum cum animi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium vel recusandae ad impedit ipsum, vitae facere expedita! Voluptatem iure dolorem dignissimos nisi magni a dolore, et inventore optio, voluptas, obcaecati. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate incidunt aliquam sint, magnam excepturi quas a, id doloremque quasi iusto quo consequuntur dolorum neque optio ipsum, rerum nesciunt illo iure. </p>
-          <a class="btn btn-primary" href="#"><span>Accept</span></a>
-          <a class="btn btn-dark" href="#"><span>Close</span></a>
+<!--          <a class="btn btn-primary" href="#"><span>Accept</span></a>
+          <a class="btn btn-dark" href="#"><span>Close</span></a>-->
         </div>
       </div>
     </div>

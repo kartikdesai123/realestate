@@ -1,6 +1,10 @@
 @extends('frontend.layout.layout')
 @section('content')
-
+<style>
+    .nav-tabs-03 .nav-item .nav-link{
+        padding-right: 10px;
+    }
+</style>
 <!--=================================
 Submit Property -->
 <section class="space-ptb">
@@ -25,18 +29,23 @@ Submit Property -->
                   Gallery</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" id="tab-03-tab" data-toggle="tab" href="#tab-03" role="tab" aria-controls="tab-03" aria-selected="false"
-                    ><span>03</span>
-                  Location</a>
+                  <a class="nav-link" id="tab-03-tab" data-toggle="tab" href="#tab-03" role="tab" aria-controls="tab-03" aria-selected="false">
+                    <span>03</span>
+                  Video & Audio</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" id="tab-04-tab" data-toggle="tab" href="#tab-04" role="tab" aria-controls="tab-04" aria-selected="false">
-                    <span>04</span>
-                  Detailed Information</a>
+                  <a class="nav-link" id="tab-04-tab" data-toggle="tab" href="#tab-04" role="tab" aria-controls="tab-04" aria-selected="false"
+                    ><span>04</span>
+                  Location</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" id="tab-05-tab" data-toggle="tab" href="#tab-05" role="tab" aria-controls="tab-05" aria-selected="false">
                     <span>05</span>
+                  Detailed Information</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="tab-06-tab" data-toggle="tab" href="#tab-06" role="tab" aria-controls="tab-06" aria-selected="false">
+                    <span>06</span>
                   Floorplans</a>
                 </li>
               </ul>
@@ -103,6 +112,17 @@ Submit Property -->
                   </div>
                 </div>
                 <div class="tab-pane fade" id="tab-03" role="tabpanel" aria-labelledby="tab-03-tab">
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="customFile">
+                    <label class="custom-file-label" for="customFile">Choose Video file</label>
+                  </div>
+                    <p></p>
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="customFile">
+                    <label class="custom-file-label" for="customFile">Choose Audio file</label>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="tab-04" role="tabpanel" aria-labelledby="tab-04-tab">
                   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8351288872545!2d144.9556518!3d-37.8173306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4c2b349649%3A0xb6899234e561db11!2sEnvato!5e0!3m2!1sen!2sin!4v1443621171568" style="border:0; width: 100%; height: 250px;"></iframe>
                   <form>
                     <div class="form-row mt-4">
@@ -132,7 +152,7 @@ Submit Property -->
                     </div>
                   </form>
                 </div>
-                <div class="tab-pane fade" id="tab-04" role="tabpanel" aria-labelledby="tab-04-tab">
+                <div class="tab-pane fade" id="tab-05" role="tabpanel" aria-labelledby="tab-05-tab">
                   <form>
                     <div class="form-row mt-4">
                       <div class="form-group col-md-6 select-border">
@@ -184,10 +204,17 @@ Submit Property -->
                         <label>Storage Room </label>
                         <input type="text" class="form-control" placeholder="Storage Room">
                       </div>
+                      <div class="form-group col-md-6">
+                        <label>Other </label>
+                        <select class="form-control multi-select">
+                          <option value="value 01" selected="selected">Swimming pool</option>
+                          <option value="value 02">Garden terrace</option>
+                        </select>
+                      </div>
                     </div>
                   </form>
                 </div>
-                <div class="tab-pane fade" id="tab-05" role="tabpanel" aria-labelledby="tab-05-tab">
+                <div class="tab-pane fade" id="tab-06" role="tabpanel" aria-labelledby="tab-06-tab">
                   <form>
                     <div class="form-row">
                       <div class="form-group col-md-6">

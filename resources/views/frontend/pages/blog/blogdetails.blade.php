@@ -22,9 +22,6 @@ blog-detail -->
                 <div class="blog-post-author">
                   <span> By <a href="#"> <img class="img-fluid" src="{{ asset('public/frontend/assets/images/avatar/01.jpg') }}" alt="">Felica queen</a> </span>
                 </div>
-                <div class="blog-post-comment">
-                  <a href="#"> <i class="far fa-comment"></i>(15) </a>
-                </div>
               </div>
               <div class="blog-post-image">
                 <img class="img-fluid mb-4" src="{{ asset('public/frontend/assets/images/blog/01.jpg') }}" alt="">
@@ -44,43 +41,8 @@ blog-detail -->
                   </div>
                 </div>
                 <p>Making a decision to do something – this is the first step. We all know that nothing moves until someone makes a decision. The first action is always in making the decision to proceed. This is a fundamental step, which most people overlook.</p>
-                <blockquote class="blockquote">
-                  <p>Without clarity, you send a very garbled message out to the Universe. We know that the Law of Attraction says that we will attract what we focus on, so if we don’t have clarity, we will attract confusion.</p>
-                  <cite>– Alice Williams</cite>
-                </blockquote>
                 <p>The sad thing is the majority of people have no clue about what they truly want. They have no clarity. When asked the question, responses will be superficial at best, and at worst.</p>
-                <nav class="navigation post-navigation">
-                  <div class="nav-links">
-                    <div class="nav-previous">
-                      <a href="#"><span class="pagi-text"> PREV</span><span class="nav-title"> Lawn court villa</span></a>
-                    </div>
-                    <div class="nav-next">
-                      <a href="#"><span class="nav-title"> Executive 4 bed WDM ranch</span> <span class="pagi-text">NEXT</span></a> </div>
-                    </div>
-                  </nav>
-                  <div class="mt-4">
-                    <h5 class="mb-4">About author</h5>
-                    <div class="border p-4">
-                      <div class="d-sm-flex">
-                        <div class="avatar avatar-xlll">
-                          <img class="img-fluid rounded-circle" src="{{ asset('public/frontend/assets/images/avatar/01.jpg') }}" alt="">
-                        </div>
-                        <div class="pl-sm-4">
-                          <h6 class="mb-1"> <span class="text-primary"> Posted by :</span> Alice Williams</h6>
-                          <p>SMART is an acronym for Specific, Measurable, Achievable, Realistic and Time Sensitive – S-M-A-R-T. Knowing what you want and setting SMART goals as mileposts on your quest cannot help but give you clarity!</p>
-                          <div class="social-icon d-flex">
-                            <span>Follow us:</span>
-                            <ul class="list-unstyled mb-0 ml-3 list-inline">
-                              <li class="list-inline-item"> <a href="#"> <i class="fab fa-facebook-f"></i> </a> </li>
-                              <li class="list-inline-item"> <a href="#"> <i class="fab fa-twitter"></i> </a> </li>
-                              <li class="list-inline-item"> <a href="#"> <i class="fab fa-instagram"></i> </a> </li>
-                              <li class="list-inline-item"> <a href="#"> <i class="fab fa-linkedin"></i> </a> </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                
                   <div class="mt-4">
                     <h5 class="mb-4">Related Post</h5>
                     <div class="row">
@@ -128,7 +90,7 @@ blog-detail -->
                                     <a class="mb-3" href="#"><strong>Tips and advice</strong></a>
                                   </div>
                                   <div class="blog-post-title">
-                                    <h5><a href="blog-detail.html">Where to Invest in Real Estate</a></h5>
+                                    <h5><a href="{{ route("blog-details",'1')}}">Where to Invest in Real Estate</a></h5>
                                   </div>
                                   <div class="blog-post-description">
                                     <p class="mb-0">Is a good start, but it’s very difficult to stay on track simply through willpower.</p>
@@ -182,83 +144,6 @@ blog-detail -->
                         </div>
                       </div>
                     </div>
-                    <hr class="my-5" />
-                    <div class="media mb-3">
-                      <div class="avatar avatar-lg">
-                        <img src="{{ asset('public/frontend/assets/images/avatar/01.jpg') }}" class="img-fluid rounded-circle" alt="...">
-                      </div>
-                      <div class="media-body ml-3 border p-4">
-                        <div class="d-flex">
-                          <h6 class="mt-0">Carolyn Dan</h6>
-                          <a class="ml-auto" href="#"><i class="fas fa-reply pr-2"></i>Reply</a>
-                        </div>
-                        <p>Then work backwards to develop the plan. What steps are required to get you to the goals? Make the plan as detailed as possible. Try to visualize and then plan.</p>
-                      </div>
-                    </div>
-                    <div class="media mb-3 ml-5">
-                      <div class="avatar avatar-lg">
-                        <img src="{{ asset('public/frontend/assets/images/avatar/02.jpg') }}" class="img-fluid rounded-circle" alt="...">
-                      </div>
-                      <div class="media-body ml-3 border p-4">
-                        <div class="d-flex">
-                          <h6 class="mt-0">Finn Toby</h6>
-                          <a class="ml-auto" href="#"><i class="fas fa-reply pr-2"></i>Reply</a>
-                        </div>
-                        <p>Every possible setback. Commit the plan to paper and then keep it with you at all times. Review it regularly and ensure that every step takes you closer.</p>
-                      </div>
-                    </div>
-                    <div class="media mb-3 ml-5">
-                      <div class="avatar avatar-lg">
-                        <img src="{{ asset('public/frontend/assets/images/avatar/01.jpg') }}" class="img-fluid rounded-circle" alt="...">
-                      </div>
-                      <div class="media-body ml-3 border p-4">
-                        <div class="d-flex">
-                          <h6 class="mt-0">Carolyn Dan</h6>
-                          <a class="ml-auto" href="#"><i class="fas fa-reply pr-2"></i>Reply</a>
-                        </div>
-                        <p>Along with your plans, you should consider developing an action orientation that will keep you motivated to move forward at all times. This requires a little self-discipline.</p>
-                      </div>
-                    </div>
-                    <div class="media mb-3">
-                      <div class="avatar avatar-lg">
-                        <img src="{{ asset('public/frontend/assets/images/avatar/04.jpg') }}" class="img-fluid rounded-circle" alt="...">
-                      </div>
-                      <div class="media-body ml-3 border p-4">
-                        <div class="d-flex">
-                          <h6 class="mt-0">Anne Smith</h6>
-                          <a class="ml-auto" href="#"><i class="fas fa-reply pr-2"></i>Reply</a>
-                        </div>
-                        <p>But is a crucial component to achievement of any kind. Before starting any new activity, ask yourself if that activity will move you closer to your goals. If the answer is no.</p>
-                      </div>
-                    </div>
-                    <div class="mt-sm-4 mt-5">
-                      <h5 class="mb-4">Leave a Reply</h5>
-                      <form>
-                        <div class="form-row">
-                          <div class="form-group col-md-6">
-                            <input type="text" class="form-control" id="name" placeholder="Your name">
-                          </div>
-                          <div class="form-group col-md-6">
-                            <input type="email" class="form-control" id="inputEmail4" placeholder="Your email">
-                          </div>
-                          <div class="form-group col-12">
-                            <input type="text" class="form-control" id="Website" placeholder="Website">
-                          </div>
-                          <div class="form-group col-md-12">
-                            <textarea class="form-control" rows="4" placeholder="Your message"></textarea>
-                          </div>
-                          <div class=" form-group col-md-12">
-                            <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="customCheck1">
-                              <label class="custom-control-label pr-5" for="customCheck1">I consent to having this website store my submitted information so they can respond to my inquiry.</label>
-                            </div>
-                          </div>
-                          <div class="col-md-12">
-                            <a class="btn btn-primary" href="#">Send message</a>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -266,26 +151,6 @@ blog-detail -->
           </div>
           <div class="col-lg-4 mt-5 mt-lg-0">
             <div class="blog-sidebar">
-              <div class="widget">
-                <div class="widget-title">
-                  <h6>Search</h6>
-                </div>
-                <div class="search">
-                  <i class="fas fa-search"></i>
-                  <input type="text" class="form-control" placeholder="Search....">
-                </div>
-              </div>
-              <div class="widget">
-                <div class="widget-title">
-                  <h6>About the blog</h6>
-                </div>
-                <p>The first thing to remember about success is that it is a process – nothing more, nothing less.</p>
-                <ul class="pl-3">
-                  <li class="mb-2">Making the decision</li>
-                  <li class="mb-2">Clarity – developing the Vision</li>
-                  <li class="mb-2">Taking action – practice Ready, Fire, Aim.</li>
-                </ul>
-              </div>
               <div class="widget">
                 <div class="widget-title">
                   <h6>Recent Posts</h6>
@@ -356,63 +221,6 @@ blog-detail -->
                       <a class="text-uppercase" href="#"> <i class="fab fa-linkedin-in mr-3"></i>linkedIn</a>
                       <a class="follow ml-auto" href="#">Followers </a>
                     </li>
-                  </ul>
-                </div>
-              </div>
-              <div class="widget">
-                <div class="widget-title">
-                  <h6>Testimonials</h6>
-                </div>
-                <div class="owl-carousel owl-nav-center" data-nav-dots="true" data-items="1" data-md-items="1" data-sm-items="1" data-xs-items="1" data-xx-items="1" data-space="0">
-                  <div class="item">
-                    <div class="testimonial-02 testimonial-02-small">
-                      <div class="testimonial-content">
-                        <p><i class="fas fa-quote-right quotes"></i>Oliver always had a smile and was so quick to answer and get the job done.  I'll definitely suggest you to anyone we know who is selling or wanting to purchase a home. He is the best!</p>
-                      </div>
-                      <div class="testimonial-author">
-                        <div class="testimonial-avatar avatar avatar-lg mr-3">
-                          <img class="img-fluid rounded-circle" src="{{ asset('public/frontend/assets/images/avatar/01.jpg') }}" alt="">
-                        </div>
-                        <div class="testimonial-name">
-                          <h6 class="text-primary">Mikah Hargrove</h6>
-                          <span>Hamilton Rd. Willoughby</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="item">
-                    <div class="testimonial-02 testimonial-02-small">
-                      <div class="testimonial-content">
-                        <p><i class="fas fa-quote-right quotes"></i>Jennifer & Dave were both instructive and very valuable in making my decision. I would Surly recommend them to anyone looking for a hassle free and efficient real estate experience.</p>
-                      </div>
-                      <div class="testimonial-author">
-                        <div class="testimonial-avatar avatar avatar-lg mr-3">
-                          <img class="img-fluid rounded-circle" src="{{ asset('public/frontend/assets/images/avatar/02.jpg') }}" alt="">
-                        </div>
-                        <div class="testimonial-name">
-                          <h6 class="text-primary">Joana williams</h6>
-                          <span>Piper Drive Zion</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="widget">
-                <div class="widget-title">
-                  <h6>Popular Tags</h6>
-                </div>
-                <div class="popular-tag">
-                  <ul class="list-unstyled mb-0">
-                    <li><a href="#"> RealEstate</a></li>
-                    <li><a href="#"> HouseHunting</a></li>
-                    <li><a href="#"> HomeSale</a></li>
-                    <li><a href="#"> Listing</a></li>
-                    <li><a href="#"> CreditScore</a></li>
-                    <li><a href="#"> Housing</a></li>
-                    <li><a href="#"> Realty</a></li>
-                    <li><a href="#"> Renovated</a></li>
-                    <li><a href="#"> Victorian</a></li>
                   </ul>
                 </div>
               </div>
