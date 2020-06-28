@@ -32,9 +32,10 @@ Route::group(['prefix' => $adminPrefix, 'middleware' => ['admin']], function() {
     Route::match(['get', 'post'], 'blog-category-ajaxAction', ['as' => 'blog-category-ajaxAction', 'uses' => 'backend\blog\BlogCategoryController@ajaxAction']);
     
     // Blog
-    Route::match(['get', 'post'], 'blog', ['as' => 'blog', 'uses' => 'backend\blog\BlogController@list']);
-    Route::match(['get', 'post'], 'add-blog', ['as' => 'add-blog', 'uses' => 'backend\blog\BlogController@add']);
-    Route::match(['get', 'post'], 'edit-blog/{id}', ['as' => 'edit-blog', 'uses' => 'backend\blog\BlogController@edit']);
-    Route::match(['get', 'post'], 'blog-ajaxAction', ['as' => 'blog-ajaxAction', 'uses' => 'backend\blog\BlogController@ajaxAction']);
+    Route::match(['get', 'post'], 'admin-blog', ['as' => 'admin-blog', 'uses' => 'backend\blog\BlogController@list']);
+    Route::match(['get', 'post'], 'admin-add-blog', ['as' => 'admin-add-blog', 'uses' => 'backend\blog\BlogController@add']);
+    Route::match(['get', 'post'], 'admin-edit-blog/{id}', ['as' => 'admin-edit-blog', 'uses' => 'backend\blog\BlogController@edit']);
+    Route::match(['get', 'post'], 'admin-view-blog/{id}', ['as' => 'admin-view-blog', 'uses' => 'backend\blog\BlogController@view']);
+    Route::match(['get', 'post'], 'admin-blog-ajaxAction', ['as' => 'admin-blog-ajaxAction', 'uses' => 'backend\blog\BlogController@ajaxAction']);
     
 });

@@ -39,7 +39,7 @@ $currentRoute = Route::current()->getName();
             </li>
 
 
-            <li class="nav-item start {{ $currentRoute == "blog" ? "active": ""}} {{ $currentRoute == "add-blog" ? "active": ""}} {{ $currentRoute == "edit-blog" ? "active": ""}} {{ $currentRoute == "blog-category" ? "active": ""}}  {{ $currentRoute == "add-blog-category" ? "active": ""}} {{ $currentRoute == "edit-blog-category" ? "active": ""}}">
+            <li class="nav-item start  {{ $currentRoute == "admin-view-blog" ? "active": ""}} {{ $currentRoute == "admin-blog" ? "active": ""}} {{ $currentRoute == "view-blog" ? "active": ""}} {{ $currentRoute == "admin-add-blog" ? "active": ""}} {{ $currentRoute == "admin-edit-blog" ? "active": ""}} {{ $currentRoute == "blog-category" ? "active": ""}}  {{ $currentRoute == "add-blog-category" ? "active": ""}} {{ $currentRoute == "edit-blog-category" ? "active": ""}}">
                 <a href="javascript:;" class="nav-link nav-toggle">
                     <i class="fa fa-newspaper-o"></i>
                     <span class="title">Blog</span>
@@ -55,8 +55,8 @@ $currentRoute = Route::current()->getName();
                             <span class="title">Blog Category</span>
                         </a>
                     </li>
-                    <li class="nav-item start {{ $currentRoute == "blog" ? "active": ""}} {{ $currentRoute == "add-blog" ? "active": ""}} {{ $currentRoute == "edit-blog" ? "active": ""}}">
-                        <a href="{{ route('blog') }}" class="nav-link ">                            
+                    <li class="nav-item start {{ $currentRoute == "admin-view-blog" ? "active": ""}} {{ $currentRoute == "admin-blog" ? "active": ""}} {{ $currentRoute == "view-blog" ? "active": ""}} {{ $currentRoute == "admin-add-blog" ? "active": ""}} {{ $currentRoute == "admin-edit-blog" ? "active": ""}}">
+                        <a href="{{ route('admin-blog') }}" class="nav-link ">                            
                             <i class="fa fa-hand-o-right"></i>
                             <span class="title">Blog</span>
                         </a>

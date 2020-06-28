@@ -12,7 +12,8 @@
         <script src="{{ asset('public/backend/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.js') }}" type="text/javascript"></script>
         <script src="{{ asset('public/backend/assets/global/plugins/morris/morris.min.js') }}" type="text/javascript"></script>
         <script src="{{ asset('public/backend/assets/global/plugins/morris/raphael-min.js') }}" type="text/javascript"></script>
-      
+        <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+
         <!-- END PAGE LEVEL PLUGINS -->
         <!-- BEGIN THEME GLOBAL SCRIPTS -->
         <script src="{{ asset('public/backend/assets/global/plugins/jquery-validation/js/jquery.validate.min.js') }}" type="text/javascript"></script>
@@ -48,4 +49,7 @@
                 @endforeach
             @endif
         });
+
+
+        
         </script>

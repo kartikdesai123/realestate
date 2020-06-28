@@ -141,4 +141,10 @@ class Blogcategory extends Model
         $objBlogcategory->updated_at = date("Y-m-d h:i:s");
         return $objBlogcategory->save();
     }
+
+    public function blogcategory(){
+        return Blogcategory::select("blogCategoryName","id")
+                                ->where('is_deleted','0')
+                                ->get();
+    }
 }
