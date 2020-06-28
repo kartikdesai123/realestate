@@ -65,6 +65,36 @@ $currentRoute = Route::current()->getName();
                 </ul>
             </li>
 
+
+            <li class="nav-item start  {{ $currentRoute == "admin-plan" ? "active": ""}} {{ $currentRoute == "admin-add-plan" ? "active": ""}} {{ $currentRoute == "admin-view-plan" ? "active": ""}} {{ $currentRoute == "admin-edit-plan" ? "active": ""}}">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="fa fa-newspaper-o"></i>
+                    <span class="title">Plan</span>
+                    <span class="arrow"></span>
+                    @if($currentRoute == "admin-plan" || $currentRoute == "admin-add-plan" || $currentRoute == "admin-edit-plan" || $currentRoute == "admin-view-plan")
+                            <span class="selected"></span>
+                    @endif
+                </a>
+                <ul class="sub-menu">
+
+                    <li class="nav-item start {{ $currentRoute == "admin-plan" ? "active": ""}} {{ $currentRoute == "admin-add-plan" ? "active": ""}} {{ $currentRoute == "admin-view-plan" ? "active": ""}} {{ $currentRoute == "admin-edit-plan" ? "active": ""}}">
+                        <a href="{{ route('admin-plan') }}" class="nav-link ">
+                            <i class="fa fa-hand-o-right"></i>
+                            <span class="title">Plan</span>
+                        </a>
+                    </li>
+
+
+                    <li class="nav-item start {{ $currentRoute == "admin-view-blog" ? "active": ""}} {{ $currentRoute == "admin-blog" ? "active": ""}} {{ $currentRoute == "view-blog" ? "active": ""}} {{ $currentRoute == "admin-add-blog" ? "active": ""}} {{ $currentRoute == "admin-edit-blog" ? "active": ""}}">
+                        <a href="{{ route('admin-blog') }}" class="nav-link ">                            
+                            <i class="fa fa-hand-o-right"></i>
+                            <span class="title">Plan Details</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </li>
+
         </ul>
         <!-- END SIDEBAR MENU -->
         <!-- END SIDEBAR MENU -->
