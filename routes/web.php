@@ -15,7 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::match(['get', 'post'], '/', ['as' => 'home', 'uses' => 'frontend\HomeController@home']);
 
+Route::match(['get', 'post'], 'signin', ['as' => 'signin', 'uses' => 'frontend\LoginController@index']);
+Route::match(['get', 'post'], 'signup', ['as' => 'signup', 'uses' => 'frontend\LoginController@register']);
+
 // property
+
 Route::match(['get', 'post'], 'property', ['as' => 'property', 'uses' => 'frontend\PropertyController@propertylist']);
 Route::match(['get', 'post'], 'property-details/{id}', ['as' => 'property-details', 'uses' => 'frontend\PropertyController@propertydetails']);
 
