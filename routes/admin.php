@@ -50,5 +50,7 @@ Route::group(['prefix' => $adminPrefix, 'middleware' => ['admin']], function() {
     Route::match(['get', 'post'], 'admin-edit-plan-details/{id}', ['as' => 'admin-edit-plan-details', 'uses' => 'backend\plan\PlanController@edit']);
     Route::match(['get', 'post'], 'admin-view-plan-details/{id}', ['as' => 'admin-view-plan-details', 'uses' => 'backend\plan\PlanController@view']);
     Route::match(['get', 'post'], 'admin-plan-details-ajaxAction', ['as' => 'admin-plan-details-ajaxAction', 'uses' => 'backend\plan\PlanController@ajaxAction']);
-    
+
+    //Terms & Condition
+    Route::match(['get', 'post'], 'admin-terms-condition', ['as' => 'admin-terms-condition', 'uses' => 'backend\termscondition\TermsConditionController@termscondition']);
 });

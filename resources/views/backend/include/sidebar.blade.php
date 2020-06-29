@@ -28,7 +28,7 @@ $currentRoute = Route::current()->getName();
                 </a>
             </li>
 
-            <li class="nav-item start {{ $currentRoute == "extra-facilities" ? "active": ""}} {{ $currentRoute == "add-extra-facilities" ? "active": ""}} {{ $currentRoute == "edit-extra-facilities" ? "active": ""}} open">
+            <li class="nav-item start {{ $currentRoute == "extra-facilities" ? "active": ""}} {{ $currentRoute == "add-extra-facilities" ? "active": ""}} {{ $currentRoute == "edit-extra-facilities" ? "active": ""}}">
                 <a href="{{ route('extra-facilities') }}" class="nav-link ">
                     <i class="fa fa-archive" aria-hidden="true"></i>
                         <span class="title">Extra Facailies</span>
@@ -68,7 +68,7 @@ $currentRoute = Route::current()->getName();
 
             <li class="nav-item start  {{ $currentRoute == "admin-plan" ? "active": ""}} {{ $currentRoute == "admin-add-plan" ? "active": ""}} {{ $currentRoute == "admin-view-plan" ? "active": ""}} {{ $currentRoute == "admin-edit-plan" ? "active": ""}}">
                 <a href="javascript:;" class="nav-link nav-toggle">
-                    <i class="fa fa-newspaper-o"></i>
+                    <i class="fa fa-paper-plane-o"></i>
                     <span class="title">Plan</span>
                     <span class="arrow"></span>
                     @if($currentRoute == "admin-plan" || $currentRoute == "admin-add-plan" || $currentRoute == "admin-edit-plan" || $currentRoute == "admin-view-plan")
@@ -93,6 +93,16 @@ $currentRoute = Route::current()->getName();
                     </li>
                     
                 </ul>
+            </li>
+
+            <li class="nav-item start {{ $currentRoute == "admin-terms-condition" ? "active": ""}} ">
+                <a href="{{ route('admin-terms-condition') }}" class="nav-link ">
+                    <i class="fa fa-bullhorn" aria-hidden="true"></i>
+                        <span class="title">Terms & Conditions</span>
+                        @if($currentRoute == "admin-terms-condition" || $currentRoute == "admin-terms-condition")
+                            <span class="selected"></span>
+                        @endif
+                </a>
             </li>
 
         </ul>
