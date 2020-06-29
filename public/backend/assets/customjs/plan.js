@@ -16,11 +16,36 @@ var Plan = function(){
             'defaultSortOrder': 'DESC',
             'setColumnWidth': columnWidth
         };
-        getDataTable(arrList);        
+        getDataTable(arrList);      
+        
+        
+        $("body").on("click", ".deleteplan", function () {
+            var id = $(this).data('id');
+            setTimeout(function () {
+                $('.yes-sure:visible').attr('data-id', id);
+            }, 500);
+        })
+
+        $('body').on('click', '.yes-sure', function () {
+            var id = $(this).attr('data-id');
+            var data = {id: id, _token: $('#_token').val()};
+            $.ajax({
+                type: "POST",
+                headers: {
+                    'X-CSRF-TOKEN': $('input[name="_token"]').val(),
+                },
+                url: baseurl + "admin-plan-ajaxAction",
+                data: {'action': 'deleteplan', 'data': data},
+                success: function (data) {
+                    handleAjaxResponse(data);
+                }
+            });
+        });
+
     }
 
     var addPlan = function(){
-        var form = $('#add-plan');
+            var form = $('#add-plan');
             var rules = {
                 planname: {required: true},
                 plandescription: {required: true},

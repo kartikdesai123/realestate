@@ -5,19 +5,20 @@ namespace App\Http\Controllers\backend\plan;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Config;
+use App\Model\Plandetails;
 use App\Model\Plan;
-class PlanController extends Controller
+class PlanDetailsController extends Controller
 {
+    //
     function __construct(){
 
     }
 
 
     public function list(Request $request){
-
-        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Plan List';
-        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Plan List';
-        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Plan List';
+        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Plan Details List';
+        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Plan Details List';
+        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Plan Details List';
         $data['css'] = array(
             'toastr/toastr.min.css'
         );
@@ -35,36 +36,39 @@ class PlanController extends Controller
             'comman_function.js',
             'ajaxfileupload.js',
             'jquery.form.min.js',
-            'plan.js',
+            'plandetails.js',
         );
         $data['funinit'] = array(
-            'Plan.init()'
+            'Plandetails.init()'
         );
         $data['header'] = array(
-            'title' => 'Plan List',
+            'title' => 'Plan Details List',
             'breadcrumb' => array(
                 'Dashboard' => route("admin-dashboard"),
-                'Plan List' => "Plan List",
+                'Plan Details List' => "Plan Details List",
         ));
-        return view('backend.pages.plan.plan.list', $data);
+        return view('backend.pages.plan.plandetails.list', $data);
     }
 
 
-
     public function add(Request $request){
+
+        $objPlan = new Plan();
+        $data['planlist'] = $objPlan->getplan();
+        
         if ($request->isMethod("post")) {
             
-            $objPlan = new Plan();
-            $result = $objPlan->add($request);
+            $objPlandetails = new Plandetails();
+            $result = $objPlandetails->add($request);
 
             if ($result == "true") {
                 $return['status'] = 'success';
-                $return['message'] = 'Plan  successfully added';
-                $return['redirect'] = route('admin-plan');
+                $return['message'] = 'Plan details successfully added';
+                $return['redirect'] = route('admin-plan-details');
             } else {
                 if ($result == "exits") {
                     $return['status'] = 'error';
-                    $return['message'] = 'Plan already exits';
+                    $return['message'] = 'Plan details name already exits';
                 }else{
                     $return['status'] = 'error';
                     $return['message'] = 'Something goes to wrong.';
@@ -75,9 +79,9 @@ class PlanController extends Controller
 
            
         }
-        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Add New Plan';
-        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Add New Plan';
-        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Add New Plan';
+        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Add New Plan Details';
+        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Add New Plan Details';
+        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Add New Plan Details';
         $data['css'] = array(
             'toastr/toastr.min.css'
         );
@@ -90,34 +94,41 @@ class PlanController extends Controller
             'comman_function.js',
             'ajaxfileupload.js',
             'jquery.form.min.js',
-            'plan.js'
+            'plandetails.js',
         );
         $data['funinit'] = array(
-            'Plan.add()'
+            'Plandetails.add()'
         );
         $data['header'] = array(
-            'title' => 'Add New Plan',
+            'title' => 'Add New Plan Details',
             'breadcrumb' => array(
                 'Dashboard' => route("admin-dashboard"),
-                'Plan List' => route("admin-plan"),
-                'Add Plan' => "Add Plan",
+                'Plan Details' => route("admin-plan-details"),
+                'Add Plan Details' => "Add Plan Details",
         ));
-        return view('backend.pages.plan.plan.add', $data);
+        return view('backend.pages.plan.plandetails.add', $data);
     }
     public function edit(Request $request,$id){
-        if ($request->isMethod("post")) {
 
-            $objPlan = new Plan();
-            $result = $objPlan->edit($request);
+        $objPlan = new Plan();
+        $data['planlist'] = $objPlan->getplan();
+        
+        $objPlandetails = new Plandetails();
+        $data['editDetails'] = $objPlandetails->editDetails($id);
+
+        if ($request->isMethod("post")) {
+            
+            $objPlandetails = new Plandetails();
+            $result = $objPlandetails->edit($request);
 
             if ($result == "true") {
                 $return['status'] = 'success';
-                $return['message'] = 'Plan successfully updated';
-                $return['redirect'] = route('admin-plan');
+                $return['message'] = 'Plan details successfully updated';
+                $return['redirect'] = route('admin-plan-details');
             } else {
                 if ($result == "exits") {
                     $return['status'] = 'error';
-                    $return['message'] = 'Plan already exits';
+                    $return['message'] = 'Plan details name already exits';
                 }else{
                     $return['status'] = 'error';
                     $return['message'] = 'Something goes to wrong.';
@@ -126,13 +137,9 @@ class PlanController extends Controller
             echo json_encode($return);
             exit;
         }
-
-        $objPlan = new Plan();
-        $data['details'] = $objPlan->editDetails($id);
-
-        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Edit Plan';
-        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Edit Plan';
-        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Edit Plan';
+        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Edit Plan Details';
+        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Edit Plan Details';
+        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Edit Plan Details';
         $data['css'] = array(
             'toastr/toastr.min.css'
         );
@@ -145,21 +152,20 @@ class PlanController extends Controller
             'comman_function.js',
             'ajaxfileupload.js',
             'jquery.form.min.js',
-            'plan.js'
+            'plandetails.js',
         );
         $data['funinit'] = array(
-            'Plan.edit()'
+            'Plandetails.edit()'
         );
         $data['header'] = array(
-            'title' => 'Edit Plan',
+            'title' => 'Edit Plan Details',
             'breadcrumb' => array(
                 'Dashboard' => route("admin-dashboard"),
-                'Plan List' => route("admin-plan"),
-                'Edit Plan' => "Edit Plan",
+                'Plan Details' => route("admin-plan-details"),
+                'Edit Plan Details' => "Edit Plan Details",
         ));
-        return view('backend.pages.plan.plan.edit', $data);
+        return view('backend.pages.plan.plandetails.edit', $data);
     }
-
 
     public function ajaxAction(Request $request){
 
@@ -167,26 +173,12 @@ class PlanController extends Controller
 
         switch ($action) {
             case 'getdatatable':
-                $objPlan = new Plan();
-                $list = $objPlan->getdatatable();
+               
+                $objPlandetails = new Plandetails();
+                $list = $objPlandetails->getdatatable();
                 echo json_encode($list);
                 break;
-
-            case 'deleteplan':
-                    $objPlan = new Plan();
-                    $result = $objPlan->deleteplan($request->input('data'));
-                    if ($result) {
-                        $return['status'] = 'success';
-                        $return['message'] = 'Plan successfully deleted';
-                        $return['redirect'] = route('admin-plan');
-                    } else {
-                        $return['status'] = 'error';
-                        $return['message'] = 'Something goes to wrong.';
-                    }
-                    echo json_encode($return);
-                    exit;
-                echo json_encode($list);
-                break;
-            }
         }
+
+    }
 }
