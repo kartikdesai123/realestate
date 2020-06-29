@@ -9,108 +9,103 @@ about -->
           <div class="text-center">
             <h1 class="text-primary mb-4">We are changing the Real estate industry with progression and passion.</h1>
             <p class="px-sm-5 mb-4 lead font-weight-normal">We attempt to be the leading self-governing estate agency in the locations we cover, offering an entirely personal and dedicated service. </p>
-            <div class="popup-video">
+<!--            <div class="popup-video">
               <a class="popup-icon popup-youtube" href="https://www.youtube.com/watch?v=LgvseYYhqU0"> <i class="flaticon-play-button"></i> </a>
-            </div>
+            </div>-->
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-12">
-          <div class="section-title text-center">
-            <h2>Plenty of reasons to choose us</h2>
-            <p>Our agency has many specialized areas, but our CUSTOMERS are our real specialty.</p>
-          </div>
-        </div>
-      </div>
-      <div class="row no-gutters">
-        <div class="col-lg-3 col-sm-6">
-          <div class="feature-info h-100">
-            <div class="feature-info-icon">
-              <i class="flaticon-like"></i>
-            </div>
-            <div class="feature-info-content">
-              <h6 class="mb-3 feature-info-title">Excellent reputation</h6>
-              <p class="mb-0">Our comprehensive database of listings and market info give the most accurate view of the market and your home value.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-sm-6">
-          <div class="feature-info h-100">
-            <div class="feature-info-icon">
-              <i class="flaticon-agent"></i>
-            </div>
-            <div class="feature-info-content">
-              <h6 class="mb-3 feature-info-title">Best local agents</h6>
-              <p class="mb-0">You are just minutes from joining with the best agents who are fired up about helping you Buy or sell.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-sm-6">
-          <div class="feature-info h-100">
-            <div class="feature-info-icon">
-              <i class="flaticon-like-1"></i>
-            </div>
-            <div class="feature-info-content">
-              <h6 class="mb-3 feature-info-title">Peace of mind</h6>
-              <p class="mb-0">Rest guaranteed that your agent and their expert team are handling every detail of your transaction from start to end.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-sm-6">
-          <div class="feature-info h-100">
-            <div class="feature-info-icon">
-              <i class="flaticon-house-1"></i>
-            </div>
-            <div class="feature-info-content">
-              <h6 class="mb-3 feature-info-title">Tons of options</h6>
-              <p class="mb-0">Discover a place you’ll love to live in. Choose from our vast inventory and choose your desired house.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      
     </div>
   </section>
   <!--=================================
   about -->
-  
-  <!--=================================
-  testimonial -->
-  <section class="testimonial-main bg-holder" style="background-image: url(images/bg/02.jpg);">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8">
-          <div class="owl-carousel owl-dots-bottom-left" data-nav-dots="true" data-items="1" data-md-items="1" data-sm-items="1" data-xs-items="1" data-xx-items="1" data-space="0">
-            <div class="item">
-              <div class="testimonial">
-                <div class="testimonial-content">
-                  <p><i class="quotes">"</i>Thank you Martin for selling our apartment. We are delighted with the result. I can highly recommend Martin to anyone seeking a truly professional Realtor.</p>
-                </div>
-                <div class="testimonial-name">
-                  <h6 class="text-primary mb-1">Lisa & Graeme</h6>
-                  <span>Hamilton Rd. Willoughby</span>
-                </div>
-              </div>
+  <section class="space-ptb bg-light">
+            <div class="container">
+               <div class="row align-items-center">
+                  <div class="col-lg-6">
+                     <div class="section-title">
+                        <h2>Plenty of reasons to choose us</h2>
+                     </div>
+                  </div>
+<!--                  <div class="col-lg-6">
+                     <div class="popup-video mb-4 text-lg-right">
+                        <a class="popup-icon popup-youtube d-flex justify-content-lg-end" href="https://www.youtube.com/watch?v=LgvseYYhqU0"> <span class="pr-3"> Play Video</span> <i class="flaticon-play-button"></i> </a>
+                     </div>
+                  </div>-->
+               </div>
+               <div class="row">
+                  <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0">
+                     <div class="feature-info feature-info-02">
+                        <div class="feature-info-detail">
+                           <div class="feature-info-icon">
+                              <i class="flaticon-like"></i>
+                           </div>
+                           <div class="feature-info-content">
+                              <h6 class="mb-3 feature-info-title">Excellent reputation</h6>
+                              <p>Our comprehensive database of listings and market info give the most accurate view of the market and your home value.</p>
+                           </div>
+                           <div class="feature-info-button">
+                              <a class="btn btn-light btn-block" href="#">Read more</a>
+                           </div>
+                        </div>
+                        <div class="feature-info-bg bg-holder bg-overlay-black-70" style="background-image: url({{ asset('public/frontend/assets/images/property/grid/01.jpg') }});"></div>
+                     </div>
+                  </div>
+                  <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0">
+                     <div class="feature-info feature-info-02">
+                        <div class="feature-info-detail">
+                           <div class="feature-info-icon">
+                              <i class="flaticon-agent"></i>
+                           </div>
+                           <div class="feature-info-content">
+                              <h6 class="mb-3 feature-info-title">Best local agents</h6>
+                              <p>You are just minutes from joining with the best agents who are fired up about helping you Buy or sell.</p>
+                           </div>
+                           <div class="feature-info-button">
+                              <a class="btn btn-light btn-block" href="#">Read more</a>
+                           </div>
+                        </div>
+                        <div class="feature-info-bg bg-holder bg-overlay-black-70" style="background-image: url({{ asset('public/frontend/assets/images/property/grid/02.jpg') }});"></div>
+                     </div>
+                  </div>
+                  <div class="col-lg-3 col-sm-6 mb-4 mb-sm-0">
+                     <div class="feature-info feature-info-02">
+                        <div class="feature-info-detail">
+                           <div class="feature-info-icon">
+                              <i class="flaticon-like-1"></i>
+                           </div>
+                           <div class="feature-info-content">
+                              <h6 class="mb-3 feature-info-title">Peace of mind</h6>
+                              <p>Rest guaranteed that your agent and their expert team are handling every detail of your transaction from start to end.</p>
+                           </div>
+                           <div class="feature-info-button">
+                              <a class="btn btn-light btn-block" href="#">Read more</a>
+                           </div>
+                        </div>
+                        <div class="feature-info-bg bg-holder bg-overlay-black-70" style="background-image: url({{ asset('public/frontend/assets/images/property/grid/03.jpg') }});"></div>
+                     </div>
+                  </div>
+                  <div class="col-lg-3 col-sm-6">
+                     <div class="feature-info feature-info-02">
+                        <div class="feature-info-detail">
+                           <div class="feature-info-icon">
+                              <i class="flaticon-house-1"></i>
+                           </div>
+                           <div class="feature-info-content">
+                              <h6 class="mb-3 feature-info-title">Tons of options</h6>
+                              <p>Discover a place you’ll love to live in. Choose from our vast inventory and choose your desired house.</p>
+                           </div>
+                           <div class="feature-info-button">
+                              <a class="btn btn-light btn-block" href="#">Read more</a>
+                           </div>
+                        </div>
+                        <div class="feature-info-bg bg-holder bg-overlay-black-70" style="background-image: url({{ asset('public/frontend/assets/images/property/grid/04.jpg') }});"></div>
+                     </div>
+                  </div>
+               </div>
             </div>
-            <div class="item">
-              <div class="testimonial">
-                <div class="testimonial-content">
-                  <p><i class="quotes">"</i>Oliver always had a smile and was so quick to answer and get the job done.  I'll definitely suggest you to anyone we know who is selling or wanting to purchase a home. He is the best!</p>
-                </div>
-                <div class="testimonial-name">
-                  <h6 class="text-primary mb-1">Jessica Alex</h6>
-                  <span>West Division Street</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!--=================================
-  testimonial -->
-  
+         </section>
   <!--=================================
   counter -->
   <section class="space-pt">
@@ -187,13 +182,13 @@ about -->
                 <img class="img-fluid rounded-circle" src="{{ asset('public/frontend/assets/images/agent/01.jpg') }}" alt="">
               </div>
               <div class="agent-info">
-                <h6 class="mb-0"> <a href="agent-detail.html">Alice Williams </a></h6>
+                <h6 class="mb-0"> <a href="{{ route("agent-details",'1')}}">Alice Williams </a></h6>
                 <span class="text-primary font-sm">Founder & CEO </span>
                 <p class="mt-3 mb-0">The first thing to remember about success is that it is a process – nothing more, nothing less.</p>
               </div>
             </div>
             <div class="agent-button">
-              <a class="btn btn-light btn-block" href="agent-detail.html">View Profile</a>
+              <a class="btn btn-light btn-block" href="{{ route("agent-details",'1')}}">View Profile</a>
             </div>
           </div>
         </div>
@@ -204,13 +199,13 @@ about -->
                 <img class="img-fluid rounded-circle" src="{{ asset('public/frontend/assets/images/agent/02.jpg') }}" alt="">
               </div>
               <div class="agent-info">
-                <h6 class="mb-0"> <a href="agent-detail.html">Felica queen </a></h6>
+                <h6 class="mb-0"> <a href="{{ route("agent-details",'1')}}">Felica queen </a></h6>
                 <span class="text-primary font-sm">Construction</span>
                 <p class="mt-3 mb-0">There are basically six key areas to higher achievement. Some people will tell you there are four.</p>
               </div>
             </div>
             <div class="agent-button">
-              <a class="btn btn-light btn-block" href="agent-detail.html">View Profile</a>
+              <a class="btn btn-light btn-block" href="{{ route("agent-details",'1')}}">View Profile</a>
             </div>
           </div>
         </div>
@@ -221,13 +216,13 @@ about -->
                 <img class="img-fluid rounded-circle" src="{{ asset('public/frontend/assets/images/agent/03.jpg') }}" alt="">
               </div>
               <div class="agent-info">
-                <h6 class="mb-0"> <a href="agent-detail.html">Paul flavius </a></h6>
+                <h6 class="mb-0"> <a href="{{ route("agent-details",'1')}}">Paul flavius </a></h6>
                 <span class="text-primary font-sm">Investment</span>
                 <p class="mt-3 mb-0">While others may tell you there are eight. One thing for certain though, is that irrespective of the.</p>
               </div>
             </div>
             <div class="agent-button">
-              <a class="btn btn-light btn-block" href="agent-detail.html">View Profile</a>
+              <a class="btn btn-light btn-block" href="{{ route("agent-details",'1')}}">View Profile</a>
             </div>
           </div>
         </div>
@@ -238,13 +233,13 @@ about -->
                 <img class="img-fluid rounded-circle" src="{{ asset('public/frontend/assets/images/agent/04.jpg') }}" alt="">
               </div>
               <div class="agent-info">
-                <h6 class="mb-0"> <a href="agent-detail.html">Sara lisbon  </a></h6>
+                <h6 class="mb-0"> <a href="{{ route("agent-details",'1')}}">Sara lisbon  </a></h6>
                 <span class="text-primary font-sm">Land development</span>
                 <p class="mt-3 mb-0">If success is a process with a number of defined steps, then it is just like any other process.</p>
               </div>
             </div>
             <div class="agent-button">
-              <a class="btn btn-light btn-block" href="agent-detail.html">View Profile</a>
+              <a class="btn btn-light btn-block" href="{{ route("agent-details",'1')}}">View Profile</a>
             </div>
           </div>
         </div>

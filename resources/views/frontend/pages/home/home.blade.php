@@ -883,7 +883,7 @@
                                  <a class="mb-3" href="#"><strong>Home improvement</strong></a>
                               </div>
                               <div class="blog-post-title">
-                                 <h5><a href="blog-detail.html">7 pieces of advice to newbies</a></h5>
+                                 <h5><a href="{{ route("blog-details",'1')}}">7 pieces of advice to newbies</a></h5>
                               </div>
                               <div class="blog-post-description">
                                  <p class="mb-0">You are going on a cruise, but when the ship sets sail, you discover.</p>
@@ -896,9 +896,7 @@
                               <div class="blog-post-author">
                                  <span> By <a href="#"> <img class="img-fluid" src="{{ asset('public/frontend/assets/images/avatar/01.jpg') }}" alt="">Sara lisbon </a> </span>
                               </div>
-                              <div class="blog-post-comment">
-                                 <a href="#"> <i class="far fa-comment"></i>(12) </a>
-                              </div>
+                              
                            </div>
                         </div>
                      </div>
@@ -914,7 +912,7 @@
                                  <a class="mb-3" href="#"><strong>Tips and advice</strong></a>
                               </div>
                               <div class="blog-post-title">
-                                 <h5><a href="blog-detail.html">Where to Invest in Real Estate</a></h5>
+                                 <h5><a href="{{ route("blog-details",'1')}}">Where to Invest in Real Estate</a></h5>
                               </div>
                               <div class="blog-post-description">
                                  <p class="mb-0">You will sail along until you collide with an immovable object.</p>
@@ -930,9 +928,7 @@
                                        <img class="img-fluid" src="{{ asset('public/frontend/assets/images/avatar/02.jpg') }}" alt="">Anne Smith
                                     </a> </span>
                               </div>
-                              <div class="blog-post-comment">
-                                 <a href="#"> <i class="far fa-comment"></i>(32) </a>
-                              </div>
+                              
                            </div>
                         </div>
                      </div>
@@ -948,7 +944,7 @@
                                  <a class="mb-3" href="#"><strong>Market trends</strong></a>
                               </div>
                               <div class="blog-post-title">
-                                 <h5><a href="blog-detail.html">Cutting your losses in Real Estate</a></h5>
+                                 <h5><a href="{{ route("blog-details",'1')}}">Cutting your losses in Real Estate</a></h5>
                               </div>
                               <div class="blog-post-description">
                                  <p class="mb-0">Trying to go through life without clarity is similar to sailing.</p>
@@ -961,9 +957,7 @@
                               <div class="blog-post-author">
                                  <span> By <a href="#"> <img class="img-fluid" src="{{ asset('public/frontend/assets/images/avatar/03.jpg') }}" alt="">Alice Williams</a> </span>
                               </div>
-                              <div class="blog-post-comment">
-                                 <a href="#"> <i class="far fa-comment"></i>(45) </a>
-                              </div>
+                              
                            </div>
                         </div>
                      </div>
