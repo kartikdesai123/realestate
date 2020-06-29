@@ -31,9 +31,22 @@ Route::match(['get', 'post'], 'blog', ['as' => 'blog', 'uses' => 'frontend\BlogC
 Route::match(['get', 'post'], 'blog-details/{id}', ['as' => 'blog-details', 'uses' => 'frontend\BlogController@blogdetails']);
 
 
-// agent-detail
+// agent
 
+Route::match(['get', 'post'], 'agent', ['as' => 'agent', 'uses' => 'frontend\AgentController@agentList']);
 Route::match(['get', 'post'], 'agent-details/{id}', ['as' => 'agent-details', 'uses' => 'frontend\AgentController@agentDetail']);
+
+// agency-detail
+
+Route::match(['get', 'post'], 'agency', ['as' => 'agency', 'uses' => 'frontend\AgencyController@agencyList']);
+Route::match(['get', 'post'], 'agency-details/{id}', ['as' => 'agency-details', 'uses' => 'frontend\AgencyController@agencyDetail']);
+
+
+// company-detail
+
+Route::match(['get', 'post'], 'company', ['as' => 'company', 'uses' => 'frontend\CompanyController@companyList']);
+Route::match(['get', 'post'], 'company-details/{id}', ['as' => 'company-details', 'uses' => 'frontend\CompanyController@companyDetail']);
+
 
 // services
 Route::match(['get', 'post'], 'services', ['as' => 'services', 'uses' => 'frontend\ServicesController@services']);

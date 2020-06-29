@@ -54,14 +54,19 @@ $currentRoute = Route::current()->getName();
                               Blog
                            </a>
                         </li>
-                        <li class="nav-item dropdown {{ $currentRoute == "about-us" ? "active": ""}}  ">
-                           <a class="nav-link" href="{{ route('about-us') }}"   aria-haspopup="true" aria-expanded="false">
-                              About Us
+                        <li class="nav-item dropdown {{ $currentRoute == "agent" ? "active": ""}}  ">
+                           <a class="nav-link" href="{{ route('agent') }}"   aria-haspopup="true" aria-expanded="false">
+                              Agent
                            </a>
                         </li>
-                        <li class="nav-item dropdown {{ $currentRoute == "contact-us" ? "active": ""}}  ">
-                           <a class="nav-link" href="{{ route('contact-us') }}"   aria-haspopup="true" aria-expanded="false">
-                              Contact Us
+                        <li class="nav-item dropdown {{ $currentRoute == "agency" ? "active": ""}}  ">
+                           <a class="nav-link" href="{{ route('agency') }}"   aria-haspopup="true" aria-expanded="false">
+                              Agency
+                           </a>
+                        </li>
+                        <li class="nav-item dropdown {{ $currentRoute == "company" ? "active": ""}}  ">
+                           <a class="nav-link" href="{{ route('company') }}"   aria-haspopup="true" aria-expanded="false">
+                              Company
                            </a>
                         </li>
                      </ul>

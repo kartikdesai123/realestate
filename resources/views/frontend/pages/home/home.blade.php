@@ -267,7 +267,7 @@
                               </div>
                               <div class="property-details">
                                  <div class="property-details-inner">
-                                    <h5 class="property-title"><a href="property-detail-style-01.html">Ample apartment at last floor </a></h5>
+                                    <h5 class="property-title"><a href="{{ route("property-details",'1')}}">Ample apartment at last floor </a></h5>
                                     <span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>Virginia drive temple hills</span>
                                     <span class="property-agent-date"><i class="far fa-clock fa-md"></i>10 days ago</span>
                                     <div class="property-price">$150.00<span> / month</span> </div>
@@ -278,7 +278,7 @@
                                     </ul>
                                  </div>
                                  <div class="property-btn">
-                                    <a class="property-link" href="property-detail-style-01.html">See Details</a>
+                                    <a class="property-link" href="{{ route("property-details",'1')}}">See Details</a>
                                     <ul class="property-listing-actions list-unstyled mb-0">
                                        <li class="property-compare"><a data-toggle="tooltip" data-placement="top" title="Compare" href="#"><i class="fas fa-exchange-alt"></i></a></li>
                                        <li class="property-favourites"><a data-toggle="tooltip" data-placement="top" title="Favourite" href="#"><i class="far fa-heart"></i></a></li>
@@ -314,7 +314,7 @@
                               </div>
                               <div class="property-details">
                                  <div class="property-details-inner">
-                                    <h5 class="property-title"><a href="property-detail-style-01.html">Awesome family home</a></h5>
+                                    <h5 class="property-title"><a href="{{ route("property-details",'1')}}">Awesome family home</a></h5>
                                     <span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>Vermont dr. hephzibah</span>
                                     <span class="property-agent-date"><i class="far fa-clock fa-md"></i>2 months ago</span>
                                     <div class="property-price">$326.00<span> / month</span> </div>
@@ -325,7 +325,7 @@
                                     </ul>
                                  </div>
                                  <div class="property-btn">
-                                    <a class="property-link" href="property-detail-style-01.html">See Details</a>
+                                    <a class="property-link" href="{{ route("property-details",'1')}}">See Details</a>
                                     <ul class="property-listing-actions list-unstyled mb-0">
                                        <li class="property-compare"><a data-toggle="tooltip" data-placement="top" title="Compare" href="#"><i class="fas fa-exchange-alt"></i></a></li>
                                        <li class="property-favourites"><a data-toggle="tooltip" data-placement="top" title="Favourite" href="#"><i class="far fa-heart"></i></a></li>
@@ -362,7 +362,7 @@
                               </div>
                               <div class="property-details">
                                  <div class="property-details-inner">
-                                    <h5 class="property-title"><a href="property-detail-style-01.html">Contemporary apartment</a></h5>
+                                    <h5 class="property-title"><a href="{{ route("property-details",'1')}}">Contemporary apartment</a></h5>
                                     <span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>Newport st. mebane, nc</span>
                                     <span class="property-agent-date"><i class="far fa-clock fa-md"></i>6 months ago</span>
                                     <div class="property-price">$658.00<span> / month</span> </div>
@@ -373,7 +373,7 @@
                                     </ul>
                                  </div>
                                  <div class="property-btn">
-                                    <a class="property-link" href="property-detail-style-01.html">See Details</a>
+                                    <a class="property-link" href="{{ route("property-details",'1')}}">See Details</a>
                                     <ul class="property-listing-actions list-unstyled mb-0">
                                        <li class="property-compare"><a data-toggle="tooltip" data-placement="top" title="Compare" href="#"><i class="fas fa-exchange-alt"></i></a></li>
                                        <li class="property-favourites"><a data-toggle="tooltip" data-placement="top" title="Favourite" href="#"><i class="far fa-heart"></i></a></li>
@@ -409,7 +409,7 @@
                               </div>
                               <div class="property-details">
                                  <div class="property-details-inner">
-                                    <h5 class="property-title"><a href="property-detail-style-01.html">Family home for sale</a></h5>
+                                    <h5 class="property-title"><a href="{{ route("property-details",'1')}}">Family home for sale</a></h5>
                                     <span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>Border st. nicholasville, ky</span>
                                     <span class="property-agent-date"><i class="far fa-clock fa-md"></i>12 months ago</span>
                                     <div class="property-price">$485.00<span> / month</span> </div>
@@ -420,7 +420,7 @@
                                     </ul>
                                  </div>
                                  <div class="property-btn">
-                                    <a class="property-link" href="property-detail-style-01.html">See Details</a>
+                                    <a class="property-link" href="{{ route("property-details",'1')}}">See Details</a>
                                     <ul class="property-listing-actions list-unstyled mb-0">
                                        <li class="property-compare"><a data-toggle="tooltip" data-placement="top" title="Compare" href="#"><i class="fas fa-exchange-alt"></i></a></li>
                                        <li class="property-favourites"><a data-toggle="tooltip" data-placement="top" title="Favourite" href="#"><i class="far fa-heart"></i></a></li>
@@ -502,7 +502,7 @@
                                  <div class="col-lg-6">
                                     <div class="property-details pt-4">
                                        <div class="property-details-inner">
-                                          <h5 class="property-title"><a href="property-detail-style-01.html">184 lexington avenue</a></h5>
+                                          <h5 class="property-title"><a href="{{ route("property-details",'1')}}">184 lexington avenue</a></h5>
                                           <span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>Hamilton rd. willoughby, oh</span>
                                           <span class="property-agent-date"><i class="far fa-clock fa-md"></i>3 years ago</span>
                                           <p class="mb-0 d-none d-block mt-3">The first thing to remember about success is that it is a process – nothing more, nothing less. There is really no magic to it.</p>
@@ -533,7 +533,7 @@
                                           </div>
                                        </div>
                                        <div class="property-btn">
-                                          <a class="property-link" href="property-detail-style-01.html">See Details</a>
+                                          <a class="property-link" href="{{ route("property-details",'1')}}">See Details</a>
                                           <ul class="property-listing-actions list-unstyled mb-0">
                                              <li class="property-compare"><a data-toggle="tooltip" data-placement="top" title="Compare" href="#"><i class="fas fa-exchange-alt"></i></a></li>
                                              <li class="property-favourites"><a data-toggle="tooltip" data-placement="top" title="Favourite" href="#"><i class="far fa-heart"></i></a></li>
@@ -575,7 +575,7 @@
                                  <div class="col-lg-6">
                                     <div class="property-details pt-4">
                                        <div class="property-details-inner">
-                                          <h5 class="property-title"><a href="property-detail-style-01.html">Awesome family home</a></h5>
+                                          <h5 class="property-title"><a href="{{ route("property-details",'1')}}">Awesome family home</a></h5>
                                           <span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>West Division Street</span>
                                           <span class="property-agent-date"><i class="far fa-clock fa-md"></i>1 years ago</span>
                                           <p class="mb-0 d-none d-block mt-3">TThere are basically six key areas to higher achievement. Some people will tell you there are four while others may tell you there.</p>
@@ -606,7 +606,7 @@
                                           </div>
                                        </div>
                                        <div class="property-btn">
-                                          <a class="property-link" href="property-detail-style-01.html">See Details</a>
+                                          <a class="property-link" href="{{ route("property-details",'1')}}">See Details</a>
                                           <ul class="property-listing-actions list-unstyled mb-0">
                                              <li class="property-compare"><a data-toggle="tooltip" data-placement="top" title="Compare" href="#"><i class="fas fa-exchange-alt"></i></a></li>
                                              <li class="property-favourites"><a data-toggle="tooltip" data-placement="top" title="Favourite" href="#"><i class="far fa-heart"></i></a></li>

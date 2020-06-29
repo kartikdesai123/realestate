@@ -5,17 +5,17 @@ namespace App\Http\Controllers\frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Config;
-class AgentController extends Controller
+class AgencyController extends Controller
 {
     function __construct(){
 
     }
 
-    public function agentList(Request $request){
+    public function agencyList(Request $request){
 
-        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agent List';
-        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agent List';
-        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agent List';
+        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agency List';
+        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agency List';
+        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agency List';
 
         $data['css'] = array(
             'magnific-popup/magnific-popup.css',
@@ -29,14 +29,14 @@ class AgentController extends Controller
 
         $data['js'] = array();
         $data['funinit'] = array();
-        return view('frontend.pages.agent.list', $data);
+        return view('frontend.pages.agency.list', $data);
     }
     
-    public function agentDetail(Request $request){
+    public function agencyDetail(Request $request){
 
-        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agent Detail';
-        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agent Detail';
-        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agent Detail';
+        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agency Detail';
+        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agency Detail';
+        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agency Detail';
 
         $data['css'] = array(
             'magnific-popup/magnific-popup.css',
@@ -50,6 +50,6 @@ class AgentController extends Controller
 
         $data['js'] = array();
         $data['funinit'] = array();
-        return view('frontend.pages.agent.detail', $data);
+        return view('frontend.pages.agency.detail', $data);
     }
 }
