@@ -15,9 +15,11 @@
                         <div class="form-group">
                             <label class="control-label col-md-2">Terms & Conditions</label>
                             <div class="col-md-10">
-
-                                <textarea name="terms_conditions" class="form-control blogdescription" placeholder="Please enter blog description">{!! $termsdata[0]->terms_conditions !!}</textarea>
-                                
+                                @if(count($termsdata) > 0)
+                                    <textarea name="terms_conditions" class="form-control blogdescription" placeholder="Please enter blog description">{!! $termsdata[0]->terms_conditions !!}</textarea>
+                                @else
+                                    <textarea name="terms_conditions" class="form-control blogdescription" placeholder="Please enter blog description"></textarea>
+                                @endif
                             </div>
                         </div>
                     </div>

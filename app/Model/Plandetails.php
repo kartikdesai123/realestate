@@ -58,7 +58,7 @@ class Plandetails extends Model
             $actionhtml = '';
             $actionhtml = '<a href="'.route('admin-view-plan-details',$row['id']).'"  class="btn btn-icon primary"  ><i class="fa fa-eye"></i></a>'
                     .'<a href="'.route('admin-edit-plan-details',$row['id']).'"  class="btn btn-icon primary"  ><i class="fa fa-edit"></i></a>'
-                    . '<a href="" data-toggle="modal" data-target="#deleteModel" class="btn btn-icon  deleteBlog" data-id="' . $row["id"] . '" ><i class="fa fa-trash" ></i></a>';
+                    . '<a href="" data-toggle="modal" data-target="#deleteModel" class="btn btn-icon  deletePlandetails" data-id="' . $row["id"] . '" ><i class="fa fa-trash" ></i></a>';
             $i++;
             $nestedData = array();
             $nestedData[] = $i;
@@ -137,5 +137,13 @@ class Plandetails extends Model
         return Plandetails::select("planid","id","planname","planprice","plandays","planproperty","planagent")
                     ->where("id",$id)
                     ->get();
+    }
+
+    public function deletePlandetails($data){
+           
+            $objPlandetails = Plandetails::find($data['id']); 
+            $objPlandetails->is_deleted ="1";
+            $objPlandetails->updated_at = date("Y-m-d h:i:s");
+            return $objPlandetails->save();
     }
 }

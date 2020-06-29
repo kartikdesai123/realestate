@@ -178,6 +178,21 @@ class PlanDetailsController extends Controller
                 $list = $objPlandetails->getdatatable();
                 echo json_encode($list);
                 break;
+            case 'deletePlandetails':
+                    $objPlandetails = new Plandetails();
+                    $result = $objPlandetails->deletePlandetails($request->input('data'));
+                    if ($result) {
+                        $return['status'] = 'success';
+                        $return['message'] = 'Plan details successfully deleted';
+                        $return['redirect'] = route('admin-plan-details');
+                    } else {
+                        $return['status'] = 'error';
+                        $return['message'] = 'Something goes to wrong.';
+                    }
+                    echo json_encode($return);
+                    exit;
+                echo json_encode($list);
+                break;
         }
 
     }

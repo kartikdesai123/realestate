@@ -13,10 +13,16 @@ class TermsCondition extends Model
     }
 
     public function addeditTerms($request){
-        $objTermsCondition = TermsCondition::find('1');
-        $objTermsCondition->terms_conditions =$request->input("terms_conditions");
-        $objTermsCondition->updated_at = date("Y-m-d h:i:s");
-        return $objTermsCondition->save();
+
+        $result = TermsCondition::updateOrInsert(
+                ['id' => 1],
+                ['terms_conditions' => $request->input("terms_conditions"), 
+                    "created_at" => date("Y-m-d h:i:s"),
+                    "updated_at" => date("Y-m-d h:i:s")
+                ]
+                
+        );  
+        return $result; 
             
     }
 }

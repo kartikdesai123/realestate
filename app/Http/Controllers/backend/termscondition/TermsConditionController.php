@@ -18,7 +18,7 @@ class TermsConditionController extends Controller
     		// echo "<pre>";print_r($request->input());die;
            $objTerms = new TermsCondition();
            $result = $objTerms->addeditTerms($request);
-           if ($result == "true") {
+           if ($result) {
                 $return['status'] = 'success';
                 $return['message'] = 'Terms & conditions successfully updated';
                 $return['redirect'] = route('admin-terms-condition');
