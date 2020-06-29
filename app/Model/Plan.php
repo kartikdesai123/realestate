@@ -51,9 +51,8 @@ class Plan extends Model
 
         foreach ($resultArr as $row) {
             $actionhtml = '';
-            $actionhtml = '<a href="'.route('admin-view-plan',$row['id']).'"  class="btn btn-icon primary"  ><i class="fa fa-eye"></i></a>'
-                    .'<a href="'.route('admin-edit-plan',$row['id']).'"  class="btn btn-icon primary"  ><i class="fa fa-edit"></i></a>'
-                    .'<a href="" data-toggle="modal" data-target="#deleteModel" class="btn btn-icon  deleteBlog" data-id="' . $row["id"] . '" ><i class="fa fa-trash" ></i></a>';
+            $actionhtml ='<a href="'.route('admin-edit-plan',$row['id']).'"  class="btn btn-icon primary"  ><i class="fa fa-edit"></i></a>'
+                    .'<a href="" data-toggle="modal" data-target="#deleteModel" class="btn btn-icon  deleteplan" data-id="' . $row["id"] . '" ><i class="fa fa-trash" ></i></a>';
             $i++;
             $nestedData = array();
             $nestedData[] = $i;
@@ -112,10 +111,22 @@ class Plan extends Model
             return "exits";
         }
     }
+    public function deleteplan($data){
+            
+            $objPlan = Plan::find($data['id']); 
+            $objPlan->is_deleted ="1";
+            $objPlan->updated_at = date("Y-m-d h:i:s");
+            return $objPlan->save();
+    }
 
     public function editDetails($id){
         return Plan::select("planname","id","plandescription")
                     ->where("id",$id)
+                    ->get();
+    }
+    public function getplan(){
+        return Plan::select("planname","id")
+                    ->where("is_deleted","0")
                     ->get();
     }
 }

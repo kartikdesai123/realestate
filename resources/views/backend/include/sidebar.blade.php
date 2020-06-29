@@ -66,7 +66,7 @@ $currentRoute = Route::current()->getName();
             </li>
 
 
-            <li class="nav-item start  {{ $currentRoute == "admin-plan" ? "active": ""}} {{ $currentRoute == "admin-add-plan" ? "active": ""}} {{ $currentRoute == "admin-view-plan" ? "active": ""}} {{ $currentRoute == "admin-edit-plan" ? "active": ""}}">
+            <li class="nav-item start  {{ $currentRoute == "admin-plan-details" ? "active": ""}} {{ $currentRoute == "admin-add-plan-details" ? "active": ""}} {{ $currentRoute == "admin-edit-plan-details" ? "active": ""}} {{ $currentRoute == "admin-view-plan-details" ? "active": ""}} {{ $currentRoute == "admin-edit-blog" ? "active": ""}} {{ $currentRoute == "admin-plan" ? "active": ""}} {{ $currentRoute == "admin-add-plan" ? "active": ""}} {{ $currentRoute == "admin-view-plan" ? "active": ""}} {{ $currentRoute == "admin-edit-plan" ? "active": ""}}">
                 <a href="javascript:;" class="nav-link nav-toggle">
                     <i class="fa fa-newspaper-o"></i>
                     <span class="title">Plan</span>
@@ -85,8 +85,8 @@ $currentRoute = Route::current()->getName();
                     </li>
 
 
-                    <li class="nav-item start {{ $currentRoute == "admin-view-blog" ? "active": ""}} {{ $currentRoute == "admin-blog" ? "active": ""}} {{ $currentRoute == "view-blog" ? "active": ""}} {{ $currentRoute == "admin-add-blog" ? "active": ""}} {{ $currentRoute == "admin-edit-blog" ? "active": ""}}">
-                        <a href="{{ route('admin-blog') }}" class="nav-link ">                            
+                    <li class="nav-item start {{ $currentRoute == "admin-plan-details" ? "active": ""}} {{ $currentRoute == "admin-add-plan-details" ? "active": ""}} {{ $currentRoute == "admin-edit-plan-details" ? "active": ""}} {{ $currentRoute == "admin-view-plan-details" ? "active": ""}} {{ $currentRoute == "admin-edit-blog" ? "active": ""}}">
+                        <a href="{{ route('admin-plan-details') }}" class="nav-link ">                            
                             <i class="fa fa-hand-o-right"></i>
                             <span class="title">Plan Details</span>
                         </a>

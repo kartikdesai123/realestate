@@ -45,10 +45,10 @@ Route::group(['prefix' => $adminPrefix, 'middleware' => ['admin']], function() {
     Route::match(['get', 'post'], 'admin-plan-ajaxAction', ['as' => 'admin-plan-ajaxAction', 'uses' => 'backend\plan\PlanController@ajaxAction']);
 
     // Plan
-    Route::match(['get', 'post'], 'admin-plan-details', ['as' => 'admin-plan-details', 'uses' => 'backend\plan\PlanController@list']);
-    Route::match(['get', 'post'], 'admin-add-plan-details', ['as' => 'admin-add-plan-details', 'uses' => 'backend\plan\PlanController@add']);
-    Route::match(['get', 'post'], 'admin-edit-plan-details/{id}', ['as' => 'admin-edit-plan-details', 'uses' => 'backend\plan\PlanController@edit']);
-    Route::match(['get', 'post'], 'admin-view-plan-details/{id}', ['as' => 'admin-view-plan-details', 'uses' => 'backend\plan\PlanController@view']);
-    Route::match(['get', 'post'], 'admin-plan-details-ajaxAction', ['as' => 'admin-plan-details-ajaxAction', 'uses' => 'backend\plan\PlanController@ajaxAction']);
+    Route::match(['get', 'post'], 'admin-plan-details', ['as' => 'admin-plan-details', 'uses' => 'backend\plan\PlanDetailsController@list']);
+    Route::match(['get', 'post'], 'admin-add-plan-details', ['as' => 'admin-add-plan-details', 'uses' => 'backend\plan\PlanDetailsController@add']);
+    Route::match(['get', 'post'], 'admin-edit-plan-details/{id}', ['as' => 'admin-edit-plan-details', 'uses' => 'backend\plan\PlanDetailsController@edit']);
+    Route::match(['get', 'post'], 'admin-view-plan-details/{id}', ['as' => 'admin-view-plan-details', 'uses' => 'backend\plan\PlanDetailsController@view']);
+    Route::match(['get', 'post'], 'admin-plan-details-ajaxAction', ['as' => 'admin-plan-details-ajaxAction', 'uses' => 'backend\plan\PlanDetailsController@ajaxAction']);
     
 });
