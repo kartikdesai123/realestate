@@ -56,16 +56,24 @@ class PlanController extends Controller
             
             $objPlan = new Plan();
             $result = $objPlan->add($request);
-            if ($result) {
+
+            if ($result == "true") {
                 $return['status'] = 'success';
-                $return['message'] = 'Plan details successfully added';
+                $return['message'] = 'Plan  successfully added';
                 $return['redirect'] = route('admin-plan');
             } else {
-                $return['status'] = 'error';
-                $return['message'] = 'Something goes to wrong.';
+                if ($result == "exits") {
+                    $return['status'] = 'error';
+                    $return['message'] = 'Plan already exits';
+                }else{
+                    $return['status'] = 'error';
+                    $return['message'] = 'Something goes to wrong.';
+                }
             }
             echo json_encode($return);
             exit;
+
+           
         }
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Add New Plan';
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Add New Plan';
@@ -101,13 +109,19 @@ class PlanController extends Controller
 
             $objPlan = new Plan();
             $result = $objPlan->edit($request);
-            if ($result) {
+
+            if ($result == "true") {
                 $return['status'] = 'success';
-                $return['message'] = 'Plan details successfully updated';
+                $return['message'] = 'Plan successfully updated';
                 $return['redirect'] = route('admin-plan');
             } else {
-                $return['status'] = 'error';
-                $return['message'] = 'Something goes to wrong.';
+                if ($result == "exits") {
+                    $return['status'] = 'error';
+                    $return['message'] = 'Plan already exits';
+                }else{
+                    $return['status'] = 'error';
+                    $return['message'] = 'Something goes to wrong.';
+                }
             }
             echo json_encode($return);
             exit;

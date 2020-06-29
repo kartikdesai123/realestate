@@ -74,20 +74,43 @@ class Plan extends Model
 
 
     public function add($request){
-        $objPlan = new Plan();
-        $objPlan->planname =$request->input('planname');
-        $objPlan->plandescription = $request->input('plandescription');
-        $objPlan->is_deleted = "0";
-        $objPlan->created_at = date("Y-m-d h:i:s");
-        $objPlan->updated_at = date("Y-m-d h:i:s");
-        return $objPlan->save();
+
+        $count = Plan::where("planname",$request->input('planname'))
+                    ->count();
+
+        if($count == 0){
+            $objPlan = new Plan();
+            $objPlan->planname =$request->input('planname');
+            $objPlan->plandescription = $request->input('plandescription');
+            $objPlan->is_deleted = "0";
+            $objPlan->created_at = date("Y-m-d h:i:s");
+            $objPlan->updated_at = date("Y-m-d h:i:s");
+            if($objPlan->save()){                
+                return "true";
+            }else{                
+                return "wrong";
+            }
+        }else{
+            return "exits";
+        }
     }
     public function edit($request){
-        $objPlan = Plan::find($request->input('id')); 
-        $objPlan->planname =$request->input('planname');
-        $objPlan->plandescription = $request->input('plandescription');
-        $objPlan->updated_at = date("Y-m-d h:i:s");
-        return $objPlan->save();
+        $count = Plan::where("planname",$request->input('planname'))
+                    ->where("id","!=" , $request->input('id'))
+                    ->count();
+        if($count == 0){
+            $objPlan = Plan::find($request->input('id')); 
+            $objPlan->planname =$request->input('planname');
+            $objPlan->plandescription = $request->input('plandescription');
+            $objPlan->updated_at = date("Y-m-d h:i:s");
+            if($objPlan->save()){                
+                return "true";
+            }else{                
+                return "wrong";
+            }
+        }else{
+            return "exits";
+        }
     }
 
     public function editDetails($id){
