@@ -704,13 +704,13 @@
                               <img class="img-fluid rounded-circle" src="{{ asset('public/frontend/assets/images/agent/01.jpg') }}" alt="">
                            </div>
                            <div class="agent-info">
-                              <h5 class="mb-0"> <a href="agent-detail.html">John doe</a></h5>
+                              <h5 class="mb-0"> <a href="{{ route("agent-details",'1')}}">John doe</a></h5>
                               <span class="text-primary">Land development</span>
                               <p class="mt-3 mb-0">If success is a process with a number of defined steps, then it is just like any other process. </p>
                            </div>
                         </div>
                         <div class="agent-button">
-                           <a class="btn btn-light btn-block" href="agent-detail.html">View Profile</a>
+                           <a class="btn btn-light btn-block" href="{{ route("agent-details",'1')}}">View Profile</a>
                         </div>
                      </div>
                   </div>
@@ -721,13 +721,13 @@
                               <img class="img-fluid rounded-circle" src="{{ asset('public/frontend/assets/images/agent/02.jpg') }}" alt="">
                            </div>
                            <div class="agent-info">
-                              <h5 class="mb-0"> <a href="agent-detail.html">Felica queen</a></h5>
+                              <h5 class="mb-0"> <a href="{{ route("agent-details",'1')}}">Felica queen</a></h5>
                               <span class="text-primary">Construction</span>
                               <p class="mt-3 mb-0">Making a decision to do something – this is the first step. We all know that nothing moves until someone.</p>
                            </div>
                         </div>
                         <div class="agent-button">
-                           <a class="btn btn-light btn-block" href="agent-detail.html">View Profile</a>
+                           <a class="btn btn-light btn-block" href="{{ route("agent-details",'1')}}">View Profile</a>
                         </div>
                      </div>
                   </div>
@@ -738,13 +738,13 @@
                               <img class="img-fluid rounded-circle" src="{{ asset('public/frontend/assets/images/agent/03.jpg') }}" alt="">
                            </div>
                            <div class="agent-info">
-                              <h5 class="mb-0"> <a href="agent-detail.html">Joana williams</a></h5>
+                              <h5 class="mb-0"> <a href="{{ route("agent-details",'1')}}">Joana williams</a></h5>
                               <span class="text-primary">Founder & CEO</span>
                               <p class="mt-3 mb-0">So, make the decision to move forward. Commit your decision to paper, just to bring it into focus.</p>
                            </div>
                         </div>
                         <div class="agent-button">
-                           <a class="btn btn-light btn-block" href="agent-detail.html">View Profile</a>
+                           <a class="btn btn-light btn-block" href="{{ route("agent-details",'1')}}">View Profile</a>
                         </div>
                      </div>
                   </div>
@@ -755,13 +755,13 @@
                               <img class="img-fluid rounded-circle" src="{{ asset('public/frontend/assets/images/agent/04.jpg') }}" alt="">
                            </div>
                            <div class="agent-info">
-                              <h5 class="mb-0"> <a href="agent-detail.html">Paul flavius</a></h5>
+                              <h5 class="mb-0"> <a href="{{ route("agent-details",'1')}}">Paul flavius</a></h5>
                               <span class="text-primary">Company Agent</span>
                               <p class="mt-3 mb-0">You will sail along until you collide with an immovable object, after which you will sink.</p>
                            </div>
                         </div>
                         <div class="agent-button">
-                           <a class="btn btn-light btn-block" href="agent-detail.html">View Profile</a>
+                           <a class="btn btn-light btn-block" href="{{ route("agent-details",'1')}}">View Profile</a>
                         </div>
                      </div>
                   </div>
@@ -780,11 +780,11 @@
                         <h2>Plenty of reasons to choose us</h2>
                      </div>
                   </div>
-                  <div class="col-lg-6">
+<!--                  <div class="col-lg-6">
                      <div class="popup-video mb-4 text-lg-right">
                         <a class="popup-icon popup-youtube d-flex justify-content-lg-end" href="https://www.youtube.com/watch?v=LgvseYYhqU0"> <span class="pr-3"> Play Video</span> <i class="flaticon-play-button"></i> </a>
                      </div>
-                  </div>
+                  </div>-->
                </div>
                <div class="row">
                   <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0">
@@ -978,7 +978,7 @@
          <section class="space-pb">
             <div class="container">
                <div class="row">
-                  <div class="col-md-6">
+                  <div class="col-md-12">
                      <div class="section-title">
                         <h2>Testimonials</h2>
                      </div>
@@ -1017,44 +1017,7 @@
                         </div>
                      </div>
                   </div>
-                  <div class="col-md-6 mt-5 mt-md-0">
-                     <div class="section-title">
-                        <h2>Frequently asked questions</h2>
-                     </div>
-                     <div class="accordion" id="accordion">
-                        <div class="accordion-item">
-                           <div class="accordion-title" id="accordion-title-one">
-                              <a href="#" data-toggle="collapse" data-target="#accordion-one" aria-expanded="true" aria-controls="accordion-one">01. Who pays the Realtor fees when buying a home?</a>
-                           </div>
-                           <div id="accordion-one" class="collapse show" aria-labelledby="accordion-title-one" data-parent="#accordion">
-                              <div class="accordion-content">Without clarity, you send a very garbled message out to the Universe. We know that the Law of Attraction says that we will attract what we focus on, so if we don’t have clarity, we will attract confusion.</div>
-                           </div>
-                        </div>
-                        <div class="accordion-item">
-                           <div class="accordion-title" id="accordion-title-tow">
-                              <a href="#" class="collapsed" data-toggle="collapse" data-target="#accordion-two" aria-expanded="false" aria-controls="accordion-two">02. How is the neighborhood/area?</a>
-                           </div>
-                           <div id="accordion-two" class="collapse" aria-labelledby="accordion-title-tow" data-parent="#accordion">
-                              <div class="accordion-content">The sad thing is the majority of people have no clue about what they truly want. They have no clarity. When asked the question, responses will be superficial at best, and at worst, will be what someone .</div>
-                           </div>
-                        </div>
-                        <div class="accordion-item">
-                           <div class="accordion-title" id="accordion-title-three">
-                              <a href="#" class="collapsed" data-toggle="collapse" data-target="#accordion-three" aria-expanded="false" aria-controls="accordion-three">03. What are the average utility bills?</a>
-                           </div>
-                           <div id="accordion-three" class="collapse" aria-labelledby="accordion-title-three" data-parent="#accordion">
-                              <div class="accordion-content">So how do we get clarity? Simply by asking ourselves lots of questions: What do I really want? What does success look like to me? Why do I want a particular thing? How will this achievement change.</div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="mt-4">
-                        <div class="d-flex align-items-center">
-                           <span class="d-block mr-3 text-dark"><b>Call us</b></span>
-                           <i class="fas fa-phone bg-primary p-3 rounded-circle text-white fa-flip-horizontal"></i>
-                           <h6 class="pl-3 mb-0 text-primary">(123) 345-6789</h6>
-                        </div>
-                     </div>
-                  </div>
+                  
                </div>
             </div>
          </section>

@@ -30,6 +30,11 @@ Route::match(['get', 'post'], 'submit-property', ['as' => 'submit-property', 'us
 Route::match(['get', 'post'], 'blog', ['as' => 'blog', 'uses' => 'frontend\BlogController@blog']);
 Route::match(['get', 'post'], 'blog-details/{id}', ['as' => 'blog-details', 'uses' => 'frontend\BlogController@blogdetails']);
 
+
+// agent-detail
+
+Route::match(['get', 'post'], 'agent-details/{id}', ['as' => 'agent-details', 'uses' => 'frontend\AgentController@agentDetail']);
+
 // services
 Route::match(['get', 'post'], 'services', ['as' => 'services', 'uses' => 'frontend\ServicesController@services']);
 
