@@ -105,6 +105,20 @@ $currentRoute = Route::current()->getName();
                 </a>
             </li>
 
+
+            <li class="nav-item start {{ $currentRoute == "admin-faq" ? "active": ""}} {{ $currentRoute == "admin-add-faq" ? "active": ""}} ">
+                <a href="{{ route('admin-faq') }}" class="nav-link ">
+                    <i class="fa fa-question-circle" aria-hidden="true"></i>
+                        <span class="title">FAQs List</span>
+                        @if($currentRoute == "admin-faq" || $currentRoute == "admin-add-faq" )
+                            <span class="selected"></span>
+                        @endif
+                </a>
+            </li>
+
+
+
+
         </ul>
         <!-- END SIDEBAR MENU -->
         <!-- END SIDEBAR MENU -->

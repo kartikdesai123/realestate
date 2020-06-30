@@ -54,4 +54,10 @@ Route::group(['prefix' => $adminPrefix, 'middleware' => ['admin']], function() {
     //Terms & Condition
     Route::match(['get', 'post'], 'admin-terms-condition', ['as' => 'admin-terms-condition', 'uses' => 'backend\termscondition\TermsConditionController@termscondition']);
     
+    // Plan
+    Route::match(['get', 'post'], 'admin-faq', ['as' => 'admin-faq', 'uses' => 'backend\faq\FaqController@list']);
+    Route::match(['get', 'post'], 'admin-add-faq', ['as' => 'admin-add-faq', 'uses' => 'backend\faq\FaqController@add']);
+    Route::match(['get', 'post'], 'admin-edit-faq/{id}', ['as' => 'admin-edit-faq', 'uses' => 'backend\faq\FaqController@edit']);
+    Route::match(['get', 'post'], 'admin-faq-ajaxAction', ['as' => 'admin-faq-ajaxAction', 'uses' => 'backend\faq\FaqController@ajaxAction']);
+
 });

@@ -8,14 +8,23 @@
             @csrf
             <div class="portlet-body">
                 <!-- BEGIN FORM-->
-                <form id="add-facilities" class="form-horizontal" method="post">@csrf
+                <form id="add-faqs" class="form-horizontal" method="post">@csrf
+                <input name="id" type="hidden" class="form-control" value="{{ $details[0]->id }}">
                     <div class="form-body">
                         <div class="form-group">
-                            <label class="control-label col-md-2">Facilities</label>
+                            <label class="control-label col-md-2">FAQs Question </label>
                             <div class="col-md-10">
-                                <input name="facilities" type="text" class="form-control">
+                                <input name="question" type="text" class="form-control" placeholder="Please enter FAQs Question" value="{{ $details[0]->question }}">
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2">FAQs Answer </label>
+                            <div class="col-md-10">
+                                <textarea name="answer" class="form-control" placeholder="Please enter FAQs's answer">{{ $details[0]->answer }}</textarea>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="form-actions">
                         <div class="row">
