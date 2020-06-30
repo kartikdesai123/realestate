@@ -13,11 +13,62 @@
                     <div class="form-body">
 
                         <div class="form-group">
-                            <label class="control-label col-md-2">Terms & Conditions</label>
+                            <label class="control-label col-md-2">Facebook Link</label>
                             <div class="col-md-10">
-                                
+                                    <input type="text" name="facebook" class="form-control">
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Youtube Link</label>
+                            <div class="col-md-10">
+                                    <input type="text" name="youTube" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Instagram Link</label>
+                            <div class="col-md-10">
+                                    <input type="text" name="instagram" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Twitter Link</label>
+                            <div class="col-md-10">
+                                    <input type="text" name="twitter" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Linkedin Link</label>
+                            <div class="col-md-10">
+                                    <input type="text" name="linkedin" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Address</label>
+                            <div class="col-md-10">
+                                    <input type="text" name="address" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Contact Number</label>
+                            <div class="col-md-10">
+                                    <input type="text" name="contactNumber" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Contact Email</label>
+                            <div class="col-md-10">
+                                    <input type="text" name="email" class="form-control">
+                            </div>
+                        </div>
+
+                        
                     </div>
 
                     <div class="form-actions">

@@ -15,6 +15,14 @@ class CreateGeneralSettingsTable extends Migration
     {
         Schema::create('generalsettings', function (Blueprint $table) {
             $table->id();
+            $table->text("facebook");
+            $table->text("youTube");
+            $table->text("instagram");
+            $table->text("twitter");
+            $table->text("linkedin");
+            $table->text("Address");
+            $table->string("contactNumber");
+            $table->string("email");
             $table->timestamps();
         });
     }
