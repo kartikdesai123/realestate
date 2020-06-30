@@ -31,8 +31,8 @@ class GeneralSettingsController extends Controller
             exit;
         }
         $objGeneralSettings = new GeneralSettings();
-        $data['termsdata'] = $objGeneralSettings->getGeneralSettings();
-
+        $data['generalSettingsDetails'] = $objGeneralSettings->getGeneralSettings();
+        
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || General Settings';
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || General Settings';
         $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || General Settings';
