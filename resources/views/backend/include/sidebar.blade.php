@@ -106,11 +106,22 @@ $currentRoute = Route::current()->getName();
             </li>
 
 
-            <li class="nav-item start {{ $currentRoute == "admin-faq" ? "active": ""}} {{ $currentRoute == "admin-add-faq" ? "active": ""}} ">
+            <li class="nav-item start {{ $currentRoute == "admin-faq" ? "active": ""}} {{ $currentRoute == "admin-add-faq" ? "active": ""}} {{ $currentRoute == "admin-edit-faq" ? "active": ""}}   ">
                 <a href="{{ route('admin-faq') }}" class="nav-link ">
                     <i class="fa fa-question-circle" aria-hidden="true"></i>
                         <span class="title">FAQs List</span>
-                        @if($currentRoute == "admin-faq" || $currentRoute == "admin-add-faq" )
+                        @if($currentRoute == "admin-faq" || $currentRoute == "admin-faq" ||  $currentRoute == "admin-edit-faq" )
+                            <span class="selected"></span>
+                        @endif
+                </a>
+            </li>
+
+
+            <li class="nav-item start {{ $currentRoute == "admin-general-settings" ? "active": ""}} ">
+                <a href="{{ route('admin-general-settings') }}" class="nav-link ">
+                    <i class="fa fa-cogs" aria-hidden="true"></i>
+                        <span class="title">General Settings</span>
+                        @if($currentRoute == "admin-general-settings" )
                             <span class="selected"></span>
                         @endif
                 </a>
