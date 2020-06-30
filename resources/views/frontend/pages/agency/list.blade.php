@@ -2,258 +2,181 @@
 @section('content')
 <!--=================================
 about -->
-<section class="space-ptb bg-holder" style="background-image: url(images/pattern-bg.html);">
-    <div class="container">
-      <div class="row justify-content-center mb-5">
-        <div class="col-lg-9">
-          <div class="text-center">
-            <h1 class="text-primary mb-4">We are changing the Real estate industry with progression and passion.</h1>
-            <p class="px-sm-5 mb-4 lead font-weight-normal">We attempt to be the leading self-governing estate agency in the locations we cover, offering an entirely personal and dedicated service. </p>
-            <div class="popup-video">
-              <a class="popup-icon popup-youtube" href="https://www.youtube.com/watch?v=LgvseYYhqU0"> <i class="flaticon-play-button"></i> </a>
-            </div>
-          </div>
+<section class="space-ptb">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="section-title mb-3 mb-lg-4">
+          <h2><span class="text-primary">156</span> Results</h2>
         </div>
       </div>
-      <div class="row">
-        <div class="col-12">
-          <div class="section-title text-center">
-            <h2>Plenty of reasons to choose us</h2>
-            <p>Our agency has many specialized areas, but our CUSTOMERS are our real specialty.</p>
-          </div>
-        </div>
+      <div class="col-md-6">
+        <div class="col-md-6">
+          <div class="section-title mb-3 mb-lg-4">
+          <h2><span class="text-primary">Agency</span> List</h2>
+            </div>
       </div>
-      <div class="row no-gutters">
-        <div class="col-lg-3 col-sm-6">
-          <div class="feature-info h-100">
-            <div class="feature-info-icon">
-              <i class="flaticon-like"></i>
-            </div>
-            <div class="feature-info-content">
-              <h6 class="mb-3 feature-info-title">Excellent reputation</h6>
-              <p class="mb-0">Our comprehensive database of listings and market info give the most accurate view of the market and your home value.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-sm-6">
-          <div class="feature-info h-100">
-            <div class="feature-info-icon">
-              <i class="flaticon-agent"></i>
-            </div>
-            <div class="feature-info-content">
-              <h6 class="mb-3 feature-info-title">Best local agents</h6>
-              <p class="mb-0">You are just minutes from joining with the best agents who are fired up about helping you Buy or sell.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-sm-6">
-          <div class="feature-info h-100">
-            <div class="feature-info-icon">
-              <i class="flaticon-like-1"></i>
-            </div>
-            <div class="feature-info-content">
-              <h6 class="mb-3 feature-info-title">Peace of mind</h6>
-              <p class="mb-0">Rest guaranteed that your agent and their expert team are handling every detail of your transaction from start to end.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-sm-6">
-          <div class="feature-info h-100">
-            <div class="feature-info-icon">
-              <i class="flaticon-house-1"></i>
-            </div>
-            <div class="feature-info-content">
-              <h6 class="mb-3 feature-info-title">Tons of options</h6>
-              <p class="mb-0">Discover a place you’ll love to live in. Choose from our vast inventory and choose your desired house.</p>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
-  </section>
-  <!--=================================
-  about -->
-  
-  <!--=================================
-  testimonial -->
-  <section class="testimonial-main bg-holder" style="background-image: url(images/bg/02.jpg);">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8">
-          <div class="owl-carousel owl-dots-bottom-left" data-nav-dots="true" data-items="1" data-md-items="1" data-sm-items="1" data-xs-items="1" data-xx-items="1" data-space="0">
-            <div class="item">
-              <div class="testimonial">
-                <div class="testimonial-content">
-                  <p><i class="quotes">"</i>Thank you Martin for selling our apartment. We are delighted with the result. I can highly recommend Martin to anyone seeking a truly professional Realtor.</p>
+    <div class="row">
+      <div class="col-lg-3 col-md-4 mb-5 mb-md-0">
+        <div class="sidebar">
+          <div class="widget">
+            <div class="widget-title">
+              <h6>Featured property</h6>
+            </div>
+            <div class="property-item mb-0">
+              <div class="property-image bg-overlay-gradient-04">
+                <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/grid/06.jpg') }}" alt="">
+                <div class="property-lable">
+                  <span class="badge badge-md badge-primary">Studio</span>
+                  <span class="badge badge-md badge-info">New </span>
                 </div>
-                <div class="testimonial-name">
-                  <h6 class="text-primary mb-1">Lisa & Graeme</h6>
-                  <span>Hamilton Rd. Willoughby</span>
+                <div class="property-agent-popup">
+                  <a href="#"><i class="fas fa-camera"></i> 02</a>
                 </div>
               </div>
+              <div class="property-details">
+                <div class="property-details-inner">
+                  <h5 class="property-title"><a href="{{ route("property-details",'1')}}">184 lexington avenue</a></h5>
+                  <span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>Hamilton rd. willoughby, oh</span>
+                  <span class="property-agent-date"><i class="far fa-clock fa-md"></i>3 years ago</span>
+                  <div class="property-price">$236.00<span> / month</span> </div>
+                </div>
+                <div class="property-btn">
+                  <a class="property-link" href="{{ route("property-details",'1')}}">See Details</a>
+                </div>
+              </div>
+          </div>
+          </div>
+          <div class="widget">
+            <div class="widget-title">
+              <h6>Recently listed properties</h6>
             </div>
-            <div class="item">
-              <div class="testimonial">
-                <div class="testimonial-content">
-                  <p><i class="quotes">"</i>Oliver always had a smile and was so quick to answer and get the job done.  I'll definitely suggest you to anyone we know who is selling or wanting to purchase a home. He is the best!</p>
-                </div>
-                <div class="testimonial-name">
-                  <h6 class="text-primary mb-1">Jessica Alex</h6>
-                  <span>West Division Street</span>
-                </div>
+            <div class="recent-list-item">
+              <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/list/01.jpg') }}" alt="">
+              <div class="recent-list-item-info">
+                <a class="address mb-2" href="{{ route("property-details",'1')}}">Awesome family home</a>
+                <span class="text-primary">$1,456,233 </span>
+              </div>
+            </div>
+            <div class="recent-list-item">
+              <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/list/02.jpg') }}" alt="">
+              <div class="recent-list-item-info">
+                <a class="address mb-2" href="{{ route("property-details",'1')}}">Contemporary apartment</a>
+                <span class="text-primary">$2,496,454 </span>
+              </div>
+            </div>
+            <div class="recent-list-item">
+              <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/list/03.jpg') }}" alt="">
+              <div class="recent-list-item-info">
+                <a class="address mb-2" href="{{ route("property-details",'1')}}">Family home for sale</a>
+                <span class="text-primary">$4,662,457 </span>
+              </div>
+            </div>
+            <div class="recent-list-item">
+              <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/list/04.jpg') }}" alt="">
+              <div class="recent-list-item-info">
+                <a class="address mb-2" href="{{ route("property-details",'1')}}">184 lexington avenue</a>
+                <span class="text-primary">$2,456,452 </span>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  <!--=================================
-  testimonial -->
-  
-  <!--=================================
-  counter -->
-  <section class="space-pt">
-    <div class="container">
-      <div class="border p-4">
+      <div class="col-lg-9 col-md-8">
+        <div class="property-filter d-sm-flex">
+         
+        </div>
         <div class="row">
-          <div class="col-sm-3">
-            <div class="counter counter-02 mb-4 mb-sm-0">
-              <div class="counter-icon">
-                <span class="pt-1 icon fab flaticon-placeholder"></span>
+          <div class="col-lg-6 col-sm-6">
+            <div class="agent text-center mt-4">
+              <div class="agent-detail">
+                <div class="agent-avatar avatar avatar-xllll">
+                  <img class="img-fluid rounded-circle" src="{{ asset('public/frontend/assets/images/agency/01.png') }}" alt="">
+                </div>
+                <div class="agent-info">
+                  <h6> <a href="{{ route("agency-details",'1')}}">Duplex estates</a></h6>
+                  <span><i class="fas fa-map-marker-alt fa-xs pr-2"></i>Virginia drive temple hills</span>
+                  <p class="mt-3 mb-0">And it's not just parents that are the cause â€“ teachers, friends, clergy members or anyone else that has.</p>
+                </div>
               </div>
-              <div class="counter-content">
-                <span class="timer mb-1" data-to="4561" data-speed="10000">4561</span>
-                <label class="mb-0">Property locations</label>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-3">
-            <div class="counter counter-02 mb-4 mb-sm-0">
-              <div class="counter-icon">
-                <span class="pt-1 icon fab flaticon-for-rent-1"></span>
-              </div>
-              <div class="counter-content">
-                <span class="timer mb-1" data-to="1261" data-speed="10000">1261</span>
-                <label class="mb-0">Property rent </label>
+              <div class="agent-button">
+                <a class="btn btn-light btn-block" href="{{ route("agency-details",'1')}}">View Profile</a>
               </div>
             </div>
           </div>
-          <div class="col-sm-3">
-            <div class="counter counter-02 mb-4 mb-sm-0">
-              <div class="counter-icon">
-                <span class="pt-1 icon fab flaticon-house-5"></span>
+          <div class="col-lg-6 col-sm-6">
+            <div class="agent text-center mt-4">
+              <div class="agent-detail">
+                <div class="agent-avatar avatar avatar-xllll">
+                  <img class="img-fluid rounded-circle" src="{{ asset('public/frontend/assets/images/agency/02.png') }}" alt="">
+                </div>
+                <div class="agent-info">
+                  <h6> <a href="{{ route("agency-details",'1')}}">Business estates </a></h6>
+                  <span><i class="fas fa-map-marker-alt fa-xs pr-2"></i>West Indian Summer St. Missoula</span>
+                  <p class="mt-3 mb-0">â€œNothing changes until something moves this is the battle cry of author and journalist Robert Ringer.</p>
+                </div>
               </div>
-              <div class="counter-content">
-                <span class="timer mb-1" data-to="2265" data-speed="10000">2265</span>
-                <label class="mb-0">Property sell </label>
+              <div class="agent-button">
+                <a class="btn btn-light btn-block" href="{{ route("agency-details",'1')}}">View Profile</a>
               </div>
             </div>
           </div>
-          <div class="col-sm-3">
-            <div class="counter counter-02 mb-4 mb-sm-0">
-              <div class="counter-icon">
-                <span class="pt-1 icon fab flaticon-agent"></span>
+          <div class="col-lg-6 col-sm-6">
+            <div class="agent text-center mt-4">
+              <div class="agent-detail">
+                <div class="agent-avatar avatar avatar-xllll">
+                  <img class="img-fluid rounded-circle" src="{{ asset('public/frontend/assets/images/agency/03.png') }}" alt="">
+                </div>
+                <div class="agent-info">
+                  <h6> <a href="{{ route("agency-details",'1')}}">Green house </a></h6>
+                  <span><i class="fas fa-map-marker-alt fa-xs pr-2"></i>Fairground St. North Bergen, NJ</span>
+                  <p class="mt-3 mb-0">So, there you have it; the six steps that will help you to the fabled land of achievement and success!</p>
+                </div>
               </div>
-              <div class="counter-content">
-                <span class="timer mb-1" data-to="3265" data-speed="10000">3265</span>
-                <label class="mb-0">Property agent</label>
+              <div class="agent-button">
+                <a class="btn btn-light btn-block" href="{{ route("agency-details",'1')}}">View Profile</a>
               </div>
             </div>
+          </div>
+          <div class="col-lg-6 col-sm-6">
+            <div class="agent text-center mt-4">
+              <div class="agent-detail">
+                <div class="agent-avatar avatar avatar-xllll">
+                  <img class="img-fluid rounded-circle" src="{{ asset('public/frontend/assets/images/agency/04.png') }}" alt="">
+                </div>
+                <div class="agent-info">
+                  <h6> <a href="{{ route("agency-details",'1')}}">leaf apartments </a></h6>
+                  <span><i class="fas fa-map-marker-alt fa-xs pr-2"></i>Piper Drive Zion</span>
+                  <p class="mt-3 mb-0">Franklins extraordinary success in life and politics can be attributed to his perseverance to overcome his.</p>
+                </div>
+              </div>
+              <div class="agent-button">
+                <a class="btn btn-light btn-block" href="{{ route("agency-details",'1')}}">View Profile</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <ul class="pagination mt-5">
+              <li class="page-item disabled mr-auto">
+                <span class="page-link b-radius-none">Prev</span>
+              </li>
+              <li class="page-item active" aria-current="page"><span class="page-link">1 </span> <span class="sr-only">(current)</span></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item ml-auto">
+                <a class="page-link b-radius-none" href="#">Next</a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
-  </section>
-  <!--=================================
-  counter -->
-  
-  <!--=================================
-  agent -->
-  <section class="space-ptb">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="section-title text-center">
-            <h2>Meet our agents</h2>
-          </div>
-        </div>
-      </div>
-      <div class="row no-gutters">
-        <div class="col-lg-3 col-sm-6 mb-4 mb-sm-0">
-          <div class="agent text-center">
-            <div class="agent-detail">
-              <div class="agent-avatar avatar avatar-xllll">
-                <img class="img-fluid rounded-circle" src="{{ asset('public/frontend/assets/images/agent/01.jpg') }}" alt="">
-              </div>
-              <div class="agent-info">
-                <h6 class="mb-0"> <a href="agent-detail.html">Alice Williams </a></h6>
-                <span class="text-primary font-sm">Founder & CEO </span>
-                <p class="mt-3 mb-0">The first thing to remember about success is that it is a process – nothing more, nothing less.</p>
-              </div>
-            </div>
-            <div class="agent-button">
-              <a class="btn btn-light btn-block" href="agent-detail.html">View Profile</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-sm-6 mb-4 mb-sm-0">
-          <div class="agent text-center">
-            <div class="agent-detail">
-              <div class="agent-avatar avatar avatar-xllll">
-                <img class="img-fluid rounded-circle" src="{{ asset('public/frontend/assets/images/agent/02.jpg') }}" alt="">
-              </div>
-              <div class="agent-info">
-                <h6 class="mb-0"> <a href="agent-detail.html">Felica queen </a></h6>
-                <span class="text-primary font-sm">Construction</span>
-                <p class="mt-3 mb-0">There are basically six key areas to higher achievement. Some people will tell you there are four.</p>
-              </div>
-            </div>
-            <div class="agent-button">
-              <a class="btn btn-light btn-block" href="agent-detail.html">View Profile</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-sm-6 mb-4 mb-sm-0">
-          <div class="agent text-center">
-            <div class="agent-detail">
-              <div class="agent-avatar avatar avatar-xllll">
-                <img class="img-fluid rounded-circle" src="{{ asset('public/frontend/assets/images/agent/03.jpg') }}" alt="">
-              </div>
-              <div class="agent-info">
-                <h6 class="mb-0"> <a href="agent-detail.html">Paul flavius </a></h6>
-                <span class="text-primary font-sm">Investment</span>
-                <p class="mt-3 mb-0">While others may tell you there are eight. One thing for certain though, is that irrespective of the.</p>
-              </div>
-            </div>
-            <div class="agent-button">
-              <a class="btn btn-light btn-block" href="agent-detail.html">View Profile</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-sm-6">
-          <div class="agent text-center">
-            <div class="agent-detail">
-              <div class="agent-avatar avatar avatar-xllll">
-                <img class="img-fluid rounded-circle" src="{{ asset('public/frontend/assets/images/agent/04.jpg') }}" alt="">
-              </div>
-              <div class="agent-info">
-                <h6 class="mb-0"> <a href="agent-detail.html">Sara lisbon  </a></h6>
-                <span class="text-primary font-sm">Land development</span>
-                <p class="mt-3 mb-0">If success is a process with a number of defined steps, then it is just like any other process.</p>
-              </div>
-            </div>
-            <div class="agent-button">
-              <a class="btn btn-light btn-block" href="agent-detail.html">View Profile</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!--=================================
-  agent -->
-  
+  </div>
+</section>
   <!--=================================
   newsletter -->
   <section class="py-5 bg-primary">

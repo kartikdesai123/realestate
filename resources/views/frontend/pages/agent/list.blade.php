@@ -95,7 +95,7 @@
                 <div class="agent-info">
                   <h6 class="mb-0"> <a href="{{ route("agent-details",'1')}}">Alice Williams </a></h6>
                   <span class="font-sm">Investment</span>
-                  <p class="mt-3 mb-0">And it's not just parents that are the cause â€“ teachers, friends, clergy members or anyone else that.</p>
+                  <p class="mt-3 mb-0">And it's not just parents that are the cause  teachers, friends, clergy members or anyone else that.</p>
                 </div>
               </div>
               <div class="agent-button">
