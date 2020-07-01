@@ -1,8 +1,8 @@
-var Termscondition = function (){
-    var addeditterms = function (){
-        CKEDITOR.replace('add-edit-terms');
+var Aboutus = function (){
+    var addeditAboutus = function (){
+        CKEDITOR.replace('about_us');
         
-        var form = $('#add-edit-terms');
+        var form = $('#add-edit-about-us');
         var rules = {
            
             
@@ -22,7 +22,7 @@ var Termscondition = function (){
     
     return {
         init : function (){
-            addeditterms();
+            addeditAboutus();
         },
     }
 }();

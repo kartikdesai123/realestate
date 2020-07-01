@@ -67,3 +67,5 @@ Route::match(['get', 'post'], 'about-us', ['as' => 'about-us', 'uses' => 'fronte
 Route::match(['get', 'post'], 'contact-us', ['as' => 'contact-us', 'uses' => 'frontend\ContactusController@contactus']);
 
 
+
+

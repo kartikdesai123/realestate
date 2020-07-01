@@ -126,9 +126,16 @@ $currentRoute = Route::current()->getName();
                         @endif
                 </a>
             </li>
-
-
-
+            
+            <li class="nav-item start {{ $currentRoute == "admin-about-us" ? "active": ""}} ">
+                <a href="{{ route('admin-about-us') }}" class="nav-link ">
+                    <i class="fa fa-cogs" aria-hidden="true"></i>
+                        <span class="title">About Us</span>
+                        @if($currentRoute == "admin-about-us" )
+                            <span class="selected"></span>
+                        @endif
+                </a>
+            </li>
 
         </ul>
         <!-- END SIDEBAR MENU -->

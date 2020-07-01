@@ -57,6 +57,8 @@ Route::group(['prefix' => $adminPrefix, 'middleware' => ['admin']], function() {
     //General-settings
     Route::match(['get', 'post'], 'admin-general-settings', ['as' => 'admin-general-settings', 'uses' => 'backend\generalsettings\GeneralSettingsController@generalsettings']);
     
+    // About-us
+    Route::match(['get', 'post'], 'admin-about-us', ['as' => 'admin-about-us', 'uses' => 'backend\aboutus\AboutusController@aboutus']);
     // Plan
     Route::match(['get', 'post'], 'admin-faq', ['as' => 'admin-faq', 'uses' => 'backend\faq\FaqController@list']);
     Route::match(['get', 'post'], 'admin-add-faq', ['as' => 'admin-add-faq', 'uses' => 'backend\faq\FaqController@add']);
