@@ -13,7 +13,7 @@
                     <div class="form-body">
 
                         <div class="form-group">
-                            <label class="control-label col-md-2">Terms & Conditions</label>
+                            <label class="control-label col-md-2">About Us Details</label>
                             <div class="col-md-10">
                                 @if(count($aboutusDetails) > 0)
                                     <textarea name="about_us" class="form-control blogdescription" placeholder="Please enter about us">{!! $aboutusDetails[0]->aboutus !!}</textarea>
