@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Plandetails extends Model
 {
+    protected $table ="plandetails";
     //
     public function getdatatable(){
         $requestData = $_REQUEST;
@@ -15,8 +16,8 @@ class Plandetails extends Model
             2 => 'plandetails.planname',
             3 => 'plandetails.planprice',
             4 => 'plandetails.plandays',
-            4 => 'plandetails.planproperty',
-            4 => 'plandetails.planagent',
+            5 => 'plandetails.planproperty',
+            6 => 'plandetails.planagent',
         );
         $query = Blog ::from('plandetails')
                         ->join("plan","plan.id","=","plandetails.planid")

@@ -137,6 +137,36 @@ $currentRoute = Route::current()->getName();
                 </a>
             </li>
 
+
+            <li class="nav-item start  {{ $currentRoute == "admin-services" || $currentRoute == "admin-services-details" ? "active": ""}} ">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="fa fa-anchor"></i>
+                    <span class="title">Services</span>
+                    <span class="arrow"></span>
+                    @if($currentRoute == "admin-services" ||  $currentRoute == "admin-services-details")
+                        <span class="selected"></span>
+                    @endif
+                </a>
+                <ul class="sub-menu">
+
+                    <li class="nav-item start {{ $currentRoute == "admin-services-details" ? "active": ""}} ">
+                        <a href="{{ route('admin-services-details') }}" class="nav-link ">
+                            <i class="fa fa-hand-o-right"></i>
+                            <span class="title">Services Details</span>
+                        </a>
+                    </li>
+
+
+                    <li class="nav-item start {{ $currentRoute == "admin-services"  || $currentRoute == "admin-add-services" ? "active": ""}} ">
+                        <a href="{{ route('admin-services') }}" class="nav-link ">                            
+                            <i class="fa fa-hand-o-right"></i>
+                            <span class="title">Services</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </li>
+
         </ul>
         <!-- END SIDEBAR MENU -->
         <!-- END SIDEBAR MENU -->
