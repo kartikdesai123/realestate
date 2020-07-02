@@ -138,7 +138,7 @@ $currentRoute = Route::current()->getName();
             </li>
 
 
-            <li class="nav-item start  {{ $currentRoute == "admin-services" || $currentRoute == "admin-services-details" ? "active": ""}} ">
+            <li class="nav-item start  {{ $currentRoute == "admin-services"  || $currentRoute == "admin-add-services" || $currentRoute == "admin-view-services" || $currentRoute == "admin-edit-services" || $currentRoute == "admin-services" || $currentRoute == "admin-services-details" ? "active": ""}} ">
                 <a href="javascript:;" class="nav-link nav-toggle">
                     <i class="fa fa-anchor"></i>
                     <span class="title">Services</span>
@@ -157,7 +157,7 @@ $currentRoute = Route::current()->getName();
                     </li>
 
 
-                    <li class="nav-item start {{ $currentRoute == "admin-services"  || $currentRoute == "admin-add-services" ? "active": ""}} ">
+                    <li class="nav-item start {{ $currentRoute == "admin-services"  || $currentRoute == "admin-add-services" || $currentRoute == "admin-view-services" || $currentRoute == "admin-edit-services" ? "active": ""}} ">
                         <a href="{{ route('admin-services') }}" class="nav-link ">                            
                             <i class="fa fa-hand-o-right"></i>
                             <span class="title">Services</span>
