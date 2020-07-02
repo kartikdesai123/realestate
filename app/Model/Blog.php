@@ -125,7 +125,7 @@ class Blog extends Model
         return  $query = Blog ::from('blog')
                         ->join("blogcategory","blogcategory.id","=","blog.category")
                         ->where("blog.id",$id)
-                        ->select('blog.id','blog.title','blogcategory.blogCategoryName','blog.description','blog.created_at','blog.authorName')
+                        ->select('blog.id','blog.title','blog.category','blogcategory.blogCategoryName','blog.description','blog.created_at','blog.authorName')
                         ->get();
        
     }

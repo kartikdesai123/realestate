@@ -55,16 +55,23 @@ class ExtrafacilitiesController extends Controller
         if ($request->isMethod("post")) {
             $objExtrafacilities = new Extrafacilities();
             $result = $objExtrafacilities->add($request);
-            if ($result) {
+
+            if ($result == "true") {
                 $return['status'] = 'success';
                 $return['message'] = 'Facilities details successfully added';
                 $return['redirect'] = route('extra-facilities');
             } else {
-                $return['status'] = 'error';
-                $return['message'] = 'Something goes to wrong.';
+                if ($result == "exits") {
+                    $return['status'] = 'error';
+                    $return['message'] = 'Facilities details already exits';
+                }else{
+                    $return['status'] = 'error';
+                    $return['message'] = 'Something goes to wrong.';
+                }
             }
             echo json_encode($return);
             exit;
+
         }
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Add New Extra Facailies';
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Add New Extra Facailies';
@@ -104,13 +111,18 @@ class ExtrafacilitiesController extends Controller
         if ($request->isMethod("post")) {
             $objExtrafacilities = new Extrafacilities();
             $result = $objExtrafacilities->edit($request);
-            if ($result) {
+            if ($result == "true") {
                 $return['status'] = 'success';
-                $return['message'] = 'Facilities details successfully updated';
+                $return['message'] = 'Facilities details successfully added';
                 $return['redirect'] = route('extra-facilities');
             } else {
-                $return['status'] = 'error';
-                $return['message'] = 'Something goes to wrong.';
+                if ($result == "exits") {
+                    $return['status'] = 'error';
+                    $return['message'] = 'Facilities details already exits';
+                }else{
+                    $return['status'] = 'error';
+                    $return['message'] = 'Something goes to wrong.';
+                }
             }
             echo json_encode($return);
             exit;

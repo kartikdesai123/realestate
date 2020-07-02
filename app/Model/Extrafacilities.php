@@ -69,19 +69,43 @@ class Extrafacilities extends Model
     }
 
     public function add($request){
-        $objExtrafacilities = new Extrafacilities();
-        $objExtrafacilities->facilitiesName =$request->input("facilities");
-        $objExtrafacilities->is_deleted = "0";
-        $objExtrafacilities->created_at = date("Y-m-d h:i:s");
-        $objExtrafacilities->updated_at = date("Y-m-d h:i:s");
-        return $objExtrafacilities->save();
+
+        $count = Extrafacilities::where("facilitiesName",$request->input('facilities'))
+                    ->where("is_deleted","0")
+                    ->count();
+
+        if($count == 0){
+            $objExtrafacilities = new Extrafacilities();
+            $objExtrafacilities->facilitiesName =$request->input("facilities");
+            $objExtrafacilities->is_deleted = "0";
+            $objExtrafacilities->created_at = date("Y-m-d h:i:s");
+            $objExtrafacilities->updated_at = date("Y-m-d h:i:s");
+            if($objExtrafacilities->save()){                
+                return "true";
+            }else{                
+                return "wrong";
+            }
+        }else{
+            return "exits";
+        }
     }
     public function edit($request){
-        
-        $objExtrafacilities = Extrafacilities::find($request->input('id'));
-        $objExtrafacilities->facilitiesName =$request->input("facilities");
-        $objExtrafacilities->updated_at = date("Y-m-d h:i:s");
-        return $objExtrafacilities->save();
+        $count = Extrafacilities::where("facilitiesName",$request->input('facilities'))
+                    ->where("id","!=",$request->input('id'))
+                    ->where("is_deleted","0")
+                    ->count();
+        if($count == 0){
+            $objExtrafacilities = Extrafacilities::find($request->input('id'));
+            $objExtrafacilities->facilitiesName =$request->input("facilities");
+            $objExtrafacilities->updated_at = date("Y-m-d h:i:s");
+            if($objExtrafacilities->save()){                
+                return "true";
+            }else{                
+                return "wrong";
+            }
+        }else{
+            return "exits";
+        }
     }
     
     public function editdetails($id){

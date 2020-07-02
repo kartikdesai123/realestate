@@ -152,7 +152,7 @@ class BlogController extends Controller
         }
         $objBlog = new Blog();
         $data['blogdetails'] = $objBlog->blogdetails($id);
-
+        
         $objBlogcategory = new Blogcategory();
         $data['blogcategory'] = $objBlogcategory->blogcategory();
 
