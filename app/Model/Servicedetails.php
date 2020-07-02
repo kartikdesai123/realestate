@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Servicedetails extends Model
 {
     //
-    protected $table ="servicedetails";
+    protected $table = "servicedetails";
 
     public function getDetails(){
         return Servicedetails::select("serviceDetails")
@@ -19,7 +19,8 @@ class Servicedetails extends Model
     public function addServicedetails($request){
         $result = Servicedetails::updateOrInsert(
             ['id' => 1],
-            ['serviceDetails' => $request->input("service_details"), 
+            [
+                'serviceDetails' => $request->input("service_details"), 
                 "created_at" => date("Y-m-d h:i:s"),
                 "updated_at" => date("Y-m-d h:i:s")
             ]
