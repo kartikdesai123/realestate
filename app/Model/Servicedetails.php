@@ -8,6 +8,7 @@ class Servicedetails extends Model
 {
     //
     protected $table ="servicedetails";
+
     public function getDetails(){
         return Servicedetails::select("serviceDetails")
                             ->where("id",1)
