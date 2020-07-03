@@ -1,12 +1,11 @@
 var Termscondition = function (){
     var addeditterms = function (){
-        CKEDITOR.replace('add-edit-terms');
+        CKEDITOR.replace('terms_conditions');
         
         var form = $('#add-edit-terms');
         var rules = {
            
-            
-
+           
         };
         var messages = {
            

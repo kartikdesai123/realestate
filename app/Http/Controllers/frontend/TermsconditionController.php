@@ -5,6 +5,7 @@ namespace App\Http\Controllers\frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Config;
+use App\Model\TermsCondition;
 class TermsconditionController extends Controller
 {
     function __construct(){
@@ -12,7 +13,8 @@ class TermsconditionController extends Controller
     }
 
     public function termcondition(Request $request){
-
+        $objTermsCondition = new TermsCondition();
+        $data['termsandcondi'] =  $objTermsCondition->getTermsCondition();
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || FAQs ';
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || FAQs';
         $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || FAQs';

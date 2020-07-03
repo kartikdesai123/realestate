@@ -129,4 +129,9 @@ class Plan extends Model
                     ->where("is_deleted","0")
                     ->get();
     }
+    public function getplanList(){
+        return Plan::select("planname","id","plandescription")
+                    ->where("is_deleted","0")
+                    ->get();
+    }
 }

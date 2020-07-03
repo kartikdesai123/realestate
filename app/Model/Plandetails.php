@@ -64,9 +64,9 @@ class Plandetails extends Model
             $nestedData[] = $i;
             $nestedData[] = $row['plan'];
             $nestedData[] = $row['planname'];
-            $nestedData[] = $row['planagent'];
-            $nestedData[] = $row['planproperty'];
             $nestedData[] = $row['planprice'];
+            $nestedData[] = $row['planproperty'];
+            $nestedData[] = $row['planagent'];
             $nestedData[] = $row['plandays'];
             $nestedData[] = $actionhtml;
             $data[] = $nestedData;
@@ -145,5 +145,12 @@ class Plandetails extends Model
             $objPlandetails->is_deleted ="1";
             $objPlandetails->updated_at = date("Y-m-d h:i:s");
             return $objPlandetails->save();
+    }
+
+    public function plandetails($id){
+        return Plandetails::select("planid","planname","planprice","plandays","planproperty","planagent","is_deleted","id")
+                            ->where("planid",$id)
+                            ->where("is_deleted","0")
+                            ->get();
     }
 }

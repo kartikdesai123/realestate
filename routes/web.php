@@ -53,6 +53,7 @@ Route::match(['get', 'post'], 'services', ['as' => 'services', 'uses' => 'fronte
 
 // plan
 Route::match(['get', 'post'], 'plan', ['as' => 'plan', 'uses' => 'frontend\PlanController@plan']);
+Route::match(['get', 'post'], 'plan-details/{id}', ['as' => 'plan-details', 'uses' => 'frontend\PlanController@plandetails']);
 
 // faq
 Route::match(['get', 'post'], 'faq', ['as' => 'faq', 'uses' => 'frontend\FaqController@faq']);
