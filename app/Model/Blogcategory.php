@@ -3,7 +3,8 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\Model\Blog;
+use DB;
 class Blogcategory extends Model
 {
     protected $table ="blogcategory";
@@ -147,4 +148,12 @@ class Blogcategory extends Model
                                 ->where('is_deleted','0')
                                 ->get();
     }
+    public function getcategoryList(){
+        return Blogcategory::select("blogcategory.blogCategoryName","blogcategory.id",DB::raw("count(blog.category) as count"))
+                                ->leftJoin("blog","blog.category","=","blogcategory.id")
+                                ->where('blogcategory.is_deleted','0')
+                                ->groupBy('blogcategory.id')
+                                ->get();
+    }
+    
 }

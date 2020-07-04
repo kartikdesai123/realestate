@@ -137,4 +137,20 @@ class Blog extends Model
         $objBlog->updated_at = date("Y-m-d h:i:s");
         return $objBlog->save();
     }
+
+    public function getBlogList($categoryid=null){
+        if($categoryid){
+            return  $query = Blog ::from('blog')
+                        ->join("blogcategory","blogcategory.id","=","blog.category")
+                        ->where("blog.category",$categoryid)
+                        ->select('blog.id','blog.title','blog.category','blogcategory.blogCategoryName','blog.description','blog.created_at','blog.authorName')
+                        ->paginate(3);
+        }else{
+            return  $query = Blog ::from('blog')
+                    ->join("blogcategory","blogcategory.id","=","blog.category")
+                    ->select('blog.id','blog.title','blog.category','blogcategory.blogCategoryName','blog.description','blog.created_at','blog.authorName')
+                    ->paginate(3);
+            
+        }
+    }
 }

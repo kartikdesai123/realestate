@@ -5,6 +5,9 @@ namespace App\Http\Controllers\frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Config;
+use App\Model\Blog;
+use App\Model\Blogcategory;
+use App\Model\GeneralSettings;
 class BlogController extends Controller
 {
     function __construct(){
@@ -12,6 +15,27 @@ class BlogController extends Controller
     }
 
     public function blog(Request $request){
+
+        $getId = $request->get("categoryid");
+        
+        $objBlogcategory = new Blogcategory();
+        $data['categoryList'] = $objBlogcategory->getcategoryList();
+
+        $objGeneralSettings = new GeneralSettings();
+        $data['generalSettings'] = $objGeneralSettings->getGeneralSettings();
+
+        if($getId){
+            // editdetails
+            $objBlogcategory = new Blogcategory();
+            $data['blog'] = $objBlogcategory->editdetails($getId);
+
+            $objBlog = new Blog();
+            $data['getBlogList'] = $objBlog->getBlogList($getId);
+        }else{
+            $objBlog = new Blog();
+            $data['getBlogList'] = $objBlog->getBlogList();
+        }
+        
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Blogs';
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Blogs';
         $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Blogs';
@@ -24,6 +48,7 @@ class BlogController extends Controller
         );
         $data['js'] = array();
         $data['funinit'] = array();
+
         return view('frontend.pages.blog.blog', $data);
     }
 
