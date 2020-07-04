@@ -25,30 +25,36 @@ Service -->
         </ul>
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="regular-user" role="tabpanel" aria-labelledby="regular-user-tab">
-            <form class="form-row mt-4 mb-5 align-items-center">
+            <form class="form-row mt-4 mb-5 align-items-center" method="post" action="{{ route('user-register') }}" id="user-register">@csrf
+
               <div class="form-group col-sm-12">
                 <label>Username:</label>
-                <input type="text" class="form-control" placeholder="">
+                <input type="text" class="form-control" name="username" placeholder="Please enter your username">
               </div>
+
               <div class="form-group col-sm-12">
                 <label>Email Address:</label>
-                <input type="email" class="form-control" placeholder="">
+                <input type="email" class="form-control" name="email" placeholder="Please enter your email">
               </div>
+
               <div class="form-group col-sm-12">
                 <label>Password:</label>
-                <input type="Password" class="form-control" placeholder="">
+                <input type="password" class="form-control" name="password" id="password" placeholder="Please enter your password">
               </div>
+
               <div class="form-group col-sm-12">
                 <label>Confirm Password:</label>
-                <input type="Password" class="form-control" placeholder="">
+                <input type="password" class="form-control" name="cpassword" placeholder="Please enter your confirm password">
               </div>
+
                <div class="form-group col-sm-12">
                 <label>Phone no:</label>
-                <input type="text" class="form-control" placeholder="">
+                <input type="text" class="form-control" name="phoneno" placeholder="Please enter your phone number">
               </div>
+
                 <div class="form-group col-sm-12">
                 <label>Photo:</label>
-                <input type="file" class="form-control" placeholder="">
+                <input type="file" class="form-control" name="userimage" accept="image/*">
               </div>
               <div class="col-sm-6">
                 <button type="submit" class="btn btn-primary btn-block">Sign up</button>
@@ -61,34 +67,34 @@ Service -->
             </form>
           </div>
           <div class="tab-pane fade" id="agent" role="tabpanel" aria-labelledby="agent-tab">
-            <form class="form-row mt-4 align-items-center">
+            <form class="form-row mt-4 align-items-center" id="agent-register">@csrf
               <div class="form-group col-sm-12">
                 <label>Username:</label>
-                <input type="text" class="form-control" placeholder="">
+                <input type="text" class="form-control" name="agentusername" placeholder="Please enter agent's username">
               </div>
               <div class="form-group col-sm-12">
                 <label>Email Address:</label>
-                <input type="email" class="form-control" placeholder="">
+                <input type="email" class="form-control" name="agentemail" placeholder="Please enter agent's email">
               </div>
               <div class="form-group col-sm-12">
                 <label>Password:</label>
-                <input type="Password" class="form-control" placeholder="">
+                <input type="password" class="form-control" name="agentpassword" id="agentpassword" placeholder="Please enter agent's password">
               </div>
               <div class="form-group col-sm-12">
                 <label>Confirm Password:</label>
-                <input type="Password" class="form-control" placeholder="">
+                <input type="password" class="form-control" name="agentcpassword" placeholder="Please enter agent's confirm password">
               </div>
               <div class="form-group col-sm-12">
                 <label>Phone no:</label>
-                <input type="text" class="form-control" placeholder="">
+                <input type="text" class="form-control" name="agentphoneno" placeholder="Please enter agent's phone number">
               </div>
               <div class="form-group col-sm-12">
                 <label>About agent:</label>
-                <textarea name='aboutagent' class="form-control" placeholder=""></textarea>
+                <textarea  class="form-control" name="agentabout" placeholder="Please enter about agent"></textarea>
               </div>
               <div class="form-group col-sm-12">
                 <label>Photo:</label>
-                <input type="file" class="form-control" placeholder="">
+                <input type="file" class="form-control" name="agentuserimage" accept="image/*">
               </div>
               <div class="col-sm-6">
                 <button type="submit" class="btn btn-primary btn-block">Sign up</button>
@@ -101,34 +107,34 @@ Service -->
             </form>
           </div>
           <div class="tab-pane fade" id="agancy" role="tabpanel" aria-labelledby="agancy-tab">
-            <form class="form-row mt-4 align-items-center">
+            <form class="form-row mt-4 align-items-center" id="agency-register">@csrf
               <div class="form-group col-sm-12">
                 <label>Username:</label>
-                <input type="text" class="form-control" placeholder="">
+                <input type="text" class="form-control" name="agencyusername" placeholder="Please enter agency's username">
               </div>
               <div class="form-group col-sm-12">
                 <label>Email Address:</label>
-                <input type="email" class="form-control" placeholder="">
+                <input type="email" class="form-control" name="agencyemail" placeholder="Please enter agency's email">
               </div>
               <div class="form-group col-sm-12">
                 <label>Password:</label>
-                <input type="Password" class="form-control" placeholder="">
+                <input type="password" class="form-control" name="agencypassword" id="agencypassword" placeholder="Please enter agency's password">
               </div>
               <div class="form-group col-sm-12">
                 <label>Confirm Password:</label>
-                <input type="Password" class="form-control" placeholder="">
+                <input type="password" class="form-control" name="agencycpassword" placeholder="Please enter agency's confirm password">
               </div>
               <div class="form-group col-sm-12">
                 <label>Phone no:</label>
-                <input type="text" class="form-control" placeholder="">
+                <input type="text" class="form-control" name="agencyphoneno" placeholder="Please enter agency's phone number">
               </div>
               <div class="form-group col-sm-12">
                 <label>About agancy:</label>
-                <textarea name='aboutagent' class="form-control" placeholder=""></textarea>
+                <textarea  class="form-control" name="agencyabout" placeholder="Please enter about agency"></textarea>
               </div>
               <div class="form-group col-sm-12">
                 <label>Logo:</label>
-                <input type="file" class="form-control" placeholder="">
+                <input type="file" class="form-control" name="agencyuserimage" accept="image/*">
               </div>
               <div class="col-sm-6">
                 <button type="submit" class="btn btn-primary btn-block">Sign up</button>
@@ -141,38 +147,47 @@ Service -->
             </form>
           </div>
             <div class="tab-pane fade" id="company" role="tabpanel" aria-labelledby="company-tab">
-            <form class="form-row mt-4 align-items-center">
+            <form class="form-row mt-4 align-items-center" id="company-register">@csrf
+
               <div class="form-group col-sm-12">
                 <label>Username:</label>
-                <input type="text" class="form-control" placeholder="">
+                <input type="text" class="form-control" name="companyusername" placeholder="Please enter company's username">
               </div>
+
               <div class="form-group col-sm-12">
                 <label>Email Address:</label>
-                <input type="email" class="form-control" placeholder="">
+                <input type="email" class="form-control" name="companyemail" placeholder="Please enter company's email">
               </div>
+
               <div class="form-group col-sm-12">
                 <label>Password:</label>
-                <input type="Password" class="form-control" placeholder="">
+                <input type="password" class="form-control" name="companypassword" id="companypassword" placeholder="Please enter company's password">
               </div>
+
               <div class="form-group col-sm-12">
                 <label>Confirm Password:</label>
-                <input type="Password" class="form-control" placeholder="">
+                <input type="password" class="form-control" name="companycpassword" placeholder="Please enter company's confirm password">
               </div>
+
               <div class="form-group col-sm-12">
                 <label>Phone no:</label>
-                <input type="text" class="form-control" placeholder="">
+                <input type="text" class="form-control" name="companyphoneno" placeholder="Please enter company's phone number">
               </div>
+
               <div class="form-group col-sm-12">
                 <label>About company:</label>
-                <textarea name='aboutagent' class="form-control" placeholder=""></textarea>
+                <textarea  class="form-control" name="companyabout" placeholder="Please enter about company"></textarea>
               </div>
+
               <div class="form-group col-sm-12">
                 <label>Logo:</label>
-                <input type="file" class="form-control" placeholder="">
+                <input type="file" class="form-control" name="companyuserimage" accept="image/*">
               </div>
+
               <div class="col-sm-6">
                 <button type="submit" class="btn btn-primary btn-block">Sign up</button>
               </div>
+
               <div class="col-sm-6">
                 <ul class="list-unstyled d-flex mb-1 mt-sm-0 mt-3">
                   <li class="mr-1"><a href="{{ route('signin') }}">Already Registered User? Click here to signin</a></li>

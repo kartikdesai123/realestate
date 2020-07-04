@@ -103,9 +103,9 @@ p {
   padding: 10px 20px;
   -webkit-box-shadow: none;
           box-shadow: none;
-  font-size: 14px;
+  /* font-size: 14px;
   font-weight: 600;
-  color: #001935;
+  color: #001935; */
   border-radius: 3px;
   background-clip: inherit !important; }
   .form-control:focus {
@@ -4333,3 +4333,11 @@ ul li:last-child {
     padding-bottom: 27px; }
   .navbar .navbar-nav .nav-link i {
     margin-top: 5px; } }
+
+
+.has-error{
+  border: 1px solid red;
+}
+.help-block{
+  color: red;
+}

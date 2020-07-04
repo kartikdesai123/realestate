@@ -18,6 +18,12 @@ Route::match(['get', 'post'], '/', ['as' => 'home', 'uses' => 'frontend\HomeCont
 Route::match(['get', 'post'], 'signin', ['as' => 'signin', 'uses' => 'frontend\LoginController@index']);
 Route::match(['get', 'post'], 'signup', ['as' => 'signup', 'uses' => 'frontend\LoginController@register']);
 
+
+Route::match(['get', 'post'], 'user-register', ['as' => 'user-register', 'uses' => 'frontend\LoginController@userregister']);
+Route::match(['get', 'post'], 'agent-register', ['as' => 'agent-register', 'uses' => 'frontend\LoginController@agentregister']);
+Route::match(['get', 'post'], 'agency-register', ['as' => 'agency-register', 'uses' => 'frontend\LoginController@agencyregister']);
+Route::match(['get', 'post'], 'company-register', ['as' => 'company-register', 'uses' => 'frontend\LoginController@companyregister']);
+
 // property
 
 Route::match(['get', 'post'], 'property', ['as' => 'property', 'uses' => 'frontend\PropertyController@propertylist']);
