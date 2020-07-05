@@ -1,6 +1,19 @@
 @php
 
 $currentRoute = Route::current()->getName();
+      if (!empty(Auth()->guard('users')->user())) {
+         $data = Auth()->guard('users')->user();
+      }
+      if (!empty(Auth()->guard('agent')->user())) {
+         $data = Auth()->guard('agent')->user();
+      }
+      if (!empty(Auth()->guard('agency')->user())) {
+         $data = Auth()->guard('agency')->user();
+      }
+      if (!empty(Auth()->guard('company')->user())) {
+         $data = Auth()->guard('company')->user();
+      }
+
 @endphp<!--=================================
          header -->
          @if($currentRoute == "home")
@@ -73,8 +86,28 @@ $currentRoute = Route::current()->getName();
                   </div>
                   <div class="d-flex align-items-center">
                      <div class="login mr-4">
+                        @if(isset($data))
+                        <ul class="nav navbar-nav">
+                           <li class="nav-item dropdown">
+                              
+                              <a href="javascript:;" style="color: white"> 
+                                 <i class="fa fa-user pl-2"></i>&nbsp;{{ $data['username'] }} 
+                                 <i class="fas fa-chevron-down fa-xs"></i>
+                              </a>
+                              
+                              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="index.html">My Profile</a></li>
+                              <li><a class="dropdown-item" href="{{ route('user-logout') }}">Logout</a></li>
+                              </ul>
+                            </li>
+                        </ul>
+                        
+                        
+                        @else
+                           <a href="{{ route('signin') }}"> <i class="fa fa-user pl-2"></i>Sign in </a>
+                        @endif
                         <!--<a data-toggle="modal" data-target="#loginModal" href="#">Hello sign in<i class="fa fa-user pl-2"></i></a>-->
-                         <a href="{{ route('signin') }}"> <i class="fa fa-user pl-2"></i>Sign in </a>
+                         
                      </div>
                      <div class="add-listing d-none d-sm-block">
                         <a class="btn btn-primary btn-md" href="{{ route('submit-property') }}"> <i class="fa fa-plus-circle"></i>Add listing </a>

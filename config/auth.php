@@ -46,9 +46,26 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+
         'admin' => [
             'driver' => 'session',
             'provider' => 'admin'
+        ],
+        'agent' => [
+            'driver' => 'session',
+            'provider' => 'agent'
+        ],
+        'agency' => [
+            'driver' => 'session',
+            'provider' => 'agency'
+        ],
+        'users' => [
+            'driver' => 'session',
+            'provider' => 'users'
+        ],
+        'company' => [
+            'driver' => 'session',
+            'provider' => 'company'
         ],
     ],
 
@@ -76,6 +93,18 @@ return [
         ],
 
         'admin' => [
+            'driver' => 'eloquent',
+            'model' => App\User::class,
+        ],
+        'company' => [
+            'driver' => 'eloquent',
+            'model' => App\User::class,
+        ],
+        'agency' => [
+            'driver' => 'eloquent',
+            'model' => App\User::class,
+        ],
+        'agent' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],

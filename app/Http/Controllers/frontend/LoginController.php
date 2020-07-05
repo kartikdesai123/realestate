@@ -9,6 +9,10 @@ use App\Model\Users;
 use App\Model\Agent;
 use App\Model\Agency;
 use App\Model\Company;
+use Hash;
+use Auth;
+use Session;
+use Redirect;
 class LoginController extends Controller
 {
     function __construct(){
@@ -16,24 +20,115 @@ class LoginController extends Controller
     }
 
     public function index(Request $request){
+        if ($request->isMethod("post")) {
+            if ( Auth::guard('users')->attempt( ['email' => $request->input( 'email' ), 'password' => $request->input( 'password' ) , 'roles' => "U" ,"isDeleted"=>"0"] ) ) {
+
+                $loginData = array(
+                   
+                    'username' => Auth::guard('users')->user()->username,
+                    'email' => Auth::guard('users')->user()->email,
+                    'userimage' => Auth::guard('users')->user()->userimage,
+                    'roles' => Auth::guard('users')->user()->roles,
+                    'about' => Auth::guard('users')->user()->about,
+                    'id' => Auth::guard('users')->user()->id
+                );
+                
+                Session::push( 'logindata', $loginData );
+                
+                $return['status'] = 'success';
+                $return['message'] = 'Well Done login Successfully!';
+                $return['redirect'] = route('home');
+            } else {
+                if ( Auth::guard('agent')->attempt( ['email' => $request->input( 'email' ), 'password' => $request->input( 'password' ) , 'roles' => "AG" ,"isDeleted"=>"0"] ) ) {
+
+                    $loginData = array(
+                        
+                        'username' => Auth::guard('agent')->user()->username,
+                        'email' => Auth::guard('agent')->user()->email,
+                        'userimage' => Auth::guard('agent')->user()->userimage,
+                        'roles' => Auth::guard('agent')->user()->roles,
+                        'about' => Auth::guard('agent')->user()->about,
+                        'id' => Auth::guard('agent')->user()->id
+                    );
+    
+                    Session::push( 'logindata', $loginData );
+                    
+                    $return['status'] = 'success';
+                    $return['message'] = 'Well Done login Successfully!';
+                    $return['redirect'] = route('home');
+                } else {
+                    if ( Auth::guard('agency')->attempt( ['email' => $request->input( 'email' ), 'password' => $request->input( 'password' ) , 'roles' => "AY" ,"isDeleted"=>"0"] ) ) {
+
+                        $loginData = array(
+                            
+                            'username' => Auth::guard('agency')->user()->username,
+                            'email' => Auth::guard('agency')->user()->email,
+                            'userimage' => Auth::guard('agency')->user()->userimage,
+                            'roles' => Auth::guard('agency')->user()->roles,
+                            'about' => Auth::guard('agency')->user()->about,
+                            'id' => Auth::guard('agency')->user()->id
+                        );
         
+                        Session::push( 'logindata', $loginData );
+                        
+                        $return['status'] = 'success';
+                        $return['message'] = 'Well Done login Successfully!';
+                        $return['redirect'] = route('home');
+                    } else {
+                        if ( Auth::guard('company')->attempt( ['email' => $request->input( 'email' ), 'password' => $request->input( 'password' ) , 'roles' => "CC" ,"isDeleted"=>"0"] ) ) {
+
+                            $loginData = array(
+                                
+                                'username' => Auth::guard('company')->user()->username,
+                                'email' => Auth::guard('company')->user()->email,
+                                'userimage' => Auth::guard('company')->user()->userimage,
+                                'roles' => Auth::guard('company')->user()->roles,
+                                'about' => Auth::guard('company')->user()->about,
+                                'id' => Auth::guard('company')->user()->id
+                            );
+            
+                            Session::push( 'logindata', $loginData );
+                            
+                            $return['status'] = 'success';
+                            $return['message'] = 'Well Done login Successfully!';
+                            $return['redirect'] = route('home');
+                        } else {
+                            $return['status'] = 'error';
+                            $return['message'] = 'Invalid Login Id/Password';
+                        }
+                    }
+                }  
+            }
+            return json_encode($return);
+            exit();
+        }
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Login ';
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Login ';
         $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Login ';
 
         $data['css'] = array(
+            'toastr/toastr.min.css',
             'magnific-popup/magnific-popup.css',
         );
 
         $data['plugincss'] = array();
         $data['pluginjs'] = array(
+            'toastr/toastr.min.js',
+            'validate/jquery.validate.min.js',
             'jquery.appear.js',
             'counter/jquery.countTo.js',
             'magnific-popup/jquery.magnific-popup.min.js',
         );
 
-        $data['js'] = array();
-        $data['funinit'] = array();
+        $data['js'] = array(
+            'comman_function.js',
+            'ajaxfileupload.js',
+            'jquery.form.min.js',
+            'login.js'
+        );
+        $data['funinit'] = array(
+            'Login.init()'
+        );
         return view('frontend.pages.login.login', $data);
     }
     
@@ -198,5 +293,20 @@ class LoginController extends Controller
         }else{
             return redirect('signup');
         }
+    }
+
+
+    public function logout(Request $request) {
+        $this->resetGuard();
+        return redirect()->route('signup');
+    }
+
+    public function resetGuard() {
+        Auth::logout();
+        Auth::guard('users')->logout();
+        Auth::guard('agent')->logout();
+        Auth::guard('agency')->logout();
+        Auth::guard('company')->logout();
+        Session::forget('logindata');
     }
 }
