@@ -106,6 +106,32 @@ class LoginController extends Controller
     }
     public function agentregister(Request $request){
         if ($request->isMethod("post")) {
+            $objAgent = new Agent();
+            $result = $objAgent->addAgent($request);
+            if($result == "true"){
+                $return['status'] = 'success';
+                $return['message'] = 'Well done your registration succesfully completed';
+                $return['redirect'] = route('signup');
+            }else{
+                if($result == "usernameexits"){
+                    $return['status'] = 'error';
+                    $return['message'] = 'username already exits';
+                    
+                }else{
+                    if($result == "emailexits"){
+                        $return['status'] = 'error';
+                        $return['message'] = 'email already exits';
+                        
+                    }else{
+                        $return['status'] = 'error';
+                        $return['message'] = 'Something goes to wrong';
+                        
+                    }
+                }
+                
+            }
+            return json_encode($return);
+            exit();
 
         }else{
             return redirect('signup');
@@ -113,14 +139,62 @@ class LoginController extends Controller
     }
     public function agencyregister(Request $request){
         if ($request->isMethod("post")) {
-
+            $objAgency = new Agency();
+            $result = $objAgency->addAgency($request);
+            if($result == "true"){
+                $return['status'] = 'success';
+                $return['message'] = 'Well done your registration succesfully completed';
+                $return['redirect'] = route('signup');
+            }else{
+                if($result == "usernameexits"){
+                    $return['status'] = 'error';
+                    $return['message'] = 'username already exits';
+                    
+                }else{
+                    if($result == "emailexits"){
+                        $return['status'] = 'error';
+                        $return['message'] = 'email already exits';
+                        
+                    }else{
+                        $return['status'] = 'error';
+                        $return['message'] = 'Something goes to wrong';
+                        
+                    }
+                }
+                
+            }
+            return json_encode($return);
+            exit();
         }else{
             return redirect('signup');
         }
     }
     public function companyregister(Request $request){
         if ($request->isMethod("post")) {
-
+            $objCompany = new Company();
+            $result = $objCompany->addCompany($request);
+            if($result == "true"){
+                $return['status'] = 'success';
+                $return['message'] = 'Well done your registration succesfully completed';
+                $return['redirect'] = route('signup');
+            }else{
+                if($result == "usernameexits"){
+                    $return['status'] = 'error';
+                    $return['message'] = 'username already exits';
+                }else{
+                    if($result == "emailexits"){
+                        $return['status'] = 'error';
+                        $return['message'] = 'email already exits';
+                        
+                    }else{
+                        $return['status'] = 'error';
+                        $return['message'] = 'Something goes to wrong';
+                        
+                    }
+                }
+            }
+            return json_encode($return);
+            exit();
         }else{
             return redirect('signup');
         }

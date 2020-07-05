@@ -67,7 +67,7 @@ Service -->
             </form>
           </div>
           <div class="tab-pane fade" id="agent" role="tabpanel" aria-labelledby="agent-tab">
-            <form class="form-row mt-4 align-items-center" id="agent-register">@csrf
+          <form class="form-row mt-4 align-items-center" id="agent-register" method="post" action="{{ route("agent-register")}}">@csrf
               <div class="form-group col-sm-12">
                 <label>Username:</label>
                 <input type="text" class="form-control" name="agentusername" placeholder="Please enter agent's username">
@@ -107,7 +107,7 @@ Service -->
             </form>
           </div>
           <div class="tab-pane fade" id="agancy" role="tabpanel" aria-labelledby="agancy-tab">
-            <form class="form-row mt-4 align-items-center" id="agency-register">@csrf
+            <form class="form-row mt-4 align-items-center" id="agency-register" method="post" action="{{ route("agency-register")}}">@csrf
               <div class="form-group col-sm-12">
                 <label>Username:</label>
                 <input type="text" class="form-control" name="agencyusername" placeholder="Please enter agency's username">
@@ -147,7 +147,7 @@ Service -->
             </form>
           </div>
             <div class="tab-pane fade" id="company" role="tabpanel" aria-labelledby="company-tab">
-            <form class="form-row mt-4 align-items-center" id="company-register">@csrf
+            <form class="form-row mt-4 align-items-center" id="company-register" method="post" action="{{ route("company-register")}}">@csrf
 
               <div class="form-group col-sm-12">
                 <label>Username:</label>

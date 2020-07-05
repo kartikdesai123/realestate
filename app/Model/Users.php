@@ -3,7 +3,7 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Hash;
 class Users extends Model
 {
     protected $table="users";
@@ -38,6 +38,9 @@ class Users extends Model
                 $objUser->email = $request->input('email');
                 $objUser->password = Hash::make($request->input('password'));
                 $objUser->phoneno = $request->input('phoneno');
+                $objUser->roles = "U";
+                $objUser->created_at = date("Y-m-d h:i:s");
+                $objUser->updated_at = date("Y-m-d h:i:s");
                 if($objUser->save()){
                     return "true";
                 }else{
