@@ -20,6 +20,8 @@ Route::match(['get', 'post'], 'signup', ['as' => 'signup', 'uses' => 'frontend\L
 
 
 Route::match(['get', 'post'], 'user-logout', ['as' => 'user-logout', 'uses' => 'frontend\LoginController@logout']);
+Route::match(['get', 'post'], 'my-profile', ['as' => 'my-profile', 'uses' => 'frontend\LoginController@myprofile']);
+Route::match(['get', 'post'], 'change-password', ['as' => 'change-password', 'uses' => 'frontend\LoginController@changepasswpord']);
 
 
 Route::match(['get', 'post'], 'user-register', ['as' => 'user-register', 'uses' => 'frontend\LoginController@userregister']);

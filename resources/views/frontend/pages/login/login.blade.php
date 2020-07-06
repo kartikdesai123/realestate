@@ -19,8 +19,8 @@ Service -->
                   <label>Password:</label>
                   <input type="Password" class="form-control" name="password" placeholder="Please enter your password">
                 </div>
-                <div class="col-sm-6">
-                  <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                <div class="col-sm-6"> 
+                  <button type="submit" class="btn btn-primary btn-block btnsubmit">Login</button>
                 </div>
                 <div class="col-sm-6">
                   <ul class="list-unstyled d-flex mb-1 mt-sm-0 mt-3">

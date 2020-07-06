@@ -4341,3 +4341,17 @@ ul li:last-child {
 .help-block{
   color: red;
 }
+
+
+#loader {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0,0,0,0) url('../images/loader.gif') no-repeat center center;
+  background-size: 40px 40px;
+  z-index: 10000;
+}

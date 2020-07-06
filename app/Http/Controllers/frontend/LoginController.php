@@ -94,6 +94,7 @@ class LoginController extends Controller
                             $return['redirect'] = route('home');
                         } else {
                             $return['status'] = 'error';
+                            $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Login");';
                             $return['message'] = 'Invalid Login Id/Password';
                         }
                     }
@@ -172,19 +173,23 @@ class LoginController extends Controller
             if($result == "true"){
                 $return['status'] = 'success';
                 $return['message'] = 'Well done your registration succesfully completed';
+                $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
                 $return['redirect'] = route('signup');
             }else{
                 if($result == "usernameexits"){
                     $return['status'] = 'error';
+                    $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
                     $return['message'] = 'username already exits';
                     
                 }else{
                     if($result == "emailexits"){
                         $return['status'] = 'error';
+                        $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
                         $return['message'] = 'email already exits';
                         
                     }else{
                         $return['status'] = 'error';
+                        $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
                         $return['message'] = 'Something goes to wrong';
                         
                     }
@@ -206,19 +211,23 @@ class LoginController extends Controller
             if($result == "true"){
                 $return['status'] = 'success';
                 $return['message'] = 'Well done your registration succesfully completed';
+                $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
                 $return['redirect'] = route('signup');
             }else{
                 if($result == "usernameexits"){
                     $return['status'] = 'error';
+                    $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
                     $return['message'] = 'username already exits';
                     
                 }else{
                     if($result == "emailexits"){
                         $return['status'] = 'error';
+                        $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
                         $return['message'] = 'email already exits';
                         
                     }else{
                         $return['status'] = 'error';
+                        $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
                         $return['message'] = 'Something goes to wrong';
                         
                     }
@@ -239,19 +248,23 @@ class LoginController extends Controller
             if($result == "true"){
                 $return['status'] = 'success';
                 $return['message'] = 'Well done your registration succesfully completed';
+                $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
                 $return['redirect'] = route('signup');
             }else{
                 if($result == "usernameexits"){
                     $return['status'] = 'error';
+                    $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
                     $return['message'] = 'username already exits';
                     
                 }else{
                     if($result == "emailexits"){
                         $return['status'] = 'error';
+                        $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
                         $return['message'] = 'email already exits';
                         
                     }else{
                         $return['status'] = 'error';
+                        $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
                         $return['message'] = 'Something goes to wrong';
                         
                     }
@@ -271,18 +284,22 @@ class LoginController extends Controller
             if($result == "true"){
                 $return['status'] = 'success';
                 $return['message'] = 'Well done your registration succesfully completed';
+                $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
                 $return['redirect'] = route('signup');
             }else{
                 if($result == "usernameexits"){
                     $return['status'] = 'error';
+                    $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
                     $return['message'] = 'username already exits';
                 }else{
                     if($result == "emailexits"){
                         $return['status'] = 'error';
+                        $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
                         $return['message'] = 'email already exits';
                         
                     }else{
                         $return['status'] = 'error';
+                        $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
                         $return['message'] = 'Something goes to wrong';
                         
                     }
@@ -296,6 +313,122 @@ class LoginController extends Controller
     }
 
 
+    public function myprofile(Request $request){
+        $session = $request->session()->all();
+        if(isset($session['logindata'])){
+
+            if ($request->isMethod("post")) {
+                
+                $objUsers = new Users();
+                $result = $objUsers->editProfile($request,$session['logindata'][0]['id'],$session['logindata'][0]['roles']);
+                if($result == "true"){
+                    $return['status'] = 'success';
+                    $return['message'] = 'Your profile successfully updated';
+                    $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
+                    $return['redirect'] = route('my-profile');
+                }else{
+                    if($result == "usernameexits"){
+                        $return['status'] = 'error';
+                        $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
+                        $return['message'] = 'username already exits';
+                        
+                    }else{
+                        if($result == "emailexits"){
+                            $return['status'] = 'error';
+                            $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
+                            $return['message'] = 'email already exits';
+                            
+                        }else{
+                            $return['status'] = 'error';
+                            $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
+                            $return['message'] = 'Something goes to wrong';
+                            
+                        }
+                    }
+                    
+                }
+                
+    
+                return json_encode($return);
+                exit();
+                
+            }
+            $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || My Profile ';
+            $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || My Profile ';
+            $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || My Profile ';
+
+            $data['css'] = array(
+                'toastr/toastr.min.css',
+                'magnific-popup/magnific-popup.css',
+            );
+
+            $data['plugincss'] = array();
+            $data['pluginjs'] = array(
+                'toastr/toastr.min.js',
+                'validate/jquery.validate.min.js',
+                'jquery.appear.js',
+                'counter/jquery.countTo.js',
+                'magnific-popup/jquery.magnific-popup.min.js',
+            );
+
+            $data['js'] = array(
+                'comman_function.js',
+                'ajaxfileupload.js',
+                'jquery.form.min.js',
+                'myprofile.js'
+            );
+            $data['funinit'] = array(
+                'Myprofile.init()'
+            );
+            return view('frontend.pages.profile.myprofile', $data);
+        }else{
+            return redirect('signup');
+        }
+       
+    }
+
+
+    public function changepasswpord(Request $request) {
+        $session = $request->session()->all();
+        if(isset($session['logindata'])){
+
+            if ($request->isMethod("post")) {
+                // $session['logindata'][0]['id'],
+                $objUsers = new Users();
+                $result = $objUsers->editChangePasswpord($request,$session['logindata'][0]['id']);
+            }
+            $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || My Profile ';
+            $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || My Profile ';
+            $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || My Profile ';
+
+            $data['css'] = array(
+                'toastr/toastr.min.css',
+                'magnific-popup/magnific-popup.css',
+            );
+
+            $data['plugincss'] = array();
+            $data['pluginjs'] = array(
+                'toastr/toastr.min.js',
+                'validate/jquery.validate.min.js',
+                'jquery.appear.js',
+                'counter/jquery.countTo.js',
+                'magnific-popup/jquery.magnific-popup.min.js',
+            );
+
+            $data['js'] = array(
+                'comman_function.js',
+                'ajaxfileupload.js',
+                'jquery.form.min.js',
+                'myprofile.js'
+            );
+            $data['funinit'] = array(
+                'Myprofile.changepassword()'
+            );
+            return view('frontend.pages.profile.changepassword', $data);
+        }else{
+            return redirect('signup');
+        }
+    }
     public function logout(Request $request) {
         $this->resetGuard();
         return redirect()->route('signup');

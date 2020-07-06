@@ -238,6 +238,7 @@ function handleFormValidateWithMsg(form, rules, messages, submitCallback, showTo
              $('#loader').show();
              $('.btnsubmit').attr("disabled","disabled");
              $('.btnsubmit').text("Please Wait");
+
             if (typeof submitCallback !== 'undefined' && typeof submitCallback == 'function') {
                 submitCallback(form);
             } else {

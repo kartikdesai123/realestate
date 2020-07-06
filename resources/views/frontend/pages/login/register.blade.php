@@ -57,7 +57,7 @@ Service -->
                 <input type="file" class="form-control" name="userimage" accept="image/*">
               </div>
               <div class="col-sm-6">
-                <button type="submit" class="btn btn-primary btn-block">Sign up</button>
+                <button type="submit" class="btn btn-primary btn-block  btnsubmit">Register</button>
               </div>
               <div class="col-sm-6">
                 <ul class="list-unstyled d-flex mb-1 mt-sm-0 mt-3">
@@ -97,7 +97,7 @@ Service -->
                 <input type="file" class="form-control" name="agentuserimage" accept="image/*">
               </div>
               <div class="col-sm-6">
-                <button type="submit" class="btn btn-primary btn-block">Sign up</button>
+                <button type="submit" class="btn btn-primary btn-block  btnsubmit">Register</button>
               </div>
               <div class="col-sm-6">
                 <ul class="list-unstyled d-flex mb-1 mt-sm-0 mt-3">
@@ -137,7 +137,7 @@ Service -->
                 <input type="file" class="form-control" name="agencyuserimage" accept="image/*">
               </div>
               <div class="col-sm-6">
-                <button type="submit" class="btn btn-primary btn-block">Sign up</button>
+                <button type="submit" class="btn btn-primary btn-block  btnsubmit">Register</button>
               </div>
               <div class="col-sm-6">
                 <ul class="list-unstyled d-flex mb-1 mt-sm-0 mt-3">
@@ -185,7 +185,7 @@ Service -->
               </div>
 
               <div class="col-sm-6">
-                <button type="submit" class="btn btn-primary btn-block">Sign up</button>
+                <button type="submit" class="btn btn-primary btn-block  btnsubmit">Register</button>
               </div>
 
               <div class="col-sm-6">
