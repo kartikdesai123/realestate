@@ -27,7 +27,7 @@ class Users extends Model
                     
                     $image = $request->file('userimage');
                    
-                    $name = time() . '.' . $image->getClientOriginalExtension();
+                    $name = time() .'.' . $image->getClientOriginalExtension();
                     
                     $destinationPath = public_path('/upload/userimage');
                     $image->move($destinationPath, $name);
@@ -44,7 +44,7 @@ class Users extends Model
                 if($objUser->save()){
                     return "true";
                 }else{
-                    return "wriong";
+                    return "wrong";
                 }
             }
         }
@@ -93,7 +93,7 @@ class Users extends Model
                     if($objUser->save()){
                         return "true";
                     }else{
-                        return "wriong";
+                        return "wrong";
                     }
                 }
             }
@@ -101,8 +101,23 @@ class Users extends Model
 
 
     public function editChangePasswpord($request,$id){
-        
-        print_r($id);
-        die();
+        $passwordmatch= Users::where("id",$id)
+                        ->select("password")
+                        ->get();
+        if (Hash::check($request->input('oldpassword'), $passwordmatch[0]->password)){
+                $objUser = Users::find($id);
+                $objUser->password = Hash::make($request->input('newpassword'));
+                $objUser->updated_at = date("Y-m-d h:i:s");
+                if($objUser->save()){
+                    return "true";
+                }else{
+                    return "wrong";
+                }
+        }else{
+            return "mismatch";
+        }
+
+        // Hash::check('plain-text-password'
+
     }
 }

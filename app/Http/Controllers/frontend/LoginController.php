@@ -396,6 +396,24 @@ class LoginController extends Controller
                 // $session['logindata'][0]['id'],
                 $objUsers = new Users();
                 $result = $objUsers->editChangePasswpord($request,$session['logindata'][0]['id']);
+                if($result == "true"){
+                    $return['status'] = 'success';
+                    $return['message'] = 'Your profile successfully updated';
+                    $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Save change");';
+                    $return['redirect'] = route('change-password');
+                }else{
+                    if($result == "mismatch"){
+                        $return['status'] = 'error';
+                        $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Save change");';
+                        $return['message'] = 'Your old password not match with database ';
+                    }else{
+                        $return['status'] = 'error';
+                        $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Save change");';
+                        $return['message'] = 'Something goes to wrong';
+                    }
+                }
+                return json_encode($return);
+                exit();
             }
             $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || My Profile ';
             $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || My Profile ';
