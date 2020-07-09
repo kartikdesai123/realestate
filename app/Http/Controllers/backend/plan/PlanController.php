@@ -53,7 +53,6 @@ class PlanController extends Controller
 
     public function add(Request $request){
         if ($request->isMethod("post")) {
-            
             $objPlan = new Plan();
             $result = $objPlan->add($request);
 
@@ -72,8 +71,6 @@ class PlanController extends Controller
             }
             echo json_encode($return);
             exit;
-
-           
         }
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Add New Plan';
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Add New Plan';

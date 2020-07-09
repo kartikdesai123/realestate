@@ -26,6 +26,7 @@
                             <th>No</th>
                             <th>Plan Name</th>
                             <th>Plan Description</th>
+                            <th>Plan For</th>
                             <th>Plan Created Date</th>
                             <th>Actions</th>
                         </tr>

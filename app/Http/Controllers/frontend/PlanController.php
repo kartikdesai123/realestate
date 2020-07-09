@@ -55,8 +55,11 @@ class PlanController extends Controller
         $data['pluginjs'] = array(
         );
 
-        $data['js'] = array();
-        $data['funinit'] = array();
+        $data['js'] = array(
+            'planDetails.js');
+        $data['funinit'] = array(
+            'PlanDetails.selectPlan()'
+        );
         return view('frontend.pages.plan.plandetails', $data);
     }
 }

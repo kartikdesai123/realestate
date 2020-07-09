@@ -26,6 +26,20 @@
                                 
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Plan For</label>
+                            <div class="col-md-10">
+                                <select class="form-control" name="planfor">
+                                    <option value="">Select Plan User</option>
+                                    <option value="U" {{ $details[0]->planfor == "U" ? "selected='selected'":""}} >Normal Users</option>
+                                    <option value="AG" {{ $details[0]->planfor == "AG" ? "selected='selected'":""}}>Agent</option>
+                                    <option value="AY" {{ $details[0]->planfor == "AY" ? "selected='selected'":""}}>Agency</option>
+                                    <option value="CC" {{ $details[0]->planfor == "CC" ? "selected='selected'":""}}>Construction Company</option>
+                                </select>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="form-actions">
                         <div class="row">

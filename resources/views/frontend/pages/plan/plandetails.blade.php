@@ -62,6 +62,24 @@ Mortgage Interest Rates -->
                             <td><center>{{ $value->planagent }}</center></td>
                         @endforeach
                     </tr>
+                    <tr>
+                        <td><center></center></td>
+                        @foreach($plandetails as $key => $value)
+                            @if($value->planfor == 'U')
+                                <td><center><span class="btn btn-primary btn-block" plandetailId="{{ $value->id}}">Select plan</span></center></td>
+                            @endif
+                            @if($value->planfor == 'AG')
+                                <td><center><span class="btn btn-primary btn-block" plandetailId="{{ $value->id}}">Select plan</span></center></td>
+                            @endif
+                            @if($value->planfor == 'AY')
+                                <td><center><span class="btn btn-primary btn-block" plandetailId="{{ $value->id}}">Select plan</span></center></td>  
+                            @endif
+                            @if($value->planfor == 'CC')
+                                <td><center><span class="btn btn-primary btn-block" plandetailId="{{ $value->id}}">Select plan</span></center></td>
+                            @endif
+                            
+                        @endforeach
+                    </tr>
                     
                     </tbody>
                 </table>

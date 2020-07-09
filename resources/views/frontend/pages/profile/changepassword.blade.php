@@ -43,6 +43,11 @@ My profile -->
                     <a class="nav-link active" href="{{ route("change-password")}}"><i class="fa fa-key" ></i>
                         Change Password</a>
                 </li>
+                <li class="nav-item">
+                      <a class="nav-link " href="{{ route("my-property")}}"><i class="fa fa-university" ></i>
+                          My Property
+                      </a>
+                </li>
                 
               </ul>
             </div>

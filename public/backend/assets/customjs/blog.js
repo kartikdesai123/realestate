@@ -46,7 +46,7 @@ var Blog = function(){
         CKEDITOR.replace('blogdescription');
         // CKEDITOR.disableAutoInline = true;
         // CKEDITOR.instances['blogdescription'].updateElement();
-
+        
         var form = $('#add-blog');
         var rules = {
             blogtitle: {required: true},

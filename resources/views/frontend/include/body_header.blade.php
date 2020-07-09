@@ -14,8 +14,7 @@ $currentRoute = Route::current()->getName();
          $data = Auth()->guard('company')->user();
       }
 
-@endphp<!--=================================
-         header -->
+@endphp
          @if($currentRoute == "home")
             <header class="header header-transparent">
          @else
@@ -92,32 +91,23 @@ $currentRoute = Route::current()->getName();
                               @if($currentRoute == "home")
                                  <a href="javascript:;" style="color: white"> 
                               @else
-                              <a href="javascript:;" > 
+                                 <a href="javascript:;" > 
                               @endif
                                  <i class="fa fa-user pl-2"></i>&nbsp;{{ $data['username'] }} 
                                  <i class="fas fa-chevron-down fa-xs"></i>
                               </a>
                               
                               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                              <li><a class="dropdown-item" href="{{ route("my-profile")}}">My Profile</a></li>
-                              <li><a class="dropdown-item" href="{{ route('user-logout') }}">Logout</a></li>
+                                 <li><a class="dropdown-item" href="{{ route("my-profile")}}">My Profile</a></li>
+                                 <li><a class="dropdown-item" href="{{ route('user-logout') }}">Logout</a></li>
                               </ul>
                             </li>
                         </ul>
-                        
-                        
                         @else
                            <a href="{{ route('signin') }}"> <i class="fa fa-user pl-2"></i> Sign in </a>
                         @endif
-                        <!--<a data-toggle="modal" data-target="#loginModal" href="#">Hello sign in<i class="fa fa-user pl-2"></i></a>-->
-                         
                      </div>
-                     {{-- <div class="add-listing d-none d-sm-block">
-                        <a class="btn btn-primary btn-md" href="{{ route('submit-property') }}"> <i class="fa fa-plus-circle"></i>Add listing </a>
-                     </div> --}}
                   </div>
                </div>
             </nav>
          </header>
-         <!--=================================
-            header -->

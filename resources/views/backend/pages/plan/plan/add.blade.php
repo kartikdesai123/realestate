@@ -17,11 +17,26 @@
                             </div>
                         </div>
                         
+                        
+                        
                         <div class="form-group">
                             <label class="control-label col-md-2">Plan Description</label>
                             <div class="col-md-10">
                                 <textarea name="plandescription"  class="form-control"></textarea>
                                 
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Plan For</label>
+                            <div class="col-md-10">
+                                <select class="form-control" name="planfor">
+                                    <option value="">Select Plan User</option>
+                                    <option value="U">Normal Users</option>
+                                    <option value="AG">Agent</option>
+                                    <option value="AY">Agency</option>
+                                    <option value="CC">Construction Company</option>
+                                </select>
                             </div>
                         </div>
                     </div>

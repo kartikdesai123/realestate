@@ -133,8 +133,37 @@ class LoginController extends Controller
         return view('frontend.pages.login.login', $data);
     }
     
-    public function register(Request $request){
-
+    public function userregister(Request $request){
+        if ($request->isMethod("post")) {
+            $objUsers = new Users();
+            $result = $objUsers->addUser($request);
+            if($result == "true"){
+                $return['status'] = 'success';
+                $return['message'] = 'Well done your registration succesfully completed';
+                $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
+                $return['redirect'] = route('signup');
+            }else{
+                if($result == "usernameexits"){
+                    $return['status'] = 'error';
+                    $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
+                    $return['message'] = 'username already exits';
+                    
+                }else{
+                    if($result == "emailexits"){
+                        $return['status'] = 'error';
+                        $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
+                        $return['message'] = 'email already exits';
+                        
+                    }else{
+                        $return['status'] = 'error';
+                        $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
+                        $return['message'] = 'Something goes to wrong';
+                    }
+                }
+            }
+            return json_encode($return);
+            exit();
+        }
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Register ';
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Register ';
         $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Register ';
@@ -162,48 +191,10 @@ class LoginController extends Controller
         $data['funinit'] = array(
             'Register.init()'
         );
-        return view('frontend.pages.login.register', $data);
+        return view('frontend.pages.login.userregister', $data);
     }
 
 
-    public function userregister(Request $request){
-        if ($request->isMethod("post")) {
-            $objUsers = new Users();
-            $result = $objUsers->addUser($request);
-            if($result == "true"){
-                $return['status'] = 'success';
-                $return['message'] = 'Well done your registration succesfully completed';
-                $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
-                $return['redirect'] = route('signup');
-            }else{
-                if($result == "usernameexits"){
-                    $return['status'] = 'error';
-                    $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
-                    $return['message'] = 'username already exits';
-                    
-                }else{
-                    if($result == "emailexits"){
-                        $return['status'] = 'error';
-                        $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
-                        $return['message'] = 'email already exits';
-                        
-                    }else{
-                        $return['status'] = 'error';
-                        $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
-                        $return['message'] = 'Something goes to wrong';
-                        
-                    }
-                }
-                
-            }
-            
-
-            return json_encode($return);
-            exit();
-        }else{
-            return redirect('signup');
-        }
-    }
     public function agentregister(Request $request){
         if ($request->isMethod("post")) {
             $objAgent = new Agent();
@@ -237,10 +228,38 @@ class LoginController extends Controller
             return json_encode($return);
             exit();
 
-        }else{
-            return redirect('signup');
         }
+        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agent Register ';
+        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agent Register ';
+        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agent Register ';
+
+        $data['css'] = array(
+            'toastr/toastr.min.css',
+            'magnific-popup/magnific-popup.css',
+        );
+
+        $data['plugincss'] = array();
+        $data['pluginjs'] = array(
+            'toastr/toastr.min.js',
+            'validate/jquery.validate.min.js',
+            'jquery.appear.js',
+            'counter/jquery.countTo.js',
+            'magnific-popup/jquery.magnific-popup.min.js',
+        );
+
+        $data['js'] = array(
+            'comman_function.js',
+            'ajaxfileupload.js',
+            'jquery.form.min.js',
+            'register.js'
+        );
+        $data['funinit'] = array(
+            'Register.init()'
+        );
+        return view('frontend.pages.login.agentregister', $data);
     }
+
+
     public function agencyregister(Request $request){
         if ($request->isMethod("post")) {
             $objAgency = new Agency();
@@ -273,10 +292,38 @@ class LoginController extends Controller
             }
             return json_encode($return);
             exit();
-        }else{
-            return redirect('signup');
         }
+        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agency Register ';
+        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agency Register ';
+        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agency Register ';
+
+        $data['css'] = array(
+            'toastr/toastr.min.css',
+            'magnific-popup/magnific-popup.css',
+        );
+
+        $data['plugincss'] = array();
+        $data['pluginjs'] = array(
+            'toastr/toastr.min.js',
+            'validate/jquery.validate.min.js',
+            'jquery.appear.js',
+            'counter/jquery.countTo.js',
+            'magnific-popup/jquery.magnific-popup.min.js',
+        );
+
+        $data['js'] = array(
+            'comman_function.js',
+            'ajaxfileupload.js',
+            'jquery.form.min.js',
+            'register.js'
+        );
+        $data['funinit'] = array(
+            'Register.init()'
+        );
+        return view('frontend.pages.login.agencyregister', $data);
     }
+
+
     public function companyregister(Request $request){
         if ($request->isMethod("post")) {
             $objCompany = new Company();
@@ -307,9 +354,35 @@ class LoginController extends Controller
             }
             return json_encode($return);
             exit();
-        }else{
-            return redirect('signup');
         }
+        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Construction Company Register ';
+        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Construction Company Register ';
+        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Construction Company Register ';
+
+        $data['css'] = array(
+            'toastr/toastr.min.css',
+            'magnific-popup/magnific-popup.css',
+        );
+
+        $data['plugincss'] = array();
+        $data['pluginjs'] = array(
+            'toastr/toastr.min.js',
+            'validate/jquery.validate.min.js',
+            'jquery.appear.js',
+            'counter/jquery.countTo.js',
+            'magnific-popup/jquery.magnific-popup.min.js',
+        );
+
+        $data['js'] = array(
+            'comman_function.js',
+            'ajaxfileupload.js',
+            'jquery.form.min.js',
+            'register.js'
+        );
+        $data['funinit'] = array(
+            'Register.init()'
+        );
+        return view('frontend.pages.login.companyregister', $data);
     }
 
 
@@ -381,6 +454,79 @@ class LoginController extends Controller
                 'Myprofile.init()'
             );
             return view('frontend.pages.profile.myprofile', $data);
+        }else{
+            return redirect('signup');
+        }
+       
+    }
+    public function myproperty(Request $request){
+        $session = $request->session()->all();
+        if(isset($session['logindata'])){
+
+            if ($request->isMethod("post")) {
+                
+                $objUsers = new Users();
+                $result = $objUsers->editProfile($request,$session['logindata'][0]['id'],$session['logindata'][0]['roles']);
+                if($result == "true"){
+                    $return['status'] = 'success';
+                    $return['message'] = 'Your profile successfully updated';
+                    $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
+                    $return['redirect'] = route('my-profile');
+                }else{
+                    if($result == "usernameexits"){
+                        $return['status'] = 'error';
+                        $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
+                        $return['message'] = 'username already exits';
+                        
+                    }else{
+                        if($result == "emailexits"){
+                            $return['status'] = 'error';
+                            $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
+                            $return['message'] = 'email already exits';
+                            
+                        }else{
+                            $return['status'] = 'error';
+                            $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
+                            $return['message'] = 'Something goes to wrong';
+                            
+                        }
+                    }
+                    
+                }
+                
+    
+                return json_encode($return);
+                exit();
+                
+            }
+            $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || My Profile ';
+            $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || My Profile ';
+            $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || My Profile ';
+
+            $data['css'] = array(
+                'toastr/toastr.min.css',
+                'magnific-popup/magnific-popup.css',
+            );
+
+            $data['plugincss'] = array();
+            $data['pluginjs'] = array(
+                'toastr/toastr.min.js',
+                'validate/jquery.validate.min.js',
+                'jquery.appear.js',
+                'counter/jquery.countTo.js',
+                'magnific-popup/jquery.magnific-popup.min.js',
+            );
+
+            $data['js'] = array(
+                'comman_function.js',
+                'ajaxfileupload.js',
+                'jquery.form.min.js',
+                'myprofile.js'
+            );
+            $data['funinit'] = array(
+                'Myprofile.init()'
+            );
+            return view('frontend.pages.profile.myproperty', $data);
         }else{
             return redirect('signup');
         }

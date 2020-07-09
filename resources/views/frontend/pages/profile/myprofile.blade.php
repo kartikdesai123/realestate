@@ -44,6 +44,12 @@ My profile -->
                         Change Password</a>
                 </li>
                 
+                <li class="nav-item">
+                  <a class="nav-link " href="{{ route("my-property")}}"><i class="fa fa-university" ></i>
+                      My Property
+                  </a>
+                </li>
+
               </ul>
             </div>
           </div>

@@ -24,7 +24,7 @@ Service -->
                 </div>
                 <div class="col-sm-6">
                   <ul class="list-unstyled d-flex mb-1 mt-sm-0 mt-3">
-                    <li class="mr-1"><a href="{{ route('signup') }}">Click here to Signup</a></li>
+                    <li class="mr-1"><a href="{{ route('user-register') }}">Click here to Signup</a></li>
                   </ul>
                 </div>
         </form>

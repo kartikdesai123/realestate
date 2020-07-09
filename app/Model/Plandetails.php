@@ -148,9 +148,10 @@ class Plandetails extends Model
     }
 
     public function plandetails($id){
-        return Plandetails::select("planid","planname","planprice","plandays","planproperty","planagent","is_deleted","id")
-                            ->where("planid",$id)
-                            ->where("is_deleted","0")
+        return Plandetails::select("plan.planfor","plandetails.planid","plandetails.planname","plandetails.planprice","plandetails.plandays","plandetails.planproperty","plandetails.planagent","plandetails.is_deleted","plandetails.id")
+                            ->join("plan","plan.id","=","plandetails.planid")
+                            ->where("plandetails.planid",$id)
+                            ->where("plandetails.is_deleted","0")
                             ->get();
     }
 }

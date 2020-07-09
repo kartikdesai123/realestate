@@ -14,7 +14,8 @@ class Plan extends Model
             0 => 'plan.id',
             1 => 'plan.planname',
             2 => 'plan.plandescription',
-            2 => 'plan.created_at',
+            2 => 'plan.planfor',
+            4 => 'plan.created_at',
         );
         $query = Blog ::from('plan')
                     ->where('plan.is_deleted','0');
@@ -44,12 +45,25 @@ class Plan extends Model
 
         $resultArr = $query->skip($requestData['start'])
                 ->take($requestData['length'])
-                ->select('plan.id','plan.planname','plan.created_at','plan.plandescription')
+                ->select('plan.id','plan.planname','plan.created_at','plan.plandescription','plan.planfor')
                 ->get();
         $data = array();
         $i = 0;
 
         foreach ($resultArr as $row) {
+            if($row['planfor'] == 'U'){
+                $planfor = "Normal Users";
+            }
+            if($row['planfor'] == 'AG'){
+                $planfor = "Agent";
+            }
+            if($row['planfor'] == 'AY'){
+                $planfor = "Agency";
+            }
+            if($row['planfor'] == 'CC'){
+                $planfor = "Construction Company";
+            }
+
             $actionhtml = '';
             $actionhtml ='<a href="'.route('admin-edit-plan',$row['id']).'"  class="btn btn-icon primary"  ><i class="fa fa-edit"></i></a>'
                     .'<a href="" data-toggle="modal" data-target="#deleteModel" class="btn btn-icon  deleteplan" data-id="' . $row["id"] . '" ><i class="fa fa-trash" ></i></a>';
@@ -58,6 +72,7 @@ class Plan extends Model
             $nestedData[] = $i;
             $nestedData[] = $row['planname'];
             $nestedData[] = $row['plandescription'];
+            $nestedData[] = $planfor;
             $nestedData[] = date("d-M-Y h:i:s",strtotime($row['created_at']));
             $nestedData[] = $actionhtml;
             $data[] = $nestedData;
@@ -81,6 +96,7 @@ class Plan extends Model
             $objPlan = new Plan();
             $objPlan->planname =$request->input('planname');
             $objPlan->plandescription = $request->input('plandescription');
+            $objPlan->planfor = $request->input('planfor');
             $objPlan->is_deleted = "0";
             $objPlan->created_at = date("Y-m-d h:i:s");
             $objPlan->updated_at = date("Y-m-d h:i:s");
@@ -101,6 +117,7 @@ class Plan extends Model
             $objPlan = Plan::find($request->input('id')); 
             $objPlan->planname =$request->input('planname');
             $objPlan->plandescription = $request->input('plandescription');
+            $objPlan->planfor = $request->input('planfor');
             $objPlan->updated_at = date("Y-m-d h:i:s");
             if($objPlan->save()){                
                 return "true";
@@ -120,7 +137,7 @@ class Plan extends Model
     }
 
     public function editDetails($id){
-        return Plan::select("planname","id","plandescription")
+        return Plan::select("planname","id","plandescription","planfor")
                     ->where("id",$id)
                     ->get();
     }
