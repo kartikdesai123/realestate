@@ -5,6 +5,7 @@ namespace App\Model;
 use Illuminate\Database\Eloquent\Model;
 use Hash;
 use App\Model\Emailverify;
+use App\Model\Sendmail;
 class Users extends Model
 {
     protected $table="users";

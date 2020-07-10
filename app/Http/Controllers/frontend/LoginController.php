@@ -24,52 +24,40 @@ class LoginController extends Controller
 
     public function index(Request $request){
         if ($request->isMethod("post")) {
-            if ( Auth::guard('users')->attempt( ['email' => $request->input( 'email' ), 'password' => $request->input( 'password' ) , 'roles' => "U" ,"isDeleted"=>"0"] ) ) {
-
-                $loginData = array(
-                   
-                    'username' => Auth::guard('users')->user()->username,
-                    'email' => Auth::guard('users')->user()->email,
-                    'userimage' => Auth::guard('users')->user()->userimage,
-                    'roles' => Auth::guard('users')->user()->roles,
-                    'about' => Auth::guard('users')->user()->about,
-                    'id' => Auth::guard('users')->user()->id
-                );
-                
-                Session::push( 'logindata', $loginData );
-                
-                $return['status'] = 'success';
-                $return['message'] = 'Well Done login Successfully!';
-                $return['redirect'] = route('home');
-            } else {
-                if ( Auth::guard('agent')->attempt( ['email' => $request->input( 'email' ), 'password' => $request->input( 'password' ) , 'roles' => "AG" ,"isDeleted"=>"0"] ) ) {
+            
+            if ( Auth::guard('users')->attempt( ['email' => $request->input( 'email' ), 'password' => $request->input( 'password' ) , 'email_verfied' => "0" ,"isDeleted"=>"0"] ) ) {
+                $return['status'] = 'error';
+                $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Login");';
+                $return['message'] = "Your email account isn't verified";
+            }else{
+                if ( Auth::guard('users')->attempt( ['email' => $request->input( 'email' ), 'password' => $request->input( 'password' ) , 'roles' => "U" ,"isDeleted"=>"0"] ) ) {
 
                     $loginData = array(
-                        
-                        'username' => Auth::guard('agent')->user()->username,
-                        'email' => Auth::guard('agent')->user()->email,
-                        'userimage' => Auth::guard('agent')->user()->userimage,
-                        'roles' => Auth::guard('agent')->user()->roles,
-                        'about' => Auth::guard('agent')->user()->about,
-                        'id' => Auth::guard('agent')->user()->id
+                       
+                        'username' => Auth::guard('users')->user()->username,
+                        'email' => Auth::guard('users')->user()->email,
+                        'userimage' => Auth::guard('users')->user()->userimage,
+                        'roles' => Auth::guard('users')->user()->roles,
+                        'about' => Auth::guard('users')->user()->about,
+                        'id' => Auth::guard('users')->user()->id
                     );
-    
+                    
                     Session::push( 'logindata', $loginData );
                     
                     $return['status'] = 'success';
                     $return['message'] = 'Well Done login Successfully!';
                     $return['redirect'] = route('home');
                 } else {
-                    if ( Auth::guard('agency')->attempt( ['email' => $request->input( 'email' ), 'password' => $request->input( 'password' ) , 'roles' => "AY" ,"isDeleted"=>"0"] ) ) {
-
+                    if ( Auth::guard('agent')->attempt( ['email' => $request->input( 'email' ), 'password' => $request->input( 'password' ) , 'roles' => "AG" ,"isDeleted"=>"0"] ) ) {
+    
                         $loginData = array(
                             
-                            'username' => Auth::guard('agency')->user()->username,
-                            'email' => Auth::guard('agency')->user()->email,
-                            'userimage' => Auth::guard('agency')->user()->userimage,
-                            'roles' => Auth::guard('agency')->user()->roles,
-                            'about' => Auth::guard('agency')->user()->about,
-                            'id' => Auth::guard('agency')->user()->id
+                            'username' => Auth::guard('agent')->user()->username,
+                            'email' => Auth::guard('agent')->user()->email,
+                            'userimage' => Auth::guard('agent')->user()->userimage,
+                            'roles' => Auth::guard('agent')->user()->roles,
+                            'about' => Auth::guard('agent')->user()->about,
+                            'id' => Auth::guard('agent')->user()->id
                         );
         
                         Session::push( 'logindata', $loginData );
@@ -78,16 +66,16 @@ class LoginController extends Controller
                         $return['message'] = 'Well Done login Successfully!';
                         $return['redirect'] = route('home');
                     } else {
-                        if ( Auth::guard('company')->attempt( ['email' => $request->input( 'email' ), 'password' => $request->input( 'password' ) , 'roles' => "CC" ,"isDeleted"=>"0"] ) ) {
-
+                        if ( Auth::guard('agency')->attempt( ['email' => $request->input( 'email' ), 'password' => $request->input( 'password' ) , 'roles' => "AY" ,"isDeleted"=>"0"] ) ) {
+    
                             $loginData = array(
                                 
-                                'username' => Auth::guard('company')->user()->username,
-                                'email' => Auth::guard('company')->user()->email,
-                                'userimage' => Auth::guard('company')->user()->userimage,
-                                'roles' => Auth::guard('company')->user()->roles,
-                                'about' => Auth::guard('company')->user()->about,
-                                'id' => Auth::guard('company')->user()->id
+                                'username' => Auth::guard('agency')->user()->username,
+                                'email' => Auth::guard('agency')->user()->email,
+                                'userimage' => Auth::guard('agency')->user()->userimage,
+                                'roles' => Auth::guard('agency')->user()->roles,
+                                'about' => Auth::guard('agency')->user()->about,
+                                'id' => Auth::guard('agency')->user()->id
                             );
             
                             Session::push( 'logindata', $loginData );
@@ -96,13 +84,34 @@ class LoginController extends Controller
                             $return['message'] = 'Well Done login Successfully!';
                             $return['redirect'] = route('home');
                         } else {
-                            $return['status'] = 'error';
-                            $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Login");';
-                            $return['message'] = 'Invalid Login Id/Password';
+                            if ( Auth::guard('company')->attempt( ['email' => $request->input( 'email' ), 'password' => $request->input( 'password' ) , 'roles' => "CC" ,"isDeleted"=>"0"] ) ) {
+    
+                                $loginData = array(
+                                    
+                                    'username' => Auth::guard('company')->user()->username,
+                                    'email' => Auth::guard('company')->user()->email,
+                                    'userimage' => Auth::guard('company')->user()->userimage,
+                                    'roles' => Auth::guard('company')->user()->roles,
+                                    'about' => Auth::guard('company')->user()->about,
+                                    'id' => Auth::guard('company')->user()->id
+                                );
+                
+                                Session::push( 'logindata', $loginData );
+                                
+                                $return['status'] = 'success';
+                                $return['message'] = 'Well Done login Successfully!';
+                                $return['redirect'] = route('home');
+                            } else {
+                                $return['status'] = 'error';
+                                $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Login");';
+                                $return['message'] = 'Invalid Login Id/Password';
+                            }
                         }
-                    }
-                }  
+                    }  
+                }
+
             }
+            
             return json_encode($return);
             exit();
         }
@@ -610,6 +619,7 @@ class LoginController extends Controller
         
         $objEmailVerify = new Emailverify();
         $countToken = $objEmailVerify->checkToken($token);
+
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Login ';
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Login ';
         $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Login ';

@@ -40,7 +40,7 @@ coming-soon -->
         <div class="row justify-content-center h-100">
             <div class="col-lg-7 col-md-9 text-center align-self-center">
                 <h1>Congratulations {{ $getdetails[0]->username }}</h1><br>
-                <h3 class="mb-4">your account succesfully verified</h3>
+                <h3 class="mb-4">Your account succesfully verified</h3>
                 
                 <div class="mt-5">
                 <h6 class=" mb-4"><a href="{{ route('home') }}">Go to real estate</a></h6>

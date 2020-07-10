@@ -35,6 +35,17 @@ class Sendmail extends Model
         return true;
     }
 
+    public function welcomeMessage($username,$email){
+        $mailData['data']['username']=$username;
+        $mailData['subject'] = 'Real Etate - Your account succesfully verified';
+        $mailData['attachment'] = array();
+        $mailData['template'] ="emailsTemplate.welcomeMessage";
+        $mailData['mailto'] = $email;
+        $sendMail = new Sendmail;
+        $sendMail->sendSMTPMail($mailData);
+        return true;
+    }
+
 
     public function sendSMTPMail($mailData)
     {

@@ -168,13 +168,7 @@
 															<td>
 																<table width="100%" border="0" cellspacing="0" cellpadding="0">
 																	<tr>
-																		<th class="column-top" width="370" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; vertical-align:top;">
-																			<table width="100%" border="0" cellspacing="0" cellpadding="0">
-																				<tr>
-																					<td class="text-footer m-center" style="color:#666666; font-family:'Lato', Arial, sans-serif; font-size:12px; line-height:26px; text-align:left; min-width:auto !important;">SimplEstate  - Free HTML Email Template <br />East Pixel Bld. 99, Creative City 9000, Republic of Design</td>
-																				</tr>
-																			</table>
-																		</th>
+																		
 																		<th style="padding-bottom: 25px !important; font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal;" class="column" width="1"></th>
 																		<th class="column-bottom" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; vertical-align:bottom;">
 																			<table width="100%" border="0" cellspacing="0" cellpadding="0">
