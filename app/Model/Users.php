@@ -4,6 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 use Hash;
+use App\Model\Emailverify;
 class Users extends Model
 {
     protected $table="users";
@@ -11,6 +12,8 @@ class Users extends Model
 
     public function addUser($request){
         
+        // print_r($token);
+        // die();
         $countusername = Users::where("username",$request->input('username'))
                         ->count(); 
 
@@ -39,10 +42,26 @@ class Users extends Model
                 $objUser->password = Hash::make($request->input('password'));
                 $objUser->phoneno = $request->input('phoneno');
                 $objUser->roles = "U";
+                $objUser->email_verfied = "0";
                 $objUser->created_at = date("Y-m-d h:i:s");
                 $objUser->updated_at = date("Y-m-d h:i:s");
                 if($objUser->save()){
-                    return "true";
+                    $id = $objUser->id;
+                    $token = bin2hex(random_bytes(10));
+
+                    $objEmailverify = new Emailverify();
+                    $result = $objEmailverify->saveToken($id,$token);
+                    if($result){
+                        $objSendmail = new Sendmail();
+                        $Sendmail = $objSendmail->userRegister($token,$request->input('username'),$request->input('email'));
+                        if($Sendmail){
+                            return "true";
+                        }else{
+                            return "wrong";
+                        }
+                    }else{
+                        return "wrong";  
+                    }
                 }else{
                     return "wrong";
                 }

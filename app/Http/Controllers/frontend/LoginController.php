@@ -14,6 +14,8 @@ use Auth;
 use Session;
 use Redirect;
 use App\Model\Sendmail;
+use App\Model\Emailverify;
+use DB;
 class LoginController extends Controller
 {
     function __construct(){
@@ -142,7 +144,7 @@ class LoginController extends Controller
                 $return['status'] = 'success';
                 $return['message'] = 'Well done your registration succesfully completed';
                 $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
-                $return['redirect'] = route('signup');
+                $return['redirect'] = route('user-register');
             }else{
                 if($result == "usernameexits"){
                     $return['status'] = 'error';
@@ -204,7 +206,7 @@ class LoginController extends Controller
                 $return['status'] = 'success';
                 $return['message'] = 'Well done your registration succesfully completed';
                 $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
-                $return['redirect'] = route('signup');
+                $return['redirect'] = route('agent-register');
             }else{
                 if($result == "usernameexits"){
                     $return['status'] = 'error';
@@ -269,7 +271,7 @@ class LoginController extends Controller
                 $return['status'] = 'success';
                 $return['message'] = 'Well done your registration succesfully completed';
                 $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
-                $return['redirect'] = route('signup');
+                $return['redirect'] = route('agency-register');
             }else{
                 if($result == "usernameexits"){
                     $return['status'] = 'error';
@@ -333,7 +335,7 @@ class LoginController extends Controller
                 $return['status'] = 'success';
                 $return['message'] = 'Well done your registration succesfully completed';
                 $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
-                $return['redirect'] = route('signup');
+                $return['redirect'] = route('company-register');
             }else{
                 if($result == "usernameexits"){
                     $return['status'] = 'error';
@@ -600,6 +602,55 @@ class LoginController extends Controller
         $objSendmail = new Sendmail();
         $Sendmail = $objSendmail->sendMailltesting();
         exit;
+    }
+    public function emailverify(Request $request,$token){
+
+        $objEmailVerify = new Emailverify();
+        $data['getdetails'] = $objEmailVerify->getDetails($token);
+        
+        $objEmailVerify = new Emailverify();
+        $countToken = $objEmailVerify->checkToken($token);
+        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Login ';
+        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Login ';
+        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Login ';
+
+        $data['css'] = array(
+            'toastr/toastr.min.css',
+            'magnific-popup/magnific-popup.css',
+        );
+
+        $data['plugincss'] = array();
+        $data['pluginjs'] = array(
+            'toastr/toastr.min.js',
+            'validate/jquery.validate.min.js',
+            'jquery.appear.js',
+            'counter/jquery.countTo.js',
+            'magnific-popup/jquery.magnific-popup.min.js',
+        );
+
+        $data['js'] = array(
+            'comman_function.js',
+            'ajaxfileupload.js',
+            'jquery.form.min.js',
+            'login.js'
+        );
+        $data['funinit'] = array(
+            'Login.init()'
+        );
+        
+        if($countToken == "verify"){
+            return view('frontend.pages.verifyemail.verify', $data);
+               
+        }else{
+            if($countToken == "mismatchToken"){
+                return view('frontend.pages.verifyemail.tokenmismatch', $data);
+                
+            }else{
+                return view('frontend.pages.verifyemail.wrong', $data);
+               
+            }
+        }
+        die();
     }
 
 

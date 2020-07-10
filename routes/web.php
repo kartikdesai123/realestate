@@ -18,6 +18,8 @@ Route::match(['get', 'post'], '/', ['as' => 'home', 'uses' => 'frontend\HomeCont
 Route::match(['get', 'post'], 'signin', ['as' => 'signin', 'uses' => 'frontend\LoginController@index']);
 Route::match(['get', 'post'], 'testing-mail', ['as' => 'testing-mail', 'uses' => 'frontend\LoginController@testingmail']);
 
+Route::match(['get', 'post'], 'email-verify/{token}', ['as' => 'email-verify', 'uses' => 'frontend\LoginController@emailverify']);
+
 Route::match(['get', 'post'], 'user-register', ['as' => 'user-register', 'uses' => 'frontend\LoginController@userregister']);
 Route::match(['get', 'post'], 'agent-register', ['as' => 'agent-register', 'uses' => 'frontend\LoginController@agentregister']);
 Route::match(['get', 'post'], 'agency-register', ['as' => 'agency-register', 'uses' => 'frontend\LoginController@agencyregister']);

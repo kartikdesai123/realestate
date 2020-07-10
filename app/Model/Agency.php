@@ -5,6 +5,8 @@ namespace App\Model;
 use Illuminate\Database\Eloquent\Model;
 use Hash;
 use App\Model\Users;
+use App\Model\Emailverify;
+
 class Agency extends Model
 {
     protected $table="users";
@@ -40,7 +42,23 @@ class Agency extends Model
                 $objUser->created_at = date("Y-m-d h:i:s");
                 $objUser->updated_at = date("Y-m-d h:i:s");
                 if($objUser->save()){
-                    return "true";
+                    $id = $objUser->id;
+                    $token = bin2hex(random_bytes(10));
+
+                    $objEmailverify = new Emailverify();
+                    $result = $objEmailverify->saveToken($id,$token);
+                    if($result){
+
+                        $objSendmail = new Sendmail();
+                        $Sendmail = $objSendmail->userRegister($token,$request->input('agencyusername'),$request->input('agencyemail'));
+                        if($Sendmail){
+                            return "true";
+                        }else{
+                            return "wrong";
+                        }
+                    }else{
+                        return "wrong";  
+                    }
                 }else{
                     return "wriong";
                 }

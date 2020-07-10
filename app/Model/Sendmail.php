@@ -22,6 +22,18 @@ class Sendmail extends Model
         return $sendMail->sendSMTPMail($mailData);
 
     }
+    public function userRegister($token,$username,$email){
+        $mailData['data']['token']=$token;
+        $mailData['data']['username']=$username;
+
+        $mailData['subject'] = 'Real Etate - Please verify your account';
+        $mailData['attachment'] = array();
+        $mailData['template'] ="emailsTemplate.verifyaccount";
+        $mailData['mailto'] = $email;
+        $sendMail = new Sendmail;
+        $sendMail->sendSMTPMail($mailData);
+        return true;
+    }
 
 
     public function sendSMTPMail($mailData)
