@@ -62,12 +62,12 @@ My profile -->
 
               <div class="form-group col-md-12">
                 <label>Old Password</label>
-                <input type="password" class="form-control" name="oldpassword" >
+                <input type="password" class="form-control password" name="oldpassword" id="oldpassword">
               </div>
 
               <div class="form-group col-md-12">
                 <label>New Password</label>
-                <input type="password" class="form-control" name="newpassword" id="newpassword">
+                <input type="password" class="form-control password" name="newpassword" id="newpassword">
               </div>
 
 

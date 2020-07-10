@@ -13,6 +13,7 @@ use Hash;
 use Auth;
 use Session;
 use Redirect;
+use App\Model\Sendmail;
 class LoginController extends Controller
 {
     function __construct(){
@@ -593,9 +594,18 @@ class LoginController extends Controller
             return redirect('signup');
         }
     }
+
+
+    public function testingmail(){
+        $objSendmail = new Sendmail();
+        $Sendmail = $objSendmail->sendMailltesting();
+        exit;
+    }
+
+
     public function logout(Request $request) {
         $this->resetGuard();
-        return redirect()->route('signup');
+        return redirect()->route('home');
     }
 
     public function resetGuard() {

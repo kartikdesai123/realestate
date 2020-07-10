@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::match(['get', 'post'], '/', ['as' => 'home', 'uses' => 'frontend\HomeController@home']);
 
 Route::match(['get', 'post'], 'signin', ['as' => 'signin', 'uses' => 'frontend\LoginController@index']);
-// Route::match(['get', 'post'], 'signup', ['as' => 'signup', 'uses' => 'frontend\LoginController@register']);
+Route::match(['get', 'post'], 'testing-mail', ['as' => 'testing-mail', 'uses' => 'frontend\LoginController@testingmail']);
 
 Route::match(['get', 'post'], 'user-register', ['as' => 'user-register', 'uses' => 'frontend\LoginController@userregister']);
 Route::match(['get', 'post'], 'agent-register', ['as' => 'agent-register', 'uses' => 'frontend\LoginController@agentregister']);
