@@ -81,6 +81,11 @@ $currentRoute = Route::current()->getName();
                               Company
                            </a>
                         </li>
+                        <li class="nav-item dropdown {{ $currentRoute == "search" ? "active": ""}}  ">
+                           <a class="nav-link" href="{{ route('search') }}"   aria-haspopup="true" aria-expanded="false">
+                              Search
+                           </a>
+                        </li>
                      </ul>
                   </div>
                   <div class="d-flex align-items-center">

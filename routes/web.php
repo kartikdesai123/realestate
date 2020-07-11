@@ -39,6 +39,8 @@ Route::match(['get', 'post'], 'property', ['as' => 'property', 'uses' => 'fronte
 Route::match(['get', 'post'], 'property-details/{id}', ['as' => 'property-details', 'uses' => 'frontend\PropertyController@propertydetails']);
 
 // Submit Property
+Route::match(['get', 'post'], 'search', ['as' => 'search', 'uses' => 'frontend\SearchController@index']);
+
 Route::match(['get', 'post'], 'submit-property', ['as' => 'submit-property', 'uses' => 'frontend\PropertyController@submitproperty']);
 
 // blog
