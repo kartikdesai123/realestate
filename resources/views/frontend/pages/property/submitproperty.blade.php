@@ -26,7 +26,7 @@ Submit Property -->
                 <li class="nav-item">
                   <a class="nav-link" id="tab-02-tab" data-toggle="tab" href="#tab-02" role="tab" aria-controls="tab-02" aria-selected="false">
                     <span>02</span>
-                  Gallery</a>
+                  Gallery & 360</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" id="tab-03-tab" data-toggle="tab" href="#tab-03" role="tab" aria-controls="tab-03" aria-selected="false">
@@ -109,6 +109,11 @@ Submit Property -->
                   <div class="custom-file">
                     <input type="file" class="custom-file-input" id="customFile">
                     <label class="custom-file-label" for="customFile">Choose file</label>
+                  </div>
+                     <p></p>
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="customFile">
+                    <label class="custom-file-label" for="customFile">Choose 360 file</label>
                   </div>
                 </div>
                 <div class="tab-pane fade" id="tab-03" role="tabpanel" aria-labelledby="tab-03-tab">
