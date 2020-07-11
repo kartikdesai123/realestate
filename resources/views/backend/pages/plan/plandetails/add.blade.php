@@ -73,6 +73,29 @@
                             </div>
                         </div>
 
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">No of Video</label>
+                                    <div class="col-md-8">
+                                        <input name="noOfVideo" type="text" class="form-control" placeholder="Please enter plan property">                                
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">360 View</label>
+                                    <div class="col-md-8">
+                                        <select class="form-control" name="angleView">
+                                            <option value="">Select 360 is allow or not</option>
+                                            <option value="Y">Yes</option>
+                                            <option value="N">No</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="form-actions">
                         <div class="row">

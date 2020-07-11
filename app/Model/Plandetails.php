@@ -50,12 +50,18 @@ class Plandetails extends Model
                 ->take($requestData['length'])
                 ->select('plandetails.id','plan.planname as plan','plandetails.planname',
                         'plandetails.planagent','plandetails.planproperty',
-                        'plandetails.planprice','plandetails.plandays')
+                        'plandetails.planprice','plandetails.plandays',
+                        'plandetails.noofvideo','plandetails.angleview')
                 ->get();
         $data = array();
         $i = 0;
 
         foreach ($resultArr as $row) {
+            if($row['angleview'] == "Y"){
+                $viewHtml = '<i class="fa fa-check" style="color:green"></i>';
+            }else{
+                $viewHtml = '<i class="fa fa-times  " style="color:red"></i>';
+            }
             $actionhtml = '';
             $actionhtml = '<a href="'.route('admin-edit-plan-details',$row['id']).'"  class="btn btn-icon primary"  ><i class="fa fa-edit"></i></a>'
                     . '<a href="" data-toggle="modal" data-target="#deleteModel" class="btn btn-icon  deletePlandetails" data-id="' . $row["id"] . '" ><i class="fa fa-trash" ></i></a>';
@@ -68,6 +74,8 @@ class Plandetails extends Model
             $nestedData[] = $row['planproperty'];
             $nestedData[] = $row['planagent'];
             $nestedData[] = $row['plandays'];
+            $nestedData[] = $row['noofvideo'];
+            $nestedData[] = $viewHtml;
             $nestedData[] = $actionhtml;
             $data[] = $nestedData;
         }
@@ -93,6 +101,8 @@ class Plandetails extends Model
             $objPlandetails->plandays = $request->input('plandays');
             $objPlandetails->planproperty = $request->input('planproperty');
             $objPlandetails->planagent = $request->input('planagent');
+            $objPlandetails->noofvideo = $request->input('noOfVideo');
+            $objPlandetails->angleview = $request->input('angleView');
             $objPlandetails->is_deleted = "0";
             $objPlandetails->created_at = date("Y-m-d h:i:s");
             $objPlandetails->updated_at = date("Y-m-d h:i:s");
@@ -148,7 +158,7 @@ class Plandetails extends Model
     }
 
     public function plandetails($id){
-        return Plandetails::select("plan.planfor","plandetails.planid","plandetails.planname","plandetails.planprice","plandetails.plandays","plandetails.planproperty","plandetails.planagent","plandetails.is_deleted","plandetails.id")
+        return Plandetails::select("plandetails.noofvideo","plandetails.angleview","plan.planfor","plandetails.planid","plandetails.planname","plandetails.planprice","plandetails.plandays","plandetails.planproperty","plandetails.planagent","plandetails.is_deleted","plandetails.id")
                             ->join("plan","plan.id","=","plandetails.planid")
                             ->where("plandetails.planid",$id)
                             ->where("plandetails.is_deleted","0")

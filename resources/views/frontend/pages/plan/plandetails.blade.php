@@ -33,23 +33,18 @@ Mortgage Interest Rates -->
                     <tr>
                         <td></td>
                         @foreach($plandetails as $key => $value)
-                            <th><center>{{ $value->planname }}</center></th>
+                            <th>
+                                <center>
+                                    <h4>{{ $value->planprice == 0 ? '' : "$".$value->planprice}}</h4>
+                                    <h3 style="color: #26ae61">{{ $value->planname }}</h3>
+                                    <h4>{{ $value->plandays == 0 ? '' : $value->plandays."Days" }}</h4>
+                                </center>
+                            </th>
                         @endforeach
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td><center>Price</center></td>
-                        @foreach($plandetails as $key => $value)
-                            <td><center>{{ $value->planprice }}</center></td>
-                        @endforeach
-                    </tr>
-                    <tr>
-                        <td><center>Number of Days</center></td>
-                        @foreach($plandetails as $key => $value)
-                            <td><center>{{ $value->plandays }}</center></td>
-                        @endforeach
-                    </tr>
+                    
                     <tr>
                         <td><center>Number of Property</center></td>
                         @foreach($plandetails as $key => $value)
@@ -60,6 +55,25 @@ Mortgage Interest Rates -->
                         <td><center>Number of Agent</center></td>
                         @foreach($plandetails as $key => $value)
                             <td><center>{{ $value->planagent }}</center></td>
+                        @endforeach
+                    </tr>
+                    <tr>
+                        <td><center>Number of Video</center></td>
+                        @foreach($plandetails as $key => $value)
+                            <td><center>{{ $value->noofvideo }}</center></td>
+                        @endforeach
+                    </tr>
+                    <tr>
+                        <td><center>360 View</center></td>
+                        @foreach($plandetails as $key => $value)
+                        <td><center>
+                            @if($value->angleview == "Y")
+                                <i class="fa fa-check" style="color:green"></i>
+                            @else
+                            <i class="fa fa-times  " style="color:red"></i>
+                            @endif
+                            </center>
+                        </td>
                         @endforeach
                     </tr>
                     <tr>
