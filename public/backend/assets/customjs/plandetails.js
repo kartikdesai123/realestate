@@ -89,7 +89,8 @@ var Plandetails = function(){
             plandays: {number: true},
             planagent: {number: true},
             planproperty: {required: true,number: true},
-
+            noOfVideo: {number: true},
+            angleView: {required: true},
         };
         var messages = {
             plan: {
@@ -107,6 +108,12 @@ var Plandetails = function(){
             planproperty: {
                 required: "Please enter plan property",
                 number: "Please enter plan property in only number"
+            },
+            noOfVideo: {
+                number: "Please enter no of video in only number",
+            },
+            angleView: {
+                required: "Please select plan allow 360 view allow or not",
             },
         };
         handleFormValidateWithMsg(form, rules, messages, function (form) {

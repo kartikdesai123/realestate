@@ -78,7 +78,7 @@
                                 <div class="form-group">
                                     <label class="control-label col-md-4">No of Video</label>
                                     <div class="col-md-8">
-                                        <input name="noOfVideo" type="text" class="form-control" placeholder="Please enter plan property">                                
+                                        <input name="noOfVideo" type="text" class="form-control"  placeholder="Please enter plan no of video">                                
                                     </div>
                                 </div>
                             </div>

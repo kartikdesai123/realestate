@@ -79,7 +79,7 @@
                                 <div class="form-group">
                                     <label class="control-label col-md-4">No of Video</label>
                                     <div class="col-md-8">
-                                        <input name="noOfVideo" type="text" class="form-control" placeholder="Please enter plan property">                                
+                                        <input name="noOfVideo" type="text" class="form-control" placeholder="Please enter plan no of video" value="{{ $editDetails[0]->noofvideo }}">                                
                                     </div>
                                 </div>
                             </div>
@@ -87,10 +87,10 @@
                                 <div class="form-group">
                                     <label class="control-label col-md-4">360 View</label>
                                     <div class="col-md-8">
-                                        <select class="form-control" name="360View">
-                                            <option>Select 360 is allow or not</option>
-                                            <option value="Y">Yes</option>
-                                            <option value="N">No</option>
+                                        <select class="form-control" name="angleView">
+                                            <option value="">Select 360 is allow or not</option>
+                                            <option value="Y" {{ $editDetails[0]->angleview == "Y" ? "selected='selected'" : "" }}>Yes</option>
+                                            <option value="N" {{ $editDetails[0]->angleview == "N" ? "selected='selected'" : "" }}>No</option>
                                         </select>
                                     </div>
                                 </div>

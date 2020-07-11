@@ -131,6 +131,8 @@ class Plandetails extends Model
                 $objPlandetails->plandays = $request->input('plandays');
                 $objPlandetails->planproperty = $request->input('planproperty');
                 $objPlandetails->planagent = $request->input('planagent');
+                $objPlandetails->noofvideo = $request->input('noOfVideo');
+                $objPlandetails->angleview = $request->input('angleView');
                 $objPlandetails->updated_at = date("Y-m-d h:i:s");
                 if($objPlandetails->save()){                
                     return "true";
@@ -144,7 +146,7 @@ class Plandetails extends Model
 
 
     public function editDetails($id){
-        return Plandetails::select("planid","id","planname","planprice","plandays","planproperty","planagent")
+        return Plandetails::select("planid","id","planname","planprice","plandays","planproperty","planagent","noofvideo","angleview")
                     ->where("id",$id)
                     ->get();
     }

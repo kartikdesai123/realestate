@@ -115,7 +115,6 @@ class PlanDetailsController extends Controller
         
         $objPlandetails = new Plandetails();
         $data['editDetails'] = $objPlandetails->editDetails($id);
-
         if ($request->isMethod("post")) {
             
             $objPlandetails = new Plandetails();
