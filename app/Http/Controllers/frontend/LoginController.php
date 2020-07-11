@@ -15,6 +15,7 @@ use Session;
 use Redirect;
 use App\Model\Sendmail;
 use App\Model\Emailverify;
+use App\Model\Forgotpassword;
 use DB;
 class LoginController extends Controller
 {
@@ -467,7 +468,7 @@ class LoginController extends Controller
             );
             return view('frontend.pages.profile.myprofile', $data);
         }else{
-            return redirect('signup');
+            return redirect('signin');
         }
        
     }
@@ -540,7 +541,7 @@ class LoginController extends Controller
             );
             return view('frontend.pages.profile.myproperty', $data);
         }else{
-            return redirect('signup');
+            return redirect('signin');
         }
        
     }
@@ -602,11 +603,130 @@ class LoginController extends Controller
             );
             return view('frontend.pages.profile.changepassword', $data);
         }else{
-            return redirect('signup');
+            return redirect('signin');
         }
     }
+    public function resetpassword (Request $request,$token) {
+            $data['token'] = $token;
+            $objUser = new Users();
+            $data['userDetails'] = $objUser->getDtailsByToken($token);
 
+            if ($request->isMethod("post")) {
+                
+                $objUsers = new Users();
+                $result = $objUsers->resetpassword($request);
+                if($result == "true"){
+                    $return['status'] = 'success';
+                    $return['message'] = 'Your password successfully reset';
+                    $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Save change");';
+                    $return['redirect'] = route('signin');
+                }else{
+                    $return['status'] = 'error';
+                    $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Save change");';
+                    $return['message'] = 'Something goes to wrong';
+                }
+                return json_encode($return);
+                exit();
+            }
+            $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || My Profile ';
+            $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || My Profile ';
+            $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || My Profile ';
 
+            $data['css'] = array(
+                'toastr/toastr.min.css',
+                'magnific-popup/magnific-popup.css',
+            );
+
+            $data['plugincss'] = array();
+            $data['pluginjs'] = array(
+                'toastr/toastr.min.js',
+                'validate/jquery.validate.min.js',
+                'jquery.appear.js',
+                'counter/jquery.countTo.js',
+                'magnific-popup/jquery.magnific-popup.min.js',
+            );
+
+            $data['js'] = array(
+                'comman_function.js',
+                'ajaxfileupload.js',
+                'jquery.form.min.js',
+                'myprofile.js'
+            );
+            $data['funinit'] = array(
+                'Myprofile.resetPassword()'
+            );
+
+            if(count($data['userDetails']) == "1"){
+               
+                return view('frontend.pages.login.resetpassword', $data);
+            }else{
+                return view('frontend.pages.verifyemail.tokenmismatch', $data);
+            }
+            
+            
+            
+    }
+
+    public function forgotpassword(Request $request){
+        if ($request->isMethod("post")) { 
+                $objForgotpassword = new Forgotpassword();
+                $result = $objForgotpassword->creteToken($request);
+                if($result == "true"){
+                    $return['status'] = 'success';
+                    $return['message'] = 'Reset password link successfully sent to your register mail';
+                    $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Save change");';
+                    $return['redirect'] = route('change-password');
+                }else{
+                    if($result == "notVerify"){
+                        $return['status'] = 'error';
+                        $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Save change");';
+                        $return['message'] = 'Your email is not verified';
+                    }else{
+                        if($result == "notfound"){
+                            $return['status'] = 'error';
+                            $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Save change");';
+                            $return['message'] = 'Your email is not register';
+                        }else{
+                            $return['status'] = 'error';
+                            $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Save change");';
+                            $return['message'] = 'Something goes to wrong.Please try again';
+                        }
+                    }
+                }
+               
+                return json_encode($return);
+                exit();
+            }
+            $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Forgot Password ';
+            $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Forgot Password ';
+            $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Forgot Password ';
+
+            $data['css'] = array(
+                'toastr/toastr.min.css',
+                'magnific-popup/magnific-popup.css',
+            );
+
+            $data['plugincss'] = array();
+            $data['pluginjs'] = array(
+                'toastr/toastr.min.js',
+                'validate/jquery.validate.min.js',
+                'jquery.appear.js',
+                'counter/jquery.countTo.js',
+                'magnific-popup/jquery.magnific-popup.min.js',
+            );
+
+            $data['js'] = array(
+                'comman_function.js',
+                'ajaxfileupload.js',
+                'jquery.form.min.js',
+                'myprofile.js'
+            );
+            $data['funinit'] = array(
+                'Myprofile.forgotpassword()'
+            );
+            return view('frontend.pages.login.forgotpassword', $data);
+
+    }
     public function testingmail(){
         $objSendmail = new Sendmail();
         $Sendmail = $objSendmail->sendMailltesting();

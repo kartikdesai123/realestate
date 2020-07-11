@@ -13,9 +13,13 @@ use Illuminate\Support\Facades\Route;
   |
  */
 
+
+
 Route::match(['get', 'post'], '/', ['as' => 'home', 'uses' => 'frontend\HomeController@home']);
 
 Route::match(['get', 'post'], 'signin', ['as' => 'signin', 'uses' => 'frontend\LoginController@index']);
+Route::match(['get', 'post'], 'forgot-password', ['as' => 'forgot-password', 'uses' => 'frontend\LoginController@forgotpassword']);
+Route::match(['get', 'post'], 'reset-password/{token}', ['as' => 'reset-password', 'uses' => 'frontend\LoginController@resetpassword']);
 Route::match(['get', 'post'], 'testing-mail', ['as' => 'testing-mail', 'uses' => 'frontend\LoginController@testingmail']);
 
 Route::match(['get', 'post'], 'email-verify/{token}', ['as' => 'email-verify', 'uses' => 'frontend\LoginController@emailverify']);
@@ -32,6 +36,8 @@ Route::match(['get', 'post'], 'change-password', ['as' => 'change-password', 'us
 Route::match(['get', 'post'], 'my-property', ['as' => 'my-property', 'uses' => 'frontend\LoginController@myproperty']);
 
 
+// Submit Property
+Route::match(['get', 'post'], 'search', ['as' => 'search', 'uses' => 'frontend\SearchController@index']);
 
 // property
 
@@ -39,8 +45,6 @@ Route::match(['get', 'post'], 'property', ['as' => 'property', 'uses' => 'fronte
 Route::match(['get', 'post'], 'property-details/{id}', ['as' => 'property-details', 'uses' => 'frontend\PropertyController@propertydetails']);
 
 // Submit Property
-Route::match(['get', 'post'], 'search', ['as' => 'search', 'uses' => 'frontend\SearchController@index']);
-
 Route::match(['get', 'post'], 'submit-property', ['as' => 'submit-property', 'uses' => 'frontend\PropertyController@submitproperty']);
 
 // blog

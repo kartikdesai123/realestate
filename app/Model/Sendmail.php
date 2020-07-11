@@ -34,6 +34,17 @@ class Sendmail extends Model
         $sendMail->sendSMTPMail($mailData);
         return true;
     }
+    public function forgotPassword($token,$username,$email){
+        $mailData['data']['token']=$token;
+        $mailData['data']['username']=$username;
+        $mailData['subject'] = 'Real Etate - Reset Passsword link';
+        $mailData['attachment'] = array();
+        $mailData['template'] ="emailsTemplate.forgotpassword";
+        $mailData['mailto'] = $email;
+        $sendMail = new Sendmail;
+        $sendMail->sendSMTPMail($mailData);
+        return true;
+    }
 
     public function welcomeMessage($username,$email){
         $mailData['data']['username']=$username;

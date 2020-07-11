@@ -17,7 +17,10 @@ Service -->
                 </div>
                 <div class="form-group col-sm-12">
                   <label>Password:</label>
-                  <input type="Password" class="form-control" name="password" placeholder="Please enter your password">
+                  <input type="password" class="form-control" name="password" placeholder="Please enter your password">
+                </div>
+                <div class="form-group col-sm-12" style="text-align: right">
+                  <a href="{{ route('forgot-password') }}" class="">Forgot Password ?</a>
                 </div>
                 <div class="col-sm-6"> 
                   <button type="submit" class="btn btn-primary btn-block btnsubmit">Login</button>

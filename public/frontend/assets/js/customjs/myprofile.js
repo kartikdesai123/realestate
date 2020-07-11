@@ -78,12 +78,56 @@ var Myprofile = function(){
             handleAjaxFormSubmit(form,true);
         });
     }
+
+    var fpassword = function(){
+        var form = $('#forgot-password-form');
+        var rules = {
+            email:{required: true,email:true},
+        };
+
+        var messages = {
+            email:{
+                required: "Please enter your register email address",
+                email: "Please enter vaild email address"
+            },
+        };
+        handleFormValidateWithMsg(form, rules, messages, function (form) {
+            handleAjaxFormSubmit(form);
+        });
+    };
+    var rpassword = function(){
+        
+        var form = $('#reset-password-form');
+        var rules = {
+            password:{required: true},
+            cpassword:{required: true,equalTo:"#password"},
+        };
+
+        var messages = {
+            password:{
+                required: "Please enter your new password",
+            },
+            cpassword:{
+                required: "Please enter your new confirm password",
+                equalTo: "Confirm password and new password must be same"
+            },
+        };
+        handleFormValidateWithMsg(form, rules, messages, function (form) {
+            handleAjaxFormSubmit(form);
+        });
+    };
     return{
         init:function(){
             updateProfile();
         },
         changepassword:function(){
             password();
+        },
+        forgotpassword:function(){
+            fpassword();
+        },
+        resetPassword:function(){
+            rpassword();
         },
     }
 }();

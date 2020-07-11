@@ -5,7 +5,9 @@ namespace App\Model;
 use Illuminate\Database\Eloquent\Model;
 use Hash;
 use App\Model\Emailverify;
+use App\Model\Forgotpassword;
 use App\Model\Sendmail;
+use DB;
 class Users extends Model
 {
     protected $table="users";
@@ -118,6 +120,30 @@ class Users extends Model
                 }
             }
     }
+    public function resetpassword($request){
+        $userId = Users::select("users.id")
+                        ->join("forgotpassword","forgotpassword.userid","=","users.id")
+                        ->where("forgotpassword.token",$request->input('token'))
+                        ->get();
+        if($userId){
+            $objUser = Users::find($userId[0]->id);
+            $objUser->password = Hash::make($request->input('password'));
+            $objUser->updated_at = date("Y-m-d h:i:s");
+            if($objUser->save()){
+                $result  = DB::table('forgotpassword')
+                        ->where('token',$request->input('token'))
+                        ->delete();
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            return false;
+        }
+        print_r($userId[0]->id);
+        die();
+
+    }
 
 
     public function editChangePasswpord($request,$id){
@@ -139,5 +165,12 @@ class Users extends Model
 
         // Hash::check('plain-text-password'
 
+    }
+
+    public function getDtailsByToken($token){
+        return Users::select("users.id","users.username")
+                    ->join("forgotpassword","forgotpassword.userid","=","users.id")
+                    ->where("forgotpassword.token",$token)
+                    ->get();
     }
 }
