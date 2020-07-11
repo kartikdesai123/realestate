@@ -37,7 +37,7 @@ Mortgage Interest Rates -->
                                 <center>
                                     <h4>{{ $value->planprice == 0 ? '' : "$".$value->planprice}}</h4>
                                     <h3 style="color: #26ae61">{{ $value->planname }}</h3>
-                                    <h4>{{ $value->plandays == 0 ? '' : $value->plandays."Days" }}</h4>
+                                    <h4>{{ $value->plandays == 0 ? '' : $value->plandays." - Days" }}</h4>
                                 </center>
                             </th>
                         @endforeach
