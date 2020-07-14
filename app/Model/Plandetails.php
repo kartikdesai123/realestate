@@ -189,7 +189,7 @@ class Plandetails extends Model
     public function getPlanuser($id){
         return Plandetails::select("plan.planfor")
                             ->join("plan","plan.id","=","plandetails.planid")
-                            ->where("plandetails.planid",$id)
+                            ->where("plandetails.id",$id)
                             ->get();
     }
 }
