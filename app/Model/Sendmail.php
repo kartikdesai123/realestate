@@ -17,7 +17,7 @@ class Sendmail extends Model
         $mailData['subject'] = 'Real Etate - Testing Mail';
         $mailData['attachment'] = array();
         $mailData['template'] ="emailsTemplate.testemail";
-        $mailData['mailto'] = 'parthkhunt12@gmail.com';
+        $mailData['mailto'] = 'pkhunt240@rku.ac.in';
         $sendMail = new Sendmail;
         return $sendMail->sendSMTPMail($mailData);
 
@@ -64,7 +64,7 @@ class Sendmail extends Model
                 $pathToFile = $mailData['attachment'];
             
                 $mailsend = Mail::send($mailData['template'], ['data' => $mailData['data']], function ($m) use ($mailData,$pathToFile) {
-                    $m->from('testewebexecute@gmail.com', 'Real Estate');
+                    $m->from('parthkhunt37@gmail.com', 'Real Estate');
         
                     $m->to($mailData['mailto'], "Real Estate")->subject($mailData['subject']);
                     if($pathToFile != ""){

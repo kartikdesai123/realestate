@@ -113,7 +113,11 @@
 															<td align="center">
 																<table border="0" cellspacing="0" cellpadding="0">
 																	<tr>
-																		<td class="text-button" style="color:#ffffff; font-family:'Lato', Arial, sans-serif; font-size:16px; line-height:20px; text-align:center; text-transform:uppercase; font-weight:bold; min-width:auto !important; padding:12px 22px; background:#0a2641; border-radius:4px;"><a href="#" target="_blank" class="link-white" style="color:#ffffff; text-decoration:none;"><span class="link-white" style="color:#ffffff; text-decoration:none;">VIEW OFFERS</span></a></td>
+																		<td class="text-button" style="color:#ffffff; font-family:'Lato', Arial, sans-serif; font-size:16px; line-height:20px; text-align:center; text-transform:uppercase; font-weight:bold; min-width:auto !important; padding:12px 22px; background:#0a2641; border-radius:4px;">
+																			<a href="{{ route('email-verify',"cxcnbx") }}" target="_blank" class="link-white" style="color:#ffffff; text-decoration:none;">
+																			   <span class="link-white" style="color:#ffffff; text-decoration:none;">VERIFY YOUR ACCOUNT</span>
+																			</a>
+																		 </td>
 																	</tr>
 																</table>
 															</td>
