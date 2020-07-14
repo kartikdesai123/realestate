@@ -102,7 +102,7 @@ banner -->
                     <p class="mb-0 d-none d-block mt-3">For those of you who are serious about having more, doing more, giving more and being with some understanding.</p>
                   </div>
                   <div class="property-btn">
-                    <a class="property-link" href="{{ route("property-details",'1')}}">See Details</a>
+                    <a class="property-link" href="{{ route("property-details",'1')}}" target="_blank">See Details</a>
                     <ul class="property-listing-actions list-unstyled mb-0">
                       <li class="property-compare"><a data-toggle="tooltip" data-placement="top" title="Compare" href="#"><i class="fas fa-exchange-alt"></i></a></li>
                       <li class="property-favourites"><a data-toggle="tooltip" data-placement="top" title="Favourite" href="#"><i class="far fa-heart"></i></a></li>
@@ -158,7 +158,7 @@ banner -->
                     <p class="mb-0 d-none d-block mt-3">Success isn’t really that difficult. There is a significant portion of the population here in North America, that actually.</p>
                   </div>
                   <div class="property-btn">
-                    <a class="property-link" href="{{ route("property-details",'1')}}">See Details</a>
+                    <a class="property-link" href="{{ route("property-details",'1')}}" target="_blank">See Details</a>
                     <ul class="property-listing-actions list-unstyled mb-0">
                       <li class="property-compare"><a data-toggle="tooltip" data-placement="top" title="Compare" href="#"><i class="fas fa-exchange-alt"></i></a></li>
                       <li class="property-favourites"><a data-toggle="tooltip" data-placement="top" title="Favourite" href="#"><i class="far fa-heart"></i></a></li>
@@ -214,7 +214,7 @@ banner -->
                     <p class="mb-0 d-none d-block mt-3">I truly believe Augustine’s words are true and if you look at history you know it is true. There are many people in.</p>
                   </div>
                   <div class="property-btn">
-                    <a class="property-link" href="{{ route("property-details",'1')}}">See Details</a>
+                    <a class="property-link" href="{{ route("property-details",'1')}}" target="_blank">See Details</a>
                     <ul class="property-listing-actions list-unstyled mb-0">
                       <li class="property-compare"><a data-toggle="tooltip" data-placement="top" title="Compare" href="#"><i class="fas fa-exchange-alt"></i></a></li>
                       <li class="property-favourites"><a data-toggle="tooltip" data-placement="top" title="Favourite" href="#"><i class="far fa-heart"></i></a></li>
@@ -270,7 +270,7 @@ banner -->
                     <p class="mb-0 d-none d-block mt-3">We also know those epic stories, those modern-day legends surrounding the early failures of such supremely successful folks.</p>
                   </div>
                   <div class="property-btn">
-                    <a class="property-link" href="{{ route("property-details",'1')}}">See Details</a>
+                    <a class="property-link" href="{{ route("property-details",'1')}}" target="_blank">See Details</a>
                     <ul class="property-listing-actions list-unstyled mb-0">
                       <li class="property-compare"><a data-toggle="tooltip" data-placement="top" title="Compare" href="#"><i class="fas fa-exchange-alt"></i></a></li>
                       <li class="property-favourites"><a data-toggle="tooltip" data-placement="top" title="Favourite" href="#"><i class="far fa-heart"></i></a></li>
@@ -327,7 +327,7 @@ banner -->
                     <p class="mb-0 d-none d-block mt-3">We know this in our gut, but what can we do about it? How can we motivate ourselves? One of the most difficult aspects of achieving.</p>
                   </div>
                   <div class="property-btn">
-                    <a class="property-link" href="{{ route("property-details",'1')}}">See Details</a>
+                    <a class="property-link" href="{{ route("property-details",'1')}}" target="_blank">See Details</a>
                     <ul class="property-listing-actions list-unstyled mb-0">
                       <li class="property-compare"><a data-toggle="tooltip" data-placement="top" title="Compare" href="#"><i class="fas fa-exchange-alt"></i></a></li>
                       <li class="property-favourites"><a data-toggle="tooltip" data-placement="top" title="Favourite" href="#"><i class="far fa-heart"></i></a></li>
