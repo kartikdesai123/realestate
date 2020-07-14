@@ -49,13 +49,23 @@ Mortgage Interest Rates -->
                     <tr>
                         <td><center>Number of Property</center></td>
                         @foreach($plandetails as $key => $value)
-                            <td><center>{{ $value->planproperty }}</center></td>
+                            @if($value->planproperty  < 2)
+                                <td><center>{{ $value->planproperty }}</center></td>
+                            @else
+                                <td><center>Up to {{ $value->planproperty }}</center></td>
+                            @endif
+                            
                         @endforeach
                     </tr>
                     <tr>
                         <td><center>Number of Agent</center></td>
                         @foreach($plandetails as $key => $value)
-                            <td><center>{{ $value->planagent }}</center></td>
+                            @if($value->planagent  < 2)
+                                <td><center>{{ $value->planagent }}</center></td>
+                            @else
+                                <td><center>Up to {{ $value->planagent }}</center></td>
+                            @endif
+                            
                         @endforeach
                     </tr>
                     <tr>
