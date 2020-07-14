@@ -32,8 +32,12 @@ class HomeController extends Controller
             'magnific-popup/jquery.magnific-popup.min.js',
             'countdown/jquery.downCount.js',
         );
-        $data['js'] = array();
-        $data['funinit'] = array();
+        $data['js'] = array(
+            'home.js'
+        );
+        $data['funinit'] = array(
+            'Home.init()'
+        );
         return view('frontend.pages.home.home', $data);
     }
 }

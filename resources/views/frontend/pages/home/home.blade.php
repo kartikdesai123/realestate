@@ -33,7 +33,7 @@
                            <form class="form-row basic-select-wrapper">
                               <div class="form-group col-lg col-md-6">
                                  <label>Property type</label>
-                                 <select class="form-control basic-select">
+                                 <select class="form-control basic-select buldingType">
                                     <option>All Type</option>
                                     <option>Villa</option>
                                     <option>Apartment Building</option>
@@ -42,11 +42,12 @@
                                     <option>Residential</option>
                                     <option>Shop</option>
                                     <option>Apartment</option>
+                                    <option value="project">Project</option>
                                  </select>
                               </div>
                               <div class="form-group col-lg col-md-6">
                                  <label>Status</label>
-                                 <select class="form-control basic-select">
+                                 <select class="form-control basic-select buldingStatus">
                                     <option>For Rent</option>
                                     <option>For Sale</option>
                                  </select>

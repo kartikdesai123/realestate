@@ -15,7 +15,7 @@
 
     @if (!empty($js)) 
     @foreach ($js as $value) 
-    <script src="{{ asset('public/frontend/assets/js/customjs/'.$value) }}" type="text/javascript"></script>
+    <script src="{{ asset('public/frontend/assets/customjs/'.$value) }}" type="text/javascript"></script>
     @endforeach
     @endif
     <script>
