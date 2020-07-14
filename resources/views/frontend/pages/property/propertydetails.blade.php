@@ -54,7 +54,8 @@
                       </div>
                     </div>
                     <div class="d-flex mb-4 align-items-center">
-                      <h6 class="text-primary border p-2 mb-0"><a href="#"><i class="fas fa-phone-volume text-white pr-2"></i>(123) 345-6789</a></h6>
+                      <h6 class="text-primary border p-2 mb-0"><a href="#"><i style='color: white; padding-right: 5px;
+    font-size: 22px;' class='fab'>&#xf40c;</i>Contact by</a></h6>
                       <a class="btn btn-link p-0 ml-auto text-white" href="{{ route('property') }}"><u>View all listing </u></a>
                     </div>
                     <form>
