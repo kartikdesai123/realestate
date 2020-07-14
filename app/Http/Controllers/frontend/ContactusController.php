@@ -24,7 +24,11 @@ class ContactusController extends Controller
             'jquery.appear.js',
             'counter/jquery.countTo.js',
         );
-
+        $data['header'] = array(
+            'breadcrumb' => array(
+                'Home' => route("home"),
+                'Contact Us' => "Contact Us",
+        ));
         $data['js'] = array();
         $data['funinit'] = array();
         return view('frontend.pages.contactus.contactus', $data);

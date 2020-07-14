@@ -61,22 +61,22 @@ $currentRoute = Route::current()->getName();
                            </a>
                         </li>
 
-                        <li class="nav-item dropdown {{ $currentRoute == "blog" ? "active": ""}}  {{ $currentRoute == "blog-details" ? "active": ""}}">
+                        <li class="nav-item dropdown {{ $currentRoute == "blog" || $currentRoute == "blog-details" ? "active": ""}} ">
                            <a class="nav-link" href="{{ route('blog') }}"   aria-haspopup="true" aria-expanded="false">
                               Blog
                            </a>
                         </li>
-                        <li class="nav-item dropdown {{ $currentRoute == "agent" ? "active": ""}}  ">
+                        <li class="nav-item dropdown {{ $currentRoute == "agent" ||  $currentRoute == "agent-details" ? "active": ""}}  ">
                            <a class="nav-link" href="{{ route('agent') }}"   aria-haspopup="true" aria-expanded="false">
                               Agent
                            </a>
                         </li>
-                        <li class="nav-item dropdown {{ $currentRoute == "agency" ? "active": ""}}  ">
+                        <li class="nav-item dropdown {{ $currentRoute == "agency" ||  $currentRoute == "agency-details"  ? "active": ""}}  ">
                            <a class="nav-link" href="{{ route('agency') }}"   aria-haspopup="true" aria-expanded="false">
                               Agency
                            </a>
                         </li>
-                        <li class="nav-item dropdown {{ $currentRoute == "company" ? "active": ""}}  ">
+                        <li class="nav-item dropdown {{ $currentRoute == "company"  || $currentRoute == "company-details"  ? "active": ""}}  ">
                            <a class="nav-link" href="{{ route('company') }}"   aria-haspopup="true" aria-expanded="false">
                               Company
                            </a>

@@ -13,6 +13,7 @@ Mortgage Interest Rates -->
               </div>
             </div>
           </div>
+          @csrf
       <div class="row">
         <div class="col-12">
             @if(count($plandetails) == 0)
@@ -64,6 +65,33 @@ Mortgage Interest Rates -->
                         @endforeach
                     </tr>
                     <tr>
+                        <td><center>Number of Photo</center></td>
+                        @foreach($plandetails as $key => $value)
+                            <td><center>{{ $value->photos }}</center></td>
+                        @endforeach
+                    </tr>
+                    <tr>
+                        <td><center>Number of Audiobook</center></td>
+                        @foreach($plandetails as $key => $value)
+                            <td><center>{{ $value->audiobook }}</center></td>
+                        @endforeach
+                    </tr>
+
+                    <tr>
+                        <td><center>Virtual tour booking</center></td>
+                        @foreach($plandetails as $key => $value)
+                        <td><center>
+                            @if($value->tourBooking == "Y")
+                                <i class="fa fa-check" style="color:green"></i>
+                            @else
+                            <i class="fa fa-times  " style="color:red"></i>
+                            @endif
+                            </center>
+                        </td>
+                        @endforeach
+                    </tr>
+
+                    <tr>
                         <td><center>360 View</center></td>
                         @foreach($plandetails as $key => $value)
                         <td><center>
@@ -79,18 +107,7 @@ Mortgage Interest Rates -->
                     <tr>
                         <td><center></center></td>
                         @foreach($plandetails as $key => $value)
-                            @if($value->planfor == 'U')
-                                <td><center><span class="btn btn-primary btn-block" plandetailId="{{ $value->id}}">Select plan</span></center></td>
-                            @endif
-                            @if($value->planfor == 'AG')
-                                <td><center><span class="btn btn-primary btn-block" plandetailId="{{ $value->id}}">Select plan</span></center></td>
-                            @endif
-                            @if($value->planfor == 'AY')
-                                <td><center><span class="btn btn-primary btn-block" plandetailId="{{ $value->id}}">Select plan</span></center></td>  
-                            @endif
-                            @if($value->planfor == 'CC')
-                                <td><center><span class="btn btn-primary btn-block" plandetailId="{{ $value->id}}">Select plan</span></center></td>
-                            @endif
+                            <td><center><span class="btn btn-primary btn-block planBtn" plandetailId="{{ $value->id}}">Select plan</span></center></td>
                             
                         @endforeach
                     </tr>

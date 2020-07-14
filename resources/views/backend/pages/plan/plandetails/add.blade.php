@@ -96,6 +96,40 @@
                             </div>
                         </div>
 
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">No of Photos</label>
+                                    <div class="col-md-8">
+                                        <input name="photos" type="text" class="form-control" placeholder="Please enter no of photo">                                
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">No of Audio Book</label>
+                                    <div class="col-md-8">
+                                        <input name="audiobook" type="text" class="form-control" placeholder="Please enter no of audiobook">                                
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Virtual tour booking</label>
+                                    <div class="col-md-8">
+                                        <select class="form-control" name="tourBooking">
+                                            <option value="">Select Virtual tour booking is allow or not</option>
+                                            <option value="Y">Yes</option>
+                                            <option value="N">No</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="form-actions">
                         <div class="row">

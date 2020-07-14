@@ -21,6 +21,8 @@ Route::match(['get', 'post'], 'signin', ['as' => 'signin', 'uses' => 'frontend\L
 Route::match(['get', 'post'], 'forgot-password', ['as' => 'forgot-password', 'uses' => 'frontend\LoginController@forgotpassword']);
 Route::match(['get', 'post'], 'reset-password/{token}', ['as' => 'reset-password', 'uses' => 'frontend\LoginController@resetpassword']);
 Route::match(['get', 'post'], 'testing-mail', ['as' => 'testing-mail', 'uses' => 'frontend\LoginController@testingmail']);
+Route::match(['get', 'post'], 'getCookie', ['as' => 'getCookie', 'uses' => 'frontend\PlanController@getCookie']);
+Route::match(['get', 'post'], 'setCookie', ['as' => 'setCookie', 'uses' => 'frontend\PlanController@setCookie']);
 
 Route::match(['get', 'post'], 'email-verify/{token}', ['as' => 'email-verify', 'uses' => 'frontend\LoginController@emailverify']);
 
@@ -75,6 +77,7 @@ Route::match(['get', 'post'], 'services', ['as' => 'services', 'uses' => 'fronte
 // plan
 Route::match(['get', 'post'], 'plan', ['as' => 'plan', 'uses' => 'frontend\PlanController@plan']);
 Route::match(['get', 'post'], 'plan-details/{id}', ['as' => 'plan-details', 'uses' => 'frontend\PlanController@plandetails']);
+Route::match(['get', 'post'], 'plan-detail-ajaxAction', ['as' => 'plan-detail-ajaxAction', 'uses' => 'frontend\PlanController@ajaxAction']);
 
 // faq
 Route::match(['get', 'post'], 'faq', ['as' => 'faq', 'uses' => 'frontend\FaqController@faq']);

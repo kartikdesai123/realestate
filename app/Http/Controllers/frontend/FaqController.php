@@ -26,6 +26,12 @@ class FaqController extends Controller
             'select2/select2.full.js'
         );
 
+        $data['header'] = array(
+            'breadcrumb' => array(
+                'Home' => route("home"),
+                'FAQs List' => "FAQs List",
+        ));
+
         $data['js'] = array();
         $data['funinit'] = array();
         return view('frontend.pages.faq.faq', $data);

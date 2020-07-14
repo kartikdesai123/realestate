@@ -50,7 +50,10 @@ var Plandetails = function(){
                 planagent: {number: true},
                 planproperty: {required: true,number: true},
                 noOfVideo: {number: true},
+                photos: {number: true},
+                audiobook: {number: true},
                 angleView: {required: true},
+                tourBooking: {required: true},
 
             };
             var messages = {
@@ -69,8 +72,17 @@ var Plandetails = function(){
                 noOfVideo: {
                     number: "Please enter no of video in only number",
                 },
+                photos: {
+                    number: "Please enter no of photos in only number",
+                },
+                audiobook: {
+                    number: "Please enter no of audiobook in only number",
+                },
                 angleView: {
                     required: "Please select plan allow 360 view allow or not",
+                },
+                tourBooking: {
+                    required: "Please select plan allow virtual tour booking view allow or not",
                 },
                 planproperty: {
                     required: "Please enter plan property",
@@ -90,7 +102,10 @@ var Plandetails = function(){
             planagent: {number: true},
             planproperty: {required: true,number: true},
             noOfVideo: {number: true},
+            photos: {number: true},
+            audiobook: {number: true},
             angleView: {required: true},
+            tourBooking: {required: true},
         };
         var messages = {
             plan: {
@@ -112,8 +127,17 @@ var Plandetails = function(){
             noOfVideo: {
                 number: "Please enter no of video in only number",
             },
+            photos: {
+                number: "Please enter no of photos in only number",
+            },
+            audiobook: {
+                number: "Please enter no of audiobook in only number",
+            },
             angleView: {
                 required: "Please select plan allow 360 view allow or not",
+            },
+            tourBooking: {
+                required: "Please select plan allow virtual tour booking view allow or not",
             },
         };
         handleFormValidateWithMsg(form, rules, messages, function (form) {

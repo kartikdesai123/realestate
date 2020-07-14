@@ -49,6 +49,13 @@ class BlogController extends Controller
         $data['js'] = array();
         $data['funinit'] = array();
 
+        $data['header'] = array(
+            'title' => 'About Us',
+            'breadcrumb' => array(
+                'Home' => route("home"),
+                'Blog List' => 'Blog List',
+        ));
+
         return view('frontend.pages.blog.blog', $data);
     }
 
@@ -64,6 +71,15 @@ class BlogController extends Controller
         $data['pluginjs'] = array(
             'owl-carousel/owl.carousel.min.js',
         );
+
+        $data['header'] = array(
+            'title' => 'About Us',
+            'breadcrumb' => array(
+                'Home' => route("home"),
+                'Blog List' => route("blog"),
+                'Blog Details' => 'Blog Details',
+        ));
+
         $data['js'] = array();
         $data['funinit'] = array();
         return view('frontend.pages.blog.blogdetails', $data);

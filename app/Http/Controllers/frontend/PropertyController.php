@@ -25,6 +25,14 @@ class PropertyController extends Controller
             'select2/select2.full.js',
             'range-slider/ion.rangeSlider.min.js',
         );
+
+        $data['header'] = array(
+            'title' => 'About Us',
+            'breadcrumb' => array(
+                'Home' => route("home"),
+                'Property List' => "Property List",
+        ));
+
         $data['js'] = array();
         $data['funinit'] = array();
         return view('frontend.pages.property.propertylist', $data);
@@ -45,6 +53,13 @@ class PropertyController extends Controller
             'datetimepicker/datetimepicker.min.js',
             'select2/select2.full.js',
         );
+        $data['header'] = array(
+            'title' => 'About Us',
+            'breadcrumb' => array(
+                'Home' => route("home"),
+                'Property List' => route("property"),
+                'Property Details' => 'Property Details',
+        ));
         $data['js'] = array();
         $data['funinit'] = array();
         return view('frontend.pages.property.propertydetails', $data);
@@ -67,6 +82,14 @@ class PropertyController extends Controller
             'select2/select2.full.js',
             'magnific-popup/jquery.magnific-popup.min.js',
         );
+
+        $data['header'] = array(
+            'title' => 'About Us',
+            'breadcrumb' => array(
+                'Home' => route("home"),
+                'Property List' => route("property"),
+                'Property Submit' => 'Property Submit',
+        ));
         $data['js'] = array();
         $data['funinit'] = array();
         return view('frontend.pages.property.submitproperty', $data);

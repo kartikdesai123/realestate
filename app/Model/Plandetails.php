@@ -17,7 +17,10 @@ class Plandetails extends Model
             3 => 'plandetails.planprice',
             4 => 'plandetails.plandays',
             5 => 'plandetails.planproperty',
-            6 => 'plandetails.planagent',
+            6 => 'plandetails.photos',
+            7 => 'plandetails.audiobook',
+            8 => 'plandetails.planagent',
+            9 => 'plandetails.tourBooking',
         );
         $query = Blog ::from('plandetails')
                         ->join("plan","plan.id","=","plandetails.planid")
@@ -51,7 +54,8 @@ class Plandetails extends Model
                 ->select('plandetails.id','plan.planname as plan','plandetails.planname',
                         'plandetails.planagent','plandetails.planproperty',
                         'plandetails.planprice','plandetails.plandays',
-                        'plandetails.noofvideo','plandetails.angleview')
+                        'plandetails.photos','plandetails.audiobook',
+                        'plandetails.noofvideo','plandetails.angleview','plandetails.tourBooking')
                 ->get();
         $data = array();
         $i = 0;
@@ -61,6 +65,11 @@ class Plandetails extends Model
                 $viewHtml = '<i class="fa fa-check" style="color:green"></i>';
             }else{
                 $viewHtml = '<i class="fa fa-times  " style="color:red"></i>';
+            }
+            if($row['tourBooking'] == "Y"){
+                $tourBookingHtml = '<i class="fa fa-check" style="color:green"></i>';
+            }else{
+                $tourBookingHtml = '<i class="fa fa-times  " style="color:red"></i>';
             }
             $actionhtml = '';
             $actionhtml = '<a href="'.route('admin-edit-plan-details',$row['id']).'"  class="btn btn-icon primary"  ><i class="fa fa-edit"></i></a>'
@@ -74,8 +83,11 @@ class Plandetails extends Model
             $nestedData[] = $row['planproperty'];
             $nestedData[] = $row['planagent'];
             $nestedData[] = $row['plandays'];
+            $nestedData[] = $row['photos'];
+            $nestedData[] = $row['audiobook'];
             $nestedData[] = $row['noofvideo'];
             $nestedData[] = $viewHtml;
+            $nestedData[] = $tourBookingHtml;
             $nestedData[] = $actionhtml;
             $data[] = $nestedData;
         }
@@ -101,8 +113,11 @@ class Plandetails extends Model
             $objPlandetails->plandays = $request->input('plandays');
             $objPlandetails->planproperty = $request->input('planproperty');
             $objPlandetails->planagent = $request->input('planagent');
+            $objPlandetails->photos = $request->input('photos');
+            $objPlandetails->audiobook = $request->input('audiobook');
             $objPlandetails->noofvideo = $request->input('noOfVideo');
             $objPlandetails->angleview = $request->input('angleView');
+            $objPlandetails->tourBooking = $request->input('tourBooking');
             $objPlandetails->is_deleted = "0";
             $objPlandetails->created_at = date("Y-m-d h:i:s");
             $objPlandetails->updated_at = date("Y-m-d h:i:s");
@@ -132,6 +147,9 @@ class Plandetails extends Model
                 $objPlandetails->planproperty = $request->input('planproperty');
                 $objPlandetails->planagent = $request->input('planagent');
                 $objPlandetails->noofvideo = $request->input('noOfVideo');
+                $objPlandetails->photos = $request->input('photos');
+                $objPlandetails->audiobook = $request->input('audiobook');
+                $objPlandetails->tourBooking = $request->input('tourBooking');
                 $objPlandetails->angleview = $request->input('angleView');
                 $objPlandetails->updated_at = date("Y-m-d h:i:s");
                 if($objPlandetails->save()){                
@@ -146,7 +164,7 @@ class Plandetails extends Model
 
 
     public function editDetails($id){
-        return Plandetails::select("planid","id","planname","planprice","plandays","planproperty","planagent","noofvideo","angleview")
+        return Plandetails::select("planid","tourBooking","audiobook","photos","id","planname","planprice","plandays","planproperty","planagent","noofvideo","angleview")
                     ->where("id",$id)
                     ->get();
     }
@@ -160,10 +178,18 @@ class Plandetails extends Model
     }
 
     public function plandetails($id){
-        return Plandetails::select("plandetails.noofvideo","plandetails.angleview","plan.planfor","plandetails.planid","plandetails.planname","plandetails.planprice","plandetails.plandays","plandetails.planproperty","plandetails.planagent","plandetails.is_deleted","plandetails.id")
+        return Plandetails::select('plandetails.photos','plandetails.tourBooking','plandetails.audiobook',"plandetails.noofvideo","plandetails.angleview","plan.planfor","plandetails.planid","plandetails.planname","plandetails.planprice","plandetails.plandays","plandetails.planproperty","plandetails.planagent","plandetails.is_deleted","plandetails.id")
                             ->join("plan","plan.id","=","plandetails.planid")
                             ->where("plandetails.planid",$id)
                             ->where("plandetails.is_deleted","0")
+                            ->get();
+    }
+
+
+    public function getPlanuser($id){
+        return Plandetails::select("plan.planfor")
+                            ->join("plan","plan.id","=","plandetails.planid")
+                            ->where("plandetails.planid",$id)
                             ->get();
     }
 }

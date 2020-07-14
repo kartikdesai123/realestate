@@ -143,6 +143,13 @@ class LoginController extends Controller
         $data['funinit'] = array(
             'Login.init()'
         );
+
+        $data['header'] = array(
+            'breadcrumb' => array(
+                'Home' => route("home"),
+                'Sign In' => "Sign In",
+        ));
+
         return view('frontend.pages.login.login', $data);
     }
     
@@ -201,6 +208,13 @@ class LoginController extends Controller
             'jquery.form.min.js',
             'register.js'
         );
+
+        $data['header'] = array(
+            'breadcrumb' => array(
+                'Home' => route("home"),
+                'User Registration' => "User Registration",
+        ));
+
         $data['funinit'] = array(
             'Register.init()'
         );
@@ -269,6 +283,12 @@ class LoginController extends Controller
         $data['funinit'] = array(
             'Register.init()'
         );
+
+        $data['header'] = array(
+            'breadcrumb' => array(
+                'Home' => route("home"),
+                'Agent Registration' => "Agent Registration",
+        ));
         return view('frontend.pages.login.agentregister', $data);
     }
 
@@ -330,6 +350,13 @@ class LoginController extends Controller
             'jquery.form.min.js',
             'register.js'
         );
+
+        $data['header'] = array(
+            'breadcrumb' => array(
+                'Home' => route("home"),
+                'Agency Registration' => "Agency Registration",
+        ));
+
         $data['funinit'] = array(
             'Register.init()'
         );
@@ -392,6 +419,13 @@ class LoginController extends Controller
             'jquery.form.min.js',
             'register.js'
         );
+
+        $data['header'] = array(
+            'breadcrumb' => array(
+                'Home' => route("home"),
+                ' Construction Company Registration' => " Construction Company Registration",
+        ));
+
         $data['funinit'] = array(
             'Register.init()'
         );
@@ -466,6 +500,13 @@ class LoginController extends Controller
             $data['funinit'] = array(
                 'Myprofile.init()'
             );
+
+            $data['header'] = array(
+                'breadcrumb' => array(
+                    'Home' => route("home"),
+                    'My Profile' => "My Profile",
+            ));
+
             return view('frontend.pages.profile.myprofile', $data);
         }else{
             return redirect('signin');
@@ -539,6 +580,13 @@ class LoginController extends Controller
             $data['funinit'] = array(
                 'Myprofile.init()'
             );
+
+            $data['header'] = array(
+                'breadcrumb' => array(
+                    'Home' => route("home"),
+                    'My Profile' => route("my-profile"),
+                    'My Property' => "My Property",
+            ));
             return view('frontend.pages.profile.myproperty', $data);
         }else{
             return redirect('signin');
@@ -601,11 +649,20 @@ class LoginController extends Controller
             $data['funinit'] = array(
                 'Myprofile.changepassword()'
             );
+
+            $data['header'] = array(
+                'breadcrumb' => array(
+                    'Home' => route("home"),
+                    'My Profile' => route("my-profile"),
+                    'Change Passsword' => "Change Passsword",
+            ));
             return view('frontend.pages.profile.changepassword', $data);
         }else{
             return redirect('signin');
         }
     }
+
+
     public function resetpassword (Request $request,$token) {
             $data['token'] = $token;
             $objUser = new Users();
@@ -655,6 +712,12 @@ class LoginController extends Controller
             $data['funinit'] = array(
                 'Myprofile.resetPassword()'
             );
+
+            $data['header'] = array(
+                'breadcrumb' => array(
+                    'Home' => route("home"),
+                    'Reset Passsword' => "Reset Passsword",
+            ));
 
             if(count($data['userDetails']) == "1"){
                
@@ -724,6 +787,13 @@ class LoginController extends Controller
             $data['funinit'] = array(
                 'Myprofile.forgotpassword()'
             );
+
+            $data['header'] = array(
+                'breadcrumb' => array(
+                    'Home' => route("home"),
+                    'Sign In' => route("signin"),
+                    'Forgot Passsword' => "Forgot Passsword",
+            ));
             return view('frontend.pages.login.forgotpassword', $data);
 
     }
@@ -767,6 +837,12 @@ class LoginController extends Controller
         $data['funinit'] = array(
             'Login.init()'
         );
+
+        $data['header'] = array(
+            'breadcrumb' => array(
+                'Home' => route("home"),
+                'Email Verify' => "Email Verify",
+        ));
         
         if($countToken == "verify"){
             return view('frontend.pages.verifyemail.verify', $data);
@@ -780,7 +856,6 @@ class LoginController extends Controller
                
             }
         }
-        die();
     }
 
 

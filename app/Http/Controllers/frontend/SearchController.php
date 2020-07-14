@@ -28,6 +28,12 @@ class SearchController extends Controller
 
         $data['js'] = array();
         $data['funinit'] = array();
+        $data['header'] = array(
+            'title' => 'About Us',
+            'breadcrumb' => array(
+                'Home' => route("home"),
+                'Property Search' => 'Property Search',
+        ));
         return view('frontend.pages.search.search', $data);
     }
 
@@ -55,6 +61,13 @@ class SearchController extends Controller
         $data['funinit'] = array(
             'PlanDetails.selectPlan()'
         );
+
+        $data['header'] = array(
+            'title' => 'About Us',
+            'breadcrumb' => array(
+                'Home' => route("home"),
+                'Property Search' => 'Property Search',
+        ));
         return view('frontend.pages.plan.plandetails', $data);
     }
 }

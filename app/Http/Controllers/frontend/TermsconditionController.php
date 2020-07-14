@@ -28,6 +28,13 @@ class TermsconditionController extends Controller
 
         $data['js'] = array();
         $data['funinit'] = array();
+
+        $data['header'] = array(
+            'title' => 'About Us',
+            'breadcrumb' => array(
+                'Home' => route("home"),
+                'Term Condition' => 'Term Condition',
+        ));
         return view('frontend.pages.termcondition.termcondition', $data);
     }
 }

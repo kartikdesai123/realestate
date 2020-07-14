@@ -27,6 +27,13 @@ class AgencyController extends Controller
             'magnific-popup/jquery.magnific-popup.min.js',
         );
 
+        $data['header'] = array(
+            'title' => 'About Us',
+            'breadcrumb' => array(
+                'Home' => route("home"),
+                'Agency List' => 'Agency  List',
+        ));
+
         $data['js'] = array();
         $data['funinit'] = array();
         return view('frontend.pages.agency.list', $data);
@@ -47,6 +54,14 @@ class AgencyController extends Controller
             'jquery.appear.js',
             'magnific-popup/jquery.magnific-popup.min.js',
         );
+
+        $data['header'] = array(
+            'title' => 'About Us',
+            'breadcrumb' => array(
+                'Home' => route("home"),
+                'Agency List' => route("agency"),
+                'Agency Details' => 'Agency  Details',
+        ));
 
         $data['js'] = array();
         $data['funinit'] = array();

@@ -30,8 +30,11 @@
                             <th>Plan Days</th>
                             <th>Plan Property</th>
                             <th>Plan Agent</th>
+                            <th>No of Photo</th>
+                            <th>No of Audiobook</th>
                             <th>No of Video</th>
                             <th>360 View</th>
+                            <th>Virtual tour booking</th>
                             <th>Actions</th>
                         </tr>
                     </thead>

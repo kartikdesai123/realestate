@@ -27,6 +27,12 @@ class ServicesController extends Controller
 
         $data['js'] = array();
         $data['funinit'] = array();
+        $data['header'] = array(
+            'title' => 'About Us',
+            'breadcrumb' => array(
+                'Home' => route("home"),
+                'Services' => 'Services',
+        ));
         return view('frontend.pages.services.services', $data);
     }
 }

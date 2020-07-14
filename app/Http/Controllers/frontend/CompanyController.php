@@ -27,6 +27,12 @@ class CompanyController extends Controller
             'magnific-popup/jquery.magnific-popup.min.js',
         );
 
+        $data['header'] = array(
+            'breadcrumb' => array(
+                'Home' => route("home"),
+                'Company List' => 'Company List',
+        ));
+
         $data['js'] = array();
         $data['funinit'] = array();
         return view('frontend.pages.company.list', $data);
@@ -48,6 +54,13 @@ class CompanyController extends Controller
             'magnific-popup/jquery.magnific-popup.min.js',
         );
 
+        $data['header'] = array(
+            'title' => 'About Us',
+            'breadcrumb' => array(
+                'Home' => route("home"),
+                'Company List' => route("company"),
+                'Company Details' => 'Company Details',
+        ));
         $data['js'] = array();
         $data['funinit'] = array();
         return view('frontend.pages.company.detail', $data);

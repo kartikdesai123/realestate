@@ -4,6 +4,7 @@ namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Config;
 use App\Model\Plan;
 use App\Model\Plandetails;
@@ -32,6 +33,12 @@ class PlanController extends Controller
         );
 
         $data['js'] = array();
+
+        $data['header'] = array(
+            'breadcrumb' => array(
+                'Home' => route("home"),
+                'Plan List' => "Plan List",
+        ));
         $data['funinit'] = array();
         return view('frontend.pages.plan.plan', $data);
     }
@@ -60,6 +67,47 @@ class PlanController extends Controller
         $data['funinit'] = array(
             'PlanDetails.selectPlan()'
         );
+        $data['header'] = array(
+            'breadcrumb' => array(
+                'Home' => route("home"),
+                'Plan List' => route("plan"),
+                'Plan Details' => "Plan Details",
+        ));
+        
         return view('frontend.pages.plan.plandetails', $data);
+    }
+
+    public function setCookie(Request $request) {
+        $minutes = 1;
+        $response = new Response('Hello World');
+        $response->withCookie(cookie('name', 'virat', $minutes));
+        return $response;
+     }
+
+
+    public function getCookie(Request $request) {
+        $value = $request->cookie('planId');
+        echo $value;
+     }
+
+    public function ajaxAction(Request $request){
+        
+        $action = $request->input('action');
+        switch ($action) {
+            case 'selectPlan':
+                $objPlandetails = new Plandetails();
+                $planUser = $objPlandetails->getPlanuser($request->input('planId'));
+
+
+                $minutes = 10;
+                $response = new Response();
+                $response->withCookie(cookie('planId', $request->input('planId'), $minutes));
+                return $planUser[0]->planfor;
+
+                // $response = new Response();
+                // $response->withCookie(cookie()->forever('planId', $request->input('planId')));
+                // exit;
+                
+        }
     }
 }

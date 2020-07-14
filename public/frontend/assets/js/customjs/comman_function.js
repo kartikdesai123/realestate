@@ -172,15 +172,6 @@ function handleFormValidate(form, rules, submitCallback, showToaster) {
             return true;
         },
 
-//        messages: {
-//            firstname: "Enter your firstname",
-//            lastname: "Enter your lastname",
-//            username: {
-//                required: "Enter a username",
-//                minlength: jQuery.format("Enter at least {0} characters"),
-//                remote: jQuery.format("{0} is already in use")
-//            }
-//        },
         submitHandler: function (form) {
             $(".submitbtn:visible").attr("disabled","disabled");
             if (typeof submitCallback !== 'undefined' && typeof submitCallback == 'function') {

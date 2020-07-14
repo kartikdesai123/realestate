@@ -29,7 +29,12 @@ class AboutusController extends Controller
             'owl-carousel/owl.carousel.min.js',
             'magnific-popup/jquery.magnific-popup.min.js',
         );
-
+        $data['header'] = array(
+            'title' => 'About Us',
+            'breadcrumb' => array(
+                'Home' => route("home"),
+                'About Us' => 'About Us',
+        ));
         $data['js'] = array();
         $data['funinit'] = array();
         return view('frontend.pages.aboutus.aboutus', $data);

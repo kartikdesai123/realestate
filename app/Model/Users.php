@@ -81,13 +81,7 @@ class Users extends Model
             if($countusername != 0){
                 return "usernameexits";
             }else{
-                $countusername = Users::where("email",$request->input('email'))
-                                ->where("id","!=",$id)
-                                ->count();
-
-                if($countusername != 0){
-                    return "emailexits";
-                }else{
+                
                    
                     $objUser = Users::find($id);
                     if ($request->file('userimage')) {
@@ -106,7 +100,6 @@ class Users extends Model
                         $objUser->userimage = $name;
                     }
                     $objUser->username = $request->input('username');
-                    $objUser->email = $request->input('email');
                     $objUser->phoneno = $request->input('phoneno');
                     if($role  != "U"){
                         $objUser->about = $request->input('aboutme');
@@ -117,7 +110,7 @@ class Users extends Model
                     }else{
                         return "wrong";
                     }
-                }
+               
             }
     }
     public function resetpassword($request){

@@ -1,138 +1,46 @@
 @extends('frontend.layout.layout')
 @section('content')
 
+<section class="property-map">
+  <div class="map-canvas">
+
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14689.313716020737!2d72.5271609!3d23.0117103!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x1f8bfabf0704ce65!2sTitanium%20City%20Center!5e0!3m2!1sen!2sin!4v1594717502649!5m2!1sen!2sin" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+  </div>
+</section>
 <!--=================================
-Listing – grid view -->
-<section class="banner-bg-video banner-bg-splash bg-holder bg-overlay-black-30" style="background-image: url({{ asset('public/frontend/assets/images/banner-02.jpg') }});">
+banner -->
+<section >
   <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-10 text-center">
-        <h1 class="text-white mb-2">Find the perfect home to buy or rent</h1>
-        <span class="mb-5 text-white banner-bg-video-sub-title">Over<strong class="text-primary"> 40000 </strong>latest home retailer</span>
-        <div class="bg-overlay-black-50 p-4">
-          <div class="position-relative">
-            <ul class="nav nav-tabs nav-tabs-02 mb-3 justify-content-center" id="pills-tab" role="tablist">
-              <li class="nav-item mr-1">
-                <a class="nav-link active" id="buy-tab" data-toggle="pill" href="#location" role="tab" aria-controls="location" aria-selected="true">Location</a>
-              </li>
-              <li class="nav-item mr-1">
-                <a class="nav-link" id="rent-tab" data-toggle="pill" href="#map" role="tab" aria-controls="map" aria-selected="false">Map</a>
-              </li>
-              <li class="nav-item mr-1">
-                <a class="nav-link" id="sold-tab" data-toggle="pill" href="#code" role="tab" aria-controls="code" aria-selected="false">Code</a>
-              </li>
-              <li class="nav-item mr-1">
-                <a class="nav-link" id="sold-tab" data-toggle="pill" href="#draft" role="tab" aria-controls="code" aria-selected="false">Draft</a>
-              </li>
-            </ul>
-            <div class="tab-content" id="pills-tabContent">
-              <div class="tab-pane fade show active" id="location" role="tabpanel" aria-labelledby="location-tab">
-                <div class="search">
-                    <div class="row">
-                         <div class="input-group mb-2 select-border col-md-3">
-                    <select class="form-control basic-select">
-                      <option>For Rent</option>
-                      <option>For Sale</option>
-                    </select>
-                  </div>
-                   <div class="input-group mb-2 select-border col-md-3">
-                    <select class="form-control basic-select">
-                      <option>All Type</option>
-                      <option>Villa</option>
-                      <option>Apartment Building</option>
-                      <option>Commercial</option>
-                      <option>Office</option>
-                      <option>Residential</option>
-                      <option>Shop</option>
-                      <option>Apartment</option>
-                    </select>
-                  </div>
-                    <div class="col-md-6">
-                        <i class="fas fa-search"></i>
-                        <input type="text" class="form-control" placeholder="Search for Homes by Address, City....">
-                    </div>
-                    </div>
-                   
-                  
+    <div class="row">
+      <div class="col-12">
+        <h1 class="text-white text-center mb-2">Create lasting wealth through Real Villa</h1>
+        <p class="lead text-center text-white mb-4 font-weight-normal">Take a step to realizing your dream. #TimeToMove</p>
+        <div class="property-search-field bg-white">
+          <div class="property-search-item" style="border: 2px solid #eeeeee">
+            <form class="form-row basic-select-wrapper">
+              <div class="form-group d-flex col-lg-2" style="border: 0px"></div>
+              <div class="form-group d-flex col-lg-8" style="border: 0px">
+                <div class="form-group-search" >
+                  <label>Location</label>
+                  <div class="d-flex align-items-center" style="border: 1px solid #eeeeee; padding: 10px;"><i class="far fa-compass mr-1"></i><input class="form-control" type="search" placeholder="Search Location"></div>
                 </div>
+                <span class="align-items-center ml-3 d-none d-lg-block" style="margin-top: 23px"><button class="btn btn-primary d-flex align-items-center" type="submit"><i class="fas fa-search mr-1"></i><span>Search</span></button></span>
               </div>
-              <div class="tab-pane fade" id="map" role="tabpanel" aria-labelledby="map-tab">
-                <div class="search">
-                   <div class="search">
-                    <div class="row">
-                         <div class="input-group mb-2 select-border col-md-3">
-                    <select class="form-control basic-select">
-                      <option>For Rent</option>
-                      <option>For Sale</option>
-                    </select>
-                  </div>
-                   <div class="input-group mb-2 select-border col-md-3">
-                    <select class="form-control basic-select">
-                      <option>All Type</option>
-                      <option>Villa</option>
-                      <option>Apartment Building</option>
-                      <option>Commercial</option>
-                      <option>Office</option>
-                      <option>Residential</option>
-                      <option>Shop</option>
-                      <option>Apartment</option>
-                    </select>
-                  </div>
-                    <div class="col-md-6">
-                        <i class="fas fa-search"></i>
-                        <input type="text" class="form-control" placeholder="Search for Homes by Address, City....">
-                    </div>
-                    </div>
-                   
-                  
-                </div>
-                </div>
+              <div class="form-group d-flex col-lg-2" style="border: 0px"></div>
+              <div class="d-lg-none btn-block btn-mobile m-3">
+                
+                <button class="btn btn-primary btn-block align-items-center" type="submit"><i class="fas fa-search mr-1"></i><span>Search</span></button>
               </div>
-              <div class="tab-pane fade" id="code"  role="tabpanel" aria-labelledby="code-tab">
-                <div class="search">
-                  <i class="fas fa-search"></i>
-                  <input type="text" class="form-control" placeholder="Search for agent....">
-                </div>
-              </div>
-              <div class="tab-pane fade" id="draft"  role="tabpanel" aria-labelledby="draft-tab">
-                <div class="search">
-                   <div class="search">
-                    <div class="row">
-                         <div class="input-group mb-2 select-border col-md-3">
-                    <select class="form-control basic-select">
-                      <option>For Rent</option>
-                      <option>For Sale</option>
-                    </select>
-                  </div>
-                   <div class="input-group mb-2 select-border col-md-3">
-                    <select class="form-control basic-select">
-                      <option>All Type</option>
-                      <option>Villa</option>
-                      <option>Apartment Building</option>
-                      <option>Commercial</option>
-                      <option>Office</option>
-                      <option>Residential</option>
-                      <option>Shop</option>
-                      <option>Apartment</option>
-                    </select>
-                  </div>
-                    <div class="col-md-6">
-                        <i class="fas fa-search"></i>
-                        <input type="text" class="form-control" placeholder="Search for Homes by Address, City....">
-                    </div>
-                    </div>
-                   
-                  
-                </div>
-                </div>
-              </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+<!--=================================
+banner -->
+
 <section class="space-ptb">
     <div class="container">
       <div class="row">
