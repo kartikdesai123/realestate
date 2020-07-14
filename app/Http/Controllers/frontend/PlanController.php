@@ -97,8 +97,7 @@ class PlanController extends Controller
             case 'selectPlan':
                 $objPlandetails = new Plandetails();
                 $planUser = $objPlandetails->getPlanuser($request->input('planId'));
-                print_r($planUser);
-                exit;
+                
 
                 $minutes = 10;
                 $response = new Response();
