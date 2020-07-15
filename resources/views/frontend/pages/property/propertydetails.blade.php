@@ -34,6 +34,7 @@
                 <li><a href="#"> <i class="fas fa-heart"></i> </a></li>
                 <li><a href="#"> <i class="fas fa-exchange-alt"></i> </a></li>
                 <li><a href="#"> <i class="fa fa-exclamation-triangle"></i> </a></li>
+                <li><a href="#"> <i class="fa fa-play-circle"></i> </a></li>
               </ul>
             </div>
           </div>
