@@ -34,8 +34,12 @@ class PropertyController extends Controller
                 'Property List' => "Property List",
         ));
 
-        $data['js'] = array();
-        $data['funinit'] = array();
+        $data['js'] = array(
+            'home.js'
+        );
+        $data['funinit'] = array(
+            'Home.init()'
+        );
         return view('frontend.pages.property.propertylist', $data);
     }
     public function propertydetails(Request $request,$id){

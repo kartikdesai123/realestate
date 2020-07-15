@@ -31,7 +31,7 @@ Listing – grid view -->
               <div class="collapse show" id="filter-property">
                 <form class="mt-3">
                   <div class="input-group mb-2 select-border">
-                    <select class="form-control basic-select">
+                    <select class="form-control basic-select buldingType">
                       <option>All Type</option>
                       <option>Villa</option>
                       <option>Apartment Building</option>
@@ -40,10 +40,11 @@ Listing – grid view -->
                       <option>Residential</option>
                       <option>Shop</option>
                       <option>Apartment</option>
+                      <option value="project">Project</option>
                     </select>
                   </div>
                   <div class="input-group mb-2 select-border">
-                    <select class="form-control basic-select">
+                    <select class="form-control basic-select buldingStatus">
                       <option>For Rent</option>
                       <option>For Sale</option>
                     </select>
