@@ -18,13 +18,13 @@ Submit Property -->
             <div class="col-12">
               <ul class="nav nav-tabs nav-tabs-03 nav-fill" id="myTab" role="tablist">
                 <li class="nav-item">
-                  <a class="nav-link active" id="tab-01-tab" data-toggle="tab" href="#tab-01" role="tab" aria-controls="tab-01" aria-selected="true">
+                  <a class="nav-link nextbtn active" id="tab-01-tab" data-toggle="tab" href="#tab-01" role="tab" aria-controls="tab-01" aria-selected="true">
                     <span>01</span>
                     Basic Information
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" id="tab-02-tab" data-toggle="tab" href="#tab-02" role="tab" aria-controls="tab-02" aria-selected="false">
+                  <a class="nav-link nextbtn" id="tab-02-tab" data-toggle="tab" href="#tab-02" role="tab" aria-controls="tab-02" aria-selected="false">
                     <span>02</span>
                   Gallery & 360</a>
                 </li>
@@ -51,11 +51,11 @@ Submit Property -->
               </ul>
               <div class="tab-content mt-4" id="myTabContent">
                 <div class="tab-pane fade show active" id="tab-01" role="tabpanel" aria-labelledby="tab-01-tab">
-                  <form>
+                  <form id="add_property" method="POST" enctype="multipart/form-data">@csrf
                     <div class="form-row">
                       <div class="form-group col-md-6">
                         <label>Property Title </label>
-                        <input type="text" class="form-control" placeholder="Awesome family home">
+                        <input type="text" class="form-control" name="propertyTitle" placeholder="Please enter property title">
                       </div>
                       <div class="form-group col-md-6 select-border">
                         <label>Offer</label>

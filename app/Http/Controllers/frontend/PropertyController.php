@@ -5,6 +5,7 @@ namespace App\Http\Controllers\frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Config;
+use Session;
 class PropertyController extends Controller
 {
     //
@@ -66,32 +67,48 @@ class PropertyController extends Controller
     }
 
     public function submitproperty(Request $request){
-        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Submit Property Details';
-        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Submit Property Details';
-        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Submit Property Details';
-        $data['css'] = array(
-            'owl-carousel/owl.carousel.min.css',
-            'magnific-popup/magnific-popup.css',
-            'select2/select2.css',
-        );
-        $data['plugincss'] = array();
-        $data['pluginjs'] = array(
-            'jquery.appear.js',
-            'counter/jquery.countTo.js',
-            'owl-carousel/owl.carousel.min.js',
-            'select2/select2.full.js',
-            'magnific-popup/jquery.magnific-popup.min.js',
-        );
+        $session = $request->session()->all();
+            if(isset($session['logindata'])){
+            $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Submit Property Details';
+            $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Submit Property Details';
+            $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Submit Property Details';
+            $data['css'] = array(
+                'toastr/toastr.min.css',
+                'owl-carousel/owl.carousel.min.css',
+                'magnific-popup/magnific-popup.css',
+                'select2/select2.css',
+            );
+            $data['plugincss'] = array();
+            $data['pluginjs'] = array(
+                'toastr/toastr.min.js',
+                'validate/jquery.validate.min.js',
+                'jquery.appear.js',
+                'counter/jquery.countTo.js',
+                'owl-carousel/owl.carousel.min.js',
+                'select2/select2.full.js',
+                'magnific-popup/jquery.magnific-popup.min.js',
+            );
 
-        $data['header'] = array(
-            'title' => 'About Us',
-            'breadcrumb' => array(
-                'Home' => route("home"),
-                'Property List' => route("property"),
-                'Property Submit' => 'Property Submit',
-        ));
-        $data['js'] = array();
-        $data['funinit'] = array();
-        return view('frontend.pages.property.submitproperty', $data);
+            $data['header'] = array(
+                'title' => 'About Us',
+                'breadcrumb' => array(
+                    'Home' => route("home"),
+                    'Property List' => route("property"),
+                    'Property Submit' => 'Property Submit',
+            ));
+            $data['js'] = array(
+                'comman_function.js',
+                'ajaxfileupload.js',
+                'jquery.form.min.js',
+                'jquery.formtowizard.js',
+                'propertyDetails.js'
+            );
+            $data['funinit'] = array(
+                'PropertyDetails.add()'
+            );
+            return view('frontend.pages.property.submitproperty', $data);
+        }else{
+            return redirect('signin');
+        }
     }
 }
