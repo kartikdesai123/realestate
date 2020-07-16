@@ -115,7 +115,7 @@ $currentRoute = Route::current()->getName();
                            <a class="btn btn-primary btn-md" href="{{ route('plan') }}"> <i class="fa fa-plus-circle"></i>Add Listing</a>
                         </div>
                       @endif
-                     <div class="login mr-4">
+                     <div class="login ">
                         @if(isset($data))
                         <ul class="nav navbar-nav">
                            <li class="nav-item dropdown">

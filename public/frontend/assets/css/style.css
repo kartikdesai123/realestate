@@ -1807,9 +1807,10 @@ button {
   -ms-flex-item-align: center;
       align-self: center;
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 160px;
+      /* -ms-flex: 0 0 160px;
           flex: 0 0 160px;
-  text-align: right; }
+  text-align: right;  */
+}
 
 .megamenu {
   padding: 20px 20px;
