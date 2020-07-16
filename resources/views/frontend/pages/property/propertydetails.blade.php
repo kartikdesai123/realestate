@@ -56,7 +56,7 @@
                     </div>
                     <div class="d-flex mb-4 align-items-center">
                       <h6 class="text-primary border p-2 mb-0"><a href="#"><i style='color: white; padding-right: 5px;
-    font-size: 22px;' class='fab'>&#xf40c;</i>Contact by</a></h6>
+    font-size: 22px;' class='fab'>&#xf40c;</i>Whatsapp</a></h6>
                       <a class="btn btn-link p-0 ml-auto text-white" href="{{ route('property') }}"><u>View all listing </u></a>
                     </div>
                     <form>
@@ -395,10 +395,10 @@
             <div class="property-schedule">
                 <ul class="nav nav-tabs nav-tabs-02 mb-4" id="pills-tab" role="tablist">
                 <li class="nav-item">
-                  <a class="nav-link shadow active" id="video-tab" data-toggle="pill" href="#video" role="tab" aria-controls="video" aria-selected="true">Video call</a>
+                  <a class="nav-link shadow active" id="video-tab" data-toggle="pill" href="#video" role="tab" aria-controls="video" aria-selected="true">Property Virtual Tour Request</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link shadow" id="tour-tab" data-toggle="pill" href="#tour" role="tab" aria-controls="tour" aria-selected="false">Visit</a>
+                  <a class="nav-link shadow" id="tour-tab" data-toggle="pill" href="#tour" role="tab" aria-controls="tour" aria-selected="false">Property Virtual In Person Visit</a>
                 </li>
               </ul>
               <div class="row">

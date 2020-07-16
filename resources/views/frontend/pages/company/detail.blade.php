@@ -12,7 +12,7 @@
                   <img class="img-fluid rounded-circle" src="{{ asset('public/frontend/assets/images/agency/01.png') }}" alt="">
                 </div>
                 <div class="agent-listing text-center mt-auto">
-                  <a href="#"><strong class="text-primary mr-2 d-inline-block">15</strong>Listed Properties </a>
+                  <a href="#"><strong class="text-primary mr-2 d-inline-block">15</strong>Listed Projects </a>
                 </div>
               </div>
             </div>

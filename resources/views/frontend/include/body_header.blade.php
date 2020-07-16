@@ -39,56 +39,76 @@ $currentRoute = Route::current()->getName();
                   </a>
                   <div class="navbar-collapse collapse">
                      <ul class="nav navbar-nav">
-                        <li class="nav-item dropdown {{ $currentRoute == "home" ? "active": ""}}">
+                       
+                        <li class="nav-item dropdown text-center  {{ $currentRoute == "home" ? "active": ""}}">
                            <a class="nav-link" href="{{ route('home') }}"   aria-haspopup="true" aria-expanded="false">
                               home
                            </a>
                         </li>
 
-                        <li class="nav-item dropdown {{ $currentRoute == "property" ? "active": ""}}  {{ $currentRoute == "property-details" ? "active": ""}}">
+                        <li class="nav-item dropdown text-center  {{ $currentRoute == "services" ? "active": ""}}  ">
+                           <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Tsuimubles.co<i class="fas fa-chevron-down fa-xs"></i>
+                           </a>
+                           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                             <li class="{{ $currentRoute == "services" ? "active": ""}}"><a class="dropdown-item" href="{{ route('services') }}" >Services</a></li>
+                             <li class="{{ $currentRoute == "about-us" ? "active": ""}}"><a class="dropdown-item" href="{{ route('about-us') }}" >About us</a></li>
+                             <li class="{{ $currentRoute == "servicess" ? "active": ""}}"><a class="dropdown-item" href="{{ route('services') }}" >How we work</a></li>
+                             <li class="{{ $currentRoute == "servicess" ? "active": ""}}"><a class="dropdown-item" href="{{ route('services') }}" >How  to use it</a></li>
+                             <li class="{{ $currentRoute == "faq" ? "active": ""}}"><a class="dropdown-item" href="{{ route('faq') }}" >FAQs</a></li>
+                             
+                           </ul>
+                         </li>
+
+
+                        
+
+                        <li class="nav-item dropdown text-center   {{ $currentRoute == "property" ? "active": ""}}  {{ $currentRoute == "property-details" ? "active": ""}}">
                            <a class="nav-link" href="{{ route('property') }}"   aria-haspopup="true" aria-expanded="false">
-                              Property
+                              Property <br> or Projects
                            </a>
                         </li>
-                        <li class="nav-item dropdown {{ $currentRoute == "services" ? "active": ""}}  ">
-                           <a class="nav-link" href="{{ route('services') }}"   aria-haspopup="true" aria-expanded="false">
-                              Services
-                           </a>
-                        </li>
-                        <li class="nav-item dropdown {{ $currentRoute == "plan" ? "active": ""}}  ">
+                       
+                        <li class="nav-item dropdown text-center  {{ $currentRoute == "plan" ? "active": ""}}  ">
                            <a class="nav-link" href="{{ route('plan') }}"   aria-haspopup="true" aria-expanded="false">
-                              Plan
+                              Plans
                            </a>
                         </li>
 
-                        <li class="nav-item dropdown {{ $currentRoute == "blog" || $currentRoute == "blog-details" ? "active": ""}} ">
+                        <li class="nav-item dropdown text-center  {{ $currentRoute == "blog" || $currentRoute == "blog-details" ? "active": ""}} ">
                            <a class="nav-link" href="{{ route('blog') }}"   aria-haspopup="true" aria-expanded="false">
-                              Blog
+                              News
                            </a>
                         </li>
-                        <li class="nav-item dropdown {{ $currentRoute == "agent" ||  $currentRoute == "agent-details" ? "active": ""}}  ">
+                        <li class="nav-item dropdown text-center  {{ $currentRoute == "agent" ||  $currentRoute == "agent-details" ? "active": ""}}  ">
                            <a class="nav-link" href="{{ route('agent') }}"   aria-haspopup="true" aria-expanded="false">
-                              Agent
+                              Independent <br>Agents
                            </a>
                         </li>
                         <li class="nav-item dropdown {{ $currentRoute == "agency" ||  $currentRoute == "agency-details"  ? "active": ""}}  ">
                            <a class="nav-link" href="{{ route('agency') }}"   aria-haspopup="true" aria-expanded="false">
-                              Agency
+                              Real Estate <br>Agency
                            </a>
                         </li>
                         <li class="nav-item dropdown {{ $currentRoute == "company"  || $currentRoute == "company-details"  ? "active": ""}}  ">
                            <a class="nav-link" href="{{ route('company') }}"   aria-haspopup="true" aria-expanded="false">
-                              Company
+                              Constructors
                            </a>
                         </li>
                         <li class="nav-item dropdown {{ $currentRoute == "search" ? "active": ""}}  ">
                            <a class="nav-link" href="{{ route('search') }}"   aria-haspopup="true" aria-expanded="false">
-                              Search
+                              Map Serch
                            </a>
                         </li>
                      </ul>
                   </div>
+
+                  
+
                   <div class="d-flex align-items-center">
+                     <div class="add-listing d-none d-sm-block">
+                        <a class="btn btn-primary btn-md" href="{{ route('plan') }}"> <i class="fa fa-plus-circle"></i>Go to plan page</a>
+                      </div>
                      <div class="login mr-4">
                         @if(isset($data))
                         <ul class="nav navbar-nav">
@@ -98,7 +118,7 @@ $currentRoute = Route::current()->getName();
                               @else
                                  <a href="javascript:;" > 
                               @endif
-                                 <i class="fa fa-user pl-2"></i>&nbsp;{{ $data['username'] }} 
+                                 <i class="fa fa-user pl-2"></i>&nbsp;&nbsp;  {{ $data['username'] }} 
                                  <i class="fas fa-chevron-down fa-xs"></i>
                               </a>
                               
