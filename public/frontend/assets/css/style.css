@@ -4356,3 +4356,10 @@ ul li:last-child {
   z-index: 10000;
 }
 
+.header .container-fluid{
+  padding : 0 55px;
+}
+
+.header-transparent .navbar-brand{
+  margin-right: 0px;
+}
