@@ -382,35 +382,84 @@
             <div class="property-video">
               <div class="row">
                 <div class="col-sm-3 mb-3 mb-sm-0">
-                  <h5>Property video</h5>
-                  <h5>Property video 2 </h5>
-                  <h5>Tour 360</h5>
+                  <ul class="nav nav-tabs " style="border: 0px" id="pills-tab" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link active" id="tab-03-tab" data-toggle="pill" href="#tab-03" role="tab" aria-controls="tab-03" aria-selected="true">Property Video</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="tab-04-tab" data-toggle="pill" href="#tab-04" role="tab" aria-controls="tab-04" aria-selected="false">Property Video 2</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="tab-05-tab" data-toggle="pill" href="#tab-05" role="tab" aria-controls="tab-05" aria-selected="false">Tour 360</a>
+                    </li>
+                  </ul>
                 </div>
+
                 <div class="col-sm-9">
-                  <div class="embed-responsive embed-responsive-16by9">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/kacyaEXqVhs" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <div class="tab-content" id="pills-tabContent">
+                    
+                    <div class="tab-pane fade show active" id="tab-03" role="tabpanel" aria-labelledby="tab-03-tab">
+                      <div class="embed-responsive embed-responsive-16by9">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/kacyaEXqVhs" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="tab-04" role="tabpanel" aria-labelledby="tab-04-tab">
+                      <div class="embed-responsive embed-responsive-16by9">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/hqUw18s3f0w" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      </div>
+                    </div>
+                    <div class="tab-pane fade" id="tab-05" role="tabpanel" aria-labelledby="tab-05-tab">
+                      <div class="embed-responsive embed-responsive-16by9">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/ouk2Vlhr1lE" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+
             <hr class="mt-4 mb-4 mb-sm-5 mt-sm-5">
-            <div class="property-video">
-              <div class="row">
-                <div class="col-sm-3 mb-3 mb-sm-0">
-                  <h5>Audio Book 1</h5>
+              <ul class="nav nav-tabs mb-4" id="pills-tab" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" id="tab-03-tab" data-toggle="pill" href="#tab-audiobook-03" role="tab" aria-controls="tab-audiobook-03" aria-selected="true">Audiobook 01</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="tab-04-tab" data-toggle="pill" href="#tab-audiobook-04" role="tab" aria-controls="tab-audiobook-04" aria-selected="false">Audiobook 02</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="tab-05-tab" data-toggle="pill" href="#tab-audiobook-05" role="tab" aria-controls="tab-audiobook-05" aria-selected="false">Audiobook 03</a>
+                </li>
+              </ul>
+              <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="tab-audiobook-03" role="tabpanel" aria-labelledby="tab-03-tab">
+                  <audio controls>
+                    <source src="https://www.w3schools.com/html/horse.ogg" type="audio/ogg">
+                    <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                  </audio>
                 </div>
-                <div class="col-sm-3 mb-3 mb-sm-0">
-                  <h5>Audio Book 2</h5>
+                <div class="tab-pane fade" id="tab-audiobook-04" role="tabpanel" aria-labelledby="tab-04-tab">
+                  <audio controls>
+                    <source src="https://www.w3schools.com/html/horse.ogg" type="audio/ogg">
+                    <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                  </audio>
                 </div>
-                <div class="col-sm-3 mb-3 mb-sm-0">
-                  <h5>Audio Book 3</h5>
-                </div>
-                <div class="col-sm-3 mb-3 mb-sm-0">
-                  <h5>Audio Book 4</h5>
+                <div class="tab-pane fade" id="tab-audiobook-05" role="tabpanel" aria-labelledby="tab-05-tab">
+                  <audio controls>
+                    <source src="https://www.w3schools.com/html/horse.ogg" type="audio/ogg">
+                    <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                  </audio>
                 </div>
               </div>
-            </div>
+
+
             
+            
+           
+
             <hr class="mt-4 mb-4 mb-sm-5 mt-sm-5">
             <div class="property-schedule">
                 <ul class="nav nav-tabs nav-tabs-02 mb-4" id="pills-tab" role="tablist">
