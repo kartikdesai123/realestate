@@ -49,6 +49,9 @@ var Plan = function(){
             var rules = {
                 planname: {required: true},
                 plandescription: {required: true},
+                plan_icon: {required: true},
+                planfor: {required: true},
+                plan_bg_image: {required: true},
 
             };
             var messages = {
@@ -58,9 +61,18 @@ var Plan = function(){
                 plandescription: {
                     required: "Please enter plan description",
                 },
+                plan_icon: {
+                    required: "Please add plan icon",
+                },
+                planfor: {
+                    required: "Please select plan user",
+                },
+                plan_bg_image: {
+                    required: "Please add plan background image",
+                },
             };
             handleFormValidateWithMsg(form, rules, messages, function (form) {
-                handleAjaxFormSubmit(form);
+                handleAjaxFormSubmit(form,true);
             });
     }
 
@@ -69,7 +81,7 @@ var Plan = function(){
             var rules = {
                 planname: {required: true},
                 plandescription: {required: true},
-
+                planfor: {required: true},                
             };
             var messages = {
                 planname: {
@@ -78,9 +90,13 @@ var Plan = function(){
                 plandescription: {
                     required: "Please enter plan description",
                 },
+                
+                planfor: {
+                    required: "Please select plan user",
+                },
             };
             handleFormValidateWithMsg(form, rules, messages, function (form) {
-                handleAjaxFormSubmit(form);
+                handleAjaxFormSubmit(form,true);
             });
     }
 

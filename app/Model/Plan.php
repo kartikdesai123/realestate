@@ -45,12 +45,15 @@ class Plan extends Model
 
         $resultArr = $query->skip($requestData['start'])
                 ->take($requestData['length'])
-                ->select('plan.id','plan.planname','plan.created_at','plan.plandescription','plan.planfor')
+                ->select('plan.id','plan.planname','plan.plan_icon','plan.plan_bg_image','plan.created_at','plan.plandescription','plan.planfor')
                 ->get();
         $data = array();
         $i = 0;
 
         foreach ($resultArr as $row) {
+            
+            $htmlPlan = url("public/upload/plan/icon/" . $row['plan_icon']);
+            $htmlPlanBgImage = url("public/upload/plan/background_image/" . $row['plan_bg_image']);
             if($row['planfor'] == 'U'){
                 $planfor = "Normal Users";
             }
@@ -73,6 +76,18 @@ class Plan extends Model
             $nestedData[] = $row['planname'];
             $nestedData[] = $row['plandescription'];
             $nestedData[] = $planfor;
+            if($row['plan_icon'] == null){
+                $nestedData[] = "N/A";
+            }else{
+                $nestedData[] = '<img height="70px" width="70px" src="' . $htmlPlan . '" style="margin:20px;">';
+            }
+            if($row['plan_bg_image'] == null){
+                $nestedData[] = "N/A";
+            }else{
+                $nestedData[] = '<img height="70px" width="70px" src="' . $htmlPlanBgImage . '" style="margin:20px;">';
+            }
+            
+            
             $nestedData[] = date("d-M-Y h:i:s",strtotime($row['created_at']));
             $nestedData[] = $actionhtml;
             $data[] = $nestedData;
@@ -94,6 +109,20 @@ class Plan extends Model
 
         if($count == 0){
             $objPlan = new Plan();
+            if ($request->file('plan_icon')) {               
+                $image = $request->file('plan_icon');
+                $name = time() . '.' . $image->getClientOriginalExtension();
+                $destinationPath = public_path('/upload/plan/icon');
+                $image->move($destinationPath, $name);
+                $objPlan->plan_icon = $name;
+            }
+            if ($request->file('plan_bg_image')) {               
+                $image = $request->file('plan_bg_image');
+                $plan_bg_name = time() . '.' . $image->getClientOriginalExtension();
+                $destinationPath = public_path('/upload/plan/background_image');
+                $image->move($destinationPath, $name);
+                $objPlan->plan_bg_image = $name;
+            }
             $objPlan->planname =$request->input('planname');
             $objPlan->plandescription = $request->input('plandescription');
             $objPlan->planfor = $request->input('planfor');
@@ -114,7 +143,30 @@ class Plan extends Model
                     ->where("id","!=" , $request->input('id'))
                     ->count();
         if($count == 0){
+
+            $imageDetails = Plan::select("plan_icon","plan_bg_image")
+                    ->where("id", $request->input('id'))
+                    ->get();
+           
             $objPlan = Plan::find($request->input('id')); 
+
+            if ($request->file('plan_icon')) {  
+                
+                $image = $request->file('plan_icon');
+                $name = time() . '.' . $image->getClientOriginalExtension();
+                $destinationPath = public_path('/upload/plan/icon');
+                $image->move($destinationPath, $name);
+                $objPlan->plan_icon = $name;
+            }
+            if ($request->file('plan_bg_image')) {     
+                
+                $image = $request->file('plan_bg_image');
+                $plan_bg_name = time() . '.' . $image->getClientOriginalExtension();
+                $destinationPath = public_path('/upload/plan/background_image');
+                $image->move($destinationPath, $name);
+                $objPlan->plan_bg_image = $name;
+            }
+
             $objPlan->planname =$request->input('planname');
             $objPlan->plandescription = $request->input('plandescription');
             $objPlan->planfor = $request->input('planfor');
@@ -137,7 +189,7 @@ class Plan extends Model
     }
 
     public function editDetails($id){
-        return Plan::select("planname","id","plandescription","planfor")
+        return Plan::select("planname","id","plandescription","planfor","plan_icon","plan_bg_image")
                     ->where("id",$id)
                     ->get();
     }
@@ -147,7 +199,7 @@ class Plan extends Model
                     ->get();
     }
     public function getplanList(){
-        return Plan::select("planname","id","plandescription")
+        return Plan::select("planname","id","plandescription","plan_icon","plan_bg_image")
                     ->where("is_deleted","0")
                     ->get();
     }

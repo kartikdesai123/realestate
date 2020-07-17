@@ -8,7 +8,7 @@
             @csrf
             <div class="portlet-body">
                 <!-- BEGIN FORM-->
-                <form id="add-plan" class="form-horizontal" method="post">@csrf
+                <form id="add-plan" class="form-horizontal" method="post" enctype="multipart/form-data">@csrf
                     <div class="form-body">
                         <div class="form-group">
                             <label class="control-label col-md-2">Plan Name</label>
@@ -17,13 +17,24 @@
                             </div>
                         </div>
                         
-                        
-                        
                         <div class="form-group">
                             <label class="control-label col-md-2">Plan Description</label>
                             <div class="col-md-10">
                                 <textarea name="plandescription"  class="form-control"></textarea>
-                                
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Plan Icon</label>
+                            <div class="col-md-10">
+                                <input name="plan_icon" type="file" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Plan Image</label>
+                            <div class="col-md-10">
+                                <input name="plan_bg_image" type="file" class="form-control">
                             </div>
                         </div>
 

@@ -26,6 +26,8 @@
                             <th>No</th>
                             <th>Plan Name</th>
                             <th>Plan Description</th>
+                            <th>Plan Icon</th>
+                            <th>Plan Background Image</th>
                             <th>Plan For</th>
                             <th>Plan Created Date</th>
                             <th>Actions</th>

@@ -31,8 +31,8 @@
                     <li> <a href="#"><i class="fab fa-instagram"></i></a> </li>
                   </ul>
                 </li>
-                <li><a href="#"> <i class="fas fa-heart"></i> </a></li>
-                <li><a href="#"> <i class="fas fa-exchange-alt"></i> </a></li>
+                <li><a href="#" data-toggle="tooltip" data-placement="top" title="Favourite" > <i class="fas fa-heart"  ></i> </a></li>
+                <li><a href="#" data-toggle="tooltip" data-placement="top"  title="Compare"> <i class="fas fa-exchange-alt"  ></i> </a></li>
                 <li><a href="#"> <i class="fa fa-exclamation-triangle"></i> </a></li>
                 <li><a href="#"> <i class="fa fa-play-circle"></i> </a></li>
               </ul>
@@ -383,6 +383,8 @@
               <div class="row">
                 <div class="col-sm-3 mb-3 mb-sm-0">
                   <h5>Property video</h5>
+                  <h5>Property video 2 </h5>
+                  <h5>Tour 360</h5>
                 </div>
                 <div class="col-sm-9">
                   <div class="embed-responsive embed-responsive-16by9">
@@ -391,6 +393,24 @@
                 </div>
               </div>
             </div>
+            <hr class="mt-4 mb-4 mb-sm-5 mt-sm-5">
+            <div class="property-video">
+              <div class="row">
+                <div class="col-sm-3 mb-3 mb-sm-0">
+                  <h5>Audio Book 1</h5>
+                </div>
+                <div class="col-sm-3 mb-3 mb-sm-0">
+                  <h5>Audio Book 2</h5>
+                </div>
+                <div class="col-sm-3 mb-3 mb-sm-0">
+                  <h5>Audio Book 3</h5>
+                </div>
+                <div class="col-sm-3 mb-3 mb-sm-0">
+                  <h5>Audio Book 4</h5>
+                </div>
+              </div>
+            </div>
+            
             <hr class="mt-4 mb-4 mb-sm-5 mt-sm-5">
             <div class="property-schedule">
                 <ul class="nav nav-tabs nav-tabs-02 mb-4" id="pills-tab" role="tablist">

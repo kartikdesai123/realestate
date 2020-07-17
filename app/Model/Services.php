@@ -55,7 +55,6 @@ class Services extends Model
 
         foreach ($resultArr as $row) {
             $imagepath = url("public/upload/serviceImage/" . $row['servicesImage']);
-            $imagePath = "<img src='' style='width:70px;height:70px'>";
             $actionhtml = '';
             $actionhtml = '<a href="'.route('admin-view-services',$row['id']).'"  class="btn btn-icon primary"  ><i class="fa fa-eye"></i></a>'
                     .'<a href="'.route('admin-edit-services',$row['id']).'"  class="btn btn-icon primary"  ><i class="fa fa-edit"></i></a>'
@@ -118,6 +117,7 @@ class Services extends Model
                     ->count();
         if($count == 0){
             $objServices = Services::find($request->input('id'));
+            
             if ($request->file()) {
                 $image = $request->file('serviceImage');
                 $name = time() . '.' . $image->getClientOriginalExtension();
