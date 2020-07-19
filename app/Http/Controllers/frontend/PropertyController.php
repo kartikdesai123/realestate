@@ -81,13 +81,17 @@ class PropertyController extends Controller
                 'owl-carousel/owl.carousel.min.css',
                 'magnific-popup/magnific-popup.css',
                 'select2/select2.css',
+                'components.min.css',
+                'plugins.min.css',
             );
             $data['plugincss'] = array();
             $data['pluginjs'] = array(
                 'toastr/toastr.min.js',
                 'validate/jquery.validate.min.js',
+                'validate/additional-methods.min.js',
                 'jquery.appear.js',
                 'counter/jquery.countTo.js',
+                'bootstrap-wizard/jquery.bootstrap.wizard.min.js',
                 'owl-carousel/owl.carousel.min.js',
                 'select2/select2.full.js',
                 'magnific-popup/jquery.magnific-popup.min.js',
@@ -107,7 +111,7 @@ class PropertyController extends Controller
                 'propertyDetails.js'
             );
             $data['funinit'] = array(
-                'PropertyDetails.add()'
+                'PropertyDetails.init()'
             );
             return view('frontend.pages.property.submitproperty', $data);
         }else{

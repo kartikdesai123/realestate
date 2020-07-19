@@ -1,6 +1,34 @@
 @extends('frontend.layout.layout')
 @section('content')
-
+<section >
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="property-search-field bg-white">
+          <!--<div class="property-search-item" style="border: 2px solid #eeeeee">-->
+            <form class="form-row basic-select-wrapper">
+              <div class="form-group d-flex col-lg-2" style="border: 0px"></div>
+              <div class="form-group d-flex col-lg-8" style="border: 0px">
+                <div class="form-group-search" >
+                  
+                  <div class="d-flex align-items-center" style="border: 1px solid #eeeeee; padding: 13px;">
+                      <i class="far fa-compass mr-1"></i>
+                      <input class="form-control" type="search" placeholder="Search Location"></div>
+                </div>
+                <span class="align-items-center ml-3 d-none d-lg-block"><button class="btn btn-primary d-flex align-items-center" type="submit"><i class="fas fa-search mr-1"></i><span>Search</span></button></span>
+              </div>
+              <div class="form-group d-flex col-lg-2" style="border: 0px"></div>
+              <div class="d-lg-none btn-block btn-mobile m-3">
+                
+                <button class="btn btn-primary btn-block align-items-center" type="submit"><i class="fas fa-search mr-1"></i><span>Search</span></button>
+              </div>
+            </form>
+          <!--</div>-->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <section class="property-map">
   <div class="map-canvas">
 
@@ -9,35 +37,7 @@
 </section>
 <!--=================================
 banner -->
-<section >
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <h1 class="text-white text-center mb-2">Create lasting wealth through Real Villa</h1>
-        <p class="lead text-center text-white mb-4 font-weight-normal">Take a step to realizing your dream. #TimeToMove</p>
-        <div class="property-search-field bg-white">
-          <div class="property-search-item" style="border: 2px solid #eeeeee">
-            <form class="form-row basic-select-wrapper">
-              <div class="form-group d-flex col-lg-2" style="border: 0px"></div>
-              <div class="form-group d-flex col-lg-8" style="border: 0px">
-                <div class="form-group-search" >
-                  <label>Location</label>
-                  <div class="d-flex align-items-center" style="border: 1px solid #eeeeee; padding: 10px;"><i class="far fa-compass mr-1"></i><input class="form-control" type="search" placeholder="Search Location"></div>
-                </div>
-                <span class="align-items-center ml-3 d-none d-lg-block" style="margin-top: 23px"><button class="btn btn-primary d-flex align-items-center" type="submit"><i class="fas fa-search mr-1"></i><span>Search</span></button></span>
-              </div>
-              <div class="form-group d-flex col-lg-2" style="border: 0px"></div>
-              <div class="d-lg-none btn-block btn-mobile m-3">
-                
-                <button class="btn btn-primary btn-block align-items-center" type="submit"><i class="fas fa-search mr-1"></i><span>Search</span></button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+
 <!--=================================
 banner -->
 

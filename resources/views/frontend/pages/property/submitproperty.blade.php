@@ -15,7 +15,7 @@ Submit Property -->
             <h2>Submit Property</h2>
           </div>
           <div class="row">
-            <div class="col-12">
+<!--            <div class="col-12">
               <ul class="nav nav-tabs nav-tabs-03 nav-fill" id="myTab" role="tablist">
                 <li class="nav-item">
                   <a class="nav-link nextbtn active" id="tab-01-tab" data-toggle="tab" href="#tab-01" role="tab" aria-controls="tab-01" aria-selected="true">
@@ -246,7 +246,287 @@ Submit Property -->
                   <a class="btn btn-primary mt-3" href="#"><i class="fas fa-plus-circle"></i> Upload floorplans</a>
                 </div>
               </div>
-            </div>
+            </div>-->
+             <div class="portlet light bordered" id="form_wizard_1">
+<!--                  <div class="portlet-title">
+                                        <div class="caption">
+                                            <i class=" icon-layers font-red"></i>
+                                            <span class="caption-subject font-red bold uppercase"> Form Wizard -
+                                                <span class="step-title"> Step 1 of 4 </span>
+                                            </span>
+                                        </div>
+                                        <div class="actions">
+                                            <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+                                                <i class="icon-cloud-upload"></i>
+                                            </a>
+                                            <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+                                                <i class="icon-wrench"></i>
+                                            </a>
+                                            <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+                                                <i class="icon-trash"></i>
+                                            </a>
+                                        </div>
+                                    </div>-->
+                        <form class="form-horizontal" action="#" id="submit_form" method="POST">
+                            <div class="form-wizard">
+                                <div class="form-body">
+                                    <ul class="nav nav-pills nav-justified steps">
+                                        <li>
+                                            <a href="#tab1" data-toggle="tab" class="step">
+                                                <span class="number"> 01 </span>
+                                                <span class="desc">
+                                                    <i class="fa fa-check"></i> Basic Information </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#tab2" data-toggle="tab" class="step">
+                                                <span class="number"> 02 </span>
+                                                <span class="desc">
+                                                    <i class="fa fa-check"></i> Gallery & 360 </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#tab3" data-toggle="tab" class="step active">
+                                                <span class="number"> 03 </span>
+                                                <span class="desc">
+                                                    <i class="fa fa-check"></i> Video & Audio </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#tab4" data-toggle="tab" class="step">
+                                                <span class="number"> 04 </span>
+                                                <span class="desc">
+                                                    <i class="fa fa-check"></i> Location </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#tab5" data-toggle="tab" class="step">
+                                                <span class="number"> 05 </span>
+                                                <span class="desc">
+                                                    <i class="fa fa-check"></i> Detailed Information </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#tab6" data-toggle="tab" class="step">
+                                                <span class="number"> 06 </span>
+                                                <span class="desc">
+                                                    <i class="fa fa-check"></i> Floorplans </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div id="bar" class="progress progress-striped" role="progressbar">
+                                        <div class="progress-bar progress-bar-success"> </div>
+                                    </div>
+                                    <div class="tab-content">
+                                        <div class="alert alert-danger display-none">
+                                            <button class="close" data-dismiss="alert"></button> You have some form errors. Please check below. </div>
+                                        <div class="alert alert-success display-none">
+                                            <button class="close" data-dismiss="alert"></button> Your form validation is successful! </div>
+                                        <div class="tab-pane active" id="tab1">
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <label>Property Title </label>
+                                                    <input type="text" class="form-control" name="propertyTitle" placeholder="Please enter property title">
+                                                </div>
+                                                <div class="form-group col-md-6 select-border">
+                                                    <label>Offer</label>
+                                                    <select class="form-control basic-select">
+                                                        <option value="value 01" selected="selected">For sale</option>
+                                                        <option value="value 02">For rent</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-6 select-border">
+                                                    <label>Rental Period</label>
+                                                    <select class="form-control basic-select">
+                                                        <option value="value 01" selected="selected">Monthly</option>
+                                                        <option value="value 02">yearly</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-6 select-border">
+                                                    <label>Property Type</label>
+                                                    <select class="form-control basic-select">
+                                                        <option value="value 01" selected="selected">Apartment</option>
+                                                        <option value="value 02">Park</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label class="d-block">Property price </label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <div class="input-group-text"><i class="fas fa-dollar-sign"></i></div>
+                                                        </div>
+                                                        <input type="text" class="form-control" placeholder="Total Amount">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label>Area</label>
+                                                    <input class="form-control" placeholder="Type (sq ft)">
+                                                </div>
+                                                <div class="form-group col-md-6 select-border">
+                                                    <label>Rooms</label>
+                                                    <select class="form-control basic-select">
+                                                        <option value="value 01" selected="selected">01</option>
+                                                        <option value="value 02">02</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label>Video</label>
+                                                    <input class="form-control" placeholder="URL to oEmbed supported service">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane" id="tab2">
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="customFile">
+                                                <label class="custom-file-label" for="customFile">Choose file</label>
+                                            </div>
+                                            <p></p>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="customFile">
+                                                <label class="custom-file-label" for="customFile">Choose 360 file</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="tab-pane" id="tab3">
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="customFile">
+                                                <label class="custom-file-label" for="customFile">Choose Video file</label>
+                                            </div>
+                                            <p></p>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="customFile">
+                                                <label class="custom-file-label" for="customFile">Choose Audio file</label>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane" id="tab4">
+                                            <div class="form-row mt-4">
+                                                <div class="form-group col-md-6">
+                                                    <label>Google Maps Address </label>
+                                                    <input type="text" class="form-control" placeholder="Envato">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label>Friendly Address </label>
+                                                    <input type="text" class="form-control" placeholder="Envato market">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label>Longitude </label>
+                                                    <input type="text" class="form-control" placeholder="-102.243340">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label>Latitude </label>
+                                                    <input type="text" class="form-control" placeholder="21.852270">
+                                                </div>
+                                                <div class="form-group col-md-12 select-border">
+                                                    <label>Regions</label>
+                                                    <select class="form-control basic-select">
+                                                        <option value="value 01" selected="selected">Los angeles</option>
+                                                        <option value="value 02">Miami</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane" id="tab5">
+                                            <div class="form-row mt-4">
+                                                <div class="form-group col-md-6 select-border">
+                                                    <label>Building age</label>
+                                                    <select class="form-control basic-select">
+                                                        <option value="value 01" selected="selected">10 to 18 years</option>
+                                                        <option value="value 02">10 to 18 years</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-6 select-border">
+                                                    <label>Bedrooms</label>
+                                                    <select class="form-control basic-select">
+                                                        <option value="value 01" selected="selected">1</option>
+                                                        <option value="value 02">2</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-6 select-border">
+                                                    <label>Bathrooms</label>
+                                                    <select class="form-control basic-select">
+                                                        <option value="value 01" selected="selected">1</option>
+                                                        <option value="value 02">2</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label>Parking </label>
+                                                    <input type="text" class="form-control" placeholder="Parking">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label>Cooling </label>
+                                                    <input type="text" class="form-control" placeholder="Cooling">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label>Heating </label>
+                                                    <input type="text" class="form-control" placeholder="Heating">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label>Sewer </label>
+                                                    <input type="text" class="form-control" placeholder="Sewer">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label>Water </label>
+                                                    <input type="text" class="form-control" placeholder="Water">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label>Exercise Room </label>
+                                                    <input type="text" class="form-control" placeholder="Exercise Room">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label>Storage Room </label>
+                                                    <input type="text" class="form-control" placeholder="Storage Room">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label>Other </label>
+                                                    <select class="form-control multi-select">
+                                                        <option value="value 01" selected="selected">Swimming pool</option>
+                                                        <option value="value 02">Garden terrace</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane" id="tab6">
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <label>Browser file</label>
+                                                    <div class="custom-file">
+                                                        <input type="file" class="custom-file-input" id="customFile">
+                                                        <label class="custom-file-label" for="customFile">Choose file</label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label>Floorplan Title </label>
+                                                    <input type="text" class="form-control" placeholder="Awesome family home">
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <label>Area</label>
+                                                    <input class="form-control" placeholder="Type (sq ft)">
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <label>Description</label>
+                                                    <textarea class="form-control" rows="4" placeholder="Description"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-actions">
+                                    <div class="row">
+                                        <div class="col-md-offset-3 col-md-9">
+                                            <a href="javascript:;" class="btn default button-previous">
+                                                <i class="fa fa-angle-left"></i> Back </a>
+                                            <a href="javascript:;" class="btn btn-outline green button-next"> Continue
+                                                <i class="fa fa-angle-right"></i>
+                                            </a>
+                                            <a href="javascript:;" class="btn green button-submit"> Submit
+                                                <i class="fa fa-check"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+             </div>
           </div>
         </div>
       </div>

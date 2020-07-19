@@ -22,7 +22,7 @@
                            <li> <a href="{{ route('property') }}">Property </a> </li>
                            <li> <a href="{{ route('services') }}">Services </a> </li>
                            <li> <a href="{{ route('plan') }}">Plans </a> </li>
-                           <li> <a href="{{ route('blog') }}">Blogs</a> </li>
+                           <li> <a href="{{ route('blog') }}">News</a> </li>
                         </ul>
                         <ul class="list-unstyled mb-0">
                            <li> <a href="{{ route('faq') }}">FAQs</a> </li>

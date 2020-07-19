@@ -60,9 +60,6 @@ $currentRoute = Route::current()->getName();
                            </ul>
                          </li>
 
-
-                        
-
                         <li class="nav-item dropdown text-center   {{ $currentRoute == "property" ? "active": ""}}  {{ $currentRoute == "property-details" ? "active": ""}}">
                            <a class="nav-link" href="{{ route('property') }}"   aria-haspopup="true" aria-expanded="false">
                               Properties
@@ -75,11 +72,6 @@ $currentRoute = Route::current()->getName();
                            </a>
                         </li>
 
-                        <li class="nav-item dropdown text-center  {{ $currentRoute == "blog" || $currentRoute == "blog-details" ? "active": ""}} ">
-                           <a class="nav-link" href="{{ route('blog') }}"   aria-haspopup="true" aria-expanded="false">
-                              News
-                           </a>
-                        </li>
                         <li class="nav-item dropdown text-center  {{ $currentRoute == "agent" ||  $currentRoute == "agent-details" ? "active": ""}}  ">
                            <a class="nav-link" href="{{ route('agent') }}"   aria-haspopup="true" aria-expanded="false">
                               Agents
@@ -87,7 +79,7 @@ $currentRoute = Route::current()->getName();
                         </li>
                         <li class="nav-item dropdown {{ $currentRoute == "agency" ||  $currentRoute == "agency-details"  ? "active": ""}}  ">
                            <a class="nav-link" href="{{ route('agency') }}"   aria-haspopup="true" aria-expanded="false">
-                              Agecies
+                              Agences
                            </a>
                         </li>
                         <li class="nav-item dropdown {{ $currentRoute == "company"  || $currentRoute == "company-details"  ? "active": ""}}  ">
@@ -102,8 +94,7 @@ $currentRoute = Route::current()->getName();
                         </li>
                      </ul>
                   </div>
-
-                  
+                      
 
                   <div class="d-flex align-items-center">
                      @if(isset($data))
