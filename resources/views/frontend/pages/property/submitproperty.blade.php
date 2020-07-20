@@ -60,21 +60,21 @@ Submit Property -->
                       <div class="form-group col-md-6 select-border">
                         <label>Offer</label>
                         <select class="form-control basic-select">
-                          <option value="value 01" selected="selected">For sale</option>
+                          <option value="value 01" >For sale</option>
                           <option value="value 02">For rent</option>
                         </select>
                       </div>
                       <div class="form-group col-md-6 select-border">
                         <label>Rental Period</label>
                         <select class="form-control basic-select">
-                          <option value="value 01" selected="selected">Monthly</option>
+                          <option value="value 01" >Monthly</option>
                           <option value="value 02">yearly</option>
                         </select>
                       </div>
                       <div class="form-group col-md-6 select-border">
                         <label>Property Type</label>
                         <select class="form-control basic-select">
-                          <option value="value 01" selected="selected">Apartment</option>
+                          <option value="value 01" >Apartment</option>
                           <option value="value 02">Park</option>
                         </select>
                       </div>
@@ -94,7 +94,7 @@ Submit Property -->
                       <div class="form-group col-md-6 select-border">
                         <label>Rooms</label>
                         <select class="form-control basic-select">
-                          <option value="value 01" selected="selected">01</option>
+                          <option value="value 01" >01</option>
                           <option value="value 02">02</option>
                         </select>
                       </div>
@@ -150,7 +150,7 @@ Submit Property -->
                       <div class="form-group col-md-12 select-border">
                         <label>Regions</label>
                         <select class="form-control basic-select">
-                          <option value="value 01" selected="selected">Los angeles</option>
+                          <option value="value 01" >Los angeles</option>
                           <option value="value 02">Miami</option>
                         </select>
                       </div>
@@ -163,21 +163,21 @@ Submit Property -->
                       <div class="form-group col-md-6 select-border">
                         <label>Building age</label>
                         <select class="form-control basic-select">
-                          <option value="value 01" selected="selected">10 to 18 years</option>
+                          <option value="value 01" >10 to 18 years</option>
                           <option value="value 02">10 to 18 years</option>
                         </select>
                       </div>
                       <div class="form-group col-md-6 select-border">
                         <label>Bedrooms</label>
                         <select class="form-control basic-select">
-                          <option value="value 01" selected="selected">1</option>
+                          <option value="value 01" >1</option>
                           <option value="value 02">2</option>
                         </select>
                       </div>
                       <div class="form-group col-md-6 select-border">
                         <label>Bathrooms</label>
                         <select class="form-control basic-select">
-                          <option value="value 01" selected="selected">1</option>
+                          <option value="value 01" >1</option>
                           <option value="value 02">2</option>
                         </select>
                       </div>
@@ -212,7 +212,7 @@ Submit Property -->
                       <div class="form-group col-md-6">
                         <label>Other </label>
                         <select class="form-control multi-select">
-                          <option value="value 01" selected="selected">Swimming pool</option>
+                          <option value="value 01" >Swimming pool</option>
                           <option value="value 02">Garden terrace</option>
                         </select>
                       </div>
@@ -267,10 +267,10 @@ Submit Property -->
                                             </a>
                                         </div>
                                     </div>-->
-                        <form class="form-horizontal" action="#" id="submit_form" method="POST">
+                        <form class="form-horizontal" action="#" id="submit_form" method="POST">@csrf
                             <div class="form-wizard">
                                 <div class="form-body">
-                                    <ul class="nav nav-pills nav-justified steps">
+                                  <ul class="nav nav-tabs nav-tabs-03 nav-fill steps">
                                         <li>
                                             <a href="#tab1" data-toggle="tab" class="step">
                                                 <span class="number"> 01 </span>
@@ -318,10 +318,7 @@ Submit Property -->
                                         <div class="progress-bar progress-bar-success"> </div>
                                     </div>
                                     <div class="tab-content">
-                                        <div class="alert alert-danger display-none">
-                                            <button class="close" data-dismiss="alert"></button> You have some form errors. Please check below. </div>
-                                        <div class="alert alert-success display-none">
-                                            <button class="close" data-dismiss="alert"></button> Your form validation is successful! </div>
+                                        
                                         <div class="tab-pane active" id="tab1">
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
@@ -330,22 +327,25 @@ Submit Property -->
                                                 </div>
                                                 <div class="form-group col-md-6 select-border">
                                                     <label>Offer</label>
-                                                    <select class="form-control basic-select">
-                                                        <option value="value 01" selected="selected">For sale</option>
+                                                    <select class="form-control basic-select" name="offer">
+                                                        <option value="" >Please selete property offer</option>
+                                                        <option value="value 01" >For sale</option>
                                                         <option value="value 02">For rent</option>
                                                     </select>
                                                 </div>
                                                 <div class="form-group col-md-6 select-border">
                                                     <label>Rental Period</label>
-                                                    <select class="form-control basic-select">
-                                                        <option value="value 01" selected="selected">Monthly</option>
+                                                    <select class="form-control basic-select" name="period">
+                                                      <option value="" >Please selete property rental period</option>
+                                                        <option value="value 01" >Monthly</option>
                                                         <option value="value 02">yearly</option>
                                                     </select>
                                                 </div>
-                                                <div class="form-group col-md-6 select-border">
+                                                <div class="form-group col-md-6 select-border" >
                                                     <label>Property Type</label>
-                                                    <select class="form-control basic-select">
-                                                        <option value="value 01" selected="selected">Apartment</option>
+                                                    <select class="form-control basic-select" name="type">
+                                                        <option value="" >Please selete property type</option>
+                                                        <option value="value 01" >Apartment</option>
                                                         <option value="value 02">Park</option>
                                                     </select>
                                                 </div>
@@ -355,24 +355,22 @@ Submit Property -->
                                                         <div class="input-group-prepend">
                                                             <div class="input-group-text"><i class="fas fa-dollar-sign"></i></div>
                                                         </div>
-                                                        <input type="text" class="form-control" placeholder="Total Amount">
+                                                        <input type="text" class="form-control" placeholder="Total Amount" name="price">
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label>Area</label>
-                                                    <input class="form-control" placeholder="Type (sq ft)">
+                                                    <input class="form-control" placeholder="Type (sq ft)" name="area">
                                                 </div>
                                                 <div class="form-group col-md-6 select-border">
                                                     <label>Rooms</label>
-                                                    <select class="form-control basic-select">
-                                                        <option value="value 01" selected="selected">01</option>
+                                                    <select class="form-control basic-select" name="rooms">
+                                                        <option value="" >Please selete no of rooms</option>
+                                                        <option value="value 01" >01</option>
                                                         <option value="value 02">02</option>
                                                     </select>
                                                 </div>
-                                                <div class="form-group col-md-6">
-                                                    <label>Video</label>
-                                                    <input class="form-control" placeholder="URL to oEmbed supported service">
-                                                </div>
+                                                
                                             </div>
                                         </div>
                                         <div class="tab-pane" id="tab2">
@@ -419,7 +417,7 @@ Submit Property -->
                                                 <div class="form-group col-md-12 select-border">
                                                     <label>Regions</label>
                                                     <select class="form-control basic-select">
-                                                        <option value="value 01" selected="selected">Los angeles</option>
+                                                        <option value="value 01" >Los angeles</option>
                                                         <option value="value 02">Miami</option>
                                                     </select>
                                                 </div>
@@ -430,21 +428,21 @@ Submit Property -->
                                                 <div class="form-group col-md-6 select-border">
                                                     <label>Building age</label>
                                                     <select class="form-control basic-select">
-                                                        <option value="value 01" selected="selected">10 to 18 years</option>
+                                                        <option value="value 01" >10 to 18 years</option>
                                                         <option value="value 02">10 to 18 years</option>
                                                     </select>
                                                 </div>
                                                 <div class="form-group col-md-6 select-border">
                                                     <label>Bedrooms</label>
                                                     <select class="form-control basic-select">
-                                                        <option value="value 01" selected="selected">1</option>
+                                                        <option value="value 01" >1</option>
                                                         <option value="value 02">2</option>
                                                     </select>
                                                 </div>
                                                 <div class="form-group col-md-6 select-border">
                                                     <label>Bathrooms</label>
                                                     <select class="form-control basic-select">
-                                                        <option value="value 01" selected="selected">1</option>
+                                                        <option value="value 01" >1</option>
                                                         <option value="value 02">2</option>
                                                     </select>
                                                 </div>
@@ -479,7 +477,7 @@ Submit Property -->
                                                 <div class="form-group col-md-6">
                                                     <label>Other </label>
                                                     <select class="form-control multi-select">
-                                                        <option value="value 01" selected="selected">Swimming pool</option>
+                                                        <option value="value 01" >Swimming pool</option>
                                                         <option value="value 02">Garden terrace</option>
                                                     </select>
                                                 </div>
