@@ -19,8 +19,55 @@ $currentRoute = Route::current()->getName();
             <header class="header header-transparent">
          @else
             <header class="header">
+               
          @endif
-         
+         <div class="topbar">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-12">
+                  <div class="d-block d-md-flex align-items-center text-center">
+                    <div class="mr-3 d-inline-block">
+                      <a href="tel:1-800-555-1234"><i class="fa fa-phone mr-2 fa fa-flip-horizontal"></i>1-800-555-1234 </a>
+                    </div>
+                    <div class="mr-auto d-inline-block">
+                    </div>
+                    <div class="dropdown d-inline-block pl-2 pl-md-0">
+
+                        <a class="dropdown-toggle" href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           Choose Language<i class="fas fa-chevron-down pl-2"></i>
+                        </a>
+
+                        <div class="dropdown-menu mt-0" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item" href="#">English</a>
+                              <a class="dropdown-item" href="#">Freanch</a>
+                              <a class="dropdown-item" href="#">Spenish</a>
+                              <a class="dropdown-item" href="#">Italian</a>
+                        </div>
+                    </div>
+                    
+                    
+                     @if(isset($data))
+                        <div class="dropdown d-inline-block pl-2 pl-md-0">
+                           <a class="dropdown-toggle" href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              {{ $data['username'] }} <i class="fas fa-chevron-down pl-2"></i>
+                           </a>
+                           <div class="dropdown-menu mt-0" aria-labelledby="dropdownMenuButton">
+                                 <a class="dropdown-item" href="{{ route("my-profile")}}">My Profile</a>
+                                 <a class="dropdown-item" href="{{ route('user-logout') }}">Logout</a>
+                           </div>
+                     </div>
+                     @else
+                        <div class="login d-inline-block">
+                           <a  href="{{ route('signin') }}"><i class="fa fa-user pl-2"></i>  Sign in</a>
+                        </div>
+                     @endif
+                        
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
            @if($currentRoute == "home")
                <nav class="navbar navbar-dark navbar-static-top navbar-expand-lg header-sticky">
            @else
@@ -106,30 +153,6 @@ $currentRoute = Route::current()->getName();
                            <a class="btn btn-primary btn-md" href="{{ route('plan') }}"> <i class="fa fa-plus-circle"></i>Add Listing</a>
                         </div>
                       @endif
-                     <div class="login ">
-                        @if(isset($data))
-                        <ul class="nav navbar-nav">
-                           <li class="nav-item dropdown">
-                              @if($currentRoute == "home")
-                                 <a href="javascript:;" style="color: white"> 
-                              @else
-                                 <a href="javascript:;" > 
-                              @endif
-                                 <i class="fa fa-user pl-2"></i>&nbsp;&nbsp;  {{ $data['username'] }} 
-                                 <i class="fas fa-chevron-down fa-xs"></i>
-                              </a>
-                              
-                              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                 <li><a class="dropdown-item" href="{{ route("my-profile")}}">My Profile</a></li>
-                                 <li><a class="dropdown-item" href="{{ route('user-logout') }}">Logout</a></li>
-                              </ul>
-                            </li>
-                        </ul>
-                        @else
-
-                           <a href="{{ route('signin') }}"> <i class="fa fa-user pl-2"></i> Sign in </a>
-                        @endif
-                     </div>
                   </div>
                </div>
             </nav>
