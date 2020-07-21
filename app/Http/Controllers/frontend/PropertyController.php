@@ -79,16 +79,19 @@ class PropertyController extends Controller
     }
 
     public function submitproperty(Request $request){
+        
         $session = $request->session()->all();
             if(isset($session['logindata'])){
+                
                 if($request->isMethod("post")) {
                     $objPropertyDetails = new PropertyDetails();
                     $res = $objPropertyDetails->addProperty($request);
-                    return back()->with('success', 'Property succesfully added');
-                }else{
-                    return back()->with('error', 'Something goes to wrong please try again');
+                    if($res){
+                        return back()->with('success', 'Property succesfully added');
+                    }else{
+                        return back()->with('error', 'Something goes to wrong please try again');
+                    }
                 }
-
                 $objExtrafacilities = new Extrafacilities();
                 $data['other'] = $objExtrafacilities->getlist();
 
