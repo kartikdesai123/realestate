@@ -54,7 +54,15 @@ var PropertyDetails = function() {
             if (!jQuery().bootstrapWizard) {
                 return;
             }
-
+            $('select', form).change(function () {
+                
+                if(form.validate().element($(this))){
+                    $(this).next('span').removeClass('has-error');
+                }else{
+                    $(this).next('span').addClass('has-error');
+                }
+            });
+            
             var form = $('#submit_form');
             var error = $('.alert-danger', form);
             var success = $('.alert-success', form);

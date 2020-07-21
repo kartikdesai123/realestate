@@ -33,11 +33,11 @@ var Property = function(){
 					}
 
 					$('.mc-output').html(
-						"<p class='mc-loan-amount'><b>"+loan_amount_text+":</b> " + currency + loan_amount + "</p>" +
-						"<p class='mc-years'><b>"+ years_text+ ":</b> " + term_years + "</p>" +
-						"<p class='mc-monthly'><b>"+ monthly_text +":</b> " + currency + monthly_payment + "</p>" +
-						"<p class='mc-bi-weekly'><b>"+ bi_weekly_text+":</b> " + currency + bi_weekly_payment + "</p>" +
-						"<p class='mc-weekly'><b>"+ weekly_text+":</b> " + currency + weekly_payment + "</p>"
+						"<p class='mc-loan-amount'><b>:</b> " + loan_amount + "</p>" +
+						"<p class='mc-years'><b>:</b> " + term_years + "</p>" +
+						"<p class='mc-monthly'><b>:</b> " + monthly_payment + "</p>" +
+						"<p class='mc-bi-weekly'><b>:</b> " +  bi_weekly_payment + "</p>" +
+						"<p class='mc-weekly'><b>:</b> " + weekly_payment + "</p>"
 					);
 
 				});
