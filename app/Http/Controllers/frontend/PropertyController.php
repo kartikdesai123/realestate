@@ -84,9 +84,9 @@ class PropertyController extends Controller
                 if($request->isMethod("post")) {
                     $objPropertyDetails = new PropertyDetails();
                     $res = $objPropertyDetails->addProperty($request);
-                    print_r($request->file());
-                    print_r($request->input());
-                    exit;
+                    return back()->with('success', 'Property succesfully added');
+                }else{
+                    return back()->with('error', 'Something goes to wrong please try again');
                 }
 
                 $objExtrafacilities = new Extrafacilities();

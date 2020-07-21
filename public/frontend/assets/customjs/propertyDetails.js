@@ -99,13 +99,14 @@ var PropertyDetails = function() {
 
                     exercise_room: { required: true },
                     facilites: { required: true },
+                    
                     file: { required: true },
                     floortitle: { required: true },
-                    
-                    area: { required: true },
+                    floorarea: { required: true },
+
                     file2: { required: true },
                     floortitle2: { required: true },
-                    area2: { required: true },
+                    floorarea2: { required: true },
 
 
                 },
