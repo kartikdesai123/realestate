@@ -488,7 +488,7 @@ Submit Property -->
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label>Other </label>
-                                                    <select class="form-control multi-select">
+                                                    <select class="form-control multi-select" name="facilites">
                                                         <option value="" >Please select other facility</option>
                                                         @foreach($other as $key => $value)
 
@@ -499,27 +499,33 @@ Submit Property -->
                                             </div>
                                         </div>
                                         <div class="tab-pane" id="tab6">
+                                          <div class="appenddiv">
+                                            <div style="text-align: right"> 
+                                              <button type="button" class="btn btn-primary btn-sm addFloorPlan">Add More floor plan</button>
+                                            </div>
                                             <div class="form-row">
+                                                
                                                 <div class="form-group col-md-6">
                                                     <label>Browser file</label>
                                                     <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="customFile">
+                                                        <input type="file" class="custom-file-input" id="customFile" name="file">
                                                         <label class="custom-file-label" for="customFile">Choose file</label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label>Floorplan Title </label>
-                                                    <input type="text" class="form-control" placeholder="Awesome family home">
+                                                    <input type="text" class="form-control" placeholder="Awesome family home" name="floortitle">
                                                 </div>
                                                 <div class="form-group col-md-12">
                                                     <label>Area</label>
-                                                    <input class="form-control" placeholder="Type (sq ft)">
+                                                    <input class="form-control" placeholder="Type (sq ft)" mane="area">
                                                 </div>
                                                 <div class="form-group col-md-12">
                                                     <label>Description</label>
-                                                    <textarea class="form-control" rows="4" placeholder="Description"></textarea>
+                                                    <textarea class="form-control" rows="4" placeholder="Description" name="description"></textarea>
                                                 </div>
                                             </div>
+                                          </div>
                                         </div>
                                     </div>
                                 </div>

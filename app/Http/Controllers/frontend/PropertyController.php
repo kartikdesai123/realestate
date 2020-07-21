@@ -115,7 +115,7 @@ class PropertyController extends Controller
                 'comman_function.js',
                 'ajaxfileupload.js',
                 'jquery.form.min.js',
-                'propertyDetails.js'
+                'propertyDetails.js',
                 'map.js',
             );
             $data['funinit'] = array(
