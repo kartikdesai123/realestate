@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 use Config;
 use Session;
 use App\Model\Extrafacilities;
+use App\Model\PropertyAudio;
+use App\Model\PropertyFloorPlan;
+use App\Model\PropertyPhoto;
+use App\Model\PropertyTourView;
+use App\Model\PropertyVideo;
+use App\Model\PropertyDetails;
 
 class PropertyController extends Controller
 {
@@ -75,6 +81,13 @@ class PropertyController extends Controller
     public function submitproperty(Request $request){
         $session = $request->session()->all();
             if(isset($session['logindata'])){
+                if($request->isMethod("post")) {
+                    $objPropertyDetails = new PropertyDetails();
+                    $res = $objPropertyDetails->addProperty($request);
+                    print_r($request->file());
+                    print_r($request->input());
+                    exit;
+                }
 
                 $objExtrafacilities = new Extrafacilities();
                 $data['other'] = $objExtrafacilities->getlist();

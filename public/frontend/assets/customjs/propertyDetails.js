@@ -4,36 +4,51 @@ var PropertyDetails = function() {
     return {
 
         //main function to initiate the module
-        init: function() {
+        init: function() {  
+            var i = 0;
+            $('body').on("click", ".removeFloorPlan", function() {
+                $(".addFloorPlan").removeAttr("disabled","disabled");
+                $(this).closest('.removediv').remove();
+                i--;
+            });
 
             $('body').on("click", ".addFloorPlan", function() {
-                $html = '<div class="appenddiv">' +
-                    '<div style="text-align: right">' +
-                    '<button type="button" class="btn btn-danger btn-sm addFloorPlan">Remove floor plan</button>' +
-                    '</div>' +
-                    '<div class="form-row">' +
-                    '<div class="form-group col-md-6">' +
-                    '<label>Browser file</label>' +
-                    '<div class="custom-file">' +
-                    '<input type="file" class="custom-file-input" id="customFile" name="file2" >' +
-                    '<label class="custom-file-label" for="customFile">Choose file</label>' +
-                    '</div>' +
-                    '</div>' +
-                    '<div class="form-group col-md-6">' +
-                    '<label>Floorplan Title </label>' +
-                    '<input type="text" class="form-control" placeholder="Awesome family home" name="floortitle2">' +
-                    '</div>' +
-                    '<div class="form-group col-md-12">' +
-                    '<label>Area</label>' +
-                    '<input class="form-control" placeholder="Type (sq ft)" name="area2">' +
-                    '</div>' +
-                    '<div class="form-group col-md-12">' +
-                    '<label>Description</label>' +
-                    '<textarea class="form-control" rows="4" placeholder="Description" name="description2"></textarea>' +
-                    '</div>' +
-                    '</div>' +
-                    '</div>';
-                $(".appenddiv").append($html);
+                
+                if(i == 0){
+                    $(".addFloorPlan").attr("disabled","disabled")
+                    $html = '<div class="removediv">' +
+                        '<div style="text-align: right">' +
+                        '<button type="button" class="btn btn-danger btn-sm removeFloorPlan">Remove floor plan</button>' +
+                        '</div>' +
+                        '<div class="form-row">' +
+                        '<div class="form-group col-md-6">' +
+                        '<label>Browser file</label>' +
+                        '<div class="custom-file">' +
+                        '<input type="file" class="custom-file-input" id="customFile" name="file2" >' +
+                        '<label class="custom-file-label" for="customFile">Choose file</label>' +
+                        '</div>' +
+                        '</div>' +
+                        '<div class="form-group col-md-6">' +
+                        '<label>Floorplan Title </label>' +
+                        '<input type="text" class="form-control" placeholder="Awesome family home" name="floortitle2">' +
+                        '</div>' +
+                        '<div class="form-group col-md-12">' +
+                        '<label>Area</label>' +
+                        '<input class="form-control" placeholder="Type (sq ft)" name="area2">' +
+                        '</div>' +
+                        '<div class="form-group col-md-12">' +
+                        '<label>Description</label>' +
+                        '<textarea class="form-control" rows="4" placeholder="Description" name="description2"></textarea>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>';
+                    $(".appenddiv").append($html);
+
+                    i++;
+                }else{
+                    
+                }
+                
             });
             getMap();
             if (!jQuery().bootstrapWizard) {
@@ -51,30 +66,38 @@ var PropertyDetails = function() {
                 focusInvalid: false, // do not focus the last invalid input
                 rules: {
                     //account
-                    // propertyTitle: { required: true },
-                    // offer: { required: true },
-                    // type: { required: true },
-                    // price: { required: true },
-                    // area: { required: true },
-                    // rooms: { required: true },
-                    // txtaddress: { required: true },
-                    // friendly: { required: true },
-                    // txtCity: { required: true },
-                    // txtState: { required: true },
-                    // txtCountry: { required: true },
-                    // txtPostalCode: { required: true },
-                    // latitude: { required: true },
-                    // longitude: { required: true },
-                    // buliding_age: { required: true },
-                    // bedrooms: { required: true },
-                    // bathrooms: { required: true },
-                    // parking: { required: true },
-                    // cooling: { required: true },
-                    // heating: { required: true },
-                    // sewer: { required: true },
-                    // water: { required: true },
-                    // exercise_room: { required: true },
-                    // facilites: { required: true },
+                    propertyTitle: { required: true },
+                    offer: { required: true },
+                    type: { required: true },
+                    price: { required: true },
+                    area: { required: true },
+                    rooms: { required: true },
+                    txtaddress: { required: true },
+                    friendly: { required: true },
+                    txtCity: { required: true },
+                    txtState: { required: true },
+                    txtCountry: { required: true },
+                    txtPostalCode: { required: true },
+                    latitude: { required: true },
+                    longitude: { required: true },
+                    buliding_age: { required: true },
+                    bedrooms: { required: true },
+                    bathrooms: { required: true },
+                    parking: { required: true },
+                    cooling: { required: true },
+                    heating: { required: true },
+                    sewer: { required: true },
+                    water: { required: true },
+
+                    exercise_room: { required: true },
+                    facilites: { required: true },
+                    file: { required: true },
+                    floortitle: { required: true },
+                    
+                    area: { required: true },
+                    file2: { required: true },
+                    floortitle2: { required: true },
+                    area2: { required: true },
 
 
                 },
@@ -215,7 +238,7 @@ var PropertyDetails = function() {
 
             $('#form_wizard_1').find('.button-previous').hide();
             $('#form_wizard_1 .button-submit').click(function() {
-                alert('Finished! Hope you like it :)');
+                $( "#submit_form" ).submit();
             }).hide();
 
             //apply validation on select2 dropdown value change, this only needed for chosen dropdown integration.
