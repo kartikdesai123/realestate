@@ -6,9 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Config;
 use Session;
+use App\Model\Extrafacilities;
+
 class PropertyController extends Controller
 {
-    //
+    
     function __construct(){
 
     }
@@ -73,6 +75,10 @@ class PropertyController extends Controller
     public function submitproperty(Request $request){
         $session = $request->session()->all();
             if(isset($session['logindata'])){
+
+                $objExtrafacilities = new Extrafacilities();
+                $data['other'] = $objExtrafacilities->getlist();
+
             $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Submit Property Details';
             $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Submit Property Details';
             $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Submit Property Details';
@@ -94,6 +100,7 @@ class PropertyController extends Controller
                 'bootstrap-wizard/jquery.bootstrap.wizard.min.js',
                 'owl-carousel/owl.carousel.min.js',
                 'select2/select2.full.js',
+                
                 'magnific-popup/jquery.magnific-popup.min.js',
             );
 
@@ -109,6 +116,7 @@ class PropertyController extends Controller
                 'ajaxfileupload.js',
                 'jquery.form.min.js',
                 'propertyDetails.js'
+                'map.js',
             );
             $data['funinit'] = array(
                 'PropertyDetails.init()'

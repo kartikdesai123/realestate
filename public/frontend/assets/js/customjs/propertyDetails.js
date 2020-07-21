@@ -1,8 +1,14 @@
 var PropertyDetails = function() {
+    var addpropertyDetails = function() {
 
-
+        }
+        //    return{
+        //        add:function(){
+        //            addpropertyDetails();
+        //            
+        //        },
+        //    }
     return {
-        getMap();
         //main function to initiate the module
         init: function() {
             if (!jQuery().bootstrapWizard) {
@@ -77,13 +83,13 @@ var PropertyDetails = function() {
                 },
 
                 unhighlight: function(element) { // revert the change done by hightlight
-
+                  
                     $(element)
                         .closest('.form-control').removeClass('has-error'); // set error class to the control group
                 },
 
                 success: function(label) {
-
+                    
                     if (label.attr("for") == "gender" || label.attr("for") == "payment[]") { // for checkboxes and radio buttons, no need to show OK icon
                         label
                             .closest('.form-control').removeClass('has-error').addClass('has-success');

@@ -8,7 +8,12 @@ class Extrafacilities extends Model
 {
     //
     protected $table ="extrafacilities";
-
+    public function getlist(){
+        return Extrafacilities ::from('extrafacilities')
+                                ->where('is_deleted','0')
+                                ->select('id', 'facilitiesName')
+                                ->get();
+    }
     public function getdatatable(){
         $requestData = $_REQUEST;
         $columns = array(

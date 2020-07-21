@@ -375,110 +375,125 @@ Submit Property -->
                                         </div>
                                         <div class="tab-pane" id="tab2">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="customFile">
+                                                <input type="file" class="custom-file-input" id="customFile" name="photo[]" multiple accept="image/*">
                                                 <label class="custom-file-label" for="customFile">Choose file</label>
                                             </div>
                                             <p></p>
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="customFile">
+                                                <input type="file" class="custom-file-input" id="customFile" name="tour_view[]" multiple accept="video/*">
                                                 <label class="custom-file-label" for="customFile">Choose 360 file</label>
                                             </div>
                                         </div>
 
                                         <div class="tab-pane" id="tab3">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="customFile">
+                                                <input type="file" class="custom-file-input" id="customFile" name="video[]" multiple accept="video/*">
                                                 <label class="custom-file-label" for="customFile">Choose Video file</label>
                                             </div>
                                             <p></p>
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="customFile">
+                                                <input type="file" class="custom-file-input" id="customFile" name="audio[]" multiple accept="audio/*">
                                                 <label class="custom-file-label" for="customFile">Choose Audio file</label>
                                             </div>
                                         </div>
                                         <div class="tab-pane" id="tab4">
-                                            <div class="form-row mt-4">
-                                                <div class="form-group col-md-6">
-                                                    <label>Google Maps Address </label>
-                                                    <input type="text" class="form-control" placeholder="Envato">
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    <label>Friendly Address </label>
-                                                    <input type="text" class="form-control" placeholder="Envato market">
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    <label>Longitude </label>
-                                                    <input type="text" class="form-control" placeholder="-102.243340">
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    <label>Latitude </label>
-                                                    <input type="text" class="form-control" placeholder="21.852270">
-                                                </div>
-                                                <div class="form-group col-md-12 select-border">
-                                                    <label>Regions</label>
-                                                    <select class="form-control basic-select">
-                                                        <option value="value 01" >Los angeles</option>
-                                                        <option value="value 02">Miami</option>
-                                                    </select>
-                                                </div>
+                                          <div class="form-row mt-4">
+                                            <div class="form-group col-md-6">
+                                            <label>Google Maps Address </label>
+                                            <input type="text" class="form-control txtaddress" name="txtaddress" id="txtaddress" placeholder="Address">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                            <label>Friendly Address </label>
+                                            <input type="text" class="form-control friendly" name="friendly" placeholder="Frendly Address">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                            <label>City</label>
+                                            <input type="text" class="form-control txtCity" name="txtCity" id="txtCity" placeholder="City">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                            <label>State</label>
+                                            <input type="text" class="form-control txtState" name="txtState" id="txtState" placeholder="State">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                            <label>Country</label>
+                                            <input type="text" class="form-control txtCountry" name="txtCountry" id="txtCountry" placeholder="Country">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                            <label>PostalCode</label>
+                                            <input type="text" class="form-control txtPostalCode" name="txtPostalCode" id="txtPostalCode" placeholder="Postal Code">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                            <label>Longitude </label>
+                                            <input type="text" class="form-control latitude" id="latitude" name="latitude" placeholder="-102.243340">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                            <label>Latitude </label>
+                                            <input type="text" class="form-control longitude" id="longitude" name="longitude" placeholder="21.852270">
+                                            </div>
                                             </div>
                                         </div>
                                         <div class="tab-pane" id="tab5">
                                             <div class="form-row mt-4">
                                                 <div class="form-group col-md-6 select-border">
                                                     <label>Building age</label>
-                                                    <select class="form-control basic-select">
+                                                    <select class="form-control basic-select" name="buliding_age">
+                                                        <option value="" >Please selete building age</option>
                                                         <option value="value 01" >10 to 18 years</option>
                                                         <option value="value 02">10 to 18 years</option>
                                                     </select>
                                                 </div>
                                                 <div class="form-group col-md-6 select-border">
                                                     <label>Bedrooms</label>
-                                                    <select class="form-control basic-select">
+                                                    <select class="form-control basic-select" name="bedrooms">
+                                                        <option value="" >Please selete no of badrooms</option>
                                                         <option value="value 01" >1</option>
                                                         <option value="value 02">2</option>
                                                     </select>
                                                 </div>
                                                 <div class="form-group col-md-6 select-border">
                                                     <label>Bathrooms</label>
-                                                    <select class="form-control basic-select">
+                                                    <select class="form-control basic-select" name="bathrooms">
+                                                      <option value="" >Please selete no of bathrooms</option>
                                                         <option value="value 01" >1</option>
                                                         <option value="value 02">2</option>
                                                     </select>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label>Parking </label>
-                                                    <input type="text" class="form-control" placeholder="Parking">
+                                                    <input type="text" class="form-control" placeholder="Parking" name="parking">
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label>Cooling </label>
-                                                    <input type="text" class="form-control" placeholder="Cooling">
+                                                    <input type="text" class="form-control" placeholder="Cooling" name="cooling">
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label>Heating </label>
-                                                    <input type="text" class="form-control" placeholder="Heating">
+                                                    <input type="text" class="form-control" placeholder="Heating" name="heating">
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label>Sewer </label>
-                                                    <input type="text" class="form-control" placeholder="Sewer">
+                                                    <input type="text" class="form-control" placeholder="Sewer" name="sewer">
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label>Water </label>
-                                                    <input type="text" class="form-control" placeholder="Water">
+                                                    <input type="text" class="form-control" placeholder="Water" name="water">
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label>Exercise Room </label>
-                                                    <input type="text" class="form-control" placeholder="Exercise Room">
+                                                    <input type="text" class="form-control" placeholder="Exercise Room" name="exercise_room">
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label>Storage Room </label>
-                                                    <input type="text" class="form-control" placeholder="Storage Room">
+                                                    <input type="text" class="form-control" placeholder="Storage Room" name="storagr_room"> 
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label>Other </label>
                                                     <select class="form-control multi-select">
-                                                        <option value="value 01" >Swimming pool</option>
-                                                        <option value="value 02">Garden terrace</option>
+                                                        <option value="" >Please select other facility</option>
+                                                        @foreach($other as $key => $value)
+
+                                                          <option value="{{ $value['id'] }}" >{{ $value['facilitiesName'] }}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                             </div>
