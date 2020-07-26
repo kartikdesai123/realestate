@@ -6,14 +6,24 @@ var Home = function() {
             
             if(value == 'project'){
                 $('.buldingStatus').html('');
-                var html = '<option>In construction</option><option>Immediate delivery</option><option>On plane</option>';
+                var html = '<option value="">Please selete property type</option><option value="in_construction">In construction</option><option value="immediate_delivery">Immediate delivery</option><option value="on_plane">On plane</option>';
                 $('.buldingStatus').html(html);
             }else{
                 $('.buldingStatus').html('');
-                var html = '<option>For Rent</option><option>For Sale</option>';
+                var html = '<option value="">Please selete property type</option><option value="rent">For Rent</option><option value="sale">For Sale</option>';
                 $('.buldingStatus').html(html);
             }
 
+        });
+        
+        $('body').on('change','.buldingStatus',function(){
+            var value = $(this).val();
+           
+            if(value == 'rent'){
+                $('.rentStatus').show();
+            }else{
+                $('.rentStatus').hide();
+            }
         });
     }
 

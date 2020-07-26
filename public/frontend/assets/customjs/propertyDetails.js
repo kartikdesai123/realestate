@@ -79,7 +79,7 @@ var PropertyDetails = function() {
                     type: { required: true },
                     price: { required: true },
                     area: { required: true },
-                    rooms: { required: true },
+                    about_property: { required: true },
                     txtaddress: { required: true },
                     friendly: { required: true },
                     txtCity: { required: true },
@@ -98,7 +98,7 @@ var PropertyDetails = function() {
                     water: { required: true },
 
                     exercise_room: { required: true },
-                    facilites: { required: true },
+                    'facilites[]': { required: true },
                     
                     file: { required: true },
                     floortitle: { required: true },

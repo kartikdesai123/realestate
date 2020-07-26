@@ -43,28 +43,29 @@
                                  <a href="#tab2" data-toggle="tab" class="step">
                                  <span class="number"> 02 </span>
                                  <span class="desc">
-                                 <i class="fa fa-check"></i> Gallery & 360 </span>
+                                 <i class="fa fa-check"></i> Detail Information </span>
                                  </a>
                               </li>
                               <li>
-                                 <a href="#tab3" data-toggle="tab" class="step active">
+                                 <a href="#tab3" data-toggle="tab" class="step">
                                  <span class="number"> 03 </span>
-                                 <span class="desc">
-                                 <i class="fa fa-check"></i> Video & Audio </span>
-                                 </a>
-                              </li>
-                              <li>
-                                 <a href="#tab4" data-toggle="tab" class="step">
-                                 <span class="number"> 04 </span>
                                  <span class="desc">
                                  <i class="fa fa-check"></i> Location </span>
                                  </a>
                               </li>
+                              
                               <li>
-                                 <a href="#tab5" data-toggle="tab" class="step">
+                                 <a href="#tab4" data-toggle="tab" class="step">
+                                 <span class="number"> 04 </span>
+                                 <span class="desc">
+                                 <i class="fa fa-check"></i> Gallery & 360 </span>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a href="#tab5" data-toggle="tab" class="step active">
                                  <span class="number"> 05 </span>
                                  <span class="desc">
-                                 <i class="fa fa-check"></i> Detailed Information </span>
+                                 <i class="fa fa-check"></i> Video & Audio </span>
                                  </a>
                               </li>
                               <li>
@@ -85,30 +86,36 @@
                                        <label>Property Title </label>
                                        <input type="text" class="form-control" id="propertyTitle" name="propertyTitle" placeholder="Please enter property title">
                                     </div>
+                                     <div class="form-group col-md-6 select-border" >
+                                       <label>Property Type</label>
+                                       <select class="form-control basic-select buldingType" id="type"  name="type">
+                                          <option value="" >Please select property type</option>
+                                            <option value="villa">Villa</option>
+                                            <option value="commercial">Commercial</option>
+                                            <option value="office">Office</option>
+                                            <option value="residential">Residential</option>
+                                            <option value="shop">Shop</option>
+                                            <option value="apartment">Apartment</option>
+                                            <option value="project">Project</option>
+                                       </select>
+                                    </div>
                                     <div class="form-group col-md-6 select-border">
                                        <label>Offer</label>
-                                       <select class="form-control basic-select" id="offer" name="offer">
-                                          <option value="" >Please selete property offer</option>
-                                          <option value="1" >For sale</option>
-                                          <option value="2">For rent</option>
+                                       <select class="form-control basic-select buldingStatus" id="offer" name="offer">
+                                          <option value="" >Please select property offer</option>
+                                          <option value="sale" >For sale</option>
+                                          <option value="rent">For rent</option>
                                        </select>
                                     </div>
-                                    <div class="form-group col-md-6 select-border">
+                                    <div class="form-group col-md-6 select-border rentStatus" style="display:none">
                                        <label>Rental Period</label>
                                        <select class="form-control basic-select" id="period" name="period">
-                                          <option value="" >Please selete property rental period</option>
-                                          <option value="1" >Monthly</option>
-                                          <option value="2">yearly</option>
+                                          <option value="" >Please select property rental period</option>
+                                          <option value="monthly" >Monthly</option>
+                                          <option value="yearly">yearly</option>
                                        </select>
                                     </div>
-                                    <div class="form-group col-md-6 select-border" >
-                                       <label>Property Type</label>
-                                       <select class="form-control basic-select" id="type"  name="type">
-                                          <option value="" >Please selete property type</option>
-                                          <option value="1" >Apartment</option>
-                                          <option value="2">Park</option>
-                                       </select>
-                                    </div>
+                                    
                                     <div class="form-group col-md-6">
                                        <label class="d-block">Property price </label>
                                        <div class="input-group">
@@ -123,48 +130,91 @@
                                        <input class="form-control" placeholder="Type (sq ft)" id="area" name="area">
                                     </div>
                                     <div class="form-group col-md-6 select-border">
-                                       <label>Rooms</label>
-                                       <select class="form-control basic-select" id="rooms" name="rooms">
-                                          <option value="" >Please selete no of rooms</option>
-                                          <option value="1" >01</option>
-                                          <option value="2">02</option>
-                                       </select>
+                                       <label>Property Description</label>
+                                       <textarea class="form-control" rows="4" placeholder="Description" id="about_property" name="about_property"></textarea>
                                     </div>
+                                     
                                  </div>
                               </div>
                               <div class="tab-pane" id="tab2">
                                  <div class="form-row mt-4">
-                                    <div class="form-group col-md-12">
-                                       <div class="custom-file">
-                                          <input type="file" class="custom-file-input" id="photos" name="photo[]" multiple accept="image/*">
-                                          <label class="custom-file-label" for="customFile">Choose file</label>
-                                       </div>
+                                    <div class="form-group col-md-6 select-border">
+                                       <label>Building age</label>
+                                       <select class="form-control basic-select" name="buliding_age" id="buliding_age">
+                                          <option value="" >Please select building age</option>
+                                          <option value="1" >0 to 1 year</option>
+                                          <option value="5">1 to 5 years</option>
+                                          <option value="10">5 to 10 years</option>
+                                          <option value="15">10 to 15 years</option>
+                                          <option value="20">15 to 20 years</option>
+                                       </select>
                                     </div>
-                                    <div class="form-group col-md-12">
-                                       <div class="custom-file">
-                                          <input type="file" class="custom-file-input" id="tour_views" name="tour_view[]" multiple accept="video/*">
-                                          <label class="custom-file-label" for="customFile">Choose 360 file</label>
-                                       </div>
+                                    <div class="form-group col-md-6 select-border">
+                                       <label>Bedrooms</label>
+                                       <select class="form-control basic-select" name="bedrooms" id="bedrooms">
+                                          <option value="" >Please select no of bedrooms</option>
+                                          <option value="1">1</option>
+                                          <option value="2">2</option>
+                                          <option value="3">3</option>
+                                          <option value="4">4</option>
+                                          <option value="5">5</option>
+                                          <option value="5">6</option>
+                                       </select>
+                                    </div>
+                                    <div class="form-group col-md-6 select-border">
+                                       <label>Bathrooms</label>
+                                       <select class="form-control basic-select" name="bathrooms" id="bathrooms">
+                                          <option value="" >Please select no of bathrooms</option>
+                                          <option value="1">1</option>
+                                          <option value="2">2</option>
+                                          <option value="3">3</option>
+                                          <option value="4">4</option>
+                                          <option value="5">5</option>
+                                       </select>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                       <label>Parking </label>
+                                       <input type="text" class="form-control" placeholder="Parking" id="parking" name="parking">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                       <label>Cooling </label>
+                                       <input type="text" class="form-control" placeholder="Cooling" id="cooling" name="cooling">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                       <label>Heating </label>
+                                       <input type="text" class="form-control" placeholder="Heating" id="heating" name="heating">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                       <label>Sewer </label>
+                                       <input type="text" class="form-control" placeholder="Sewer" id="sewer" name="sewer">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                       <label>Water </label>
+                                       <input type="text" class="form-control" placeholder="Water" id="water" name="water">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                       <label>Exercise Room </label>
+                                       <input type="text" class="form-control" placeholder="Exercise Room" id="exercise_room" name="exercise_room">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                       <label>Storage Room </label>
+                                       <input type="text" class="form-control" placeholder="Storage Room" id="storagr_room" name="storagr_room"> 
+                                    </div>
+                                     <div class="form-group col-md-12">
+                                       <label>Features : </label>
+                                          @foreach($other as $key => $value)
+                                          
+                                          <div class="custom-control custom-checkbox col-md-3" style="display: inline !important;">
+                                              
+                                                <input type="checkbox" name="facilites[]" class="custom-control-input" id="customCheck{{$value['id']}}" value="{{ $value['id'] }}">
+                                                <label class="custom-control-label" style="color:black" for="customCheck{{$value['id']}}">{{ $value['facilitiesName'] }}</label>
+                                               
+                                           </div>
+                                           @endforeach
                                     </div>
                                  </div>
                               </div>
                               <div class="tab-pane" id="tab3">
-                                 <div class="form-row mt-4">
-                                    <div class="form-group col-md-12">
-                                       <div class="custom-file">
-                                          <input type="file" class="custom-file-input" id="videos" name="video[]" multiple accept="video/*">
-                                          <label class="custom-file-label" for="customFile">Choose Video file</label>
-                                       </div>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                       <div class="custom-file">
-                                          <input type="file" class="custom-file-input" id="audios" name="audio[]" multiple accept="audio/*">
-                                          <label class="custom-file-label" for="customFile">Choose Audio file</label>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="tab-pane" id="tab4">
                                  <div class="form-row mt-4">
                                     <div class="form-group col-md-6">
                                        <label>Google Maps Address </label>
@@ -200,68 +250,36 @@
                                     </div>
                                  </div>
                               </div>
+                              
+                               <div class="tab-pane" id="tab4">
+                                 <div class="form-row mt-4">
+                                    <div class="form-group col-md-12">
+                                       <div class="custom-file">
+                                          <input type="file" class="custom-file-input" id="photos" name="photo[]" multiple accept="image/*">
+                                          <label class="custom-file-label" for="customFile">Choose file</label>
+                                       </div>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                       <div class="custom-file">
+                                          <input type="file" class="custom-file-input" id="tour_views" name="tour_view[]" multiple accept="video/*">
+                                          <label class="custom-file-label" for="customFile">Choose 360 file</label>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
                               <div class="tab-pane" id="tab5">
                                  <div class="form-row mt-4">
-                                    <div class="form-group col-md-6 select-border">
-                                       <label>Building age</label>
-                                       <select class="form-control basic-select" name="buliding_age" id="buliding_age">
-                                          <option value="" >Please selete building age</option>
-                                          <option value="1" >10 to 18 years</option>
-                                          <option value="2">10 to 18 years</option>
-                                       </select>
+                                    <div class="form-group col-md-12">
+                                       <div class="custom-file">
+                                          <input type="file" class="custom-file-input" id="videos" name="video[]" multiple accept="video/*">
+                                          <label class="custom-file-label" for="customFile">Choose Video file</label>
+                                       </div>
                                     </div>
-                                    <div class="form-group col-md-6 select-border">
-                                       <label>Bedrooms</label>
-                                       <select class="form-control basic-select" name="bedrooms" id="bedrooms">
-                                          <option value="" >Please selete no of badrooms</option>
-                                          <option value="1" >1</option>
-                                          <option value="2">2</option>
-                                       </select>
-                                    </div>
-                                    <div class="form-group col-md-6 select-border">
-                                       <label>Bathrooms</label>
-                                       <select class="form-control basic-select" name="bathrooms" id="bathrooms">
-                                          <option value="" >Please selete no of bathrooms</option>
-                                          <option value="1" >1</option>
-                                          <option value="2">2</option>
-                                       </select>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                       <label>Parking </label>
-                                       <input type="text" class="form-control" placeholder="Parking" id="parking" name="parking">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                       <label>Cooling </label>
-                                       <input type="text" class="form-control" placeholder="Cooling" id="cooling" name="cooling">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                       <label>Heating </label>
-                                       <input type="text" class="form-control" placeholder="Heating" id="heating" name="heating">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                       <label>Sewer </label>
-                                       <input type="text" class="form-control" placeholder="Sewer" id="sewer" name="sewer">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                       <label>Water </label>
-                                       <input type="text" class="form-control" placeholder="Water" id="water" name="water">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                       <label>Exercise Room </label>
-                                       <input type="text" class="form-control" placeholder="Exercise Room" id="exercise_room" name="exercise_room">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                       <label>Storage Room </label>
-                                       <input type="text" class="form-control" placeholder="Storage Room" id="storagr_room" name="storagr_room"> 
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                       <label>Other </label>
-                                       <select class="form-control multi-select" id="facilites" name="facilites">
-                                          <option value="" >Please select other facility</option>
-                                          @foreach($other as $key => $value)
-                                          <option value="{{ $value['id'] }}" >{{ $value['facilitiesName'] }}</option>
-                                          @endforeach
-                                       </select>
+                                    <div class="form-group col-md-12">
+                                       <div class="custom-file">
+                                          <input type="file" class="custom-file-input" id="audios" name="audio[]" multiple accept="audio/*">
+                                          <label class="custom-file-label" for="customFile">Choose Audio file</label>
+                                       </div>
                                     </div>
                                  </div>
                               </div>

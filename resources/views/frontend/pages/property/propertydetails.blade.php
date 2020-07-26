@@ -1,24 +1,36 @@
 @extends('frontend.layout.layout')
 @section('content')
-
+<style>
+       /* Set the size of the div element that contains the map */
+      #mapInit {
+        height: 400px;  /* The height is 400 pixels */
+        width: 100%;  /* The width is the width of the web page */
+       }
+    </style>
+<script>
+var lat = '<?php echo $propertyDetail[0]['latitude']?>';
+var lng = '<?php echo $propertyDetail[0]['longitude']?>';
+</script>
 
 <div class="wrapper">
     <!--=================================
     Property Detail -->
+    
+   
     <section class="space-ptb">
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-8">
             <div class="property-detail-title">
-              <h3>The citizen apartment 5th floor</h3>
-              <span class="d-block mb-4"><i class="fas fa-map-marker-alt fa-xs pr-2"></i>Border st. nicholasville, ky</span>
+              <h3>{{ $propertyDetail[0]['title'] }}</h3>
+              <span class="d-block mb-4"><i class="fas fa-map-marker-alt fa-xs pr-2"></i>{{ $propertyDetail[0]['address'] }}</span>
             </div>
           </div>
           <div class="col-lg-4">
             <div class="price-meta">
               <div class="mb-4 d-inline">
-                <span class="price font-xll text-primary mr-2">$1500000</span>
-                <span class="sub-price font-lg text-dark"><b>$6,500/Sqft </b> </span>
+                <span class="price font-xll text-primary mr-2">${{ $propertyDetail[0]['price'] }}</span>
+                <!--<span class="sub-price font-lg text-dark"><b>$6,500/Sqft </b> </span>-->
               </div>
               <ul class="property-detail-meta list-unstyled mt-1 mb-5 mb-lg-3">
                 <li><a href="#"> <i class="fas fa-star text-warning pr-2"></i>3.9/5 </a></li>
@@ -27,14 +39,14 @@
                   <ul class="list-unstyled share-box-social">
                     <li> <a href="#"><i class="fab fa-facebook-f"></i></a> </li>
                     <li> <a href="#"><i class="fab fa-twitter"></i></a> </li>
-                    <li> <a href="#"><i class="fab fa-linkedin"></i></a> </li>
-                    <li> <a href="#"><i class="fab fa-instagram"></i></a> </li>
+                    <li> <a href="#"><i class="fab fa-whatsapp"></i></a> </li>
+                    <!--<li> <a href="#"><i class="fab fa-instagram"></i></a> </li>-->
                   </ul>
                 </li>
                 <li><a href="#" data-toggle="tooltip" data-placement="top" title="Favourite" > <i class="fas fa-heart"  ></i> </a></li>
                 <li><a href="#" data-toggle="tooltip" data-placement="top"  title="Compare"> <i class="fas fa-exchange-alt"  ></i> </a></li>
                 <li><a href="#"> <i class="fa fa-exclamation-triangle"></i> </a></li>
-                <li><a href="#"> <i class="fa fa-play-circle"></i> </a></li>
+               
               </ul>
             </div>
           </div>
@@ -47,16 +59,15 @@
                   <div class="agent-contact-inner bg-dark p-4">
                     <div class="d-flex align-items-center mb-4">
                       <div class="agent-contact-avatar mr-3">
-                        <img class="img-fluid rounded-circle avatar avatar-lg" src="{{ asset('public/frontend/assets/images/avatar/01.jpg') }}" alt="">
+                        <img class="img-fluid rounded-circle avatar avatar-lg" src="{{ asset('public/upload/userimage/'.$propertyDetail[0]['userimage']) }}" alt="">
                       </div>
                       <div class="agent-contact-name">
-                        <h6 class="text-white">Felica queen</h6>
-                        <span>Company Agent</span>
+                        <h6 class="text-white">{{ $propertyDetail[0]['username'] }}</h6>
+                        <span>{{ getTypeText($propertyDetail[0]['roles']) }}</span>
                       </div>
                     </div>
                     <div class="d-flex mb-4 align-items-center">
-                      <h6 class="text-primary border p-2 mb-0"><a href="#"><i style='color: white; padding-right: 5px;
-    font-size: 22px;' class='fab'>&#xf40c;</i>Whatsapp</a></h6>
+                      <h6 class="text-primary border p-2 mb-0"><a href="#"><i class="fab fa-whatsapp"></i>Whatsapp</a></h6>
                       <a class="btn btn-link p-0 ml-auto text-white" href="{{ route('property') }}"><u>View all listing </u></a>
                     </div>
                     <form>
@@ -81,73 +92,62 @@
                   <div class="widget-title">
                     <h6>Mortgage calculator</h6>
                   </div>
-                  <form>
                     <div class="input-group mb-2">
                       <div class="input-group-prepend">
                         <div class="input-group-text"><i class="fas fa-dollar-sign"></i></div>
                       </div>
-                      <input type="text" class="form-control" placeholder="Total Amount">
+                      <input type="text" class="form-control amount" id='amount' placeholder="Total Amount">
                     </div>
                     <div class="input-group mb-2">
                       <div class="input-group-prepend">
                         <div class="input-group-text"><i class="fas fa-dollar-sign"></i></div>
                       </div>
-                      <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Down Payment">
+                      <input type="text" class="form-control downPayment" id="inlineFormInputGroup" placeholder="Down Payment">
                     </div>
                     <div class="input-group mb-2">
                       <div class="input-group-prepend">
                         <div class="input-group-text"><i class="fas fa-percent"></i></div>
                       </div>
-                      <input type="text" class="form-control" placeholder="Interest Rate">
+                      <input type="text" class="form-control rateofintrest" placeholder="Interest Rate">
                     </div>
                     <div class="input-group mb-2">
                       <div class="input-group-prepend">
                         <div class="input-group-text"><i class="far fa-clock"></i></div>
                       </div>
-                      <input type="text" class="form-control" placeholder="Loan Term (Years)">
+                      <input type="text" class="form-control loanyear" placeholder="Loan Term (Years)">
                     </div>
                     <div class="input-group mb-3 select-border">
-                      <select class="form-control basic-select">
-                        <option>Monthly</option>
-                        <option>Weekly</option>
-                        <option>Yearly</option>
+                      <select class="form-control basic-select selectType">
+                        <option value=''>Please Select</option>
+                        <option value='weekly'>Weekly</option>
+                        <option value='monthly'>Monthly</option>
+                        <option value='yearly'>Yearly</option>
                       </select>
                     </div>
-                    <a class="btn btn-primary btn-block" href="#">Calculate</a>
-                  </form>
+                    <div class="input-group mb-2">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fas fa-dollar-sign"></i></div>
+                      </div>
+                      <input type="text" class="form-control finalAmount" readonly='true'>
+                    </div>
+                    <a class="btn btn-primary btn-block calculate" style="color: white">Calculate</a>
                 </div>
                 <div class="widget">
                   <div class="widget-title">
                     <h6>Recently listed properties</h6>
                   </div>
+                    @foreach($recentPropety as $value)
+                     @php
+                      $images = explode(',',$value['images'])
+                      @endphp
                   <div class="recent-list-item">
-                    <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/list/01.jpg') }}" alt="">
+                    <img class="img-fluid" src="{{ asset('public/upload/property_photo/'.$images[0]) }}" alt="">
                     <div class="recent-list-item-info">
-                      <a class="address mb-2" href="#">Ample apartment at last floor</a>
-                      <span class="text-primary">$1,147,457 </span>
+                      <a class="address mb-2" href="{{ route("property-details",$value['slug'])}}" target="_blank">{{ $value['title'] }}</a>
+                      <span class="text-primary">${{ $value['price'] }} </span>
                     </div>
                   </div>
-                  <div class="recent-list-item">
-                    <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/list/02.jpg') }}" alt="">
-                    <div class="recent-list-item-info">
-                      <a class="address mb-2" href="#">Contemporary apartment</a>
-                      <span class="text-primary">$2,577,577 </span>
-                    </div>
-                  </div>
-                  <div class="recent-list-item">
-                    <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/list/03.jpg') }}" alt="">
-                    <div class="recent-list-item-info">
-                      <a class="address mb-2" href="#">3 bedroom house in gardner</a>
-                      <span class="text-primary">$3,575,547 </span>
-                    </div>
-                  </div>
-                  <div class="recent-list-item">
-                    <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/list/04.jpg') }}" alt="">
-                    <div class="recent-list-item-info">
-                      <a class="address mb-2" href="#">Stunning 2 bedroom home in village</a>
-                      <span class="text-primary">$1,475,575 </span>
-                    </div>
-                  </div>
+                    @endforeach
                 </div>
                 <div class="widget">
                   <div class="widget-title">
@@ -194,25 +194,22 @@
                 <div class="tab-pane fade show active" id="photo" role="tabpanel" aria-labelledby="photo-tab">
                   <div class="slider-slick">
                     <div class="slider slider-for detail-big-car-gallery">
-                      <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/grid/01.jpg') }}" alt="">
-                      <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/grid/02.jpg') }}" alt="">
-                      <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/grid/03.jpg') }}" alt="">
-                      <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/grid/04.jpg') }}" alt="">
-                      <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/grid/05.jpg') }}" alt="">
-                      <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/grid/06.jpg') }}" alt="">
+                      @php
+                      $images = explode(',',$propertyDetail[0]['images'])
+                      @endphp
+                      @foreach($images as $value)
+                        <img class="img-fluid" src="{{ asset('public/upload/property_photo/'.$value) }}" alt="">
+                      @endforeach
                     </div>
                     <div class="slider slider-nav">
-                      <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/grid/01.jpg') }}" alt="">
-                      <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/grid/02.jpg') }}" alt="">
-                      <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/grid/03.jpg') }}" alt="">
-                      <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/grid/04.jpg') }}" alt="">
-                      <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/grid/05.jpg') }}" alt="">
-                      <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/grid/06.jpg') }}" alt="">
+                      @foreach($images as $value)
+                        <img class="img-fluid" src="{{ asset('public/upload/property_photo/'.$value) }}" alt="">
+                      @endforeach
                     </div>
                   </div>
                 </div>
                 <div class="tab-pane fade" id="map" role="tabpanel" aria-labelledby="map-tab">
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8351288872545!2d144.9556518!3d-37.8173306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4c2b349649%3A0xb6899234e561db11!2sEnvato!5e0!3m2!1sen!2sin!4v1443621171568" style="border:0; width: 100%; height: 100%;"></iframe>
+                  <div id="mapInit"></div>
                 </div>
 <!--                <div class="tab-pane fade" id="street-map-view" role="tabpanel" aria-labelledby="street-map-view-tab">
                   <div id="street-view"></div>
@@ -228,24 +225,25 @@
                   <div class="row mb-3">
                     <div class="col-sm-6">
                       <ul class="property-list list-unstyled">
-                        <li><b>Property ID:</b> RV151</li>
-                        <li><b>Price:</b> $484,400</li>
-                        <li><b>Property Size:</b> 1466 Sq Ft</li>
-                        <li><b>Bedrooms:</b> 4</li>
-                        <li><b>Bathrooms:</b> 2</li>
+                        <!--<li><b>Property ID:</b> RV151</li>-->
+                        <li><b>Price:</b> ${{ $propertyDetail[0]['price'] }}</li>
+                        <li><b>Property Size:</b> {{ $propertyDetail[0]['area'] }} Sq Ft</li>
+                        <li><b>Bedrooms:</b> {{ $propertyDetail[0]['badroom'] }}</li>
+                        <li><b>Bathrooms:</b> {{ $propertyDetail[0]['bathroom'] }}</li>
                       </ul>
                     </div>
                     <div class="col-sm-6">
                       <ul class="property-list list-unstyled">
-                        <li><b>Garage:</b> 1</li>
-                        <li><b>Garage Size:</b> 458 SqFt</li>
-                        <li><b>Year Built:</b> 2019-01-09</li>
-                        <li><b>Property Type:</b> Full  Family Home</li>
-                        <li><b>Property Status:</b> For rent</li>
+<!--                        <li><b>Garage:</b> 1</li>
+                        <li><b>Garage Size:</b> 458 SqFt</li>-->
+                        <li><b>Property Age:</b> {{ bulidingAgeText($propertyDetail[0]['buliding_age']) }}</li>
+                        <li><b>Property Type:</b> {{ $propertyDetail[0]['type'] }}</li>
+                        <li><b>Property Status:</b> {{ $propertyDetail[0]['offer'] }}</li>
+                        <li><b>Water:</b> {{ $propertyDetail[0]['water'] }} Hours</li>
                       </ul>
                     </div>
                   </div>
-                  <h6 class="text-primary">Additional details</h6>
+<!--                  <h6 class="text-primary">Additional details</h6>
                   <div class="row">
                     <div class="col-sm-6">
                       <ul class="property-list list-unstyled mb-0">
@@ -261,7 +259,7 @@
                         <li><b>Equipment:</b> Grill - Gas - light</li>
                       </ul>
                     </div>
-                  </div>
+                  </div>-->
                 </div>
               </div>
             </div>
@@ -272,8 +270,8 @@
                   <h5>Description</h5>
                 </div>
                 <div class="col-sm-9">
-                  <p>The home features private entry copper-clad door leading to salon with marble floors. Stunning great room has soaring 45 foot ceilings with glass windows, polished concrete floors, exposed brick & sculptural steel beams. The chef's kitchen has honed granite counters, high-end S/S appliances, French cabinets & gas range.</p>
-                  <p>Floor-to-ceiling windows accentuate the panoramic vistas that sweep across the Golden Gate Bridge, the downtown skyline, the artfully lit Bay Bridge and beyond. The floor plan features two bedroom suites, kitchen, living/dining room, two view terraces and ample storage space. </p>
+                  <p>{{ $propertyDetail[0]['about_property'] }}</p>
+                  <!--<p>Floor-to-ceiling windows accentuate the panoramic vistas that sweep across the Golden Gate Bridge, the downtown skyline, the artfully lit Bay Bridge and beyond. The floor plan features two bedroom suites, kitchen, living/dining room, two view terraces and ample storage space. </p>-->
                 </div>
               </div>
             </div>
@@ -287,17 +285,21 @@
                   <div class="row">
                     <div class="col-sm-6">
                       <ul class="property-list-style-2 list-unstyled mb-0">
-                        <li>TV Cable</li>
-                        <li>Air Conditioning</li>
+                        @if(count($propertyDetail[0]['features']))
+                        @foreach($propertyDetail[0]['features'] as $value)
+                        <li>{{ $value['facilitiesName'] }}</li>
+                        @endforeach
+                        @endif
+<!--                        <li>Air Conditioning</li>
                         <li>Barbeque</li>
                         <li>Gym</li>
                         <li>Swimming Pool</li>
                         <li>Laundry</li>
                         <li>Microwave</li>
-                        <li>Outdoor Shower</li>
+                        <li>Outdoor Shower</li>-->
                       </ul>
                     </div>
-                    <div class="col-sm-6">
+<!--                    <div class="col-sm-6">
                       <ul class="property-list-style-2 list-unstyled mb-0">
                         <li>Lawn</li>
                         <li>Refrigerator</li>
@@ -307,7 +309,7 @@
                         <li>WiFi</li>
                         <li>Window Coverings</li>
                       </ul>
-                    </div>
+                    </div>-->
                   </div>
                 </div>
               </div>
@@ -322,16 +324,16 @@
                   <div class="row">
                     <div class="col-sm-6">
                       <ul class="property-list list-unstyled mb-0">
-                        <li><b>Address:</b> Virginia drive temple hills</li>
-                        <li><b>State/County:</b> San francisco</li>
-                        <li><b>Area:</b> Embarcadero</li>
+                        <li><b>Friendly Address:</b> {{ $propertyDetail[0]['friendly_address'] }}</li>
+                        <li><b>Address:</b> {{ $propertyDetail[0]['address']}}</li>
+                        <li><b>State:</b> {{ $propertyDetail[0]['state'] }}</li>
                       </ul>
                     </div>
                     <div class="col-sm-6">
                       <ul class="property-list list-unstyled mb-0">
-                        <li><b>City:</b> San francisco</li>
-                        <li><b>Zip:</b> 4848494</li>
-                        <li><b>Country:</b> United States</li>
+                        <li><b>City:</b> {{ $propertyDetail[0]['city'] }} </li>
+                        <li><b>Zip:</b> {{ $propertyDetail[0]['postalcode'] }}</li>
+                        <li><b>County:</b> {{ $propertyDetail[0]['country'] }} </li>
                       </ul>
                     </div>
                   </div>
@@ -346,65 +348,94 @@
                 </div>
                 <div class="col-sm-9">
                   <div class="accordion-style-2" id="accordion">
-                    <div class="card">
-                      <div class="card-header" id="headingOne">
+                    @if(count($propertyDetail[0]['floor_plan']))
+                    @php
+                    $i = 0;
+                    @endphp
+                    @foreach($propertyDetail[0]['floor_plan'] as $floor)
+                     <div class="card">
+                      <div class="card-header" id="heading{{$i}}">
                         <h5 class="accordion-title mb-0">
-                        <button class="btn btn-link d-flex ml-auto align-items-center" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">First Floor <i class="fas fa-chevron-down fa-xs"></i></button>
+                        <button class="btn btn-link d-flex ml-auto align-items-center" data-toggle="collapse" data-target="#collapse{{$i}}" aria-expanded="true" aria-controls="collapse{{$i}}">{{ $floor['floor_title']}} <i class="fas fa-chevron-down fa-xs"></i></button>
                         </h5>
                       </div>
-                      <div id="collapseOne" class="collapse show accordion-content" aria-labelledby="headingOne" data-parent="#accordion">
+                      <div id="collapse{{$i}}" class="collapse show accordion-content" aria-labelledby="heading{{$i}}" data-parent="#accordion">
                         <div class="card-body">
-                          <p>Introspection is the trick. Understand what you want, why you want it and what it will do for you. This is a critical factor, and as such, is probably the most difficult step. For this reason, most people never!</p>
-                          <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/floor-plans-01.jpg') }}" alt="">
+                          <p>{{ $floor['description']}}</p>
+                          <a class="fancybox" rel="group" href="{{ asset('public/upload/property_floor_plan/'.$floor['floor_file']) }}">
+                              
+                          <img class="img-fluid" src="{{ asset('public/upload/property_floor_plan/'.$floor['floor_file']) }}" alt="">
+                          </a>
                         </div>
                       </div>
                     </div>
-                    <div class="card">
-                      <div class="card-header" id="headingTwo">
-                        <h5 class="accordion-title mb-0">
-                        <button class="btn btn-link d-flex ml-auto align-items-center collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Second Floor <i class="fas fa-chevron-down fa-xs"></i>
-                        </button>
-                        </h5>
-                      </div>
-                      <div id="collapseTwo" class="collapse accordion-content" aria-labelledby="headingTwo" data-parent="#accordion">
-                        <div class="card-body">
-                          <p>Focus is having the unwavering attention to complete what you set out to do. There are a million distractions in every facet of our lives. Telephones and e-mail, clients and managers, spouses and kids, TV, newspapers and radio.</p>
-                          <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/floor-plans-01.jpg') }}" alt="">
-                        </div>
-                      </div>
-                    </div>
+                    @php
+                    $i++;
+                    @endphp
+                    @endforeach
+                    @endif
                   </div>
                 </div>
               </div>
             </div>
+            @if($propertyDetail[0]['video'] != '')
             <hr class="mt-4 mb-4 mb-sm-5 mt-sm-5">
             <div class="property-video">
               <div class="row">
                 <div class="col-sm-3 mb-3 mb-sm-0">
                   <ul class="nav nav-tabs " style="border: 0px" id="pills-tab" role="tablist">
+                     @php
+                    $video = explode(',',$propertyDetail[0]['video']);
+                    $i=1;
+                   @endphp
+                   @foreach($video as $value)
+                   @php
+                     if($i == 1){
+                         $class = 'active';
+                     }else{
+                         $class = '';
+                     }
+                   @endphp  
                     <li class="nav-item">
-                      <a class="nav-link active" id="tab-03-tab" data-toggle="pill" href="#tab-03" role="tab" aria-controls="tab-03" aria-selected="true">Property Video</a>
+                      <a class="nav-link {{ $class }}" id="video-{{$i}}-tab" data-toggle="pill" href="#video-{{$i}}" role="tab" aria-controls="video-{{$i}}" aria-selected="true">Property Video {{ $i }}</a>
                     </li>
-                    <li class="nav-item">
+                     @php
+                   $i++;
+                  @endphp
+                @endforeach
+<!--                    <li class="nav-item">
                       <a class="nav-link" id="tab-04-tab" data-toggle="pill" href="#tab-04" role="tab" aria-controls="tab-04" aria-selected="false">Property Video 2</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" id="tab-05-tab" data-toggle="pill" href="#tab-05" role="tab" aria-controls="tab-05" aria-selected="false">Tour 360</a>
-                    </li>
+                    </li>-->
                   </ul>
                 </div>
 
                 <div class="col-sm-9">
                   <div class="tab-content" id="pills-tabContent">
-                    
-                    <div class="tab-pane fade show active" id="tab-03" role="tabpanel" aria-labelledby="tab-03-tab">
-                      <div class="embed-responsive embed-responsive-16by9">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/kacyaEXqVhs" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                      </div>
+                    @php
+                  $j=1;
+                  @endphp
+                  @foreach($video as $value)
+                  @php
+                    if($j == 1){
+                        $class = 'show active';
+                    }else{
+                        $class = '';
+                    }
+                  @endphp
+                    <div class="tab-pane fade {{ $class }}" id="video-{{$i}}" role="tabpanel" aria-labelledby="video-{{$i}}-tab">
+                      <video width="520" height="340" controls>
+                            <source src="{{ asset('public/upload/property_video/'.$value) }}">
+                          </video>
                     </div>
+                  @php
+                   $j++;
+                  @endphp
+                @endforeach
 
-                    <div class="tab-pane fade" id="tab-04" role="tabpanel" aria-labelledby="tab-04-tab">
+<!--                    <div class="tab-pane fade" id="tab-04" role="tabpanel" aria-labelledby="tab-04-tab">
                       <div class="embed-responsive embed-responsive-16by9">
                         <iframe width="560" height="315" src="https://www.youtube.com/embed/hqUw18s3f0w" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                       </div>
@@ -413,48 +444,60 @@
                       <div class="embed-responsive embed-responsive-16by9">
                         <iframe width="560" height="315" src="https://www.youtube.com/embed/ouk2Vlhr1lE" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                       </div>
-                    </div>
+                    </div>-->
                   </div>
                 </div>
               </div>
             </div>
-
+            @endif
+            @if($propertyDetail[0]['audio'] != '')
             <hr class="mt-4 mb-4 mb-sm-5 mt-sm-5">
               <ul class="nav nav-tabs mb-4" id="pills-tab" role="tablist">
+                  @php
+                   $audio = explode(',',$propertyDetail[0]['audio']);
+                   $i=1;
+                  @endphp
+                  @foreach($audio as $value)
+                  @php
+                    if($i == 1){
+                        $class = 'active';
+                    }else{
+                        $class = '';
+                    }
+                  @endphp
+                    
+                  
                 <li class="nav-item">
-                  <a class="nav-link active" id="tab-03-tab" data-toggle="pill" href="#tab-audiobook-03" role="tab" aria-controls="tab-audiobook-03" aria-selected="true">Audiobook 01</a>
+                  <a class="nav-link {{ $class }}" id="tab-{{$i}}-tab" data-toggle="pill" href="#tab-audiobook-{{$i}}" role="tab" aria-controls="tab-audiobook-{{$i}}" aria-selected="true">Audiobook 0{{$i}}</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" id="tab-04-tab" data-toggle="pill" href="#tab-audiobook-04" role="tab" aria-controls="tab-audiobook-04" aria-selected="false">Audiobook 02</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" id="tab-05-tab" data-toggle="pill" href="#tab-audiobook-05" role="tab" aria-controls="tab-audiobook-05" aria-selected="false">Audiobook 03</a>
-                </li>
+                @php
+                   $i++;
+                  @endphp
+                @endforeach
               </ul>
               <div class="tab-content" id="pills-tabContent">
-                <div class="tab-pane fade show active" id="tab-audiobook-03" role="tabpanel" aria-labelledby="tab-03-tab">
+                  @php
+                  $j=1;
+                  @endphp
+                  @foreach($audio as $value)
+                  @php
+                    if($j == 1){
+                        $class = 'show active';
+                    }else{
+                        $class = '';
+                    }
+                  @endphp
+                <div class="tab-pane fade {{ $class }}" id="tab-audiobook-{{$j}}" role="tabpanel" aria-labelledby="tab-{{$j}}-tab">
                   <audio controls>
-                    <source src="https://www.w3schools.com/html/horse.ogg" type="audio/ogg">
-                    <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
-                  Your browser does not support the audio element.
+                    <source src="{{ asset('public/upload/property_audio/'.$value) }}" >
                   </audio>
                 </div>
-                <div class="tab-pane fade" id="tab-audiobook-04" role="tabpanel" aria-labelledby="tab-04-tab">
-                  <audio controls>
-                    <source src="https://www.w3schools.com/html/horse.ogg" type="audio/ogg">
-                    <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
-                  Your browser does not support the audio element.
-                  </audio>
-                </div>
-                <div class="tab-pane fade" id="tab-audiobook-05" role="tabpanel" aria-labelledby="tab-05-tab">
-                  <audio controls>
-                    <source src="https://www.w3schools.com/html/horse.ogg" type="audio/ogg">
-                    <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
-                  Your browser does not support the audio element.
-                  </audio>
-                </div>
+                  @php
+                   $j++;
+                  @endphp
+                @endforeach
               </div>
-
+            @endif
 
             
             
@@ -591,4 +634,4 @@
   </section>
   <!--=================================
   newsletter -->
-@endsection
+@endsection                            

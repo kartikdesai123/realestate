@@ -43,14 +43,21 @@ class PropertyController extends Controller
         ));
 
         $data['js'] = array(
+            'property.js',
             'home.js'
         );
         $data['funinit'] = array(
-            'Home.init()'
+            'Home.init()',
+            'Property.calculation()',
         );
+        
+        $objPropetyList = new PropertyDetails();
+        $data['property'] = $objPropetyList->getPropertyList();
+        
         return view('frontend.pages.property.propertylist', $data);
     }
-    public function propertydetails(Request $request,$id){
+    
+    public function propertydetails(Request $request,$slug){
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Property Details';
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Property Details';
         $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Property Details';
@@ -58,12 +65,16 @@ class PropertyController extends Controller
             'datetimepicker/datetimepicker.min.css',
             'slick/slick-theme.css',
             'select2/select2.css',
+            'jquery.fancybox.css',
+            'components.min.css',
+            'plugins.min.css',
         );
         $data['plugincss'] = array();
         $data['pluginjs'] = array(
             'slick/slick.min.js',
             'datetimepicker/moment.min.js',
             'datetimepicker/datetimepicker.min.js',
+            'fancybox/source/jquery.fancybox.js',
             'select2/select2.full.js',
         );
         $data['header'] = array(
@@ -73,8 +84,23 @@ class PropertyController extends Controller
                 'Property List' => route("property"),
                 'Property Details' => 'Property Details',
         ));
-        $data['js'] = array();
-        $data['funinit'] = array();
+        $data['js'] = array(
+            'property.js',
+        );
+        $data['funinit'] = array(
+            'Property.calculation()',
+            'Property.mapint()',
+        );
+        
+        $objPropetyDetail = new PropertyDetails();
+        $data['propertyDetail'] = $objPropetyDetail->getPropertyDetail($slug);
+        if(empty($data['propertyDetail'])){
+            return redirect('property')->with('error', 'Property not found');
+        }
+        
+        $objRecentPropety = new PropertyDetails();
+        $data['recentPropety'] = $objRecentPropety->getRecentProperty($slug);
+        
         return view('frontend.pages.property.propertydetails', $data);
     }
 
@@ -82,18 +108,18 @@ class PropertyController extends Controller
         
         $session = $request->session()->all();
             if(isset($session['logindata'])){
-                
                 if($request->isMethod("post")) {
                     $objPropertyDetails = new PropertyDetails();
-                    $res = $objPropertyDetails->addProperty($request);
+                    $res = $objPropertyDetails->addProperty($request,$session['logindata'][0]['id']);
                     if($res){
                         return back()->with('success', 'Property succesfully added');
                     }else{
                         return back()->with('error', 'Something goes to wrong please try again');
                     }
                 }
-                $objExtrafacilities = new Extrafacilities();
-                $data['other'] = $objExtrafacilities->getlist();
+            
+            $objExtrafacilities = new Extrafacilities();
+            $data['other'] = $objExtrafacilities->getlist();
 
             $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Submit Property Details';
             $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Submit Property Details';
@@ -131,10 +157,12 @@ class PropertyController extends Controller
                 'comman_function.js',
                 'ajaxfileupload.js',
                 'jquery.form.min.js',
+                'home.js',
                 'propertyDetails.js',
                 'map.js',
             );
             $data['funinit'] = array(
+                'Home.init()',
                 'PropertyDetails.init()'
             );
             return view('frontend.pages.property.submitproperty', $data);
@@ -142,4 +170,5 @@ class PropertyController extends Controller
             return redirect('signin');
         }
     }
+    
 }

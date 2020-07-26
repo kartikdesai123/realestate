@@ -4,26 +4,33 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Model\PropertyAudio;
+use App\Model\PropertyFeatures;
 use App\Model\PropertyFloorPlan;
 use App\Model\PropertyPhoto;
 use App\Model\PropertyTourView;
 use App\Model\PropertyVideo;
 use DB;
+
 class PropertyDetails extends Model
 {
     //
     protected $table ="property_details";
 
-    public function addProperty($request){
+    public function addProperty($request,$userId){
         
+        $url = strtolower($request->input('propertyTitle'));
+        $slug = str_replace(' ','-',$url);
+                
         $objPropertyDetails = new PropertyDetails();
+        $objPropertyDetails->user_id = $userId;
         $objPropertyDetails->title =$request->input('propertyTitle');
+        $objPropertyDetails->slug = $slug;
         $objPropertyDetails->offer =$request->input('offer');
         $objPropertyDetails->period =$request->input('period');
         $objPropertyDetails->type =$request->input('type');
         $objPropertyDetails->price =$request->input('price');
         $objPropertyDetails->area =$request->input('area');
-        $objPropertyDetails->rooms =$request->input('rooms');
+        $objPropertyDetails->about_property =$request->input('about_property');
         $objPropertyDetails->address =$request->input('txtaddress');
         $objPropertyDetails->friendly_address =$request->input('friendly');
         $objPropertyDetails->city =$request->input('txtCity');
@@ -42,12 +49,32 @@ class PropertyDetails extends Model
         $objPropertyDetails->water =$request->input('water');
         $objPropertyDetails->exercise_room =$request->input('exercise_room');
         $objPropertyDetails->storage_room =$request->input('storagr_room');
-        $objPropertyDetails->others =$request->input('facilites');
+//        $objPropertyDetails->others =$request->input('facilites');
         $objPropertyDetails->created_at =date("Y-m-d h:i:s");
         $objPropertyDetails->updated_at =date("Y-m-d h:i:s");
         if($objPropertyDetails->save()){
             $propertyId = $objPropertyDetails->id ;
-
+            
+            if($request->input('facilites')){
+                
+                foreach($request->input('facilites') as $key => $value){
+                    
+                    $objPropertyFeature = new PropertyFeatures();
+                    $objPropertyFeature->user_id = $userId;
+                    $objPropertyFeature->property_id = $propertyId;
+                    $objPropertyFeature->fetures_id = $value;
+                    $objPropertyFeature->created_at = date("Y-m-d h:i:s");
+                    $objPropertyFeature->updated_at = date("Y-m-d h:i:s");
+                    if($objPropertyFeature->save()){
+                        
+                    }else{
+                        DB::table('property_details')->where('id',$propertyId)->delete();
+                        DB::table('property_features')->where('property_id',$propertyId)->delete();
+                        return false;
+                    }
+                }
+            }
+            
             if($request->file('photo')){
                 
                 $i = 0;
@@ -59,6 +86,7 @@ class PropertyDetails extends Model
                     $destinationPath = public_path('/upload/property_photo');
                     $image->move($destinationPath, $name);
 
+                    $objPropertyPhoto->user_id = $userId;
                     $objPropertyPhoto->property_id = $propertyId;
                     $objPropertyPhoto->name = $name;
                     $objPropertyPhoto->created_at = date("Y-m-d h:i:s");
@@ -67,6 +95,7 @@ class PropertyDetails extends Model
                         
                     }else{
                         DB::table('property_details')->where('id',$propertyId)->delete();
+                        DB::table('property_features')->where('property_id',$propertyId)->delete();
                         DB::table('property_photo')->where('property_id',$propertyId)->delete();
                         return false;
                     }
@@ -85,6 +114,7 @@ class PropertyDetails extends Model
                     $destinationPath = public_path('/upload/property_tour_view');
                     $image->move($destinationPath, $name);
 
+                    $objPropertyTourView->user_id = $userId;
                     $objPropertyTourView->property_id = $propertyId;
                     $objPropertyTourView->name = $name;
                     $objPropertyTourView->created_at = date("Y-m-d h:i:s");
@@ -111,6 +141,7 @@ class PropertyDetails extends Model
                     $destinationPath = public_path('/upload/property_video');
                     $image->move($destinationPath, $name);
 
+                    $objPropertyVideo->user_id = $userId;
                     $objPropertyVideo->property_id = $propertyId;
                     $objPropertyVideo->name = $name;
                     $objPropertyVideo->created_at = date("Y-m-d h:i:s");
@@ -139,6 +170,7 @@ class PropertyDetails extends Model
                     $destinationPath = public_path('/upload/property_audio');
                     $image->move($destinationPath, $name);
 
+                    $objPropertyAudio->user_id = $userId;
                     $objPropertyAudio->property_id = $propertyId;
                     $objPropertyAudio->name = $name;
                     $objPropertyAudio->created_at = date("Y-m-d h:i:s");
@@ -166,6 +198,7 @@ class PropertyDetails extends Model
                     $destinationPath = public_path('/upload/property_floor_plan');
                     $image->move($destinationPath, $name);
 
+                    $objPropertyFloorPlan->user_id = $userId;
                     $objPropertyFloorPlan->property_id = $propertyId;
                     $objPropertyFloorPlan->floor_file = $name;
                     $objPropertyFloorPlan->floor_title = $request->input('floortitle');
@@ -195,7 +228,8 @@ class PropertyDetails extends Model
                 $name = time().$i.'.'.$image->getClientOriginalExtension();
                 $destinationPath = public_path('/upload/property_floor_plan');
                 $image->move($destinationPath, $name);
-
+                
+                $objPropertyFloorPlan->user_id = $userId;
                 $objPropertyFloorPlan->property_id = $propertyId;
                 $objPropertyFloorPlan->floor_file = $name;
                 $objPropertyFloorPlan->floor_title = $request->input('floortitle2');
@@ -220,5 +254,62 @@ class PropertyDetails extends Model
         }else{
             return false;
         }
+    }
+    
+    public function getPropertyList(){
+         return PropertyDetails::select('property_details.*',DB::raw('GROUP_CONCAT(property_photo.name) AS images'),'users.username','users.userimage','users.phoneno','users.roles','users.email')
+                            ->join("property_photo","property_details.id","=","property_photo.property_id")
+                            ->join("users","property_details.user_id","=","users.id")
+                            ->groupBy('property_details.id')
+                            ->get();
+         
+//         echo "<pre/>"; print_r($propertyDetail); exit();
+    }
+    
+    public function getPropertyDetail($slug){
+        
+        $detailProperty = PropertyDetails::select('property_details.*',
+                                DB::raw('GROUP_CONCAT(property_photo.name) AS images'),
+                                DB::raw('GROUP_CONCAT(DISTINCT (property_audio.name)) AS audio'),
+                                DB::raw('GROUP_CONCAT(DISTINCT (property_video.name)) AS video'),
+                                'users.username','users.userimage','users.phoneno','users.roles','users.email')
+                            ->join("property_photo","property_details.id","=","property_photo.property_id")
+                            ->join("property_audio","property_details.id","=","property_audio.property_id")
+                            ->join("property_video","property_details.id","=","property_video.property_id")
+                            ->join("users","property_details.user_id","=","users.id")
+                            ->where("property_details.slug","=",$slug)
+                            ->groupBy('property_details.id')
+                            ->get()->toArray();
+        
+        if(!empty($detailProperty)){
+        
+            $detailProperty[0]['features'] = PropertyFeatures::select('property_features.*','extrafacilities.facilitiesName')
+                               ->join('extrafacilities','property_features.fetures_id','=','extrafacilities.id')
+                               ->where('property_features.property_id',$detailProperty[0]['id'])
+                               ->get()->toArray();
+            
+            $detailProperty[0]['floor_plan'] = PropertyFloorPlan::select('property_floor_plan.*')
+                               ->where('property_floor_plan.property_id',$detailProperty[0]['id'])
+                               ->get()->toArray();
+            
+            $detailProperty[0]['tour_view'] = PropertyTourView::select('property_tour_view.*')
+                               ->where('property_tour_view.property_id',$detailProperty[0]['id'])
+                               ->get()->toArray();
+        }
+        
+//        echo "<pre/>"; print_r($detailProperty); exit();
+        
+        return $detailProperty;
+    }
+    
+    function getRecentProperty($slug){
+       return PropertyDetails::select('property_details.slug','property_details.title','property_details.price',
+                                DB::raw('GROUP_CONCAT(property_photo.name) AS images'))
+                            ->join("property_photo","property_details.id","=","property_photo.property_id")
+                            ->where("property_details.slug","!=",$slug)
+                            ->groupBy('property_details.id')
+                            ->limit(4)
+                            ->get();
+      
     }
 }
