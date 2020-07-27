@@ -44,6 +44,7 @@ Route::match(['get', 'post'], 'search', ['as' => 'search', 'uses' => 'frontend\S
 // property
 
 Route::match(['get', 'post'], 'property', ['as' => 'property', 'uses' => 'frontend\PropertyController@propertylist']);
+Route::match(['get', 'post'], 'video-call-schedule', ['as' => 'video-call-schedule', 'uses' => 'frontend\PropertyController@videocallschedule']);
 Route::match(['get', 'post'], 'property-details/{id}', ['as' => 'property-details', 'uses' => 'frontend\PropertyController@propertydetails']);
 
 // Submit Property

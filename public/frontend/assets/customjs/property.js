@@ -48,6 +48,27 @@ var Property = function() {
         });
     }
    
+    var formvalidation = function(){
+
+        jQuery.validator.addMethod("accept", function(value, element, param) {
+            return value.match(new RegExp("." + param + "$"));
+        });
+
+
+        var form = $('#video-call-form');
+        var rules = {
+            date:{required: true},
+            time:{required: true},
+            name:{required: true,accept: "[a-zA-Z]+"},
+            phone:{required: true,digits: true},
+            message:{required: true},
+            email: {required: true,email:true},
+        };
+
+        handleFormValidate(form, rules, function (form) {
+            handleAjaxFormSubmit(form);
+        });
+    }
     return {
         calculation: function() {
             mortgage_calculation();
@@ -60,6 +81,9 @@ var Property = function() {
                 document.getElementById('mapInit'), {zoom: 4, center: uluru});
             // The marker, positioned at Uluru
             var marker = new google.maps.Marker({position: uluru, map: map});
-        },         
+        },    
+        form:function(){
+            formvalidation();
+        }     
     }
 }();

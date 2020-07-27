@@ -13,7 +13,7 @@ use App\Model\PropertyPhoto;
 use App\Model\PropertyTourView;
 use App\Model\PropertyVideo;
 use App\Model\PropertyDetails;
-
+use App\Model\Sendmail;
 class PropertyController extends Controller
 {
     
@@ -58,10 +58,12 @@ class PropertyController extends Controller
     }
     
     public function propertydetails(Request $request,$slug){
+        $data['slug'] =$slug;
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Property Details';
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Property Details';
         $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Property Details';
         $data['css'] = array(
+            'toastr/toastr.min.css',
             'datetimepicker/datetimepicker.min.css',
             'slick/slick-theme.css',
             'select2/select2.css',
@@ -71,6 +73,8 @@ class PropertyController extends Controller
         );
         $data['plugincss'] = array();
         $data['pluginjs'] = array(
+            'toastr/toastr.min.js',
+            'validate/jquery.validate.min.js',
             'slick/slick.min.js',
             'datetimepicker/moment.min.js',
             'datetimepicker/datetimepicker.min.js',
@@ -85,11 +89,15 @@ class PropertyController extends Controller
                 'Property Details' => 'Property Details',
         ));
         $data['js'] = array(
+            'comman_function.js',
+            'ajaxfileupload.js',
+            'jquery.form.min.js',
             'property.js',
         );
         $data['funinit'] = array(
             'Property.calculation()',
             'Property.mapint()',
+            'Property.form()',
         );
         
         $objPropetyDetail = new PropertyDetails();
@@ -104,6 +112,20 @@ class PropertyController extends Controller
         return view('frontend.pages.property.propertydetails', $data);
     }
 
+    public function  videocallschedule(Request $request){
+        if($request->isMethod("post")) {
+            $objSendmail = new Sendmail();
+            $res = $objSendmail->videocallschedule($request);
+            if($res){
+                return back()->with('success', 'Property succesfully added');
+            }else{
+                return back()->with('error', 'Something goes to wrong please try again');
+            }
+            
+        }else{
+            return redirect('home');
+        }
+    }
     public function submitproperty(Request $request){
         
         $session = $request->session()->all();

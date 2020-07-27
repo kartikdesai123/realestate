@@ -207,7 +207,7 @@ Listing – grid view -->
                     </div>
                     <div class="property-agent-info">
                       <a class="property-agent-name" href="#">{{ $value['username'] }}</a>
-                      <span class="d-block">{{ getTypeText($value['roles']) }}</span>
+                      {{-- <span class="d-block">{{ getTypeText($value['roles']) }}</span> --}}
                       <ul class="property-agent-contact list-unstyled">
                         <li><a href="#"><i class="fas fa-mobile-alt"></i> </a></li>
                         <li><a href="#"><i class="fas fa-envelope"></i> </a></li>

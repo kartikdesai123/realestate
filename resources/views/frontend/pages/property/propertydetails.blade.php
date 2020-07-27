@@ -520,39 +520,61 @@ var lng = '<?php echo $propertyDetail[0]['longitude']?>';
                   <h5>Schedule a video call</h5>
                 </div>
                 <div class="col-sm-9">
+                  @if($message = Session::get('success'))
+                  <div class="alert alert-success">
+                          <strong>{{ $message }}</strong>
+                  </div>
+                @endif
+                
+                @if($message = Session::get('error'))
+                  <div class="alert alert-danger error-block">
+                          <strong>{{ $message }}</strong>
+                  </div>
+                @endif
                   <div class="form-row">
-                    <div class="form-group col-sm-6 datetimepickers">
-                      <div class="input-group date" id="datetimepicker-01" data-target-input="nearest">
-                        <input type="text" class="form-control datetimepicker-input" placeholder="Date" data-target="#datetimepicker-01">
-                        <div class="input-group-append" data-target="#datetimepicker-01" data-toggle="datetimepicker">
-                          <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
+                  <form class="form-row mt-4 mb-5 align-items-center" action="{{ route("video-call-schedule") }}" id="video-call-form" method="POST" >@csrf
+                      
+                      <input type="hidden" value="{{ $slug }}" name="slug">  
+
+                      <div class="form-group col-sm-6 datetimepickers">
+                        <div class="input-group date" id="datetimepicker-01" data-target-input="nearest">
+                          <input type="text" name="date" class="form-control datetimepicker-input" placeholder="Date" data-target="#datetimepicker-01">
+                          <div class="input-group-append" data-target="#datetimepicker-01" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="form-group col-sm-6 datetimepickers">
-                      <div class="input-group date" id="datetimepicker-03" data-target-input="nearest">
-                        <input type="text" class="form-control datetimepicker-input" placeholder="Time" data-target="#datetimepicker-03"/>
-                        <div class="input-group-append" data-target="#datetimepicker-03" data-toggle="datetimepicker">
-                          <div class="input-group-text"><i class="far fa-clock"></i></div>
+
+                      <div class="form-group col-sm-6 datetimepickers">
+                        <div class="input-group date" id="datetimepicker-03" data-target-input="nearest">
+                          <input type="text" name="time" class="form-control datetimepicker-input" placeholder="Time" data-target="#datetimepicker-03"/>
+                          <div class="input-group-append" data-target="#datetimepicker-03" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="far fa-clock"></i></div>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="form-group col-sm-12">
-                      <input type="text" class="form-control" placeholder="Name">
-                    </div>
-                    <div class="form-group col-sm-12">
-                      <input type="email" class="form-control" placeholder="Email">
-                    </div>
-                    <div class="form-group col-sm-12">
-                      <input type="number" class="form-control" placeholder="Phones">
-                    </div>
-                    <div class="form-group col-sm-12">
-                      <textarea class="form-control" rows="4" placeholder="Message"></textarea>
-                    </div>
-                    <div class="form-group col-sm-12">
-                      <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                    <div class="col-sm-6"></div>
+
+                      <div class="form-group col-sm-12">
+                        <input type="text" name="name" class="form-control" placeholder="Name">
+                      </div>
+
+                      <div class="form-group col-sm-12">
+                        <input type="email" name="email" class="form-control" placeholder="Email">
+                      </div>
+
+                      <div class="form-group col-sm-12">
+                        <input type="number" name="phone" class="form-control" placeholder="Phones">
+                      </div>
+
+                      <div class="form-group col-sm-12">
+                        <textarea class="form-control" name="message" rows="4" placeholder="Message"></textarea>
+                      </div>
+
+                      <div class="form-group col-sm-12">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                      </div>
+                    </form>
+
                   </div>
                 </div>
                   </div>
