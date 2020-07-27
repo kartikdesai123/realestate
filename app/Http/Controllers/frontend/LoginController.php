@@ -16,6 +16,13 @@ use Redirect;
 use App\Model\Sendmail;
 use App\Model\Emailverify;
 use App\Model\Forgotpassword;
+use App\Model\Extrafacilities;
+use App\Model\PropertyAudio;
+use App\Model\PropertyFloorPlan;
+use App\Model\PropertyPhoto;
+use App\Model\PropertyTourView;
+use App\Model\PropertyVideo;
+use App\Model\PropertyDetails;
 use DB;
 class LoginController extends Controller
 {
@@ -515,60 +522,19 @@ class LoginController extends Controller
     }
     public function myproperty(Request $request){
         $session = $request->session()->all();
+        
         if(isset($session['logindata'])){
 
-            if ($request->isMethod("post")) {
-                
-                $objUsers = new Users();
-                $result = $objUsers->editProfile($request,$session['logindata'][0]['id'],$session['logindata'][0]['roles']);
-                if($result == "true"){
-                    $return['status'] = 'success';
-                    $return['message'] = 'Your profile successfully updated';
-                    $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
-                    $return['redirect'] = route('my-profile');
-                }else{
-                    if($result == "usernameexits"){
-                        $return['status'] = 'error';
-                        $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
-                        $return['message'] = 'username already exits';
-                        
-                    }else{
-                        if($result == "emailexits"){
-                            $return['status'] = 'error';
-                            $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
-                            $return['message'] = 'email already exits';
-                            
-                        }else{
-                            $return['status'] = 'error';
-                            $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
-                            $return['message'] = 'Something goes to wrong';
-                            
-                        }
-                    }
-                    
-                }
-                
-    
-                return json_encode($return);
-                exit();
-                
-            }
-            $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || My Profile ';
-            $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || My Profile ';
-            $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || My Profile ';
+            $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || My Property';
+            $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || My Property';
+            $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || My Property';
 
             $data['css'] = array(
-                'toastr/toastr.min.css',
-                'magnific-popup/magnific-popup.css',
+                
             );
 
             $data['plugincss'] = array();
             $data['pluginjs'] = array(
-                'toastr/toastr.min.js',
-                'validate/jquery.validate.min.js',
-                'jquery.appear.js',
-                'counter/jquery.countTo.js',
-                'magnific-popup/jquery.magnific-popup.min.js',
             );
 
             $data['js'] = array(
@@ -578,7 +544,6 @@ class LoginController extends Controller
                 'myprofile.js'
             );
             $data['funinit'] = array(
-                'Myprofile.init()'
             );
 
             $data['header'] = array(
@@ -587,6 +552,10 @@ class LoginController extends Controller
                     'My Profile' => route("my-profile"),
                     'My Property' => "My Property",
             ));
+            
+            $objPropetyList = new PropertyDetails();
+            $data['property'] = $objPropetyList->getPropertyList($session['logindata'][0]['id']);
+            
             return view('frontend.pages.profile.myproperty', $data);
         }else{
             return redirect('signin');

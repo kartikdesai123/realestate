@@ -256,14 +256,17 @@ class PropertyDetails extends Model
         }
     }
     
-    public function getPropertyList(){
-         return PropertyDetails::select('property_details.*',DB::raw('GROUP_CONCAT(property_photo.name) AS images'),'users.username','users.userimage','users.phoneno','users.roles','users.email')
+    public function getPropertyList($userId = NULL){
+         $property =  PropertyDetails::select('property_details.*',DB::raw('GROUP_CONCAT(property_photo.name) AS images'),'users.username','users.userimage','users.phoneno','users.roles','users.email')
                             ->join("property_photo","property_details.id","=","property_photo.property_id")
-                            ->join("users","property_details.user_id","=","users.id")
-                            ->groupBy('property_details.id')
-                            ->get();
+                            ->join("users","property_details.user_id","=","users.id");
+                            if($userId){
+                               $property->where('property_details.user_id',$userId); 
+                            }
+                            $property->groupBy('property_details.id');
+                    $result = $property->get();
+                      return $result;      
          
-//         echo "<pre/>"; print_r($propertyDetail); exit();
     }
     
     public function getPropertyDetail($slug){
