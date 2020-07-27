@@ -68,6 +68,32 @@ var Property = function() {
         handleFormValidate(form, rules, function (form) {
             handleAjaxFormSubmit(form);
         });
+
+        var form = $('#personal-visit-form');
+        var rules = {
+            date:{required: true},
+            time:{required: true},
+            name:{required: true,accept: "[a-zA-Z]+"},
+            phone:{required: true,digits: true},
+            message:{required: true},
+            email: {required: true,email:true},
+        };
+
+        handleFormValidate(form, rules, function (form) {
+            handleAjaxFormSubmit(form);
+        });
+
+        var form = $('#contact-form');
+        var rules = {
+            phone:{required: true,digits: true},
+            message:{required: true},
+            agree:{required: true},
+            email: {required: true,email:true},
+        };
+
+        handleFormValidate(form, rules, function (form) {
+            handleAjaxFormSubmit(form);
+        });
     }
     return {
         calculation: function() {

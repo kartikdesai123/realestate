@@ -173,7 +173,9 @@ function handleFormValidate(form, rules, submitCallback, showToaster) {
         },
 
         submitHandler: function (form) {
-            $(".submitbtn:visible").attr("disabled","disabled");
+            $('#loader').show();
+            $('.btnsubmit').attr("disabled","disabled");
+            $('.btnsubmit').text("Please Wait");
             if (typeof submitCallback !== 'undefined' && typeof submitCallback == 'function') {
                 submitCallback(form);
             } else {

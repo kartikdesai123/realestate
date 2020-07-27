@@ -12,7 +12,7 @@
     <!--[if !mso]><!-->
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i,900,900i" rel="stylesheet" />
     <!--<![endif]-->
-	<title>Video call schedule request</title>
+	<title>Personal Visit schedule request</title>
 	
 	
 
@@ -116,7 +116,7 @@
                                                         <tr>
                                                         
                                                             <td class="text white center" style="padding-bottom: 25px; font-family:'Lato', Arial, sans-serif; font-size:16`px; line-height:28px; min-width:auto !important; color:#ffffff; text-align:center;">
-                                                                {{ $data['name']}} request to Schedule a video call. All Details Given below
+                                                                {{ $data['name']}} request to Schedule a personal visit. All Details Given below.
                                                             </td>
                                                         </tr>
 
@@ -154,7 +154,7 @@
 																<table border="0" cellspacing="0" cellpadding="0">
 																	<tr>
 																		<td class="text-button" style="color:#ffffff; font-family:'Lato', Arial, sans-serif; font-size:16px; line-height:20px; text-align:center; text-transform:uppercase; font-weight:bold; min-width:auto !important; padding:12px 22px; background:#0a2641; border-radius:4px;">
-																			<a href="{{ route('approve-video-call-request',$data['id']) }}" target="_blank" class="link-white" style="color:#ffffff; text-decoration:none;">
+																			<a href="{{ route('approve-personal-visit-request',$data['id']) }}" target="_blank" class="link-white" style="color:#ffffff; text-decoration:none;">
 																			   <span class="link-white" style="color:#ffffff; text-decoration:none;">Confirm Video Call</span>
 																			</a>
 																		 </td>
@@ -168,7 +168,7 @@
 																<table border="0" cellspacing="0" cellpadding="0">
 																	<tr>
 																		<td class="text-button" style="color:#ffffff; font-family:'Lato', Arial, sans-serif; font-size:16px; line-height:20px; text-align:center; text-transform:uppercase; font-weight:bold; min-width:auto !important; padding:12px 22px; background:red; border-radius:4px;">
-																			<a href="{{ route('reject-video-call-request',$data['id']) }}" target="_blank" class="link-white" style="color:#ffffff; text-decoration:none;">
+																			<a href="{{ route('reject-personal-visit-request',$data['id']) }}" target="_blank" class="link-white" style="color:#ffffff; text-decoration:none;">
 																			   <span class="link-white" style="color:#ffffff; text-decoration:none;">Decline Video Call</span>
 																			</a>
 																		 </td>
