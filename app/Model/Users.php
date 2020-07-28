@@ -74,45 +74,81 @@ class Users extends Model
 
 
     public function editProfile($request,$id,$role){
+        
         $countusername = Users::where("username",$request->input('username'))
                         ->where("id","!=",$id)
                         ->count(); 
 
-            if($countusername != 0){
-                return "usernameexits";
-            }else{
-                
-                   
-                    $objUser = Users::find($id);
-                    if ($request->file('userimage')) {
-                        $oldImage = Users::where("id",$id)
-                                    ->select('userimage')
-                                    ->get();
-                        $path = './public/upload/userimage/' . $oldImage[0]->userimage;
-                        if (file_exists($path)) {
-                            unlink($path);
-                        }
-                        
-                        $image = $request->file('userimage');
-                        $name = time() . '.' . $image->getClientOriginalExtension();
-                        $destinationPath = public_path('/upload/userimage');
-                        $image->move($destinationPath, $name);
-                        $objUser->userimage = $name;
-                    }
-                    $objUser->username = $request->input('username');
-                    $objUser->phoneno = $request->input('phoneno');
-                    if($role  != "U"){
-                        $objUser->about = $request->input('aboutme');
-                    }
-                    $objUser->updated_at = date("Y-m-d h:i:s");
-                    if($objUser->save()){
-                        return "true";
-                    }else{
-                        return "wrong";
-                    }
-               
+        if($countusername != 0){
+            return "usernameexits";
+        }else{ 
+            $objUser = Users::find($id);
+            if ($request->file('userimage')) {
+                $oldImage = Users::where("id",$id)
+                            ->select('userimage')
+                            ->get();
+                $path = './public/upload/userimage/' . $oldImage[0]->userimage;
+                if (file_exists($path)) {
+                    unlink($path);
+                }
+                $image = $request->file('userimage');
+                $name = time() . '.' . $image->getClientOriginalExtension();
+                $destinationPath = public_path('/upload/userimage');
+                $image->move($destinationPath, $name);
+                $objUser->userimage = $name;
             }
+            $objUser->username = $request->input('username');
+            $objUser->phoneno = $request->input('phoneno');
+            if($role  != "U"){
+                $objUser->about = $request->input('aboutme');
+            }
+            $objUser->updated_at = date("Y-m-d h:i:s");
+            if($objUser->save()){
+                
+                if($role  == "AY"){
+                    $result = DB::table('agencydetails')->updateOrInsert(
+                        ['user_id' => $id],
+                        [   'user_id' => $id, 
+                            'location' => $request->input('location'), 
+                            'facebook' => $request->input('facebook'), 
+                            'twitter' => $request->input('twitter'), 
+                            'linkedin' => $request->input('linkedin'), 
+                            'website' => $request->input('website'), 
+                            'licenses' => $request->input('licenses'), 
+                            'officeno' => $request->input('officeno'),
+                            'overview' => $request->input('overview'),
+                            "created_at" => date("Y-m-d h:i:s"),
+                            "updated_at" => date("Y-m-d h:i:s")
+                        ]        
+                    );
+                }
+                
+                if($role  == "AG"){
+                    $result = DB::table('agentdetails')->updateOrInsert(
+                        ['user_id' => $id],
+                        [   'user_id' => $id, 
+                            'designation' => $request->input('designation'), 
+                            'facebook' => $request->input('facebook'), 
+                            'twitter' => $request->input('twitter'), 
+                            'linkedin' => $request->input('linkedin'), 
+                            'website' => $request->input('website'), 
+                            'licenses' => $request->input('licenses'), 
+                            'officeno' => $request->input('officeno'),
+                            'overview' => $request->input('overview'),
+                            "created_at" => date("Y-m-d h:i:s"),
+                            "updated_at" => date("Y-m-d h:i:s")
+                        ]        
+                    );
+                }
+                
+                
+                return "true";
+            }else{
+                return "wrong";
+            }
+        }
     }
+
     public function resetpassword($request){
         $userId = Users::select("users.id")
                         ->join("forgotpassword","forgotpassword.userid","=","users.id")

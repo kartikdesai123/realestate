@@ -443,9 +443,7 @@ class LoginController extends Controller
     public function myprofile(Request $request){
         $session = $request->session()->all();
         if(isset($session['logindata'])){
-
             if ($request->isMethod("post")) {
-                
                 $objUsers = new Users();
                 $result = $objUsers->editProfile($request,$session['logindata'][0]['id'],$session['logindata'][0]['roles']);
                 if($result == "true"){
@@ -464,21 +462,15 @@ class LoginController extends Controller
                             $return['status'] = 'error';
                             $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
                             $return['message'] = 'email already exits';
-                            
                         }else{
                             $return['status'] = 'error';
                             $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
                             $return['message'] = 'Something goes to wrong';
-                            
                         }
                     }
-                    
                 }
-                
-    
                 return json_encode($return);
                 exit();
-                
             }
             $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || My Profile ';
             $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || My Profile ';
@@ -488,7 +480,6 @@ class LoginController extends Controller
                 'toastr/toastr.min.css',
                 'magnific-popup/magnific-popup.css',
             );
-
             $data['plugincss'] = array();
             $data['pluginjs'] = array(
                 'toastr/toastr.min.js',
@@ -497,7 +488,6 @@ class LoginController extends Controller
                 'counter/jquery.countTo.js',
                 'magnific-popup/jquery.magnific-popup.min.js',
             );
-
             $data['js'] = array(
                 'comman_function.js',
                 'ajaxfileupload.js',
@@ -507,13 +497,11 @@ class LoginController extends Controller
             $data['funinit'] = array(
                 'Myprofile.init()'
             );
-
             $data['header'] = array(
                 'breadcrumb' => array(
                     'Home' => route("home"),
                     'My Profile' => "My Profile",
             ));
-
             return view('frontend.pages.profile.myprofile', $data);
         }else{
             return redirect('signin');

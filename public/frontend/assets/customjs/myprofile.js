@@ -6,6 +6,9 @@ var Myprofile = function(){
             phoneno:{required: true},
             aboutme:{required: true},
             email: {required: true,email:true},
+            designation: {required: true},
+            location: {required: true},
+            overview: {required: true},
         };
 
         var messages = {
@@ -21,6 +24,15 @@ var Myprofile = function(){
             },
             phoneno: {
                 required: "Please enter your phone number",
+            },
+            designation: {
+                required: "Please enter your designation",
+            },
+            location: {
+                required: "Please enter your location",
+            },
+            overview: {
+                required: "Please enter your overview",
             },
         };
         handleFormValidateWithMsg(form, rules, messages, function (form) {
