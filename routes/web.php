@@ -44,8 +44,20 @@ Route::match(['get', 'post'], 'search/{id?}', ['as' => 'search', 'uses' => 'fron
 // property
 
 Route::match(['get', 'post'], 'property', ['as' => 'property', 'uses' => 'frontend\PropertyController@propertylist']);
-Route::match(['get', 'post'], 'video-call-schedule', ['as' => 'video-call-schedule', 'uses' => 'frontend\PropertyController@videocallschedule']);
 Route::match(['get', 'post'], 'property-details/{id}', ['as' => 'property-details', 'uses' => 'frontend\PropertyController@propertydetails']);
+
+//  Property Video Call
+Route::match(['get', 'post'], 'video-call-schedule', ['as' => 'video-call-schedule', 'uses' => 'frontend\PropertyController@videocallschedule']);
+Route::match(['get', 'post'], 'approve-video-call-request/{id}', ['as' => 'approve-video-call-request', 'uses' => 'frontend\PropertyController@approve']);
+Route::match(['get', 'post'], 'reject-video-call-request/{id}', ['as' => 'reject-video-call-request', 'uses' => 'frontend\PropertyController@reject']);
+
+// Property VIsit
+Route::match(['get', 'post'], 'personal-visit-schedule', ['as' => 'personal-visit-schedule', 'uses' => 'frontend\PropertyController@personalvisit']);
+Route::match(['get', 'post'], 'approve-personal-visit-request/{id}', ['as' => 'approve-personal-visit-request', 'uses' => 'frontend\PropertyController@visitapprove']);
+Route::match(['get', 'post'], 'reject-personal-visit-request/{id}', ['as' => 'reject-personal-visit-request', 'uses' => 'frontend\PropertyController@visitreject']);
+
+// Contact
+Route::match(['get', 'post'], 'contact-owner', ['as' => 'contact-owner', 'uses' => 'frontend\PropertyController@contactowner']);
 
 // Submit Property
 Route::match(['get', 'post'], 'submit-property', ['as' => 'submit-property', 'uses' => 'frontend\PropertyController@submitproperty']);

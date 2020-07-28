@@ -117,11 +117,56 @@ class PropertyController extends Controller
             $objSendmail = new Sendmail();
             $res = $objSendmail->videocallschedule($request);
             if($res){
-                return back()->with('success', 'Property succesfully added');
+                $return['status'] = 'success';
+                $return['message'] = 'Your schedule a video call request successfully sent to property owner .He/She will replay back soon';
+                $return['redirect'] = route('property-details',$request->input('slug'));
             }else{
-                return back()->with('error', 'Something goes to wrong please try again');
+                $return['status'] = 'error';
+                $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Login");';
+                $return['message'] = 'Invalid Login Id/Password';
             }
-            
+            return json_encode($return);
+            exit();
+        }else{
+            return redirect('home');
+        }
+    }
+
+    public function  contactowner(Request $request){
+        if($request->isMethod("post")) {
+            $objSendmail = new Sendmail();
+            $res = $objSendmail->contactowner($request);
+            if($res){
+                $return['status'] = 'success';
+                $return['message'] = 'Your request successfully sent to property owner .He/She will replay back soon';
+                $return['redirect'] = route('home');
+            }else{
+                $return['status'] = 'error';
+                $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Login");';
+                $return['message'] = 'Invalid Login Id/Password';
+            }
+            return json_encode($return);
+            exit();
+        }else{
+            return redirect('home');
+        }
+    }
+    
+    public function  personalvisit(Request $request){
+        if($request->isMethod("post")) {
+            $objSendmail = new Sendmail();
+            $res = $objSendmail->personalvisit($request);
+            if($res){
+                $return['status'] = 'success';
+                $return['message'] = 'Your personal visit request successfully sent to property owner .He/She will replay back soon';
+                $return['redirect'] = route('property-details',$request->input('slug'));
+            }else{
+                $return['status'] = 'error';
+                $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Login");';
+                $return['message'] = 'Invalid Login Id/Password';
+            }
+            return json_encode($return);
+            exit();
         }else{
             return redirect('home');
         }

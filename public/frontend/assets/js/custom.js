@@ -250,6 +250,16 @@ $('[data-toggle="popover"]').popover()
       });
     }
   };
+  POTENZA.datetimepickers = function () {
+    if ($('.datetimepickers').exists()) {
+      $('#datetimepicker').datetimepicker({
+        format: 'L'
+      });
+      $('#datetimepicker-03, #datetimepicker-04').datetimepicker({
+        format: 'LT'
+      });
+    }
+  };
 
   /*************************
       select2
