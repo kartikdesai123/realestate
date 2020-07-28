@@ -15,6 +15,7 @@
     if (!empty(Auth()->guard('company')->user())) {
         $data = Auth()->guard('company')->user();
     }
+    
 @endphp
 <!--=================================
 My profile -->
@@ -44,13 +45,7 @@ My profile -->
                 <input type="text" class="form-control" readonly value="{{ $data['email'] }}">
               </div>
 
-
-              <div class="form-group col-md-6">
-                <label>Phone number</label>
-                <input type="text" class="form-control" name="phoneno" value="{{ $data['phoneno'] }}">
-              </div>
-
-              <div class="form-group col-md-6">
+              <div class="form-group col-md-12">
                 <label>Profile Image</label>
                 <input type="file" class="form-control" name="userimage">
               </div>
@@ -61,7 +56,91 @@ My profile -->
                     <textarea class="form-control" rows="4" name="aboutme">{{ $data['about'] }}</textarea>
                 </div>
               @endif
-              
+
+              @if($data['roles'] == "AG")
+                
+                <div class="form-group col-md-6">
+                  <label>Designation</label>
+                  <input type="text" class="form-control" name="designation">
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label>Facebook</label>
+                  <input type="text" class="form-control" name="facebook">
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label>Twitter</label>
+                  <input type="text" class="form-control" name="twitter">
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label>Linkedin</label>
+                  <input type="text" class="form-control" name="linkedin">
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label>Website</label>
+                  <input type="text" class="form-control" name="website">
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label>Licenses</label>
+                  <input type="text" class="form-control" name="licenses">
+                </div>
+
+                <div class="form-group col-md-12">
+                  <label>Office Phone No</label>
+                  <input type="text" class="form-control" name="officeno">
+                </div>
+
+              @endif
+              @if($data['roles'] == "AY")
+                
+                <div class="form-group col-md-6">
+                  <label>Location</label>
+                  <input type="text" class="form-control" name="location">
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label>Facebook</label>
+                  <input type="text" class="form-control" name="facebook">
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label>Twitter</label>
+                  <input type="text" class="form-control" name="twitter">
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label>Linkedin</label>
+                  <input type="text" class="form-control" name="linkedin">
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label>Website</label>
+                  <input type="text" class="form-control" name="website">
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label>Licenses</label>
+                  <input type="text" class="form-control" name="licenses">
+                </div>
+
+                <div class="form-group col-md-12">
+                  <label>Office Phone No</label>
+                  <input type="text" class="form-control" name="officeno">
+                </div>
+
+              @endif
+
+              @if($data['roles'] != "U")
+                <div class="form-group col-md-12">
+                    <label>Overview</label>
+                    <textarea class="form-control" rows="4" name="overview"></textarea>
+                </div>
+              @endif
+
               <div class="col-md-12">
                 <button type="submit" class="btn btn-primary btn-block btnsubmit">Save Changes</button>
               </div>
