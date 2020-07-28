@@ -10,101 +10,40 @@ Frequently -->
             <h2>Frequently asked questions</h2>
           </div>
           <div class="accordion-style-2" id="accordion">
+              @if(count($faq))
+              @php
+              $i = 1;
+              @endphp
+              @foreach($faq as $value)
             <div class="card">
-              <div class="card-header" id="headingOne">
+              <div class="card-header" id="heading{{$i}}">
                 <h5 class="accordion-title mb-0">
-                <button class="btn btn-link d-flex align-items-center ml-auto" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Do I really need a Realtor when buying a home? <i class="fas fa-chevron-down fa-xs"></i></button>
+                <button class="btn btn-link d-flex align-items-center ml-auto" data-toggle="collapse" 
+                        data-target="#collapse{{$i}}" aria-expanded="true" aria-controls="collapse{{$i}}">
+                    {{ $value['question'] }}
+                    <i class="fas fa-chevron-down fa-xs"></i>
+                </button>
                 </h5>
               </div>
-              <div id="collapseOne" class="collapse show accordion-content" aria-labelledby="headingOne" data-parent="#accordion">
+                @php
+                     if($i == 1){
+                         $class = 'show';
+                     }else{
+                         $class = '';
+                     }
+                   @endphp  
+                
+              <div id="collapse{{$i}}" class="collapse accordion-content {{ $class }}" aria-labelledby="heading{{$i}}" data-parent="#accordion">
                 <div class="card-body">
-                  <p>Motivation is not an accident or something that someone else can give you — you are the only one with the power to motivate you. Motivation cannot be an external force, it must come from within as the natural product of your desire to achieve something and your belief that you are capable to succeed at your goal. Success is something of which we all want more.</p>
-                  <ul class="pl-3">
-                    <li class="mb-2">Commitment is something that comes from understanding that!</li>
-                    <li class="mb-2">Its price and then having the willingness to pay that price.</li>
-                    <li class="mb-2">his is important because nobody wants to put significant.</li>
-                    <li class="mb-2">Effort into something, only to find. </li>
-                    <li class="mb-2">Out after the fact that the price was too high.</li>
-                  </ul>
+                  <p>{{ $value['answer'] }}</p>
                 </div>
               </div>
             </div>
-            <div class="card">
-              <div class="card-header" id="headingTwo">
-                <h5 class="accordion-title mb-0">
-                <button class="btn btn-link d-flex align-items-center ml-auto collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Who pays the Realtor fees when buying a home? <i class="fas fa-chevron-down fa-xs"></i></button>
-                </h5>
-              </div>
-              <div id="collapseTwo" class="collapse accordion-content" aria-labelledby="headingTwo" data-parent="#accordion">
-                <div class="card-body">
-                  <p>Motivation is not an accident or something that someone else can give you — you are the only one with the power to motivate you. Motivation cannot be an external force, it must come from within as the natural product of your desire to achieve something and your belief that you are capable to succeed at your goal. Success is something of which we all want more.</p>
-                  <ul class="pl-3">
-                    <li class="mb-2">Commitment is something that comes from understanding that!</li>
-                    <li class="mb-2">Its price and then having the willingness to pay that price.</li>
-                    <li class="mb-2">his is important because nobody wants to put significant.</li>
-                    <li class="mb-2">Effort into something, only to find. </li>
-                    <li class="mb-2">Out after the fact that the price was too high.</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header" id="headingthree">
-                <h5 class="accordion-title mb-0">
-                <button class="btn btn-link d-flex align-items-center ml-auto collapsed" data-toggle="collapse" data-target="#collapsethree" aria-expanded="false" aria-controls="collapsethree">How many homes should I look at before putting in a purchase offer? <i class="fas fa-chevron-down fa-xs"></i></button>
-                </h5>
-              </div>
-              <div id="collapsethree" class="collapse accordion-content" aria-labelledby="headingthree" data-parent="#accordion">
-                <div class="card-body">
-                  <p>Motivation is not an accident or something that someone else can give you — you are the only one with the power to motivate you. Motivation cannot be an external force, it must come from within as the natural product of your desire to achieve something and your belief that you are capable to succeed at your goal. Success is something of which we all want more.</p>
-                  <ul class="pl-3">
-                    <li class="mb-2">Commitment is something that comes from understanding that!</li>
-                    <li class="mb-2">Its price and then having the willingness to pay that price.</li>
-                    <li class="mb-2">his is important because nobody wants to put significant.</li>
-                    <li class="mb-2">Effort into something, only to find. </li>
-                    <li class="mb-2">Out after the fact that the price was too high.</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header" id="headingfour">
-                <h5 class="accordion-title mb-0">
-                <button class="btn btn-link d-flex align-items-center ml-auto collapsed" data-toggle="collapse" data-target="#collapsefour" aria-expanded="false" aria-controls="collapsefour">How much should I offer the sellers? <i class="fas fa-chevron-down fa-xs"></i></button>
-                </h5>
-              </div>
-              <div id="collapsefour" class="collapse accordion-content" aria-labelledby="headingfour" data-parent="#accordion">
-                <div class="card-body">
-                  <p>Motivation is not an accident or something that someone else can give you — you are the only one with the power to motivate you. Motivation cannot be an external force, it must come from within as the natural product of your desire to achieve something and your belief that you are capable to succeed at your goal. Success is something of which we all want more.</p>
-                  <ul class="pl-3">
-                    <li class="mb-2">Commitment is something that comes from understanding that!</li>
-                    <li class="mb-2">Its price and then having the willingness to pay that price.</li>
-                    <li class="mb-2">his is important because nobody wants to put significant.</li>
-                    <li class="mb-2">Effort into something, only to find. </li>
-                    <li class="mb-2">Out after the fact that the price was too high.</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header" id="headingfive">
-                <h5 class="accordion-title mb-0">
-                <button class="btn btn-link d-flex align-items-center ml-auto collapsed" data-toggle="collapse" data-target="#collapsefive" aria-expanded="false" aria-controls="collapsefive">How long does the seller have to respond to my offer? <i class="fas fa-chevron-down fa-xs"></i></button>
-                </h5>
-              </div>
-              <div id="collapsefive" class="collapse accordion-content" aria-labelledby="headingfive" data-parent="#accordion">
-                <div class="card-body">
-                  <p>Motivation is not an accident or something that someone else can give you — you are the only one with the power to motivate you. Motivation cannot be an external force, it must come from within as the natural product of your desire to achieve something and your belief that you are capable to succeed at your goal. Success is something of which we all want more.</p>
-                  <ul class="pl-3">
-                    <li class="mb-2">Commitment is something that comes from understanding that!</li>
-                    <li class="mb-2">Its price and then having the willingness to pay that price.</li>
-                    <li class="mb-2">his is important because nobody wants to put significant.</li>
-                    <li class="mb-2">Effort into something, only to find. </li>
-                    <li class="mb-2">Out after the fact that the price was too high.</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+              @php
+              $i++;
+              @endphp
+              @endforeach
+            @endif
           </div>
         </div>
         

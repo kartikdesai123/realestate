@@ -184,7 +184,10 @@
                      <div class="row">
                          @if(@$homecity[0])
                         <div class="col-md-6 mb-4 mb-lg-0">
-                           <a href="property-grid.html">
+                            @php
+                            $city = str_replace(' ','-',strtolower($homecity[0]['city_name']));
+                            @endphp
+                           <a href="{{ route("search",$city)}}">
                               <div class="location-item bg-overlay-gradient bg-holder" style="background-image: url({{ asset('public/upload/home_city/'.$homecity[0]['images']) }});">
                                  <div class="location-item-info">
                                     <h5 class="location-item-title">{{ $homecity[0]['city_name'] }}</h5>
@@ -196,7 +199,10 @@
                          @endif
                          @if(@$homecity[1])
                         <div class="col-md-6 mb-4 mb-md-0">
-                           <a href="property-grid.html">
+                           @php
+                            $city = str_replace(' ','-',strtolower($homecity[1]['city_name']));
+                           @endphp
+                           <a href="{{ route("search",$city)}}">
                               <div class="location-item bg-overlay-gradient bg-holder" style="background-image: url({{ asset('public/upload/home_city/'.$homecity[1]['images']) }});">
                                  <div class="location-item-info">
                                     <h5 class="location-item-title">{{ $homecity[1]['city_name'] }}</h5>
@@ -208,7 +214,10 @@
                          @endif
                          @if(@$homecity[2])
                         <div class="col-lg-12 mt-0 mt-lg-4">
-                           <a href="property-grid.html">
+                            @php
+                            $city = str_replace(' ','-',strtolower($homecity[2]['city_name']));
+                            @endphp
+                           <a href="{{ route("search",$city)}}">
                               <div class="location-item bg-overlay-gradient bg-holder" style="background-image: url({{ asset('public/frontend/assets/images/location/04.jpg') }});">
                                  <div class="location-item-info">
                                     <h5 class="location-item-title">Miami</h5>
@@ -222,7 +231,10 @@
                   </div>
                    @if(@$homecity[3])
                   <div class="col-lg-6 mt-4 mt-lg-0">
-                     <a href="property-grid.html">
+                    @php
+                    $city = str_replace(' ','-',strtolower($homecity[3]['city_name']));
+                    @endphp
+                     <a href="{{ route("search",$city)}}">
                         <div class="location-item location-item-big bg-overlay-gradient bg-holder" style="background-image: url({{ asset('public/frontend/assets/images/location/03.jpg') }});">
                            <div class="location-item-info">
                               <h5 class="location-item-title">San francisco </h5>

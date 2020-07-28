@@ -5,6 +5,8 @@ namespace App\Http\Controllers\frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Config;
+use App\Model\Faqs;
+
 class FaqController extends Controller
 {
     function __construct(){
@@ -34,6 +36,9 @@ class FaqController extends Controller
 
         $data['js'] = array();
         $data['funinit'] = array();
+        $objFaq = new Faqs();
+        $data['faq'] = $objFaq->getFaq();
+        
         return view('frontend.pages.faq.faq', $data);
     }
 }

@@ -104,6 +104,12 @@ class Faqs extends Model
                             ->where("id",$id)
                             ->get();
     }
+    
+    public function getFaq(){
+        return Faqs::select("question","answer","id")
+                            ->where("is_deleted",'0')
+                            ->get();
+    }
     public function edit($request){
         $count = Faqs::where("question",$request->input("question"))
                     ->where("is_deleted","0")
