@@ -136,8 +136,17 @@ $currentRoute = Route::current()->getName();
                         @endif
                 </a>
             </li>
-
-
+            
+            <li class="nav-item start {{ $currentRoute == "admin-home-city" ? "active": ""}} ">
+                <a href="{{ route('admin-home-city') }}" class="nav-link ">
+                    <i class="fa fa-info-circle" aria-hidden="true"></i>
+                        <span class="title">Home City</span>
+                        @if($currentRoute == "admin-home-city" )
+                            <span class="selected"></span>
+                        @endif
+                </a>
+            </li>
+            
             <li class="nav-item start  {{ $currentRoute == "admin-services"  || $currentRoute == "admin-add-services" || $currentRoute == "admin-view-services" || $currentRoute == "admin-edit-services" || $currentRoute == "admin-services" || $currentRoute == "admin-services-details" ? "active": ""}} ">
                 <a href="javascript:;" class="nav-link nav-toggle">
                     <i class="fa fa-anchor"></i>

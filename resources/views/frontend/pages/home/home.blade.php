@@ -182,26 +182,31 @@
                <div class="row">
                   <div class="col-lg-6">
                      <div class="row">
+                         @if(@$homecity[0])
                         <div class="col-md-6 mb-4 mb-lg-0">
                            <a href="property-grid.html">
-                              <div class="location-item bg-overlay-gradient bg-holder" style="background-image: url({{ asset('public/frontend/assets/images/location/01.jpg') }});">
+                              <div class="location-item bg-overlay-gradient bg-holder" style="background-image: url({{ asset('public/upload/home_city/'.$homecity[0]['images']) }});">
                                  <div class="location-item-info">
-                                    <h5 class="location-item-title">Mumbai</h5>
-                                    <span class="location-item-list">10 Properties</span>
+                                    <h5 class="location-item-title">{{ $homecity[0]['city_name'] }}</h5>
+                                    <span class="location-item-list">{{ $homecity[0]['total_propeties'] }} Properties</span>
                                  </div>
                               </div>
                            </a>
                         </div>
+                         @endif
+                         @if(@$homecity[1])
                         <div class="col-md-6 mb-4 mb-md-0">
                            <a href="property-grid.html">
-                              <div class="location-item bg-overlay-gradient bg-holder" style="background-image: url({{ asset('public/frontend/assets/images/location/02.jpg') }});">
+                              <div class="location-item bg-overlay-gradient bg-holder" style="background-image: url({{ asset('public/upload/home_city/'.$homecity[1]['images']) }});">
                                  <div class="location-item-info">
-                                    <h5 class="location-item-title">Los angeles</h5>
-                                    <span class="location-item-list">14 Properties</span>
+                                    <h5 class="location-item-title">{{ $homecity[1]['city_name'] }}</h5>
+                                    <span class="location-item-list">{{ $homecity[1]['total_propeties'] }} Properties</span>
                                  </div>
                               </div>
                            </a>
                         </div>
+                         @endif
+                         @if(@$homecity[2])
                         <div class="col-lg-12 mt-0 mt-lg-4">
                            <a href="property-grid.html">
                               <div class="location-item bg-overlay-gradient bg-holder" style="background-image: url({{ asset('public/frontend/assets/images/location/04.jpg') }});">
@@ -212,8 +217,10 @@
                               </div>
                            </a>
                         </div>
+                         @endif
                      </div>
                   </div>
+                   @if(@$homecity[3])
                   <div class="col-lg-6 mt-4 mt-lg-0">
                      <a href="property-grid.html">
                         <div class="location-item location-item-big bg-overlay-gradient bg-holder" style="background-image: url({{ asset('public/frontend/assets/images/location/03.jpg') }});">
@@ -224,6 +231,7 @@
                         </div>
                      </a>
                   </div>
+                    @endif
                </div>
             </div>
          </section>
@@ -243,22 +251,27 @@
                <div class="row">
                   <div class="col-12">
                      <div class="owl-carousel owl-nav-top-left" data-nav-arrow="true" data-items="3" data-md-items="3" data-sm-items="2" data-xs-items="1" data-xx-items="1" data-space="15">
-                        <div class="item">
+                        @foreach($feature_property as $key => $value)
+          
+                        @php
+                        $imageCount = explode(',',$value['images']);
+                        @endphp
+                         <div class="item">
                            <div class="property-item">
                               <div class="property-image bg-overlay-gradient-04">
-                                 <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/grid/01.jpg') }}" alt="">
+                                 <img class="img-fluid" src="{{ asset('public/upload/property_photo/'.$imageCount[0]) }}" alt="">
                                  <div class="property-lable">
-                                    <span class="badge badge-md badge-primary">Bungalow</span>
-                                    <span class="badge badge-md badge-info">Sale </span>
+                                    <span class="badge badge-md badge-primary">{{ ucfirst($value['type']) }}</span>
+                                    <span class="badge badge-md badge-info">{{ ucfirst($value['offer']) }} </span>
                                  </div>
-                                 <span class="property-trending" title="trending"><i class="fas fa-bolt"></i></span>
+                                 <!--<span class="property-trending" title="trending"><i class="fas fa-bolt"></i></span>-->
                                  <div class="property-agent">
                                     <div class="property-agent-image">
-                                       <img class="img-fluid" src="{{ asset('public/frontend/assets/images/avatar/01.jpg') }}" alt="">
+                                       <img class="img-fluid" src="{{ asset('public/upload/userimage/'.$value['userimage']) }}" alt="">
                                     </div>
                                     <div class="property-agent-info">
-                                       <a class="property-agent-name" href="#">Alice Williams</a>
-                                       <span class="d-block">Company Agent</span>
+                                       <a class="property-agent-name" href="#">{{ $value['username'] }}</a>
+                                       <span class="d-block">{{ getTypeText($value['roles']) }}</span>
                                        <ul class="property-agent-contact list-unstyled">
                                           <li><a href="#"><i class="fas fa-mobile-alt"></i> </a></li>
                                           <li><a href="#"><i class="fas fa-envelope"></i> </a></li>
@@ -266,23 +279,23 @@
                                     </div>
                                  </div>
                                  <div class="property-agent-popup">
-                                    <a href="#"><i class="fas fa-camera"></i> 06</a>
+                                    <a href="#"><i class="fas fa-camera"></i> {{ count($imageCount) }}</a>
                                  </div>
                               </div>
                               <div class="property-details">
                                  <div class="property-details-inner">
-                                    <h5 class="property-title"><a href="{{ route("property-details",'1')}}">Ample apartment at last floor </a></h5>
-                                    <span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>Virginia drive temple hills</span>
-                                    <span class="property-agent-date"><i class="far fa-clock fa-md"></i>10 days ago</span>
-                                    <div class="property-price">$150.00<span> / month</span> </div>
+                                    <h5 class="property-title"><a href="{{ route("property-details",$value['slug'])}}" target="_blank">{{ $value['title'] }} </a></h5>
+                                    <span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>{{ $value['address'] }}</span>
+                                    <span class="property-agent-date"><i class="far fa-clock fa-md"></i>{{ humanTiming($value['created_at']) }}</span>
+                                    <div class="property-price">${{ $value['price'] }}</div>
                                     <ul class="property-info list-unstyled d-flex">
-                                       <li class="flex-fill property-bed"><i class="fas fa-bed"></i>Bed<span>1</span></li>
-                                       <li class="flex-fill property-bath"><i class="fas fa-bath"></i>Bath<span>2</span></li>
-                                       <li class="flex-fill property-m-sqft"><i class="far fa-square"></i>sqft<span>145m</span></li>
+                                       <li class="flex-fill property-bed"><i class="fas fa-bed"></i>Bed<span>{{ $value['badroom'] }}</span></li>
+                                       <li class="flex-fill property-bath"><i class="fas fa-bath"></i>Bath<span>{{ $value['bathroom'] }}</span></li>
+                                       <li class="flex-fill property-m-sqft"><i class="far fa-square"></i>sqft<span>{{ $value['area'] }}</span></li>
                                     </ul>
                                  </div>
                                  <div class="property-btn">
-                                    <a class="property-link" href="{{ route("property-details",'1')}}">See Details</a>
+                                    <a class="property-link" href="{{ route("property-details",$value['slug'])}}" target="_blank">See Details</a>
                                     <ul class="property-listing-actions list-unstyled mb-0">
                                        <li class="property-compare"><a data-toggle="tooltip" data-placement="top" title="Compare" href="#"><i class="fas fa-exchange-alt"></i></a></li>
                                        <li class="property-favourites"><a data-toggle="tooltip" data-placement="top" title="Favourite" href="#"><i class="far fa-heart"></i></a></li>
@@ -291,152 +304,11 @@
                               </div>
                            </div>
                         </div>
-                        <div class="item">
-                           <div class="property-item">
-                              <div class="property-image bg-overlay-gradient-04">
-                                 <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/grid/02.jpg') }}" alt="">
-                                 <div class="property-lable">
-                                    <span class="badge badge-md badge-primary">Apartment</span>
-                                    <span class="badge badge-md badge-info">New </span>
-                                 </div>
-                                 <div class="property-agent">
-                                    <div class="property-agent-image">
-                                       <img class="img-fluid" src="{{ asset('public/frontend/assets/images/avatar/02.jpg') }}" alt="">
-                                    </div>
-                                    <div class="property-agent-info">
-                                       <a class="property-agent-name" href="#">John doe</a>
-                                       <span class="d-block">Company Agent</span>
-                                       <ul class="property-agent-contact list-unstyled">
-                                          <li><a href="#"><i class="fas fa-mobile-alt"></i> </a></li>
-                                          <li><a href="#"><i class="fas fa-envelope"></i> </a></li>
-                                       </ul>
-                                    </div>
-                                 </div>
-                                 <div class="property-agent-popup">
-                                    <a href="#"><i class="fas fa-camera"></i> 12</a>
-                                 </div>
-                              </div>
-                              <div class="property-details">
-                                 <div class="property-details-inner">
-                                    <h5 class="property-title"><a href="{{ route("property-details",'1')}}">Awesome family home</a></h5>
-                                    <span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>Vermont dr. hephzibah</span>
-                                    <span class="property-agent-date"><i class="far fa-clock fa-md"></i>2 months ago</span>
-                                    <div class="property-price">$326.00<span> / month</span> </div>
-                                    <ul class="property-info list-unstyled d-flex">
-                                       <li class="flex-fill property-bed"><i class="fas fa-bed"></i>Bed<span>2</span></li>
-                                       <li class="flex-fill property-bath"><i class="fas fa-bath"></i>Bath<span>3</span></li>
-                                       <li class="flex-fill property-m-sqft"><i class="far fa-square"></i>sqft<span>215m</span></li>
-                                    </ul>
-                                 </div>
-                                 <div class="property-btn">
-                                    <a class="property-link" href="{{ route("property-details",'1')}}">See Details</a>
-                                    <ul class="property-listing-actions list-unstyled mb-0">
-                                       <li class="property-compare"><a data-toggle="tooltip" data-placement="top" title="Compare" href="#"><i class="fas fa-exchange-alt"></i></a></li>
-                                       <li class="property-favourites"><a data-toggle="tooltip" data-placement="top" title="Favourite" href="#"><i class="far fa-heart"></i></a></li>
-                                    </ul>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="item">
-                           <div class="property-item">
-                              <div class="property-image bg-overlay-gradient-04">
-                                 <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/grid/03.jpg') }}" alt="">
-                                 <div class="property-lable">
-                                    <span class="badge badge-md badge-primary">Summer House</span>
-                                    <span class="badge badge-md badge-info">Hot </span>
-                                 </div>
-                                 <span class="property-trending" title="trending"><i class="fas fa-bolt"></i></span>
-                                 <div class="property-agent">
-                                    <div class="property-agent-image">
-                                       <img class="img-fluid" src="{{ asset('public/frontend/assets/images/avatar/03.jpg') }}" alt="">
-                                    </div>
-                                    <div class="property-agent-info">
-                                       <a class="property-agent-name" href="#">Felica queen</a>
-                                       <span class="d-block">Investment</span>
-                                       <ul class="property-agent-contact list-unstyled">
-                                          <li><a href="#"><i class="fas fa-mobile-alt"></i> </a></li>
-                                          <li><a href="#"><i class="fas fa-envelope"></i> </a></li>
-                                       </ul>
-                                    </div>
-                                 </div>
-                                 <div class="property-agent-popup">
-                                    <a href="#"><i class="fas fa-camera"></i> 03</a>
-                                 </div>
-                              </div>
-                              <div class="property-details">
-                                 <div class="property-details-inner">
-                                    <h5 class="property-title"><a href="{{ route("property-details",'1')}}">Contemporary apartment</a></h5>
-                                    <span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>Newport st. mebane, nc</span>
-                                    <span class="property-agent-date"><i class="far fa-clock fa-md"></i>6 months ago</span>
-                                    <div class="property-price">$658.00<span> / month</span> </div>
-                                    <ul class="property-info list-unstyled d-flex">
-                                       <li class="flex-fill property-bed"><i class="fas fa-bed"></i>Bed<span>3</span></li>
-                                       <li class="flex-fill property-bath"><i class="fas fa-bath"></i>Bath<span>4</span></li>
-                                       <li class="flex-fill property-m-sqft"><i class="far fa-square"></i>sqft<span>3,189m</span></li>
-                                    </ul>
-                                 </div>
-                                 <div class="property-btn">
-                                    <a class="property-link" href="{{ route("property-details",'1')}}">See Details</a>
-                                    <ul class="property-listing-actions list-unstyled mb-0">
-                                       <li class="property-compare"><a data-toggle="tooltip" data-placement="top" title="Compare" href="#"><i class="fas fa-exchange-alt"></i></a></li>
-                                       <li class="property-favourites"><a data-toggle="tooltip" data-placement="top" title="Favourite" href="#"><i class="far fa-heart"></i></a></li>
-                                    </ul>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="item">
-                           <div class="property-item">
-                              <div class="property-image bg-overlay-gradient-04">
-                                 <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/grid/04.jpg') }}" alt="">
-                                 <div class="property-lable">
-                                    <span class="badge badge-md badge-primary">Duplex</span>
-                                    <span class="badge badge-md badge-info">Hot </span>
-                                 </div>
-                                 <div class="property-agent">
-                                    <div class="property-agent-image">
-                                       <img class="img-fluid" src="{{ asset('public/frontend/assets/images/avatar/04.jpg') }}" alt="">
-                                    </div>
-                                    <div class="property-agent-info">
-                                       <a class="property-agent-name" href="#">Sara lisbon</a>
-                                       <span class="d-block">Construction</span>
-                                       <ul class="property-agent-contact list-unstyled">
-                                          <li><a href="#"><i class="fas fa-mobile-alt"></i> </a></li>
-                                          <li><a href="#"><i class="fas fa-envelope"></i> </a></li>
-                                       </ul>
-                                    </div>
-                                 </div>
-                                 <div class="property-agent-popup">
-                                    <a href="#"><i class="fas fa-camera"></i> 04</a>
-                                 </div>
-                              </div>
-                              <div class="property-details">
-                                 <div class="property-details-inner">
-                                    <h5 class="property-title"><a href="{{ route("property-details",'1')}}">Family home for sale</a></h5>
-                                    <span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>Border st. nicholasville, ky</span>
-                                    <span class="property-agent-date"><i class="far fa-clock fa-md"></i>12 months ago</span>
-                                    <div class="property-price">$485.00<span> / month</span> </div>
-                                    <ul class="property-info list-unstyled d-flex">
-                                       <li class="flex-fill property-bed"><i class="fas fa-bed"></i>Bed<span>2</span></li>
-                                       <li class="flex-fill property-bath"><i class="fas fa-bath"></i>Bath<span>1</span></li>
-                                       <li class="flex-fill property-m-sqft"><i class="far fa-square"></i>sqft<span>2,356m</span></li>
-                                    </ul>
-                                 </div>
-                                 <div class="property-btn">
-                                    <a class="property-link" href="{{ route("property-details",'1')}}">See Details</a>
-                                    <ul class="property-listing-actions list-unstyled mb-0">
-                                       <li class="property-compare"><a data-toggle="tooltip" data-placement="top" title="Compare" href="#"><i class="fas fa-exchange-alt"></i></a></li>
-                                       <li class="property-favourites"><a data-toggle="tooltip" data-placement="top" title="Favourite" href="#"><i class="far fa-heart"></i></a></li>
-                                    </ul>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
+                        @endforeach
                      </div>
                   </div>
                   <div class="col-12 text-center mt-4">
-                     <a class="btn btn-link" href="property-list.html"><i class="fas fa-plus"></i>View All Listings</a>
+                     <a class="btn btn-link" href="{{ route('property') }}"><i class="fas fa-plus"></i>View All Listings</a>
                   </div>
                </div>
             </div>

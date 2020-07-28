@@ -1,10 +1,9 @@
 @extends('frontend.layout.layout')
 @section('content')
 <style>
-       /* Set the size of the div element that contains the map */
       #mapInit {
-        height: 400px;  /* The height is 400 pixels */
-        width: 100%;  /* The width is the width of the web page */
+        height: 400px;
+        width: 100%;
        }
     </style>
 <script>
@@ -45,7 +44,7 @@ var lng = '<?php echo $propertyDetail[0]['longitude']?>';
                 </li>
                 <li><a href="#" data-toggle="tooltip" data-placement="top" title="Favourite" > <i class="fas fa-heart"  ></i> </a></li>
                 <li><a href="#" data-toggle="tooltip" data-placement="top"  title="Compare"> <i class="fas fa-exchange-alt"  ></i> </a></li>
-                <li><a href="#"> <i class="fa fa-exclamation-triangle"></i> </a></li>
+                <li><a href="{{ route("report-property",$propertyDetail[0]['id'])}}" target="_blank" data-toggle="tooltip" data-placement="top" title="Report"> <i class="fa fa-exclamation-triangle"></i> </a></li>
                
               </ul>
             </div>
@@ -509,9 +508,6 @@ var lng = '<?php echo $propertyDetail[0]['longitude']?>';
               </div>
             @endif
 
-            
-            
-           
 
             <hr class="mt-4 mb-4 mb-sm-5 mt-sm-5">
             <div class="property-schedule">
@@ -643,28 +639,4 @@ var lng = '<?php echo $propertyDetail[0]['longitude']?>';
     <!--=================================
     Property Detail -->
   </div>
-  
-  <!--=================================
-  newsletter -->
-  <section class="py-5 bg-primary">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-5">
-          <h3 class="text-white mb-0">Sign up to our newsletter to get the latest news and offers.</h3>
-        </div>
-        <div class="col-md-7 mt-3 mt-md-0">
-          <div class="newsletter">
-            <form>
-              <div class="form-group mb-0">
-                <input type="email" class="form-control" placeholder="Enter email">
-              </div>
-              <button type="submit" class="btn btn-dark b-radius-left-none">Get notified</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!--=================================
-  newsletter -->
 @endsection                            

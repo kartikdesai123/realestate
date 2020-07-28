@@ -60,6 +60,12 @@ Route::group(['prefix' => $adminPrefix, 'middleware' => ['admin']], function() {
     // About-us
     Route::match(['get', 'post'], 'admin-about-us', ['as' => 'admin-about-us', 'uses' => 'backend\aboutus\AboutusController@aboutus']);
     
+    // Home-City
+    Route::match(['get', 'post'], 'admin-home-city', ['as' => 'admin-home-city', 'uses' => 'backend\homecity\HomecityController@index']);
+    Route::match(['get', 'post'], 'admin-edit-home/{id}', ['as' => 'admin-edit-home', 'uses' => 'backend\homecity\HomecityController@edit']);
+    Route::match(['get', 'post'], 'admin-home-ajaxAction', ['as' => 'admin-home-ajaxAction', 'uses' => 'backend\homecity\HomecityController@ajaxAction']);
+    
+    
     // Plan
     Route::match(['get', 'post'], 'admin-faq', ['as' => 'admin-faq', 'uses' => 'backend\faq\FaqController@list']);
     Route::match(['get', 'post'], 'admin-add-faq', ['as' => 'admin-add-faq', 'uses' => 'backend\faq\FaqController@add']);

@@ -9,6 +9,9 @@ use App\Model\PropertyFloorPlan;
 use App\Model\PropertyPhoto;
 use App\Model\PropertyTourView;
 use App\Model\PropertyVideo;
+use App\Model\ReportProperty;
+use App\Model\HomeCity;
+
 use DB;
 
 class PropertyDetails extends Model
@@ -33,7 +36,7 @@ class PropertyDetails extends Model
         $objPropertyDetails->about_property =$request->input('about_property');
         $objPropertyDetails->address =$request->input('txtaddress');
         $objPropertyDetails->friendly_address =$request->input('friendly');
-        $objPropertyDetails->city =$request->input('txtCity');
+        $objPropertyDetails->city = $request->input('txtCity');
         $objPropertyDetails->state =$request->input('txtState');
         $objPropertyDetails->country =$request->input('txtCountry');
         $objPropertyDetails->postalcode =$request->input('txtPostalCode');
@@ -249,6 +252,28 @@ class PropertyDetails extends Model
                     return false;
                 }
         }
+        
+         if($request->input('txtCity')){
+                $city = $request->input('txtCity');
+                $checkHomeCity = HomeCity::where('city_name','=',$city)->get()->toArray();
+                if(empty($checkHomeCity)){
+                    $objHome = new HomeCity();
+                    $objHome->city_name = $city;
+                    $objHome->total_propeties = '1';
+                    $objHome->is_home = '0';
+                    $objHome->images = '';
+                    $objHome->updated_at = date("Y-m-d h:i:s");
+                    $objHome->save();
+                    
+                }else{
+                    
+                    $count = (int) $checkHomeCity[0]['total_propeties'] + 1;
+                    $objHomeUpdate = HomeCity::find($checkHomeCity[0]['id']); 
+                    $objHomeUpdate->total_propeties = $count;
+                    $objHomeUpdate->updated_at = date("Y-m-d h:i:s");
+                    $objHomeUpdate->save();
+                }
+            }
             return true;    
             
         }else{
@@ -311,8 +336,24 @@ class PropertyDetails extends Model
                             ->join("property_photo","property_details.id","=","property_photo.property_id")
                             ->where("property_details.slug","!=",$slug)
                             ->groupBy('property_details.id')
+                            ->orderBy('property_details.id', 'desc')
                             ->limit(4)
                             ->get();
       
+    }
+    
+    function reportProperty($request,$propertyId,$userId){
+        $objReport = new ReportProperty();
+        $objReport->user_id = $userId;
+        $objReport->property_id = $propertyId;
+        $objReport->report_type = $request->input('type');
+        $objReport->message = $request->input('message');
+        $objReport->created_at = date("Y-m-d h:i:s");
+        $objReport->updated_at = date("Y-m-d h:i:s");
+        if($objReport->save()){
+            return TRUE;
+        }else{
+            return FALSE;
+        }
     }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\PropertyDetails;
 use App\Model\Home;
+use App\Model\HomeCity;
 use Config;
 
 class HomeController extends Controller
@@ -45,8 +46,13 @@ class HomeController extends Controller
             'Home.init()'
         );
         
-        $objPropetyByLoc = new Home();
-        $data['property_location'] = $objPropetyByLoc->propertiesByLocation();
+        $objhomePage = new Home();
+        $data['property_location'] = $objhomePage->propertiesByLocation();
+        $data['feature_property'] = $objhomePage->featuredProperty();
+        
+        $objhomeCity = new HomeCity();
+        $data['homecity'] = $objhomeCity->gethomeCity();
+       
         return view('frontend.pages.home.home', $data);
     }
 }

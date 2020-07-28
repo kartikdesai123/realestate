@@ -171,6 +171,68 @@ class PropertyController extends Controller
             return redirect('home');
         }
     }
+    
+    public function reportProperty(Request $request , $propertyId){
+        if(isset($propertyId)){
+            $session = $request->session()->all();{
+                if(isset($session['logindata'])){
+                    
+                 if($request->isMethod("post")) {
+                    $objPropertyDetails = new PropertyDetails();
+                    $res = $objPropertyDetails->reportProperty($request,$propertyId,$session['logindata'][0]['id']);
+                    if($res){
+                        $return['status'] = 'success';
+                        $return['message'] = 'Property reported successfully';
+                        $return['redirect'] = route('property');
+                    }else{
+                        $return['status'] = 'error';
+                        $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Login");';
+                        $return['message'] = 'Invalid Login Id/Password';
+                    }
+                    return json_encode($return);
+                    exit();
+                 }
+                    
+                    $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Report Property';
+                    $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Report Property';
+                    $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Report Property';
+                    $data['css'] = array(
+                        'toastr/toastr.min.css',
+                        
+                    );
+                    $data['plugincss'] = array();
+                    $data['pluginjs'] = array(
+                        'toastr/toastr.min.js',
+                        'validate/jquery.validate.min.js',
+                        'validate/additional-methods.min.js',
+                        'jquery.appear.js',
+                    );
+
+                    $data['header'] = array(
+                        'title' => 'Report Property',
+                        'breadcrumb' => array(
+                            'Home' => route("home"),
+                            'Property List' => route("property"),
+                            'Report Property' => 'Report Property',
+                    ));
+                    $data['js'] = array(
+                        'comman_function.js',
+                        'ajaxfileupload.js',
+                        'jquery.form.min.js',
+                        'propertyDetails.js',
+                    );
+                    $data['funinit'] = array(
+                        'PropertyDetails.report()'
+                    );
+                    return view('frontend.pages.property.reportproperty', $data);
+                }else{
+                    return redirect('signin');
+                }
+            }
+        }else{
+            return redirect('property');
+        }
+    }
     public function submitproperty(Request $request){
         
         $session = $request->session()->all();

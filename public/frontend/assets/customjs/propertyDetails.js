@@ -1,6 +1,25 @@
 var PropertyDetails = function() {
 
+    var reportProperty = function (){
+        $('select', form).change(function() {
+            if (form.validate().element($(this))) {
+                $(this).next('span').removeClass('has-error');
+            } else {
+                $(this).next('span').addClass('has-error');
+            }
+        });
+            
+        var form = $('#report_form');
+        var rules = {
+            type:{required: true},
+            message:{required: true},
+        };
 
+        handleFormValidate(form, rules, function (form) {
+            handleAjaxFormSubmit(form);
+        });
+    }
+    
     return {
 
         //main function to initiate the module
@@ -254,6 +273,10 @@ var PropertyDetails = function() {
             //            $('#country_list', form).change(function () {
             //                form.validate().element($(this)); //revalidate the chosen dropdown value and show error or success message for the input
             //            });
+        },
+        
+        report : function(){
+            reportProperty();
         }
 
     };

@@ -19,4 +19,18 @@ class Home extends Model {
         
         return $cityInfo; 
     }
+    
+    
+    function featuredProperty(){
+      
+       return PropertyDetails::select('property_details.*','users.username','users.userimage','users.phoneno','users.roles','users.email',
+                                DB::raw('GROUP_CONCAT(property_photo.name) AS images'))
+                            ->join("property_photo","property_details.id","=","property_photo.property_id")
+                            ->join("users","property_details.user_id","=","users.id")
+                            ->groupBy('property_details.id')
+                            ->orderBy('property_details.id', 'desc')
+                            ->limit(5)
+                            ->get();
+      
+    }
 }
