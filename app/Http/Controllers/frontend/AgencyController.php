@@ -5,6 +5,8 @@ namespace App\Http\Controllers\frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Config;
+
+use App\Model\Users;
 class AgencyController extends Controller
 {
     function __construct(){
@@ -12,6 +14,8 @@ class AgencyController extends Controller
     }
 
     public function agencyList(Request $request){
+        $objUsers =  new Users();
+        $data['agencyList'] = $objUsers->userList("AY");
 
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agency List';
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agency List';
@@ -39,8 +43,11 @@ class AgencyController extends Controller
         return view('frontend.pages.agency.list', $data);
     }
     
-    public function agencyDetail(Request $request){
+    public function agencyDetail(Request $request,$agencyId){
 
+        // $objUsers = new Users();
+        // $data['agencyList'] = $objUsers->userList("AY");
+        
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agency Detail';
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agency Detail';
         $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agency Detail';

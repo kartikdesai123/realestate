@@ -166,4 +166,12 @@ class Users extends Model
                     ->where("forgotpassword.token",$token)
                     ->get();
     }
+
+    public function userList($userType){
+        return Users::select("username","email","userimage","phoneno","about","id")
+                    ->where("roles",$userType)
+                    ->where("email_verfied","1")
+                    ->where("isDeleted","0")
+                    ->paginate(4);
+    }
 }
