@@ -20,7 +20,7 @@ class CreatePropertyContactOwnerTable extends Migration
             $table->string('email');
             $table->string('phoneno');
             $table->text('message');
-            $table->enum('message',['0','1'])->default('0')->comment('0 for not agree , 1 for agree');
+            $table->enum('agree',['0','1'])->default('0')->comment('0 for not agree , 1 for agree');
             $table->timestamps();
         });
     }
