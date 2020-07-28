@@ -55,7 +55,10 @@
                               <div class="form-group d-flex col-lg-5">
                                  <div class="form-group-search">
                                     <label>Location</label>
-                                    <div class="d-flex align-items-center"><i class="far fa-compass mr-1"></i><input class="form-control" type="search" placeholder="Search Location"></div>
+                                    <div class="d-flex align-items-center">
+                                        <i class="far fa-compass mr-1"></i>
+                                        <input type="text" id="autoComplate" placeholder="Search Location" class="form-control" />
+                                    </div>
                                  </div>
                                  <span class="align-items-center ml-3 d-none d-md-block"><button class="btn btn-primary d-flex align-items-center" type="submit"><i class="fas fa-search mr-1"></i><span>Search</span></button></span>
                               </div>
@@ -636,7 +639,7 @@
                      </div>
                   </div>
                   <div class="col-lg-4 text-lg-right mt-lg-2 mb-lg-0 mb-3">
-                     <a class="btn btn-link p-0 mt-1" href="#"> Show All Properties</a>
+                     <a class="btn btn-link p-0 mt-1" href="{{ route('property') }}"> Show All Properties</a>
                   </div>
                </div>
                <div class="row">
@@ -645,17 +648,24 @@
                         <div class="row align-items-center">
                            <div class="col-lg-4 col-sm-6  border-right">
                               <ul class="list-unstyled mb-0">
-                                 <li><a href="property-list.html">Australia <span class="ml-auto">02</span> </a></li>
-                                 <li><a href="property-list.html">Belgium <span class="ml-auto">02</span> </a></li>
+                                  @if(count($property_location))
+                                    @foreach($property_location as $value)
+                                    @php
+                                    $city = str_replace(' ','-',strtolower($value['city']));
+                                    @endphp
+                                    <li><a href="{{ route("search",$city)}}">{{ $value['city'] }} <span class="ml-auto">{{ $value['total'] }}</span> </a></li>
+                                    @endforeach
+                                  @endif
+<!--                                 <li><a href="property-list.html">Belgium <span class="ml-auto">02</span> </a></li>
                                  <li><a href="property-list.html">Brazil <span class="ml-auto">02</span> </a></li>
                                  <li><a href="property-list.html">Central African Republic <span class="ml-auto">02</span> </a></li>
                                  <li><a href="property-list.html">Cook/ Chef <span class="ml-auto">02</span> </a></li>
                                  <li><a href="property-list.html">Dominica <span class="ml-auto">02</span> </a></li>
-                                 <li><a href="property-list.html">Egypt <span class="ml-auto">02</span> </a></li>
+                                 <li><a href="property-list.html">Egypt <span class="ml-auto">02</span> </a></li>-->
                               </ul>
                            </div>
                            <div class="col-lg-4 col-sm-6">
-                              <ul class="list-unstyled mb-0">
+<!--                              <ul class="list-unstyled mb-0">
                                  <li><a href="property-list.html">France <span class="ml-auto">02</span> </a></li>
                                  <li><a href="property-list.html">Greece <span class="ml-auto">02</span> </a></li>
                                  <li><a href="property-list.html">Hawaii* <span class="ml-auto">02</span> </a></li>
@@ -663,13 +673,13 @@
                                  <li><a href="property-list.html">Italy <span class="ml-auto">02</span> </a></li>
                                  <li><a href="property-list.html">Jordan <span class="ml-auto">02</span> </a></li>
                                  <li><a href="property-list.html">Kazakhstan <span class="ml-auto">02</span> </a></li>
-                              </ul>
+                              </ul>-->
                            </div>
                            <div class="col-lg-4">
                               <div class="bg-holder py-sm-5" style="background-image: url({{ asset('public/frontend/assets/images/google-map.png') }});">
                                  <div class="d-flex align-items-center justify-content-center">
                                     <div class="counter">
-                                       <span class="timer text-primary" data-to="1500" data-speed="10000">1500</span>
+                                       <span class="timer text-primary" data-to="{{ count($property_location) }}" data-speed="10000">{{ count($property_location) }}</span>
                                     </div>
                                     <div class="ml-3 mt-2">
                                        <span>Wide range of</span>
@@ -1042,3 +1052,13 @@
          <!--=================================
             newsletter -->
 @endsection
+<?php
+foreach ($property_location as $key => $value) {
+    unset($value['total']);
+    $property_location[$key] = $value;  
+}
+
+?>
+<script>
+var data = '<?php echo json_encode($property_location); ?>';
+</script>

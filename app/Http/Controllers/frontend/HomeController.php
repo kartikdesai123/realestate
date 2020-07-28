@@ -4,10 +4,13 @@ namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Model\PropertyDetails;
+use App\Model\Home;
 use Config;
+
 class HomeController extends Controller
 {
-    //
+    
     function __construct(){
 
     }
@@ -21,6 +24,7 @@ class HomeController extends Controller
             'range-slider/ion.rangeSlider.css',
             'owl-carousel/owl.carousel.min.css',
             'magnific-popup/magnific-popup.css',
+            'typeahead/typeahead.css',
         );
         $data['plugincss'] = array();
         $data['pluginjs'] = array(
@@ -31,6 +35,8 @@ class HomeController extends Controller
             'owl-carousel/owl.carousel.min.js',
             'magnific-popup/jquery.magnific-popup.min.js',
             'countdown/jquery.downCount.js',
+            'typeahead/handlebars.min.js',
+            'typeahead/typeahead.bundle.min.js',
         );
         $data['js'] = array(
             'home.js'
@@ -38,6 +44,9 @@ class HomeController extends Controller
         $data['funinit'] = array(
             'Home.init()'
         );
+        
+        $objPropetyByLoc = new Home();
+        $data['property_location'] = $objPropetyByLoc->propertiesByLocation();
         return view('frontend.pages.home.home', $data);
     }
 }

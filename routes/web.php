@@ -39,8 +39,8 @@ Route::match(['get', 'post'], 'my-property', ['as' => 'my-property', 'uses' => '
 
 
 // Submit Property
-Route::match(['get', 'post'], 'search', ['as' => 'search', 'uses' => 'frontend\SearchController@index']);
-
+//Route::match(['get', 'post'], 'search', ['as' => 'search', 'uses' => 'frontend\SearchController@index']);
+Route::match(['get', 'post'], 'search/{id?}', ['as' => 'search', 'uses' => 'frontend\SearchController@index']);
 // property
 
 Route::match(['get', 'post'], 'property', ['as' => 'property', 'uses' => 'frontend\PropertyController@propertylist']);
