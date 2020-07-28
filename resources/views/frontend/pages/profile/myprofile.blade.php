@@ -61,37 +61,37 @@ My profile -->
                 
                 <div class="form-group col-md-6">
                   <label>Designation</label>
-                  <input type="text" class="form-control" name="designation">
+                <input type="text" class="form-control" name="designation" value="{{ $agentDetails[0]->designation }}">
                 </div>
 
                 <div class="form-group col-md-6">
                   <label>Facebook</label>
-                  <input type="text" class="form-control" name="facebook">
+                  <input type="text" class="form-control" name="facebook" value="{{ $agentDetails[0]->facebook }}">
                 </div>
 
                 <div class="form-group col-md-6">
                   <label>Twitter</label>
-                  <input type="text" class="form-control" name="twitter">
+                  <input type="text" class="form-control" name="twitter" value="{{ $agentDetails[0]->twitter }}">
                 </div>
 
                 <div class="form-group col-md-6">
                   <label>Linkedin</label>
-                  <input type="text" class="form-control" name="linkedin">
+                  <input type="text" class="form-control" name="linkedin" value="{{ $agentDetails[0]->linkedin }}">
                 </div>
 
                 <div class="form-group col-md-6">
                   <label>Website</label>
-                  <input type="text" class="form-control" name="website">
+                  <input type="text" class="form-control" name="website" value="{{ $agentDetails[0]->website }}">
                 </div>
 
                 <div class="form-group col-md-6">
                   <label>Licenses</label>
-                  <input type="text" class="form-control" name="licenses">
+                  <input type="text" class="form-control" name="licenses" value="{{ $agentDetails[0]->licenses }}">
                 </div>
 
                 <div class="form-group col-md-12">
                   <label>Office Phone No</label>
-                  <input type="text" class="form-control" name="officeno">
+                  <input type="text" class="form-control" name="officeno" value="{{ $agentDetails[0]->officeno }}">
                 </div>
 
               @endif
@@ -137,7 +137,7 @@ My profile -->
               @if($data['roles'] != "U")
                 <div class="form-group col-md-12">
                     <label>Overview</label>
-                    <textarea class="form-control" rows="4" name="overview"></textarea>
+                    <textarea class="form-control" rows="4" name="overview">{{ $agentDetails[0]->overview }}</textarea>
                 </div>
               @endif
 

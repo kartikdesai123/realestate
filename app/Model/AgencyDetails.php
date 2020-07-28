@@ -8,4 +8,8 @@ class AgencyDetails extends Model
 {
     //
     protected $table ="agencydetails";
+
+    public function getAgencyDetails($id){
+
+    }
 }

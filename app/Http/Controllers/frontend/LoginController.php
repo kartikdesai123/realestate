@@ -448,7 +448,8 @@ class LoginController extends Controller
         if(isset($session['logindata'])){
             if($session['logindata'][0]['roles'] == "AG"){
                 $objAgencyDetails = new AgentDetails();
-                $data['agentDetails'] = $objAgentDetails->getAgentDetails($session['logindata'][0]['id']);
+                $data['agentDetails'] = $objAgencyDetails->getAgentDetails($session['logindata'][0]['id']);
+
             }
             
             if($session['logindata'][0]['roles'] == "AY"){
