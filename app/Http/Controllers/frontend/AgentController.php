@@ -5,6 +5,8 @@ namespace App\Http\Controllers\frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Config;
+use App\Model\Users;
+
 class AgentController extends Controller
 {
     function __construct(){
@@ -12,6 +14,8 @@ class AgentController extends Controller
     }
 
     public function agentList(Request $request){
+        $objUsers =  new Users();
+        $data['agencyList'] = $objUsers->userList("AG");
 
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agent List';
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agent List';

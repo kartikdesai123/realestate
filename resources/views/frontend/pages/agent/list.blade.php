@@ -86,87 +86,32 @@
 <!--            <h6> Agent List</h6>-->
         </div>
         <div class="row">
-          <div class="col-lg-6 col-sm-6">
-            <div class="agent text-center mt-4">
-              <div class="agent-detail">
-                <div class="agent-avatar avatar avatar-xllll">
-                  <img class="img-fluid rounded-circle" src="{{ asset('public/frontend/assets/images/agent/01.jpg') }}" alt="">
+          @foreach($agencyList as $key => $value)
+            <div class="col-lg-6 col-sm-6">
+              <div class="agent text-center mt-4">
+                <div class="agent-detail">
+                  <div class="agent-avatar avatar avatar-xllll">
+                    <img class="img-fluid rounded-circle" src="{{ asset('public/upload/userimage/'.$value->userimage) }}" alt="">
+                  </div>
+                  <div class="agent-info">
+                    <h6 class="mb-0"> <a href="{{ route("agent-details",$value->id)}}">{{ $value->username }}</a></h6>
+                    <span class="font-sm"></span>  
+                    <p class="mt-3 mb-0">{{ $value->about }}</p>
+                  </div>
                 </div>
-                <div class="agent-info">
-                  <h6 class="mb-0"> <a href="{{ route("agent-details",'1')}}">Alice Williams </a></h6>
-                  <span class="font-sm">Investment</span>
-                  <p class="mt-3 mb-0">And it's not just parents that are the cause  teachers, friends, clergy members or anyone else that.</p>
+                <div class="agent-button">
+                  <a class="btn btn-light btn-block" href="{{ route("agent-details",$value->id)}}">View Profile</a>
                 </div>
-              </div>
-              <div class="agent-button">
-                <a class="btn btn-light btn-block" href="{{ route("agent-details",'1')}}">View Profile</a>
               </div>
             </div>
-          </div>
-          <div class="col-lg-6 col-sm-6">
-            <div class="agent text-center mt-4">
-              <div class="agent-detail">
-                <div class="agent-avatar avatar avatar-xllll">
-                  <img class="img-fluid rounded-circle" src="{{ asset('public/frontend/assets/images/agent/02.jpg') }}" alt="">
-                </div>
-                <div class="agent-info">
-                  <h6 class="mb-0"> <a href="{{ route("agent-details",'1')}}">Paul flavius </a></h6>
-                  <span class="font-sm">Farm and land brokerage</span>
-                  <p class="mt-3 mb-0">The price is something not necessarily defined as financial. It could be time, something else.</p>
-                </div>
-              </div>
-              <div class="agent-button">
-                <a class="btn btn-light btn-block" href="{{ route("agent-details",'1')}}">View Profile</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 col-sm-6">
-            <div class="agent text-center mt-4">
-              <div class="agent-detail">
-                <div class="agent-avatar avatar avatar-xllll">
-                  <img class="img-fluid rounded-circle" src="{{ asset('public/frontend/assets/images/agent/03.jpg') }}" alt="">
-                </div>
-                <div class="agent-info">
-                  <h6 class="mb-0"> <a href="{{ route("agent-details",'1')}}">Mellissa Doe</a></h6>
-                  <span class="font-sm">Founder & CEO</span>
-                  <p class="mt-3 mb-0">One of the main areas that I work on with my clients is shedding these non-supportive beliefs.</p>
-                </div>
-              </div>
-              <div class="agent-button">
-                <a class="btn btn-light btn-block" href="{{ route("agent-details",'1')}}">View Profile</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 col-sm-6">
-            <div class="agent text-center mt-4">
-              <div class="agent-detail">
-                <div class="agent-avatar avatar avatar-xllll">
-                  <img class="img-fluid rounded-circle" src="{{ asset('public/frontend/assets/images/agent/04.jpg') }}" alt="">
-                </div>
-                <div class="agent-info">
-                  <h6 class="mb-0"> <a href="{{ route("agent-details",'1')}}">Joana williams</a></h6>
-                  <span class="font-sm">Company Agent</span>
-                  <p class="mt-3 mb-0">It is truly amazing the damage that we, as parents, can inflict on our children. For the most.</p>
-                </div>
-              </div>
-              <div class="agent-button">
-                <a class="btn btn-light btn-block" href="{{ route("agent-details",'1')}}">View Profile</a>
-              </div>
-            </div>
-          </div>
+          @endforeach
+         
+          
         </div>
         <div class="row">
           <div class="col-12">
             <ul class="pagination mt-5">
-              <li class="page-item disabled mr-auto">
-                <span class="page-link b-radius-none">Prev</span>
-              </li>
-              <li class="page-item active" aria-current="page"><span class="page-link">1 </span> <span class="sr-only">(current)</span></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item ml-auto">
-                <a class="page-link b-radius-none" href="#">Next</a>
-              </li>
+              {{ $agencyList->links() }}
             </ul>
           </div>
         </div>
