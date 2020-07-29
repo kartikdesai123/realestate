@@ -87,15 +87,20 @@ class Users extends Model
                 $oldImage = Users::where("id",$id)
                             ->select('userimage')
                             ->get();
-                $path = './public/upload/userimage/' . $oldImage[0]->userimage;
-                if (file_exists($path)) {
-                    unlink($path);
-                }
-                $image = $request->file('userimage');
-                $name = time() . '.' . $image->getClientOriginalExtension();
-                $destinationPath = public_path('/upload/userimage');
-                $image->move($destinationPath, $name);
-                $objUser->userimage = $name;
+                        if($oldImage[0]->userimage != NULL){
+                            $path = 'public/upload/userimage/' . $oldImage[0]->userimage;
+                            
+                            if (file_exists($path)) {
+                                unlink($path);
+                            }
+                        }
+                        $image = $request->file('userimage');
+                        $name = time() . '.' . $image->getClientOriginalExtension();
+                        $destinationPath = public_path('/upload/userimage');
+                        $image->move($destinationPath, $name);
+                        $objUser->userimage = $name;
+                    
+                
             }
             $objUser->username = $request->input('username');
             $objUser->phoneno = $request->input('phoneno');
@@ -108,7 +113,8 @@ class Users extends Model
                 if($role  == "AY"){
                     $result = DB::table('agencydetails')->updateOrInsert(
                         ['user_id' => $id],
-                        [   'user_id' => $id, 
+                        [   
+                            'user_id' => $id, 
                             'location' => $request->input('location'), 
                             'facebook' => $request->input('facebook'), 
                             'twitter' => $request->input('twitter'), 
@@ -134,7 +140,6 @@ class Users extends Model
                             'website' => $request->input('website'), 
                             'licenses' => $request->input('licenses'), 
                             'officeno' => $request->input('officeno'),
-                            'overview' => $request->input('overview'),
                             "created_at" => date("Y-m-d h:i:s"),
                             "updated_at" => date("Y-m-d h:i:s")
                         ]        
@@ -203,11 +208,34 @@ class Users extends Model
                     ->get();
     }
 
-    public function userList($userType){
-        return Users::select("username","email","userimage","phoneno","about","id")
-                    ->where("roles",$userType)
-                    ->where("email_verfied","1")
-                    ->where("isDeleted","0")
+    public function agentList($userType){
+        return Users::select("users.username","users.email","users.userimage","users.phoneno","users.about","users.id","agentdetails.designation")
+                    ->leftjoin("agentdetails","agentdetails.user_id","=","users.id")
+                    ->where("users.roles",$userType)
+                    ->where("users.email_verfied","1")
+                    ->where("users.isDeleted","0")
+                    ->paginate(4);
+    }
+
+    public function agencyList($userType){
+        return Users::select("users.username","users.email","users.userimage","users.phoneno","users.about","users.id","agencydetails.location")
+                    ->leftjoin("agencydetails","agencydetails.user_id","=","users.id")
+                    ->where("users.roles",$userType)
+                    ->where("users.email_verfied","1")
+                    ->where("users.isDeleted","0")
+                    ->paginate(4);
+    }
+
+    public function agentDetail($id){
+        return Users::select("users.username","users.email","users.userimage","users.phoneno","users.about","users.id","agentdetails.*")
+                    ->leftjoin("agentdetails","agentdetails.user_id","=","users.id")
+                    ->where("users.id",$id)
+                    ->paginate(4);
+    }
+    public function agencyDetail($id){
+        return Users::select("users.username","users.email","users.userimage","users.phoneno","users.about","users.id","agencydetails.*")
+                    ->leftjoin("agencydetails","agencydetails.user_id","=","users.id")
+                    ->where("users.id",$id)
                     ->paginate(4);
     }
 }

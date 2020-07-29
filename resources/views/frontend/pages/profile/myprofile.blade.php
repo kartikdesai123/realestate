@@ -45,7 +45,12 @@ My profile -->
                 <input type="text" class="form-control" readonly value="{{ $data['email'] }}">
               </div>
 
-              <div class="form-group col-md-12">
+              <div class="form-group col-md-6">
+                <label>Phone No</label>
+                <input type="text" class="form-control" name="officeno" value="{{ $data['phoneno'] }}">
+              </div>
+
+              <div class="form-group col-md-6">
                 <label>Profile Image</label>
                 <input type="file" class="form-control" name="userimage">
               </div>
@@ -94,10 +99,7 @@ My profile -->
                   <input type="text" class="form-control" name="officeno" value="{{ $agentDetails[0]->officeno }}">
                 </div>
 
-                <div class="form-group col-md-12">
-                  <label>Overview</label>
-                  <textarea class="form-control" rows="4" name="overview">{{ $agentDetails[0]->overview }}</textarea>
-              </div>
+                
 
               @endif
               @if($data['roles'] == "AY")
@@ -131,8 +133,9 @@ My profile -->
                   <label>Licenses</label>
                   <input type="text" class="form-control" name="licenses" value="{{ $agencyDetails[0]->licenses }}">
                 </div>
-
-                <div class="form-group col-md-12">
+                
+                
+                <div class="form-group col-md-6">
                   <label>Office Phone No</label>
                   <input type="text" class="form-control" name="officeno" value="{{ $agencyDetails[0]->officeno }}">
                 </div>
@@ -140,8 +143,8 @@ My profile -->
                 <div class="form-group col-md-12">
                   <label>Overview</label>
                   <textarea class="form-control" rows="4" name="overview">{{ $agencyDetails[0]->overview }}</textarea>
-                </div>
-              
+              </div>
+                
               @endif
 
               
