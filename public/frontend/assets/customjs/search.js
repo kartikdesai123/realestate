@@ -41,28 +41,32 @@ var mapInit = function(){
         
         mapint: function(){
             mapInit();
-            var data1 = JSON.parse(data);
-            console.log(data1);
-            var data2 = [
-            { city: 'abc' },
-            { city: 'pqr' },
-            { city: 'xyz' },
-            { city: 'mnz' },
-            { city: 'opq' }
-          ];
-          
-          console.log(data2)
-            var numbers = new Bloodhound({
-                datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.num); },
-                queryTokenizer: Bloodhound.tokenizers.whitespace,
-                local: data1
-            });
-         
-            numbers.initialize();
-            $('#autoComplate').typeahead(null, {
-              displayKey: 'city',
-              source: numbers.ttAdapter()
-            });
+            
+            
+                 var data1 = JSON.parse(data);
+                    console.log(data1);
+        //            var data2 = [
+        //            { city: 'abc' },
+        //            { city: 'pqr' },
+        //            { city: 'xyz' },
+        //            { city: 'mnz' },
+        //            { city: 'opq' }
+        //          ];
+
+        //          console.log(data2)
+                    var numbers = new Bloodhound({
+                        datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.num); },
+                        queryTokenizer: Bloodhound.tokenizers.whitespace,
+                        local: data1
+                    });
+
+                    numbers.initialize();
+                    $('#autoComplate').typeahead(null, {
+                      displayKey: 'city',
+                      source: numbers.ttAdapter()
+                    });
+            
+           
         },    
              
     }

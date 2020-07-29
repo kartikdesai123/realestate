@@ -944,5 +944,11 @@ foreach ($property_location as $key => $value) {
 
 ?>
 <script>
-var data = '<?php echo json_encode($property_location); ?>';
+ <?php   
+ if(!empty($property_location)){ ?>
+    var data = '<?php echo json_encode($property_location); ?>';
+<?php } else { ?>
+     var data = '';
+<?php }  ?>
+
 </script>
