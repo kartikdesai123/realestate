@@ -215,35 +215,13 @@ class Sendmail extends Model
     }
 
 
-    public function sendSMTPMail($mailData)
-    {
-        
-                $pathToFile = $mailData['attachment'];
-            
-                $mailsend = Mail::send($mailData['template'], ['data' => $mailData['data']], function ($m) use ($mailData,$pathToFile) {
-                    $m->from('parthkhunt37@gmail.com', 'Real Estate');
-        
-                    $m->to($mailData['mailto'], "Real Estate")->subject($mailData['subject']);
-                    if($pathToFile != ""){
-                        // $m->attach($pathToFile);
-                    }
-                    
-                    //  $m->cc($mailData['bcc']);
-                });
-                if($mailsend){
-                    return true;
-                }else{
-                    return false;
-                }
-    }
-
     // public function sendSMTPMail($mailData)
     // {
         
     //             $pathToFile = $mailData['attachment'];
             
     //             $mailsend = Mail::send($mailData['template'], ['data' => $mailData['data']], function ($m) use ($mailData,$pathToFile) {
-    //                 $m->from('info@mototivewebsolution.com', 'Real Estate');
+    //                 $m->from('parthkhunt37@gmail.com', 'Real Estate');
         
     //                 $m->to($mailData['mailto'], "Real Estate")->subject($mailData['subject']);
     //                 if($pathToFile != ""){
@@ -258,4 +236,26 @@ class Sendmail extends Model
     //                 return false;
     //             }
     // }
+
+    public function sendSMTPMail($mailData)
+    {
+        
+                $pathToFile = $mailData['attachment'];
+            
+                $mailsend = Mail::send($mailData['template'], ['data' => $mailData['data']], function ($m) use ($mailData,$pathToFile) {
+                    $m->from('info@mototivewebsolution.com', 'Real Estate');
+        
+                    $m->to($mailData['mailto'], "Real Estate")->subject($mailData['subject']);
+                    if($pathToFile != ""){
+                        // $m->attach($pathToFile);
+                    }
+                    
+                    //  $m->cc($mailData['bcc']);
+                });
+                if($mailsend){
+                    return true;
+                }else{
+                    return false;
+                }
+    }
 }
