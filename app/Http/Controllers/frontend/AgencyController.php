@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Config;
 
 use App\Model\Users;
+use App\Model\PropertyDetails;
 class AgencyController extends Controller
 {
     function __construct(){
@@ -44,6 +45,9 @@ class AgencyController extends Controller
     }
     
     public function agencyDetail(Request $request,$agencyId){
+        $session = $request->session()->all();
+        $objPropertyDetails = new PropertyDetails();
+        $data['propertyList'] = $objPropertyDetails->getPropertyList($agencyId);
 
         $objUsers = new Users();
         $data['agencyDetail'] = $objUsers->agencyDetail($agencyId);

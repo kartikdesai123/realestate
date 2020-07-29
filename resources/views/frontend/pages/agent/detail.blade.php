@@ -11,7 +11,7 @@ detail -->
             <div class="col-md-3 text-center border-right">
               <div class="d-flex flex-column h-100">
                 <div class="agent-avatar p-3 my-auto">
-                  <img class="img-fluid rounded-circle" src="{{ asset('public/frontend/assets/images/agent/01.jpg') }}" alt="">
+                  <img class="img-fluid rounded-circle" src="{{ asset('public/upload/userimage/'.$agencyList[0]->userimage) }}" alt="">
                 </div>
                 <div class="agent-listing text-center mt-auto">
                   <a href="#"><strong class="text-primary mr-2 d-inline-block">{{ count($propertyList)}}</strong>Listed Properties </a>
@@ -60,7 +60,7 @@ detail -->
       </div>
       <div class="col-md-8 mt-5">
         <div class="section-title mb-4">
-          <h4>Contact Alice Williams</h4>
+          <h4>Contact {{ ucfirst($agencyList[0]->username) }}</h4>
         </div>
         <form>
           <div class="form-row">
@@ -100,7 +100,7 @@ Property -->
     <div class="row">
       <div class="col-12">
         <div class="section-title">
-          <h4>Listing by Alice Williams</h4>
+          <h4>Listing by {{ ucfirst($agencyList[0]->username) }}</h4>
         </div>
       </div>
     </div>
