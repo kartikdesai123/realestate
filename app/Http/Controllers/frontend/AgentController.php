@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Config;
 use App\Model\Users;
+use App\Model\PropertyDetails;
 
 class AgentController extends Controller
 {
@@ -45,7 +46,12 @@ class AgentController extends Controller
     }
     
     public function agentDetail(Request $request,$id){
+        $session = $request->session()->all();
+        $objPropertyDetails = new PropertyDetails();
+        $data['propertyList'] = $objPropertyDetails->getPropertyList($id);
+
         
+
         $objUsers =  new Users();
         $data['agencyList'] = $objUsers->agentDetail($id);
 

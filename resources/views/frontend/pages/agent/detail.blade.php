@@ -14,7 +14,7 @@ detail -->
                   <img class="img-fluid rounded-circle" src="{{ asset('public/frontend/assets/images/agent/01.jpg') }}" alt="">
                 </div>
                 <div class="agent-listing text-center mt-auto">
-                  <a href="#"><strong class="text-primary mr-2 d-inline-block">15</strong>Listed Properties </a>
+                  <a href="#"><strong class="text-primary mr-2 d-inline-block">{{ count($propertyList)}}</strong>Listed Properties </a>
                 </div>
               </div>
             </div>
@@ -105,291 +105,67 @@ Property -->
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-6 col-md-4">
-        <div class="property-item">
-          <div class="property-image bg-overlay-gradient-04">
-            <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/grid/01.jpg') }}" alt="">
-            <div class="property-lable">
-              <span class="badge badge-md badge-primary">Bungalow</span>
-              <span class="badge badge-md badge-info">Sale </span>
-            </div>
-            <span class="property-trending" title="trending"><i class="fas fa-bolt"></i></span>
-            <div class="property-agent">
-              <div class="property-agent-image">
-                <img class="img-fluid" src="{{ asset('public/frontend/assets/images/avatar/01.jpg') }}" alt="">
+      @foreach($propertyList as $key => $value)
+        @php
+          $imageCount = explode(',',$value['images']);
+        @endphp
+        <div class="col-sm-6 col-md-4">
+          <div class="property-item">
+            <div class="property-image bg-overlay-gradient-04">
+              <img class="img-fluid" src="{{ asset('public/upload/property_photo/'.$imageCount[0]) }}" alt="">
+              <div class="property-lable">
+                <span class="badge badge-md badge-primary">{{ ucfirst($value['type']) }}</span>
+                <span class="badge badge-md badge-info"> {{ ucfirst($value['offer']) }}</span>
               </div>
-              <div class="property-agent-info">
-                <a class="property-agent-name" href="#">Alice Williams</a>
-                <span class="d-block">Company Agent</span>
-                <ul class="property-agent-contact list-unstyled">
-                  <li><a href="#"><i class="fas fa-mobile-alt"></i> </a></li>
-                  <li><a href="#"><i class="fas fa-envelope"></i> </a></li>
+              
+              <div class="property-agent">
+                <div class="property-agent-image">
+                  <img class="img-fluid" src="{{ asset('public/upload/userimage/'.$value['userimage']) }}" alt="">
+                </div>
+                <div class="property-agent-info">
+                  <a class="property-agent-name" href="#">{{ $value['username'] }}</a>
+                  {{-- <span class="d-block">{{ getTypeText($value['roles']) }}</span> --}}
+                  <ul class="property-agent-contact list-unstyled">
+                    <li><a href="#"><i class="fas fa-mobile-alt"></i> </a></li>
+                    <li><a href="#"><i class="fas fa-envelope"></i> </a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="property-agent-popup">
+                <a href="#"><i class="fas fa-camera"></i> {{ count($imageCount) }}</a>
+              </div>
+            </div>
+            <div class="property-details">
+              <div class="property-details-inner">
+                <div class="property-details-inner-box">
+                  <div class="property-details-inner-box-left">
+                    <h5 class="property-title"><a href="{{ route("property-details",$value['slug'])}}" target="_blank">{{ $value['title'] }}</a></h5>
+                    <span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>{{ $value['address'] }}</span>
+                    <span class="property-agent-date"><i class="far fa-clock fa-md"></i>{{ humanTiming($value['created_at']) }}</span>
+                  </div>
+                  <div class="property-price">${{ $value['price'] }}<span class="d-block"> </span> </div>
+                </div>
+                <ul class="property-info list-unstyled d-flex">
+                  <li class="flex-fill property-bed"><i class="fas fa-bed"></i>Bed<span>{{ $value['badroom'] }}</span></li>
+                  <li class="flex-fill property-bath"><i class="fas fa-bath"></i>Bath<span>{{ $value['bathroom'] }}</span></li>
+                  <li class="flex-fill property-m-sqft"><i class="far fa-square"></i>Sqft<span>{{ $value['area'] }}</span></li>
+                </ul>
+                <p class="mb-0 d-none d-block mt-3">{{ $value['about_property'] }}</p>
+              </div>
+              <div class="property-btn">
+                <a class="property-link" href="{{ route("property-details",$value['slug'])}}" target="_blank">See Details</a>
+                <ul class="property-listing-actions list-unstyled mb-0">
+                  <li class="property-compare"><a data-toggle="tooltip" data-placement="top" title="Compare" href="#"><i class="fas fa-exchange-alt"></i></a></li>
+                  <li class="property-favourites"><a data-toggle="tooltip" data-placement="top" title="Favourite" href="#"><i class="far fa-heart"></i></a></li>
                 </ul>
               </div>
             </div>
-            <div class="property-agent-popup">
-              <a href="#"><i class="fas fa-camera"></i> 06</a>
-            </div>
-          </div>
-          <div class="property-details">
-            <div class="property-details-inner">
-              <h5 class="property-title"><a href="{{ route("property-details",'1')}}">Ample apartment at last floor </a></h5>
-              <span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>Virginia drive temple hills</span>
-              <span class="property-agent-date"><i class="far fa-clock fa-md"></i>10 days ago</span>
-              <div class="property-price">$150.00<span> / month</span> </div>
-              <ul class="property-info list-unstyled d-flex">
-                <li class="flex-fill property-bed"><i class="fas fa-bed"></i>Bed<span>1</span></li>
-                <li class="flex-fill property-bath"><i class="fas fa-bath"></i>Bath<span>2</span></li>
-                <li class="flex-fill property-m-sqft"><i class="far fa-square"></i>sqft<span>145m</span></li>
-              </ul>
-            </div>
-            <div class="property-btn">
-              <a class="property-link" href="{{ route("property-details",'1')}}">See Details</a>
-              <ul class="property-listing-actions list-unstyled mb-0">
-                <li class="property-compare"><a data-toggle="tooltip" data-placement="top" title="Compare" href="#"><i class="fas fa-exchange-alt"></i></a></li>
-                <li class="property-favourites"><a data-toggle="tooltip" data-placement="top" title="Favourite" href="#"><i class="far fa-heart"></i></a></li>
-              </ul>
-            </div>
           </div>
         </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="property-item">
-          <div class="property-image bg-overlay-gradient-04">
-            <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/grid/02.jpg') }}" alt="">
-            <div class="property-lable">
-              <span class="badge badge-md badge-primary">Apartment</span>
-              <span class="badge badge-md badge-info">New </span>
-            </div>
-            <div class="property-agent">
-              <div class="property-agent-image">
-                <img class="img-fluid" src="{{ asset('public/frontend/assets/images/avatar/02.jpg') }}" alt="">
-              </div>
-              <div class="property-agent-info">
-                <a class="property-agent-name" href="#">John doe</a>
-                <span class="d-block">Company Agent</span>
-                <ul class="property-agent-contact list-unstyled">
-                  <li><a href="#"><i class="fas fa-mobile-alt"></i> </a></li>
-                  <li><a href="#"><i class="fas fa-envelope"></i> </a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="property-agent-popup">
-              <a href="#"><i class="fas fa-camera"></i> 12</a>
-            </div>
-          </div>
-          <div class="property-details">
-            <div class="property-details-inner">
-              <h5 class="property-title"><a href="{{ route("property-details",'1')}}">Awesome family home</a></h5>
-              <span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>Vermont dr. hephzibah</span>
-              <span class="property-agent-date"><i class="far fa-clock fa-md"></i>2 months ago</span>
-              <div class="property-price">$326.00<span> / month</span> </div>
-              <ul class="property-info list-unstyled d-flex">
-                <li class="flex-fill property-bed"><i class="fas fa-bed"></i>Bed<span>2</span></li>
-                <li class="flex-fill property-bath"><i class="fas fa-bath"></i>Bath<span>3</span></li>
-                <li class="flex-fill property-m-sqft"><i class="far fa-square"></i>sqft<span>215m</span></li>
-              </ul>
-            </div>
-            <div class="property-btn">
-              <a class="property-link" href="{{ route("property-details",'1')}}">See Details</a>
-              <ul class="property-listing-actions list-unstyled mb-0">
-                <li class="property-compare"><a data-toggle="tooltip" data-placement="top" title="Compare" href="#"><i class="fas fa-exchange-alt"></i></a></li>
-                <li class="property-favourites"><a data-toggle="tooltip" data-placement="top" title="Favourite" href="#"><i class="far fa-heart"></i></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="property-item">
-          <div class="property-image bg-overlay-gradient-04">
-            <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/grid/03.jpg') }}" alt="">
-            <div class="property-lable">
-              <span class="badge badge-md badge-primary">Summer House</span>
-              <span class="badge badge-md badge-info">Hot </span>
-            </div>
-            <span class="property-trending" title="trending"><i class="fas fa-bolt"></i></span>
-            <div class="property-agent">
-              <div class="property-agent-image">
-                <img class="img-fluid" src="{{ asset('public/frontend/assets/images/avatar/03.jpg') }}" alt="">
-              </div>
-              <div class="property-agent-info">
-                <a class="property-agent-name" href="#">Felica queen</a>
-                <span class="d-block">Investment</span>
-                <ul class="property-agent-contact list-unstyled">
-                  <li><a href="#"><i class="fas fa-mobile-alt"></i> </a></li>
-                  <li><a href="#"><i class="fas fa-envelope"></i> </a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="property-agent-popup">
-              <a href="#"><i class="fas fa-camera"></i> 03</a>
-            </div>
-          </div>
-          <div class="property-details">
-            <div class="property-details-inner">
-              <h5 class="property-title"><a href="{{ route("property-details",'1')}}">Contemporary apartment</a></h5>
-              <span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>Newport st. mebane, nc</span>
-              <span class="property-agent-date"><i class="far fa-clock fa-md"></i>6 months ago</span>
-              <div class="property-price">$658.00<span> / month</span> </div>
-              <ul class="property-info list-unstyled d-flex">
-                <li class="flex-fill property-bed"><i class="fas fa-bed"></i>Bed<span>3</span></li>
-                <li class="flex-fill property-bath"><i class="fas fa-bath"></i>Bath<span>4</span></li>
-                <li class="flex-fill property-m-sqft"><i class="far fa-square"></i>sqft<span>3,189m</span></li>
-              </ul>
-            </div>
-            <div class="property-btn">
-              <a class="property-link" href="{{ route("property-details",'1')}}">See Details</a>
-              <ul class="property-listing-actions list-unstyled mb-0">
-                <li class="property-compare"><a data-toggle="tooltip" data-placement="top" title="Compare" href="#"><i class="fas fa-exchange-alt"></i></a></li>
-                <li class="property-favourites"><a data-toggle="tooltip" data-placement="top" title="Favourite" href="#"><i class="far fa-heart"></i></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="property-item">
-          <div class="property-image bg-overlay-gradient-04">
-            <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/grid/04.jpg') }}" alt="">
-            <div class="property-lable">
-              <span class="badge badge-md badge-primary">Duplex</span>
-              <span class="badge badge-md badge-info">Hot </span>
-            </div>
-            <div class="property-agent">
-              <div class="property-agent-image">
-                <img class="img-fluid" src="{{ asset('public/frontend/assets/images/avatar/04.jpg') }}" alt="">
-              </div>
-              <div class="property-agent-info">
-                <a class="property-agent-name" href="#">Sara lisbon</a>
-                <span class="d-block">Construction</span>
-                <ul class="property-agent-contact list-unstyled">
-                  <li><a href="#"><i class="fas fa-mobile-alt"></i> </a></li>
-                  <li><a href="#"><i class="fas fa-envelope"></i> </a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="property-agent-popup">
-              <a href="#"><i class="fas fa-camera"></i> 04</a>
-            </div>
-          </div>
-          <div class="property-details">
-            <div class="property-details-inner">
-              <h5 class="property-title"><a href="{{ route("property-details",'1')}}">Family home for sale</a></h5>
-              <span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>Border st. nicholasville, ky</span>
-              <span class="property-agent-date"><i class="far fa-clock fa-md"></i>12 months ago</span>
-              <div class="property-price">$485.00<span> / month</span> </div>
-              <ul class="property-info list-unstyled d-flex">
-                <li class="flex-fill property-bed"><i class="fas fa-bed"></i>Bed<span>2</span></li>
-                <li class="flex-fill property-bath"><i class="fas fa-bath"></i>Bath<span>1</span></li>
-                <li class="flex-fill property-m-sqft"><i class="far fa-square"></i>sqft<span>2,356m</span></li>
-              </ul>
-            </div>
-            <div class="property-btn">
-              <a class="property-link" href="{{ route("property-details",'1')}}">See Details</a>
-              <ul class="property-listing-actions list-unstyled mb-0">
-                <li class="property-compare"><a data-toggle="tooltip" data-placement="top" title="Compare" href="#"><i class="fas fa-exchange-alt"></i></a></li>
-                <li class="property-favourites"><a data-toggle="tooltip" data-placement="top" title="Favourite" href="#"><i class="far fa-heart"></i></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="property-item">
-          <div class="property-image bg-overlay-gradient-04">
-            <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/grid/05.jpg') }}" alt="">
-            <div class="property-lable">
-              <span class="badge badge-md badge-primary">Penthouses</span>
-              <span class="badge badge-md badge-info">Rent </span>
-            </div>
-            <span class="property-trending" title="trending"><i class="fas fa-bolt"></i></span>
-            <div class="property-agent">
-              <div class="property-agent-image">
-                <img class="img-fluid" src="{{ asset('public/frontend/assets/images/avatar/05.jpg') }}" alt="">
-              </div>
-              <div class="property-agent-info">
-                <a class="property-agent-name" href="#">Mellissa Doe</a>
-                <span class="d-block">Founder & CEO</span>
-                <ul class="property-agent-contact list-unstyled">
-                  <li><a href="#"><i class="fas fa-mobile-alt"></i> </a></li>
-                  <li><a href="#"><i class="fas fa-envelope"></i> </a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="property-agent-popup">
-              <a href="#"><i class="fas fa-camera"></i> 10</a>
-            </div>
-          </div>
-          <div class="property-details">
-            <div class="property-details-inner">
-              <h5 class="property-title"><a href="{{ route("property-details",'1')}}">Luxury villa with pool</a></h5>
-              <span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>West Indian St. Missoula</span>
-              <span class="property-agent-date"><i class="far fa-clock fa-md"></i>2 years ago</span>
-              <div class="property-price">$698.00<span> / month</span> </div>
-              <ul class="property-info list-unstyled d-flex">
-                <li class="flex-fill property-bed"><i class="fas fa-bed"></i>Bed<span>5</span></li>
-                <li class="flex-fill property-bath"><i class="fas fa-bath"></i>Bath<span>4</span></li>
-                <li class="flex-fill property-m-sqft"><i class="far fa-square"></i>sqft<span>1,658m</span></li>
-              </ul>
-            </div>
-            <div class="property-btn">
-              <a class="property-link" href="{{ route("property-details",'1')}}">See Details</a>
-              <ul class="property-listing-actions list-unstyled mb-0">
-                <li class="property-compare"><a data-toggle="tooltip" data-placement="top" title="Compare" href="#"><i class="fas fa-exchange-alt"></i></a></li>
-                <li class="property-favourites"><a data-toggle="tooltip" data-placement="top" title="Favourite" href="#"><i class="far fa-heart"></i></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="property-item">
-          <div class="property-image bg-overlay-gradient-04">
-            <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/grid/06.jpg') }}" alt="">
-            <div class="property-lable">
-              <span class="badge badge-md badge-primary">Studio</span>
-              <span class="badge badge-md badge-info">New </span>
-            </div>
-            <div class="property-agent">
-              <div class="property-agent-image">
-                <img class="img-fluid" src="{{ asset('public/frontend/assets/images/avatar/06.jpg') }}" alt="">
-              </div>
-              <div class="property-agent-info">
-                <a class="property-agent-name" href="#">Michael Bean</a>
-                <span class="d-block">Research</span>
-                <ul class="property-agent-contact list-unstyled">
-                  <li><a href="#"><i class="fas fa-mobile-alt"></i> </a></li>
-                  <li><a href="#"><i class="fas fa-envelope"></i> </a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="property-agent-popup">
-              <a href="#"><i class="fas fa-camera"></i> 02</a>
-            </div>
-          </div>
-          <div class="property-details">
-            <div class="property-details-inner">
-              <h5 class="property-title"><a href="{{ route("property-details",'1')}}">184 lexington avenue</a></h5>
-              <span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>Hamilton rd. willoughby, oh</span>
-              <span class="property-agent-date"><i class="far fa-clock fa-md"></i>3 years ago</span>
-              <div class="property-price">$236.00<span> / month</span> </div>
-              <ul class="property-info list-unstyled d-flex">
-                <li class="flex-fill property-bed"><i class="fas fa-bed"></i>Bed<span>2</span></li>
-                <li class="flex-fill property-bath"><i class="fas fa-bath"></i>Bath<span>2</span></li>
-                <li class="flex-fill property-m-sqft"><i class="far fa-square"></i>sqft<span>3,657m</span></li>
-              </ul>
-            </div>
-            <div class="property-btn">
-              <a class="property-link" href="{{ route("property-details",'1')}}">See Details</a>
-              <ul class="property-listing-actions list-unstyled mb-0">
-                <li class="property-compare"><a data-toggle="tooltip" data-placement="top" title="Compare" href="#"><i class="fas fa-exchange-alt"></i></a></li>
-                <li class="property-favourites"><a data-toggle="tooltip" data-placement="top" title="Favourite" href="#"><i class="far fa-heart"></i></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
+      @endforeach
+
+      
+
     </div>
   </div>
 </section>

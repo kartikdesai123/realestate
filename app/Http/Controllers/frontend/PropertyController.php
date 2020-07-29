@@ -58,6 +58,8 @@ class PropertyController extends Controller
     }
     
     public function propertydetails(Request $request,$slug){
+        
+        // getPropertyList
         $data['slug'] =$slug;
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Property Details';
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Property Details';
