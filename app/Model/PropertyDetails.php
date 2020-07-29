@@ -262,6 +262,7 @@ class PropertyDetails extends Model
                     $objHome->total_propeties = '1';
                     $objHome->is_home = '0';
                     $objHome->images = '';
+                    $objHome->created_at = date("Y-m-d h:i:s");
                     $objHome->updated_at = date("Y-m-d h:i:s");
                     $objHome->save();
                     
