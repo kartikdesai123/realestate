@@ -23,20 +23,19 @@ detail -->
                 <div class="agent-detail">
                   <div class="d-block d-sm-flex">
                     <div class="agent-name mb-3 mt-sm-0">
-                      <h2> <a href="#">Alice Williams </a></h2>
-                      <span>Farm and land brokerage</span>
+                      <h2> <a href="#">{{ $agencyList[0]->username }}</a></h2>
+                      <span>{{ $agencyList[0]->designation }}</span>
                     </div>
                     <div class="agent-social ml-auto">
                       <ul class="list-unstyled list-inline">
-                        <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i> </a></li>
-                        <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i> </a></li>
-                        <li class="list-inline-item"><a href="#"><i class="fab fa-linkedin"></i> </a></li>
+                        <li class="list-inline-item"><a href="{{ $agencyList[0]->facebook }}" target="_blank"><i class="fab fa-facebook-f"></i> </a></li>
+                        <li class="list-inline-item"><a href="{{ $agencyList[0]->twitter }}" target="_blank"><i class="fab fa-twitter"></i> </a></li>
+                        <li class="list-inline-item"><a href="{{ $agencyList[0]->linkedin }}" target="_blank"><i class="fab fa-linkedin"></i> </a></li>
                       </ul>
                     </div>
                   </div>
                   <div class="agent-info">
-                    <p class="mt-3 mb-3">What is the exact sequence of events that will take you to where you want to be? Have a think consciously of what you need to do. Every outcome begins with the first step. When you decide you want to have a romantic meal for two, there are many steps that you need.</p>
-                    <p class="mt-3">Success isnâ€™t really that difficult. There is a significant portion of the population here in North America, that actually want and need success to be hard! Why? So they then have a built-in excuse when things donâ€™t go their way! Pretty sad situation, to say the least. Have some fun and hypnotize yourself to be your very own â€œGhost of Christmas futureâ€� and see what the future holds for you.</p>
+                    <p class="mt-3 mb-3">{{ $agencyList[0]->about }}</p>
                   </div>
                 </div>
               </div>
@@ -52,13 +51,10 @@ detail -->
             <h4>Contact Detail</h4>
           </div>
           <ul class="list-unstyled mb-0">
-            <li class="mb-2"><strong class="text-dark d-inline-block mr-2">Address:</strong>214 West Arnold St. New York</li>
-            <li class="mb-2"><strong class="text-dark d-inline-block mr-2">Website:</strong>potenzaglobalsolutions.com</li>
-            <li class="mb-2"><strong class="text-dark d-inline-block mr-2">Agency:</strong>Pomegranate real estatese</li>
-            <li class="mb-2"><strong class="text-dark d-inline-block mr-2">Licenses:</strong>A42C3326</li>
-            <li class="mb-2"><strong class="text-dark d-inline-block mr-2">Phone:</strong>(123) 345-6789</li>
-            <li class="mb-2"><strong class="text-dark d-inline-block mr-2">Company:</strong>Real villa</li>
-            <li><strong class="text-dark d-inline-block mr-2">Office Number:</strong>(456) 478-2589</li>
+            <li class="mb-2"><strong class="text-dark d-inline-block mr-2">Email:</strong>{{ $agencyList[0]->email }}</li>
+            <li class="mb-2"><strong class="text-dark d-inline-block mr-2">Licenses:</strong>{{ $agencyList[0]->licenses }}</li>
+            <li class="mb-2"><strong class="text-dark d-inline-block mr-2">Phone:</strong>{{ $agencyList[0]->phoneno }}</li>
+            <li><strong class="text-dark d-inline-block mr-2">Office Number:</strong>{{ $agencyList[0]->officeno }}</li>
           </ul>
         </div>
       </div>

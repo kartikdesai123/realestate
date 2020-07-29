@@ -21,20 +21,19 @@
                 <div class="agent-detail">
                   <div class="d-block d-sm-flex">
                     <div class="agent-name mb-3 mt-sm-0">
-                      <h2> <a href="#">Pomegranate real estates</a></h2>
-                      <span>Company Agent</span>
+                      <h2> <a href="#">{{ $agencyDetail[0]->username }}</a></h2>
+                      <span>{{ $agencyDetail[0]->location }}</span>
                     </div>
                     <div class="agent-social ml-auto">
                       <ul class="list-unstyled list-inline">
-                        <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i> </a></li>
-                        <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i> </a></li>
-                        <li class="list-inline-item"><a href="#"><i class="fab fa-linkedin"></i> </a></li>
+                        <li class="list-inline-item"><a href="{{ $agencyDetail[0]->facebook }}" target="_blank"><i class="fab fa-facebook-f"></i> </a></li>
+                        <li class="list-inline-item"><a href="{{ $agencyDetail[0]->twitter }}" target="_blank"><i class="fab fa-twitter"></i> </a></li>
+                        <li class="list-inline-item"><a href="{{ $agencyDetail[0]->linkedin }}" target="_blank"><i class="fab fa-linkedin"></i> </a></li>
                       </ul>
                     </div>
                   </div>
                   <div class="agent-info">
-                    <p class="mt-3 mb-3">We all carry a lot of baggage, thanks to our upbringing. The majority of people carry with them, an entire series of self-limiting beliefs that will absolutely stop, and hold them back from, success. Things like</p>
-                    <p class="mt-3">Tm not smart enough,i am not lucky enough, and the worst, Im not worthy are but a few of the self-limiting beliefs I have encountered. We carry them with us like rocks in a knapsack, and then use them to sabotage our success. So, how twisted is that? One of the main areas that I work on with my clients is shedding these non-supportive beliefs.</p>
+                    <p class="mt-3 mb-3">{{ $agencyDetail[0]->about }}</p>
                   </div>
                 </div>
               </div>
@@ -50,13 +49,10 @@
             <h4>Contact Detail</h4>
           </div>
           <ul class="list-unstyled mb-0">
-            <li class="mb-2"><strong class="text-dark d-inline-block mr-2">Address:</strong>support@realvilla.demo</li>
-            <li class="mb-2"><strong class="text-dark d-inline-block mr-2">Website:</strong>potenzaglobalsolutions.com</li>
-            <li class="mb-2"><strong class="text-dark d-inline-block mr-2">Agency:</strong>Pomegranate real estates</li>
-            <li class="mb-2"><strong class="text-dark d-inline-block mr-2">Licenses:</strong>A42C3326</li>
-            <li class="mb-2"><strong class="text-dark d-inline-block mr-2">Phone:</strong>(123) 345-6789</li>
-            <li class="mb-2"><strong class="text-dark d-inline-block mr-2">Company:</strong>realvilla</li>
-            <li><strong class="text-dark d-inline-block mr-2">Office Number:</strong>(456) 478-2589</li>
+            <li class="mb-2"><strong class="text-dark d-inline-block mr-2">Email: </strong>{{ $agencyDetail[0]->email }}</li>
+            <li class="mb-2"><strong class="text-dark d-inline-block mr-2">Licenses:</strong>{{ $agencyDetail[0]->licenses }}</li>
+            <li class="mb-2"><strong class="text-dark d-inline-block mr-2">Phone:</strong>{{ $agencyDetail[0]->phoneno }}</li>
+            <li><strong class="text-dark d-inline-block mr-2">Office Number:</strong>{{ $agencyDetail[0]->officeno }}</li>
           </ul>
         </div>
       </div>
@@ -111,22 +107,10 @@ review -->
           <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
             <div class="row">
               <div class="col-md-6">
-                <p>It is truly amazing the damage that we, as parents, can inflict on our children. So why do we do it? For the most part, we donâ€™t do it intentionally or with malice. In the majority of cases, the cause is a well-meaning!</p>
-                <p>Benjamin Franklin, inventor, statesman, writer, publisher and economist relates in his autobiography that early in his life he decided to focus on arriving at moral perfection. He made a list of 13 virtues, assigning a page to each. Under each virtue he wrote a summary that gave it fuller meaning. Then he practiced each one for a certain length of time. To make these virtues a habit, Franklin can up with a method to grade himself on his daily actions.</p>
+                <p>{{ $agencyDetail[0]->overview }}</p>
+                
               </div>
-              <div class="col-md-6">
-                <ul class="list-unstyled list-style">
-                  <li> <i class="far fa-check-circle font-md text-primary mr-2 mb-3"></i> Franklinâ€™s extraordinary success in life.</li>
-                  <li> <i class="far fa-check-circle font-md text-primary mr-2 mb-3"></i> Politics can be attributed to his perseverance.</li>
-                  <li> <i class="far fa-check-circle font-md text-primary mr-2 mb-3"></i> You will begin to realise why this exercise is.</li>
-                  <li> <i class="far fa-check-circle font-md text-primary mr-2 mb-3"></i> From twelve to one he read or overlooked his accounts and dined.</li>
-                  <li> <i class="far fa-check-circle font-md text-primary mr-2 mb-3"></i> From two to five he worked at his trade.</li>
-                  <li> <i class="far fa-check-circle font-md text-primary mr-2 mb-3"></i> Just have a think about something that you know.</li>
-                </ul>
-              </div>
-              <div class="col-12">
-                <p class="mb-0">Sint deserunt esse quibusdam quae ex error molestias fuga rem totam beatae accusantium placeat velit dignissimos necessitatibus labore facilis enim, eum aperiam ut laudantium, nisi cupiditate. Aliquam quos cum omnis explicabo voluptatem minus neque eaque rem animi ad, vitae porro, accusamus totam enim voluptate illum debitis pariatur autem perspiciatis dolore commodi natus. Natus nihil illum totam repellat id repudiandae, incidunt sed, ab autem dignissimos repellendus doloremque quaerat non suscipit animi fugit inventore facilis quos tempora in. Nesciunt nam deleniti similique quod quisquam deserunt.</p>
-              </div>
+              
             </div>
           </div>
           <div class="tab-pane fade" id="listing" role="tabpanel" aria-labelledby="listing-tab">

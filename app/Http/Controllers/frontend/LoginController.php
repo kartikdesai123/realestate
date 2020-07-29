@@ -453,8 +453,10 @@ class LoginController extends Controller
             }
             
             if($session['logindata'][0]['roles'] == "AY"){
+
                 $objAgencyDetails = new AgencyDetails();
                 $data['agencyDetails'] = $objAgencyDetails->getAgencyDetails($session['logindata'][0]['id']);
+                
             }
             if ($request->isMethod("post")) {
                 $objUsers = new Users();

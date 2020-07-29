@@ -98,7 +98,7 @@ about -->
                 </div>
                 <div class="agent-info">
                   <h6> <a href="{{ route("agency-details",$value->id)}}">{{ $value->username }}</a></h6>
-                  <span><i class="fas fa-map-marker-alt fa-xs pr-2"></i>Virginia drive temple hills</span>
+                  <span><i class="fas fa-map-marker-alt fa-xs pr-2"></i>{{ $value->location }}</span>
                   <p class="mt-3 mb-0">{{ $value->about }}</p>
                 </div>
               </div>

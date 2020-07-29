@@ -11,7 +11,7 @@ class AgentDetails extends Model
     public function getAgentDetails($id){
             return Users::select("agentdetails.*")
                     ->leftjoin("agentdetails","agentdetails.user_id","=","users.id")
-                    ->where("Users.id",$id)
+                    ->where("users.id",$id)
                     ->get();
     }
 }

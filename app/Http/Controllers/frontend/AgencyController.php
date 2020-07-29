@@ -15,7 +15,7 @@ class AgencyController extends Controller
 
     public function agencyList(Request $request){
         $objUsers =  new Users();
-        $data['agencyList'] = $objUsers->userList("AY");
+        $data['agencyList'] = $objUsers->agencyList("AY");
 
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agency List';
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agency List';
@@ -45,8 +45,8 @@ class AgencyController extends Controller
     
     public function agencyDetail(Request $request,$agencyId){
 
-        // $objUsers = new Users();
-        // $data['agencyList'] = $objUsers->userList("AY");
+        $objUsers = new Users();
+        $data['agencyDetail'] = $objUsers->agencyDetail($agencyId);
         
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agency Detail';
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agency Detail';
