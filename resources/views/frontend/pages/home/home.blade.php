@@ -218,7 +218,7 @@
                             $city = str_replace(' ','-',strtolower($homecity[2]['city_name']));
                             @endphp
                            <a href="{{ route("search",$city)}}">
-                              <div class="location-item bg-overlay-gradient bg-holder" style="background-image: url({{ asset('public/frontend/assets/images/location/'.$homecity[2]['images']) }});">
+                              <div class="location-item bg-overlay-gradient bg-holder" style="background-image: url({{ asset('public/upload/home_city/'.$homecity[2]['images']) }});">
                                  <div class="location-item-info">
                                     <h5 class="location-item-title">{{ $homecity[2]['city_name'] }}</h5>
                                     <span class="location-item-list">{{ $homecity[2]['total_propeties'] }} Properties</span>
@@ -235,7 +235,7 @@
                     $city = str_replace(' ','-',strtolower($homecity[3]['city_name']));
                     @endphp
                      <a href="{{ route("search",$city)}}">
-                        <div class="location-item location-item-big bg-overlay-gradient bg-holder" style="background-image: url({{ asset('public/frontend/assets/images/location/'.$homecity[3]['images']) }});">
+                        <div class="location-item location-item-big bg-overlay-gradient bg-holder" style="background-image: url({{ asset('public/upload/home_city/'.$homecity[3]['images']) }});">
                            <div class="location-item-info">
                               <h5 class="location-item-title">{{ $homecity[3]['city_name'] }} </h5>
                               <span class="location-item-list">{{ $homecity[3]['total_propeties'] }} Properties</span>
