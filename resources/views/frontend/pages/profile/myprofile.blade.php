@@ -45,7 +45,12 @@ My profile -->
                 <input type="text" class="form-control" readonly value="{{ $data['email'] }}">
               </div>
 
-              <div class="form-group col-md-12">
+              <div class="form-group col-md-6">
+                <label>Phone No</label>
+                <input type="text" class="form-control" name="officeno" value="{{ $data['phoneno'] }}">
+              </div>
+
+              <div class="form-group col-md-6">
                 <label>Profile Image</label>
                 <input type="file" class="form-control" name="userimage">
               </div>
@@ -61,85 +66,88 @@ My profile -->
                 
                 <div class="form-group col-md-6">
                   <label>Designation</label>
-                  <input type="text" class="form-control" name="designation">
+                <input type="text" class="form-control" name="designation" value="{{ $agentDetails[0]->designation }}">
                 </div>
 
                 <div class="form-group col-md-6">
                   <label>Facebook</label>
-                  <input type="text" class="form-control" name="facebook">
+                  <input type="text" class="form-control" name="facebook" value="{{ $agentDetails[0]->facebook }}">
                 </div>
 
                 <div class="form-group col-md-6">
                   <label>Twitter</label>
-                  <input type="text" class="form-control" name="twitter">
+                  <input type="text" class="form-control" name="twitter" value="{{ $agentDetails[0]->twitter }}">
                 </div>
 
                 <div class="form-group col-md-6">
                   <label>Linkedin</label>
-                  <input type="text" class="form-control" name="linkedin">
+                  <input type="text" class="form-control" name="linkedin" value="{{ $agentDetails[0]->linkedin }}">
                 </div>
 
                 <div class="form-group col-md-6">
                   <label>Website</label>
-                  <input type="text" class="form-control" name="website">
+                  <input type="text" class="form-control" name="website" value="{{ $agentDetails[0]->website }}">
                 </div>
 
                 <div class="form-group col-md-6">
                   <label>Licenses</label>
-                  <input type="text" class="form-control" name="licenses">
+                  <input type="text" class="form-control" name="licenses" value="{{ $agentDetails[0]->licenses }}">
                 </div>
 
                 <div class="form-group col-md-12">
                   <label>Office Phone No</label>
-                  <input type="text" class="form-control" name="officeno">
+                  <input type="text" class="form-control" name="officeno" value="{{ $agentDetails[0]->officeno }}">
                 </div>
+
+                
 
               @endif
               @if($data['roles'] == "AY")
                 
                 <div class="form-group col-md-6">
                   <label>Location</label>
-                  <input type="text" class="form-control" name="location">
+                  <input type="text" class="form-control" name="location" value="{{ $agencyDetails[0]->location }}">
                 </div>
 
                 <div class="form-group col-md-6">
                   <label>Facebook</label>
-                  <input type="text" class="form-control" name="facebook">
+                  <input type="text" class="form-control" name="facebook" value="{{ $agencyDetails[0]->facebook }}">
                 </div>
 
                 <div class="form-group col-md-6">
                   <label>Twitter</label>
-                  <input type="text" class="form-control" name="twitter">
+                  <input type="text" class="form-control" name="twitter" value="{{ $agencyDetails[0]->twitter }}">
                 </div>
 
                 <div class="form-group col-md-6">
                   <label>Linkedin</label>
-                  <input type="text" class="form-control" name="linkedin">
+                  <input type="text" class="form-control" name="linkedin" value="{{ $agencyDetails[0]->linkedin }}">
                 </div>
 
                 <div class="form-group col-md-6">
                   <label>Website</label>
-                  <input type="text" class="form-control" name="website">
+                  <input type="text" class="form-control" name="website" value="{{ $agencyDetails[0]->website }}">
                 </div>
 
                 <div class="form-group col-md-6">
                   <label>Licenses</label>
-                  <input type="text" class="form-control" name="licenses">
+                  <input type="text" class="form-control" name="licenses" value="{{ $agencyDetails[0]->licenses }}">
                 </div>
-
-                <div class="form-group col-md-12">
+                
+                
+                <div class="form-group col-md-6">
                   <label>Office Phone No</label>
-                  <input type="text" class="form-control" name="officeno">
+                  <input type="text" class="form-control" name="officeno" value="{{ $agencyDetails[0]->officeno }}">
                 </div>
 
-              @endif
-
-              @if($data['roles'] != "U")
                 <div class="form-group col-md-12">
-                    <label>Overview</label>
-                    <textarea class="form-control" rows="4" name="overview"></textarea>
-                </div>
+                  <label>Overview</label>
+                  <textarea class="form-control" rows="4" name="overview">{{ $agencyDetails[0]->overview }}</textarea>
+              </div>
+                
               @endif
+
+              
 
               <div class="col-md-12">
                 <button type="submit" class="btn btn-primary btn-block btnsubmit">Save Changes</button>

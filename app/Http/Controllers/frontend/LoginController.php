@@ -23,6 +23,8 @@ use App\Model\PropertyPhoto;
 use App\Model\PropertyTourView;
 use App\Model\PropertyVideo;
 use App\Model\PropertyDetails;
+use App\Model\AgentDetails;
+use App\Model\AgencyDetails;
 use DB;
 class LoginController extends Controller
 {
@@ -442,7 +444,20 @@ class LoginController extends Controller
 
     public function myprofile(Request $request){
         $session = $request->session()->all();
+        
         if(isset($session['logindata'])){
+            if($session['logindata'][0]['roles'] == "AG"){
+                $objAgencyDetails = new AgentDetails();
+                $data['agentDetails'] = $objAgencyDetails->getAgentDetails($session['logindata'][0]['id']);
+
+            }
+            
+            if($session['logindata'][0]['roles'] == "AY"){
+
+                $objAgencyDetails = new AgencyDetails();
+                $data['agencyDetails'] = $objAgencyDetails->getAgencyDetails($session['logindata'][0]['id']);
+                
+            }
             if ($request->isMethod("post")) {
                 $objUsers = new Users();
                 $result = $objUsers->editProfile($request,$session['logindata'][0]['id'],$session['logindata'][0]['roles']);

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Config;
 
 use App\Model\Users;
+use App\Model\PropertyDetails;
 class AgencyController extends Controller
 {
     function __construct(){
@@ -15,7 +16,7 @@ class AgencyController extends Controller
 
     public function agencyList(Request $request){
         $objUsers =  new Users();
-        $data['agencyList'] = $objUsers->userList("AY");
+        $data['agencyList'] = $objUsers->agencyList("AY");
 
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agency List';
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agency List';
@@ -44,9 +45,12 @@ class AgencyController extends Controller
     }
     
     public function agencyDetail(Request $request,$agencyId){
+        $session = $request->session()->all();
+        $objPropertyDetails = new PropertyDetails();
+        $data['propertyList'] = $objPropertyDetails->getPropertyList($agencyId);
 
-        // $objUsers = new Users();
-        // $data['agencyList'] = $objUsers->userList("AY");
+        $objUsers = new Users();
+        $data['agencyDetail'] = $objUsers->agencyDetail($agencyId);
         
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agency Detail';
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agency Detail';

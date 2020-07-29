@@ -24,6 +24,7 @@ class CreateAgentDetailsTable extends Migration
             $table->string("licenses")->nullable();
             $table->string("phoneNo");
             $table->string("officeno");
+            $table->text("overview");
             $table->timestamps();
         });
     }

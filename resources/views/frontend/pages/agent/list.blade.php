@@ -95,7 +95,7 @@
                   </div>
                   <div class="agent-info">
                     <h6 class="mb-0"> <a href="{{ route("agent-details",$value->id)}}">{{ $value->username }}</a></h6>
-                    <span class="font-sm"></span>  
+                    <span class="font-sm">{{ $value->designation }}</span>  
                     <p class="mt-3 mb-0">{{ $value->about }}</p>
                   </div>
                 </div>

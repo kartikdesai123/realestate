@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Config;
 use App\Model\Users;
+use App\Model\PropertyDetails;
 
 class AgentController extends Controller
 {
@@ -15,7 +16,8 @@ class AgentController extends Controller
 
     public function agentList(Request $request){
         $objUsers =  new Users();
-        $data['agencyList'] = $objUsers->userList("AG");
+        $data['agencyList'] = $objUsers->agentList("AG");
+
 
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agent List';
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agent List';
@@ -43,7 +45,15 @@ class AgentController extends Controller
         return view('frontend.pages.agent.list', $data);
     }
     
-    public function agentDetail(Request $request){
+    public function agentDetail(Request $request,$id){
+        $session = $request->session()->all();
+        $objPropertyDetails = new PropertyDetails();
+        $data['propertyList'] = $objPropertyDetails->getPropertyList($id);
+
+        
+
+        $objUsers =  new Users();
+        $data['agencyList'] = $objUsers->agentDetail($id);
 
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agent Detail';
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agent Detail';
