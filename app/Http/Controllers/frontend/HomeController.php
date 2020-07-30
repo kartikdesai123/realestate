@@ -8,7 +8,7 @@ use App\Model\PropertyDetails;
 use App\Model\Home;
 use App\Model\HomeCity;
 use Config;
-
+use App\Model\Users;
 class HomeController extends Controller
 {
     
@@ -17,6 +17,13 @@ class HomeController extends Controller
     }
 
     public function home(Request $request){
+
+        $objUsers = new Users();
+        $data['agentList'] = $objUsers->agentListHome();
+        
+        $objUsers = new Users();
+        $data['companyList'] = $objUsers->companyList();
+        
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Real Estate';
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Real Estate';
         $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Real Estate';

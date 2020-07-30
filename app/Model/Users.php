@@ -238,4 +238,24 @@ class Users extends Model
                     ->where("users.id",$id)
                     ->paginate(4);
     }
+
+    public function agentListHome(){
+        return Users::select("users.username","users.email","users.userimage","users.phoneno","users.about","users.id","agentdetails.designation")
+                ->leftjoin("agentdetails","agentdetails.user_id","=","users.id")
+                ->where("users.roles","AG")
+                ->where("users.email_verfied","1")
+                ->where("users.isDeleted","0")
+                ->orderBy('users.id', 'desc')
+                ->limit(4)
+                ->get();
+    }
+    public function companyList(){
+        return Users::select("users.username","users.email","users.userimage","users.phoneno","users.about","users.id")
+                ->where("users.roles","CC")
+                ->where("users.email_verfied","1")
+                ->where("users.isDeleted","0")                
+                ->orderBy('users.id', 'desc')
+                ->limit(4)
+                ->get();
+    }
 }

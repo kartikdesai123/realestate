@@ -34,9 +34,11 @@ class Sendmail extends Model
                                             ->get();
                                             
         if($propertyDetails[0]->email){
+            $token = bin2hex(random_bytes(10));
 
             $objPropertyrequest = new Propertyrequest();
             $objPropertyrequest->property_id = $propertyDetails[0]->id;
+            $objPropertyrequest->token = $token;
             $objPropertyrequest->name = $request->input('name');
             $objPropertyrequest->email = $request->input('email');
             $objPropertyrequest->phoneno = $request->input('phone');
@@ -50,6 +52,7 @@ class Sendmail extends Model
             if($objPropertyrequest->save()){
                 
                 $mailData['data']=[];
+                $mailData['data']['token']= $token;
                 $mailData['data']['id'] = $objPropertyrequest->id;
                 $mailData['data']['username']= $propertyDetails[0]->username;
                 $mailData['data']['user_email']=$propertyDetails[0]->email;
@@ -215,35 +218,13 @@ class Sendmail extends Model
     }
 
 
-    // public function sendSMTPMail($mailData)
-    // {
-        
-    //             $pathToFile = $mailData['attachment'];
-            
-    //             $mailsend = Mail::send($mailData['template'], ['data' => $mailData['data']], function ($m) use ($mailData,$pathToFile) {
-    //                 $m->from('parthkhunt37@gmail.com', 'Real Estate');
-        
-    //                 $m->to($mailData['mailto'], "Real Estate")->subject($mailData['subject']);
-    //                 if($pathToFile != ""){
-    //                     // $m->attach($pathToFile);
-    //                 }
-                    
-    //                 //  $m->cc($mailData['bcc']);
-    //             });
-    //             if($mailsend){
-    //                 return true;
-    //             }else{
-    //                 return false;
-    //             }
-    // }
-
     public function sendSMTPMail($mailData)
     {
         
                 $pathToFile = $mailData['attachment'];
             
                 $mailsend = Mail::send($mailData['template'], ['data' => $mailData['data']], function ($m) use ($mailData,$pathToFile) {
-                    $m->from('info@mototivewebsolution.com', 'Real Estate');
+                    $m->from('parthkhunt37@gmail.com', 'Real Estate');
         
                     $m->to($mailData['mailto'], "Real Estate")->subject($mailData['subject']);
                     if($pathToFile != ""){
@@ -258,4 +239,26 @@ class Sendmail extends Model
                     return false;
                 }
     }
+
+    // public function sendSMTPMail($mailData)
+    // {
+        
+    //             $pathToFile = $mailData['attachment'];
+            
+    //             $mailsend = Mail::send($mailData['template'], ['data' => $mailData['data']], function ($m) use ($mailData,$pathToFile) {
+    //                 $m->from('info@mototivewebsolution.com', 'Real Estate');
+        
+    //                 $m->to($mailData['mailto'], "Real Estate")->subject($mailData['subject']);
+    //                 if($pathToFile != ""){
+    //                     // $m->attach($pathToFile);
+    //                 }
+                    
+    //                 //  $m->cc($mailData['bcc']);
+    //             });
+    //             if($mailsend){
+    //                 return true;
+    //             }else{
+    //                 return false;
+    //             }
+    // }
 }
