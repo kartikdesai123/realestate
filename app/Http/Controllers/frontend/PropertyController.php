@@ -348,5 +348,10 @@ class PropertyController extends Controller
             return redirect('signin');
         }
     }
-    
+
+
+    public function approve(Request $request,$token){
+            $objPropertyrequest = new Propertyrequest();
+            $checkToken = $objPropertyrequest->checkToken($token);
+    } 
 }

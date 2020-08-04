@@ -592,79 +592,69 @@
                   </div>
                </div>
                <div class="row">
+
+                  @foreach($agentList as $key => $value)
                   <div class="col-md-6 mb-4">
                      <div class="agent agent-02">
-                        <div class="agent-detail">
-                           <div class="agent-avatar avatar avatar-xlll">
-                              <img class="img-fluid rounded-circle" src="{{ asset('public/frontend/assets/images/agent/01.jpg') }}" alt="">
+                           <div class="agent-detail">
+                              <div class="agent-avatar avatar avatar-xlll">
+                                 <img class="img-fluid rounded-circle" src="{{ asset('public/upload/userimage/'.$value['userimage']) }}" alt="">
+                              </div>
+                              <div class="agent-info">
+                              <h5 class="mb-0"> <a href="{{ route("agent-details", $value['id']) }}">{{ $value['username'] }}</a></h5>
+                                 <span class="text-primary">{{ $value['designation'] }}</span>
+                                 <p class="mt-3 mb-0">{{ $value['about'] }}</p>
+                              </div>
                            </div>
-                           <div class="agent-info">
-                              <h5 class="mb-0"> <a href="{{ route("agent-details",'1')}}">John doe</a></h5>
-                              <span class="text-primary">Land development</span>
-                              <p class="mt-3 mb-0">If success is a process with a number of defined steps, then it is just like any other process. </p>
+                           <div class="agent-button">
+                              <a class="btn btn-light btn-block" href="{{ route("agent-details",$value['id'])}}">View Profile</a>
                            </div>
-                        </div>
-                        <div class="agent-button">
-                           <a class="btn btn-light btn-block" href="{{ route("agent-details",'1')}}">View Profile</a>
                         </div>
                      </div>
-                  </div>
-                  <div class="col-md-6 mb-4">
-                     <div class="agent agent-02">
-                        <div class="agent-detail">
-                           <div class="agent-avatar avatar avatar-xlll">
-                              <img class="img-fluid rounded-circle" src="{{ asset('public/frontend/assets/images/agent/02.jpg') }}" alt="">
-                           </div>
-                           <div class="agent-info">
-                              <h5 class="mb-0"> <a href="{{ route("agent-details",'1')}}">Felica queen</a></h5>
-                              <span class="text-primary">Construction</span>
-                              <p class="mt-3 mb-0">Making a decision to do something – this is the first step. We all know that nothing moves until someone.</p>
-                           </div>
-                        </div>
-                        <div class="agent-button">
-                           <a class="btn btn-light btn-block" href="{{ route("agent-details",'1')}}">View Profile</a>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-md-6 mb-4 mb-md-0">
-                     <div class="agent agent-02">
-                        <div class="agent-detail">
-                           <div class="agent-avatar avatar avatar-xlll">
-                              <img class="img-fluid rounded-circle" src="{{ asset('public/frontend/assets/images/agent/03.jpg') }}" alt="">
-                           </div>
-                           <div class="agent-info">
-                              <h5 class="mb-0"> <a href="{{ route("agent-details",'1')}}">Joana williams</a></h5>
-                              <span class="text-primary">Founder & CEO</span>
-                              <p class="mt-3 mb-0">So, make the decision to move forward. Commit your decision to paper, just to bring it into focus.</p>
-                           </div>
-                        </div>
-                        <div class="agent-button">
-                           <a class="btn btn-light btn-block" href="{{ route("agent-details",'1')}}">View Profile</a>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-md-6">
-                     <div class="agent agent-02">
-                        <div class="agent-detail">
-                           <div class="agent-avatar avatar avatar-xlll">
-                              <img class="img-fluid rounded-circle" src="{{ asset('public/frontend/assets/images/agent/04.jpg') }}" alt="">
-                           </div>
-                           <div class="agent-info">
-                              <h5 class="mb-0"> <a href="{{ route("agent-details",'1')}}">Paul flavius</a></h5>
-                              <span class="text-primary">Company Agent</span>
-                              <p class="mt-3 mb-0">You will sail along until you collide with an immovable object, after which you will sink.</p>
-                           </div>
-                        </div>
-                        <div class="agent-button">
-                           <a class="btn btn-light btn-block" href="{{ route("agent-details",'1')}}">View Profile</a>
-                        </div>
-                     </div>
-                  </div>
+                  @endforeach
+                  
+                  
                </div>
             </div>
          </section>
          <!--=================================
             agent -->
+         <!--=================================
+            Company-->
+         <section class="space-ptb">
+            <div class="container">
+               <div class="row">
+                  <div class="col-12">
+                     <div class="section-title text-center">
+                        <h2>Construction Company</h2>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+
+                  @foreach($companyList as $key => $value)
+                  <div class="col-md-6 mb-4">
+                     <div class="agent agent-02">
+                           <div class="agent-detail">
+                              <div class="agent-avatar avatar avatar-xlll">
+                                 <img class="img-fluid rounded-circle" src="{{ asset('public/upload/userimage/'.$value['userimage']) }}" alt="">
+                              </div>
+                              <div class="agent-info">
+                              <h5 class="mb-0"> <a href="{{ route("agent-details", $value['id']) }}">{{ $value['username'] }}</a></h5>
+                                 <p class="mt-3 mb-0">{{ $value['about'] }}</p>
+                              </div>
+                           </div>
+                           <div class="agent-button">
+                              <a class="btn btn-light btn-block" href="{{ route("company-details",$value['id'])}}">View Profile</a>
+                           </div>
+                        </div>
+                     </div>
+                  @endforeach
+               </div>
+            </div>
+         </section>
+         <!--=================================
+            Company -->
          <!--=================================
             Feature -->
          <section class="space-ptb bg-light">

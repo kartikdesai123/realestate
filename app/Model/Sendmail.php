@@ -34,9 +34,11 @@ class Sendmail extends Model
                                             ->get();
                                             
         if($propertyDetails[0]->email){
+            $token = bin2hex(random_bytes(10));
 
             $objPropertyrequest = new Propertyrequest();
             $objPropertyrequest->property_id = $propertyDetails[0]->id;
+            $objPropertyrequest->token = $token;
             $objPropertyrequest->name = $request->input('name');
             $objPropertyrequest->email = $request->input('email');
             $objPropertyrequest->phoneno = $request->input('phone');
@@ -50,6 +52,7 @@ class Sendmail extends Model
             if($objPropertyrequest->save()){
                 
                 $mailData['data']=[];
+                $mailData['data']['token']= $token;
                 $mailData['data']['id'] = $objPropertyrequest->id;
                 $mailData['data']['username']= $propertyDetails[0]->username;
                 $mailData['data']['user_email']=$propertyDetails[0]->email;
