@@ -116,6 +116,9 @@ function handleAjaxResponse(output) {
             window.location.href = output.redirect;
         }, 4000);
     }
+    if (typeof output.reload !== 'undefined' && output.reload != '') {
+            window.location.href =  location.reload();
+    }
     if (typeof output.jscode !== 'undefined' && output.jscode != '') {
         eval(output.jscode);
     }

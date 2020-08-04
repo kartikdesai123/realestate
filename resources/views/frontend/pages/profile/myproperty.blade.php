@@ -26,7 +26,7 @@ My profile -->
          
             <div class="container">
                 <div class="section-title d-flex align-items-center">
-                    <h2>My Property </h2>
+                    <h2>{{ $page_name }} </h2>
                 </div>
               <div class="row">
                 <div class="col-lg-12">

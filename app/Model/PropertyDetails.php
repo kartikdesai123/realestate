@@ -11,6 +11,7 @@ use App\Model\PropertyTourView;
 use App\Model\PropertyVideo;
 use App\Model\ReportProperty;
 use App\Model\HomeCity;
+use App\Model\Favourite;
 
 use DB;
 
@@ -295,6 +296,28 @@ class PropertyDetails extends Model
          
     }
     
+    public function saveHomes($userId,$type){
+        $propertyId = array();
+        $fav = Favourite::where('user_id',$userId)->get()->toArray();
+        if(!empty($fav)){
+            for($i=0; $i<count($fav); $i++){
+                $propertyId[] = $fav[$i]['property_id'];
+            }
+        }
+//        print_r($propertyId); exit();
+        if(!empty($propertyId)){
+            $property =  PropertyDetails::select('property_details.*',DB::raw('GROUP_CONCAT(property_photo.name) AS images'),'users.username','users.userimage','users.phoneno','users.roles','users.email')
+                            ->join("property_photo","property_details.id","=","property_photo.property_id")
+                            ->join("users","property_details.user_id","=","users.id")
+                            ->where('property_details.offer',$type)
+                            ->whereIn('property_details.id',$propertyId)
+                            ->groupBy('property_details.id')
+                            ->get();
+            
+            return $property; 
+        }
+    }
+    
     public function getPropertyDetail($slug){
         
         $detailProperty = PropertyDetails::select('property_details.*',
@@ -341,6 +364,18 @@ class PropertyDetails extends Model
                             ->limit(4)
                             ->get();
       
+    }
+    
+    function faveProperty($userId){
+       $propertyId = array();
+       $fav = Favourite::where('user_id',$userId)->get()->toArray();
+       if(!empty($fav)){
+           for($i=0; $i<count($fav); $i++){
+               $propertyId[] = $fav[$i]['property_id'];
+           }
+       }
+       
+       return $propertyId;
     }
     
     function reportProperty($request,$propertyId,$userId){

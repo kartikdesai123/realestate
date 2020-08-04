@@ -13,6 +13,7 @@ use App\Model\PropertyPhoto;
 use App\Model\PropertyTourView;
 use App\Model\PropertyVideo;
 use App\Model\PropertyDetails;
+use App\Model\Favourite;
 use App\Model\Sendmail;
 class PropertyController extends Controller
 {
@@ -26,11 +27,13 @@ class PropertyController extends Controller
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Property List';
         $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Property List';
         $data['css'] = array(
+            'toastr/toastr.min.css',
             'select2/select2.css',
             'range-slider/ion.rangeSlider.css',
         );
         $data['plugincss'] = array();
         $data['pluginjs'] = array(
+            'toastr/toastr.min.js',
             'select2/select2.full.js',
             'range-slider/ion.rangeSlider.min.js',
         );
@@ -43,6 +46,7 @@ class PropertyController extends Controller
         ));
 
         $data['js'] = array(
+            'comman_function.js',
             'property.js',
             'home.js'
         );
@@ -51,9 +55,18 @@ class PropertyController extends Controller
             'Property.calculation()',
         );
         
+        $session = $request->session()->all();
         $objPropetyList = new PropertyDetails();
-        $data['property'] = $objPropetyList->getPropertyList();
+        if(isset($session['logindata'])){
+          $data['loginId'] = $session['logindata'][0]['id'];
+          $data['favourite'] = $objPropetyList->faveProperty($session['logindata'][0]['id']);
+        }else{
+          $data['loginId'] = '';
+          $data['favourite'] = '';
+        }
         
+        
+        $data['property'] = $objPropetyList->getPropertyList();
         return view('frontend.pages.property.propertylist', $data);
     }
     
@@ -97,23 +110,58 @@ class PropertyController extends Controller
             'property.js',
         );
         $data['funinit'] = array(
-            'Property.calculation()',
+            'Property.fancy()',
             'Property.mapint()',
             'Property.form()',
         );
         
+        
+        $session = $request->session()->all();
+        
         $objPropetyDetail = new PropertyDetails();
+        if(isset($session['logindata'])){
+          $data['loginId'] = $session['logindata'][0]['id'];
+          $data['favourite'] = $objPropetyDetail->faveProperty($session['logindata'][0]['id']);
+        }else{
+          $data['loginId'] = '';
+          $data['favourite'] = '';
+        }
+        
         $data['propertyDetail'] = $objPropetyDetail->getPropertyDetail($slug);
         if(empty($data['propertyDetail'])){
             return redirect('property')->with('error', 'Property not found');
         }
         
-        $objRecentPropety = new PropertyDetails();
-        $data['recentPropety'] = $objRecentPropety->getRecentProperty($slug);
+        
+        $data['recentPropety'] = $objPropetyDetail->getRecentProperty($slug);
         
         return view('frontend.pages.property.propertydetails', $data);
     }
-
+    
+    public function favourite(Request $request){
+        
+        if($request->isMethod("post")) {
+            $objFav = new Favourite();
+            $res = $objFav->addFav($request);
+             if($res){
+                    if($res == 'added'){
+                        $return['message'] = 'Favourite added successfully';
+                    }else{
+                        $return['message'] = 'Favourite remove successfully';
+                    }
+                   $return['status'] = 'success';
+                   $return['reload'] = 'true';
+                    }else{
+                        $return['status'] = 'error';
+                        $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Login");';
+                        $return['message'] = 'Invalid Login Id/Password';
+                    }
+               echo json_encode($return); exit(); 
+        }else{
+            return redirect('home');
+        }
+    }
+    
     public function  videocallschedule(Request $request){
         if($request->isMethod("post")) {
             $objSendmail = new Sendmail();
@@ -176,7 +224,7 @@ class PropertyController extends Controller
     
     public function reportProperty(Request $request , $propertyId){
         if(isset($propertyId)){
-            $session = $request->session()->all();{
+            $session = $request->session()->all();
                 if(isset($session['logindata'])){
                     
                  if($request->isMethod("post")) {
@@ -230,7 +278,6 @@ class PropertyController extends Controller
                 }else{
                     return redirect('signin');
                 }
-            }
         }else{
             return redirect('property');
         }

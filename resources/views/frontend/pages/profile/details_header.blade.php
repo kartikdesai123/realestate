@@ -34,10 +34,10 @@ $currentRoute = Route::current()->getName();
             </a>
           </li>
           <li class="nav-item">
-              <a class="nav-link " href="{{ route("my-property")}}"><i class="fas fa-home"></i> Saved Homes</a>
+              <a class="nav-link {{ $currentRoute == 'save-homes' ? 'active': ''}}" href="{{ route("save-homes")}}"><i class="fas fa-home"></i> Saved Homes</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="{{ route("my-property")}}"><i class="fas fa-truck-moving"></i> Saved Rentals</a>
+              <a class="nav-link {{ $currentRoute == 'save-rental' ? 'active': ''}}" href="{{ route("save-rental")}}"><i class="fas fa-truck-moving"></i> Saved Rentals</a>
           </li>
         </ul>
       </div>

@@ -42,7 +42,16 @@ var lng = '<?php echo $propertyDetail[0]['longitude']?>';
                     <!--<li> <a href="#"><i class="fab fa-instagram"></i></a> </li>-->
                   </ul>
                 </li>
-                <li><a href="#" data-toggle="tooltip" data-placement="top" title="Favourite" > <i class="fas fa-heart"  ></i> </a></li>
+                @php 
+                       $color = '';
+                       if(is_array($favourite)){
+                            if(in_array($propertyDetail[0]['id'],$favourite)){
+                              $color = 'color: red !important;';  
+                            }
+                       }
+                       @endphp
+                <li><a class="favourite" data-login-id="{{ $loginId }}" data-property-id="{{ $propertyDetail[0]['id'] }}" data-user-id="{{ $propertyDetail[0]['user_id'] }}" 
+                       data-href="{{ route('property-favourite') }}" data-toggle="tooltip" data-placement="top" title="Favourite" > <i class="fas fa-heart"  style="{{ $color }}"></i> </a></li>
                 <li><a href="#" data-toggle="tooltip" data-placement="top"  title="Compare"> <i class="fas fa-exchange-alt"  ></i> </a></li>
                 <li><a href="{{ route("report-property",$propertyDetail[0]['id'])}}" target="_blank" data-toggle="tooltip" data-placement="top" title="Report"> <i class="fa fa-exclamation-triangle"></i> </a></li>
                

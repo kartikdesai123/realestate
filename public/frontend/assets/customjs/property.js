@@ -95,10 +95,46 @@ var Property = function() {
             handleAjaxFormSubmit(form);
         });
     }
+    
+    var favorite = function(){
+        $('.favourite').on('click',function(){
+           var propertyId = $(this).data('property-id');
+           var userId = $(this).data('user-id');
+           var loginId = $(this).data('login-id');
+           var url = $(this).data('href');
+           
+            if(loginId != ''){
+                if(userId != loginId){
+                    var data = {login_id : loginId ,property_id : propertyId}; 
+                    $.ajax({
+                        type: "POST",
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                        },
+                        url: url,
+                        data: data,
+                        success: function(data) {
+                            handleAjaxResponse(data);
+                        }
+                    });
+                }else{
+                    alert('You can not favourite this property because this property alrady added by you');
+                }
+            }else{
+                window.location.href = '/signin';
+            }
+        });
+    }
+    
     return {
         calculation: function() {
             mortgage_calculation();
+            favorite();
+        },
+        fancy : function(){
+            mortgage_calculation();
             $(".fancybox").fancybox();
+            favorite();
         },
         mapint: function(){
             var uluru = {lat: parseFloat(lat), lng: parseFloat(lng)};

@@ -527,7 +527,7 @@ class LoginController extends Controller
         $session = $request->session()->all();
         
         if(isset($session['logindata'])){
-
+            $data['page_name'] = 'Save Property';
             $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || My Property';
             $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || My Property';
             $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || My Property';
@@ -563,7 +563,90 @@ class LoginController extends Controller
         }else{
             return redirect('signin');
         }
-       
+    }
+    
+    public function saveHomes(Request $request){
+        $session = $request->session()->all();
+        
+        if(isset($session['logindata'])){
+            $data['page_name'] = 'Save Property';
+            $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Save Property';
+            $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Save Property';
+            $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Save Property';
+
+            $data['css'] = array(
+                
+            );
+
+            $data['plugincss'] = array();
+            $data['pluginjs'] = array(
+            );
+
+            $data['js'] = array(
+                'comman_function.js',
+                'ajaxfileupload.js',
+                'jquery.form.min.js',
+                'myprofile.js'
+            );
+            $data['funinit'] = array(
+            );
+
+            $data['header'] = array(
+                'breadcrumb' => array(
+                    'Home' => route("home"),
+                    'My Profile' => route("my-profile"),
+                    'My Property' => "My Property",
+            ));
+            
+            $objPropetyList = new PropertyDetails();
+            $data['property'] = $objPropetyList->saveHomes($session['logindata'][0]['id'],'sale');
+            
+            return view('frontend.pages.profile.myproperty', $data);
+        }else{
+            return redirect('signin');
+        }
+    }
+    
+    public function saveRental(Request $request){
+        $session = $request->session()->all();
+        
+        if(isset($session['logindata'])){
+            $data['page_name'] = 'Rental Property';
+            $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Save Rental Property';
+            $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Save Rental Property';
+            $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Save Rental Property';
+
+            $data['css'] = array(
+                
+            );
+
+            $data['plugincss'] = array();
+            $data['pluginjs'] = array(
+            );
+
+            $data['js'] = array(
+                'comman_function.js',
+                'ajaxfileupload.js',
+                'jquery.form.min.js',
+                'myprofile.js'
+            );
+            $data['funinit'] = array(
+            );
+
+            $data['header'] = array(
+                'breadcrumb' => array(
+                    'Home' => route("home"),
+                    'My Profile' => route("my-profile"),
+                    'My Property' => "My Property",
+            ));
+            
+            $objPropetyList = new PropertyDetails();
+            $data['property'] = $objPropetyList->saveHomes($session['logindata'][0]['id'],'rent');
+            
+            return view('frontend.pages.profile.myproperty', $data);
+        }else{
+            return redirect('signin');
+        }
     }
 
 

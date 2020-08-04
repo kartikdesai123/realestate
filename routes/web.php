@@ -36,6 +36,8 @@ Route::match(['get', 'post'], 'user-logout', ['as' => 'user-logout', 'uses' => '
 Route::match(['get', 'post'], 'my-profile', ['as' => 'my-profile', 'uses' => 'frontend\LoginController@myprofile']);
 Route::match(['get', 'post'], 'change-password', ['as' => 'change-password', 'uses' => 'frontend\LoginController@changepasswpord']);
 Route::match(['get', 'post'], 'my-property', ['as' => 'my-property', 'uses' => 'frontend\LoginController@myproperty']);
+Route::match(['get', 'post'], 'save-homes', ['as' => 'save-homes', 'uses' => 'frontend\LoginController@saveHomes']);
+Route::match(['get', 'post'], 'save-rental', ['as' => 'save-rental', 'uses' => 'frontend\LoginController@saveRental']);
 
 
 // Submit Property
@@ -53,6 +55,7 @@ Route::match(['get', 'post'], 'approve-video-call-request/{id}', ['as' => 'appro
 Route::match(['get', 'post'], 'reject-video-call-request/{id}', ['as' => 'reject-video-call-request', 'uses' => 'frontend\PropertyController@reject']);
 
 // Property VIsit
+Route::match(['get', 'post'], 'property-favourite', ['as' => 'property-favourite', 'uses' => 'frontend\PropertyController@favourite']);
 Route::match(['get', 'post'], 'personal-visit-schedule', ['as' => 'personal-visit-schedule', 'uses' => 'frontend\PropertyController@personalvisit']);
 Route::match(['get', 'post'], 'approve-personal-visit-request/{id}', ['as' => 'approve-personal-visit-request', 'uses' => 'frontend\PropertyController@visitapprove']);
 Route::match(['get', 'post'], 'reject-personal-visit-request/{id}', ['as' => 'reject-personal-visit-request', 'uses' => 'frontend\PropertyController@visitreject']);

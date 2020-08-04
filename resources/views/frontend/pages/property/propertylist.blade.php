@@ -241,7 +241,19 @@ Listing – grid view -->
                     <a class="property-link" href="{{ route("property-details",$value['slug'])}}" target="_blank">See Details</a>
                     <ul class="property-listing-actions list-unstyled mb-0">
                       <li class="property-compare"><a data-toggle="tooltip" data-placement="top" title="Compare" href="#"><i class="fas fa-exchange-alt"></i></a></li>
-                      <li class="property-favourites"><a data-toggle="tooltip" data-placement="top" title="Favourite" href="#"><i class="far fa-heart"></i></a></li>
+                       @php 
+                       $color = '';
+                       if(is_array($favourite)){
+                            if(in_array($value['id'],$favourite)){
+                              $color = 'color: red !important;';  
+                            }
+                       }
+                       @endphp
+                      <li class="property-favourites">
+                          <a class="favourite" data-login-id="{{ $loginId }}" data-property-id="{{ $value['id'] }}" 
+                             data-user-id="{{ $value['user_id']}}" data-href="{{ route('property-favourite') }}" data-toggle="tooltip" data-placement="top" 
+                             title="Favourite" href="javascript:;"><i class="far fa-heart" style="{{ $color }}"></i></a>
+                      </li>
                     </ul>
                   </div>
                 </div>
