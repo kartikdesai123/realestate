@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Companydetails extends Model
 {
-    protected $table="companydetails";
+    protected $table="companyDetails";
 
     public function getCompanydetails($id){
-        return Users::select("companydetails.*")
-                    ->leftjoin("companydetails","companydetails.user_id","=","users.id")
+        return Users::select("companyDetails.*")
+                    ->leftjoin("companyDetails","companyDetails.user_id","=","users.id")
                     ->where("users.id",$id)
                     ->get();
     }

@@ -146,7 +146,7 @@ class Users extends Model
                     );
                 }
                 if($role  == "CC"){
-                    $result = DB::table('companydetails')->updateOrInsert(
+                    $result = DB::table('companyDetails')->updateOrInsert(
                         ['user_id' => $id],
                         [  
                             'user_id' => $id, 
@@ -245,8 +245,8 @@ class Users extends Model
     }
 
     public function companyListHome($userType){
-        return Users::select("users.username","users.email","users.userimage","users.phoneno","users.about","users.id","companydetails.location")
-                    ->leftjoin("companydetails","companydetails.user_id","=","users.id")
+        return Users::select("users.username","users.email","users.userimage","users.phoneno","users.about","users.id","companyDetails.location")
+                    ->leftjoin("companyDetails","companyDetails.user_id","=","users.id")
                     ->where("users.roles",$userType)
                     ->where("users.email_verfied","1")
                     ->where("users.isDeleted","0")
@@ -266,8 +266,8 @@ class Users extends Model
                     ->get();
     }
     public function companyDetail($id){
-        return Users::select("users.username","users.email","users.userimage","users.phoneno","users.about","users.id","companydetails.*")
-                    ->leftjoin("companydetails","companydetails.user_id","=","users.id")
+        return Users::select("users.username","users.email","users.userimage","users.phoneno","users.about","users.id","companyDetails.*")
+                    ->leftjoin("companyDetails","companyDetails.user_id","=","users.id")
                     ->where("users.id",$id)
                     ->get();
     }
