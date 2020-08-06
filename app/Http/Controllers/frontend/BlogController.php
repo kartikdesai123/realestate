@@ -26,12 +26,14 @@ class BlogController extends Controller
 //        print_r($data['generalSettings']); exit();
         if($getId){
             // editdetails
-            $objBlogcategory = new Blogcategory();
-            $data['blog'] = $objBlogcategory->editdetails($getId);
+            // $objBlogcategory = new Blogcategory();
+            // $data['blog'] = $objBlogcategory->editdetails($getId);
 
             $objBlog = new Blog();
             $data['getBlogList'] = $objBlog->getBlogList($getId);
         }else{
+
+
             $objBlog = new Blog();
             $data['getBlogList'] = $objBlog->getBlogList();
         }

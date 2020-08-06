@@ -32,13 +32,17 @@ Mortgage Interest Rates -->
                 <table class="table table-bordered table-striped mb-0">
                     <thead>
                     <tr>
-                        <td></td>
+                        <th>
+                            <center>
+                            <h2>Pricing table</h2>
+                            </center>
+                        </th>
                         @foreach($plandetails as $key => $value)
                             <th>
                                 <center>
                                     <h4>{{ $value->planprice == 0 ? '' : "$".$value->planprice}}</h4>
                                     <h3 style="color: #26ae61">{{ $value->planname }}</h3>
-                                    <h4>{{ $value->plandays == 0 ? '' : $value->plandays." - Days" }}</h4>
+                                    <h4>Per Annum</h4>
                                 </center>
                             </th>
                         @endforeach
@@ -47,7 +51,7 @@ Mortgage Interest Rates -->
                     <tbody>
                     
                     <tr>
-                        <td><center>Number of Property</center></td>
+                        <td><center>Number of Properties / per plan</center></td>
                         @foreach($plandetails as $key => $value)
                             @if($value->planproperty  < 2)
                                 <td><center>{{ $value->planproperty }}</center></td>
@@ -58,10 +62,10 @@ Mortgage Interest Rates -->
                         @endforeach
                     </tr>
                     <tr>
-                        <td><center>Number of Agent</center></td>
+                        <td><center>Number of Agents / per plan</center></td>
                         @foreach($plandetails as $key => $value)
                             @if($value->planagent  < 2)
-                                <td><center>{{ $value->planagent }}</center></td>
+                                <td><center>Up to {{ $value->planagent }}</center></td>
                             @else
                                 <td><center>Up to {{ $value->planagent }}</center></td>
                             @endif
@@ -69,26 +73,26 @@ Mortgage Interest Rates -->
                         @endforeach
                     </tr>
                     <tr>
-                        <td><center>Number of Video</center></td>
+                        <td><center>Number of Videos / per property</center></td>
                         @foreach($plandetails as $key => $value)
-                            <td><center>{{ $value->noofvideo }}</center></td>
+                            <td><center>Up to  {{ $value->noofvideo }}</center></td>
                         @endforeach
                     </tr>
                     <tr>
-                        <td><center>Number of Photo</center></td>
+                        <td><center>Number of Photos / per property</center></td>
                         @foreach($plandetails as $key => $value)
-                            <td><center>{{ $value->photos }}</center></td>
+                            <td><center>Up to {{ $value->photos }}</center></td>
                         @endforeach
                     </tr>
                     <tr>
-                        <td><center>Number of Audiobook</center></td>
+                        <td><center>Number of Audiobooks / per property</center></td>
                         @foreach($plandetails as $key => $value)
-                            <td><center>{{ $value->audiobook }}</center></td>
+                            <td><center>Up to {{ $value->audiobook }}</center></td>
                         @endforeach
                     </tr>
 
                     <tr>
-                        <td><center>Virtual tour booking</center></td>
+                        <td><center>Virtual tour booking / per property</center></td>
                         @foreach($plandetails as $key => $value)
                         <td><center>
                             @if($value->tourBooking == "Y")
