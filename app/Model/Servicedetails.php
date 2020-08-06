@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Servicedetails extends Model
 {
     //
-    protected $table = "serviceDetails";
+    protected $table = "servicedetails";
 
     public function getDetails(){
         return Servicedetails::select("serviceDetails")
