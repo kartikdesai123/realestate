@@ -8,9 +8,9 @@ Blog -->
         <div class="col-12">
           <div class="section-title">
             @if(count($getBlogList) > 0)
-              <h2> {{ $getBlogList[0]->blogCategoryName }}</h2>
+              {{-- <h2> {{ $getBlogList[0]->blogCategoryName }}</h2> --}}
             @else
-              <h2> {{ $blog[0]->blogCategoryName }}</h2>
+              
             @endif
           </div>
         </div>

@@ -139,6 +139,7 @@ class Blog extends Model
     }
 
     public function getBlogList($categoryid=null){
+    
         if($categoryid){
             return  $query = Blog ::from('blog')
                         ->join("blogcategory","blogcategory.id","=","blog.category")
