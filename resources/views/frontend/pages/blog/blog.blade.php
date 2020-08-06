@@ -7,16 +7,16 @@ Blog -->
       <div class="row">
         <div class="col-12">
           <div class="section-title">
-            @if(count($getBlogList) > 0)
+            @if(count($getBlogList))
               <h2> {{ $getBlogList[0]->blogCategoryName }}</h2>
             @else
-              <h2> {{ $blog[0]->blogCategoryName }}</h2>
+              <h2> {{ @$blog[0]->blogCategoryName }}</h2>
             @endif
           </div>
         </div>
       </div>
       <div class="row">
-        @if(count($getBlogList) > 0)
+        @if(count($getBlogList))
         <div class="col-lg-8">
           @foreach($getBlogList as $key => $value)
             
@@ -57,7 +57,7 @@ Blog -->
         </div>
         @else
         <div class="col-lg-8">
-          <h4 style="color: red"> No any blog in  {{ $blog[0]->blogCategoryName }} category</h4>
+          <h4 style="color: red"> No any blog in  {{ @$blog[o]->blogCategoryName }} category</h4>
         </div>
         @endif
         <div class="col-lg-4 mt-4 mt-lg-0">
@@ -73,6 +73,7 @@ Blog -->
                 
               </ul>
             </div>
+              @if(count($generalSettings))
             <div class="widget">
               <div class="widget-title">
                 <h6>Subscribe & Follow</h6>
@@ -102,6 +103,7 @@ Blog -->
                 </ul>
               </div>
             </div>
+              @endif
           </div>
         </div>
       </div>

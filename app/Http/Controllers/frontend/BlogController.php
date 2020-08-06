@@ -23,7 +23,7 @@ class BlogController extends Controller
 
         $objGeneralSettings = new GeneralSettings();
         $data['generalSettings'] = $objGeneralSettings->getGeneralSettings();
-
+//        print_r($data['generalSettings']); exit();
         if($getId){
             // editdetails
             $objBlogcategory = new Blogcategory();
@@ -35,7 +35,7 @@ class BlogController extends Controller
             $objBlog = new Blog();
             $data['getBlogList'] = $objBlog->getBlogList();
         }
-        
+//        print_r($data['getBlogList'][0]->blogCategoryName); exit();
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Blogs';
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Blogs';
         $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Blogs';
