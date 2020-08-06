@@ -232,6 +232,7 @@ class Users extends Model
                     ->where("users.roles",$userType)
                     ->where("users.email_verfied","1")
                     ->where("users.isDeleted","0")
+                    ->orderBy("users.id","DESC")
                     ->paginate(4);
     }
 
@@ -241,6 +242,7 @@ class Users extends Model
                     ->where("users.roles",$userType)
                     ->where("users.email_verfied","1")
                     ->where("users.isDeleted","0")
+                    ->orderBy("users.id","DESC")
                     ->paginate(4);
     }
 
@@ -250,6 +252,7 @@ class Users extends Model
                     ->where("users.roles",$userType)
                     ->where("users.email_verfied","1")
                     ->where("users.isDeleted","0")
+                    ->orderBy("users.id","DESC")
                     ->paginate(4);
     }
 
