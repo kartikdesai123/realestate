@@ -146,6 +146,50 @@ My profile -->
               </div>
                 
               @endif
+              @if($data['roles'] == "CC")
+                
+                <div class="form-group col-md-6">
+                  <label>Location</label>
+                  <input type="text" class="form-control" name="location" placeholder="Please enter your company location" value="{{ $companyDetails[0]->location }}">
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label>Facebook</label>
+                  <input type="text" class="form-control" name="facebook" placeholder="Please enter your company facebook link" value="{{ $companyDetails[0]->facebook }}">
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label>Twitter</label> 
+                  <input type="text" class="form-control" name="twitter" placeholder="Please enter your company twitter link" value="{{ $companyDetails[0]->twitter }}">
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label>Linkedin</label>
+                  <input type="text" class="form-control" name="linkedin" placeholder="Please enter your company linkedin link" value="{{ $companyDetails[0]->linkedin }}">
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label>Website</label>
+                  <input type="text" class="form-control" name="website" placeholder="Please enter your company website" value="{{ $companyDetails[0]->website }}">
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label>Licenses</label>
+                  <input type="text" class="form-control" name="licenses" placeholder="Please enter your company licenses no" value="{{ $companyDetails[0]->licenses }}">
+                </div>
+                
+                
+                <div class="form-group col-md-6">
+                  <label>Office Phone No</label>
+                  <input type="text" class="form-control" name="officeno" placeholder="Please enter your company officr phone no" value="{{ $companyDetails[0]->officeno }}">
+                </div>
+
+                <div class="form-group col-md-12">
+                  <label>Overview</label>
+                  <textarea class="form-control" rows="4" placeholder="Please enter your company overview" name="overview">{{ $companyDetails[0]->overview }}</textarea>
+              </div>
+                
+              @endif
 
               
 

@@ -5,6 +5,9 @@ namespace App\Http\Controllers\frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Config;
+use App\Model\Users;
+use App\Model\Companydetails;
+use App\Model\PropertyDetails;
 class CompanyController extends Controller
 {
     function __construct(){
@@ -12,6 +15,9 @@ class CompanyController extends Controller
     }
 
     public function companyList(Request $request){
+
+        $objUsers =  new Users();
+        $data['companyList'] = $objUsers->companyListHome("CC");
 
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Company List';
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Company List';
@@ -38,7 +44,14 @@ class CompanyController extends Controller
         return view('frontend.pages.company.list', $data);
     }
     
-    public function companyDetail(Request $request){
+    public function companyDetail(Request $request,$companyId){
+        $session = $request->session()->all();
+
+        $objPropertyDetails = new PropertyDetails();
+        $data['propertyList'] = $objPropertyDetails->getPropertyList($companyId);
+
+        $objUsers = new Users();
+        $data['companyDetail'] = $objUsers->companyDetail($companyId);
 
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Company Detail';
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Company Detail';

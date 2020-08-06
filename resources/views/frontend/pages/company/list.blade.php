@@ -84,92 +84,38 @@ about -->
           </div>
         </div>
       </div>
+      
       <div class="col-lg-9 col-md-8">
         <div class="property-filter d-sm-flex">
          
         </div>
         <div class="row">
+
+          @foreach($companyList as $key => $value)
           <div class="col-lg-6 col-sm-6">
             <div class="agent text-center mt-4">
               <div class="agent-detail">
                 <div class="agent-avatar avatar avatar-xllll">
-                  <img class="img-fluid rounded-circle" src="{{ asset('public/frontend/assets/images/agency/01.png') }}" alt="">
+                  <img class="img-fluid rounded-circle" src="{{ asset('public/upload/userimage/'.$value->userimage) }}" alt="">
                 </div>
                 <div class="agent-info">
-                  <h6> <a href="{{ route("company-details",'1')}}">Duplex estates</a></h6>
-                  <span><i class="fas fa-map-marker-alt fa-xs pr-2"></i>Virginia drive temple hills</span>
-                  <p class="mt-3 mb-0">And it's not just parents that are the cause â€“ teachers, friends, clergy members or anyone else that has.</p>
+                  <h6> <a href="{{ route("company-details",$value->id)}}">{{ $value->username }}</a></h6>
+                  <span><i class="fas fa-map-marker-alt fa-xs pr-2"></i>{{ $value->location }}</span>
+                  <p class="mt-3 mb-0">{{ $value->about }}</p>
                 </div>
               </div>
               <div class="agent-button">
-                <a class="btn btn-light btn-block" href="{{ route("company-details",'1')}}">View Profile</a>
+                <a class="btn btn-light btn-block" href="{{ route("company-details",$value->id)}}">View Profile</a>
               </div>
             </div>
           </div>
-          <div class="col-lg-6 col-sm-6">
-            <div class="agent text-center mt-4">
-              <div class="agent-detail">
-                <div class="agent-avatar avatar avatar-xllll">
-                  <img class="img-fluid rounded-circle" src="{{ asset('public/frontend/assets/images/agency/02.png') }}" alt="">
-                </div>
-                <div class="agent-info">
-                  <h6> <a href="{{ route("company-details",'1')}}">Business estates </a></h6>
-                  <span><i class="fas fa-map-marker-alt fa-xs pr-2"></i>West Indian Summer St. Missoula</span>
-                  <p class="mt-3 mb-0">â€œNothing changes until something moves this is the battle cry of author and journalist Robert Ringer.</p>
-                </div>
-              </div>
-              <div class="agent-button">
-                <a class="btn btn-light btn-block" href="{{ route("company-details",'1')}}">View Profile</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 col-sm-6">
-            <div class="agent text-center mt-4">
-              <div class="agent-detail">
-                <div class="agent-avatar avatar avatar-xllll">
-                  <img class="img-fluid rounded-circle" src="{{ asset('public/frontend/assets/images/agency/03.png') }}" alt="">
-                </div>
-                <div class="agent-info">
-                  <h6> <a href="{{ route("company-details",'1')}}">Green house </a></h6>
-                  <span><i class="fas fa-map-marker-alt fa-xs pr-2"></i>Fairground St. North Bergen, NJ</span>
-                  <p class="mt-3 mb-0">So, there you have it; the six steps that will help you to the fabled land of achievement and success!</p>
-                </div>
-              </div>
-              <div class="agent-button">
-                <a class="btn btn-light btn-block" href="{{ route("company-details",'1')}}">View Profile</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 col-sm-6">
-            <div class="agent text-center mt-4">
-              <div class="agent-detail">
-                <div class="agent-avatar avatar avatar-xllll">
-                  <img class="img-fluid rounded-circle" src="{{ asset('public/frontend/assets/images/agency/04.png') }}" alt="">
-                </div>
-                <div class="agent-info">
-                  <h6> <a href="{{ route("company-details",'1')}}">leaf apartments </a></h6>
-                  <span><i class="fas fa-map-marker-alt fa-xs pr-2"></i>Piper Drive Zion</span>
-                  <p class="mt-3 mb-0">Franklins extraordinary success in life and politics can be attributed to his perseverance to overcome his.</p>
-                </div>
-              </div>
-              <div class="agent-button">
-                <a class="btn btn-light btn-block" href="{{ route("company-details",'1')}}">View Profile</a>
-              </div>
-            </div>
-          </div>
+          @endforeach
+         
         </div>
         <div class="row">
           <div class="col-12">
             <ul class="pagination mt-5">
-              <li class="page-item disabled mr-auto">
-                <span class="page-link b-radius-none">Prev</span>
-              </li>
-              <li class="page-item active" aria-current="page"><span class="page-link">1 </span> <span class="sr-only">(current)</span></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item ml-auto">
-                <a class="page-link b-radius-none" href="#">Next</a>
-              </li>
+              {{ $companyList->links() }}
             </ul>
           </div>
         </div>

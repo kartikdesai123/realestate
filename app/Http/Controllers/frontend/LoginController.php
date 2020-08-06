@@ -25,6 +25,7 @@ use App\Model\PropertyVideo;
 use App\Model\PropertyDetails;
 use App\Model\AgentDetails;
 use App\Model\AgencyDetails;
+use App\Model\Companydetails;
 use DB;
 class LoginController extends Controller
 {
@@ -449,6 +450,11 @@ class LoginController extends Controller
             if($session['logindata'][0]['roles'] == "AG"){
                 $objAgencyDetails = new AgentDetails();
                 $data['agentDetails'] = $objAgencyDetails->getAgentDetails($session['logindata'][0]['id']);
+
+            }
+            if($session['logindata'][0]['roles'] == "CC"){
+                $objCompanydetails = new Companydetails();
+                $data['companyDetails'] = $objCompanydetails->getCompanydetails($session['logindata'][0]['id']);
 
             }
             

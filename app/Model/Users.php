@@ -145,6 +145,24 @@ class Users extends Model
                         ]        
                     );
                 }
+                if($role  == "CC"){
+                    $result = DB::table('companydetails')->updateOrInsert(
+                        ['user_id' => $id],
+                        [  
+                            'user_id' => $id, 
+                            'location' => $request->input('location'), 
+                            'facebook' => $request->input('facebook'), 
+                            'twitter' => $request->input('twitter'), 
+                            'linkedin' => $request->input('linkedin'), 
+                            'website' => $request->input('website'), 
+                            'licenses' => $request->input('licenses'), 
+                            'officeno' => $request->input('officeno'),
+                            'overview' => $request->input('overview'),
+                            "created_at" => date("Y-m-d h:i:s"),
+                            "updated_at" => date("Y-m-d h:i:s")
+                        ]        
+                    );
+                }
                 
                 
                 return "true";
@@ -226,17 +244,32 @@ class Users extends Model
                     ->paginate(4);
     }
 
+    public function companyListHome($userType){
+        return Users::select("users.username","users.email","users.userimage","users.phoneno","users.about","users.id","companydetails.location")
+                    ->leftjoin("companydetails","companydetails.user_id","=","users.id")
+                    ->where("users.roles",$userType)
+                    ->where("users.email_verfied","1")
+                    ->where("users.isDeleted","0")
+                    ->paginate(4);
+    }
+
     public function agentDetail($id){
         return Users::select("users.username","users.email","users.userimage","users.phoneno","users.about","users.id","agentdetails.*")
                     ->leftjoin("agentdetails","agentdetails.user_id","=","users.id")
                     ->where("users.id",$id)
-                    ->paginate(4);
+                    ->get();
     }
     public function agencyDetail($id){
         return Users::select("users.username","users.email","users.userimage","users.phoneno","users.about","users.id","agencydetails.*")
                     ->leftjoin("agencydetails","agencydetails.user_id","=","users.id")
                     ->where("users.id",$id)
-                    ->paginate(4);
+                    ->get();
+    }
+    public function companyDetail($id){
+        return Users::select("users.username","users.email","users.userimage","users.phoneno","users.about","users.id","companydetails.*")
+                    ->leftjoin("companydetails","companydetails.user_id","=","users.id")
+                    ->where("users.id",$id)
+                    ->get();
     }
 
     public function agentListHome(){

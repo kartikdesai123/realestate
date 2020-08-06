@@ -26,9 +26,16 @@
                     </div>
                     <div class="agent-social ml-auto">
                       <ul class="list-unstyled list-inline">
-                        <li class="list-inline-item"><a href="{{ $agencyDetail[0]->facebook }}" target="_blank"><i class="fab fa-facebook-f"></i> </a></li>
-                        <li class="list-inline-item"><a href="{{ $agencyDetail[0]->twitter }}" target="_blank"><i class="fab fa-twitter"></i> </a></li>
-                        <li class="list-inline-item"><a href="{{ $agencyDetail[0]->linkedin }}" target="_blank"><i class="fab fa-linkedin"></i> </a></li>
+                        @if($agencyDetail[0]->facebook)
+                          <li class="list-inline-item"><a href="{{ $agencyDetail[0]->facebook }}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                        @endif
+                        @if($agencyDetail[0]->twitter)
+                          <li class="list-inline-item"><a href="{{ $agencyDetail[0]->twitter }}" target="_blank"><i class="fab fa-twitter"></i> </a></li>
+                        @endif
+                        @if($agencyDetail[0]->linkedin)
+                          <li class="list-inline-item"><a href="{{ $agencyDetail[0]->linkedin }}" target="_blank"><i class="fab fa-linkedin"></i> </a></li>
+                        @endif
+                        
                       </ul>
                     </div>
                   </div>
