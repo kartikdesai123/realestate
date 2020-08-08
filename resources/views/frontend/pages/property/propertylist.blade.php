@@ -195,7 +195,10 @@ Listing – grid view -->
             <div class="row no-gutters">
               <div class="col-lg-4 col-md-5">
                 <div class="property-image bg-overlay-gradient-04">
-                  <img class="img-fluid" src="{{ asset('public/upload/property_photo/'.$imageCount[0]) }}" alt="">
+                    <div class="property_listing">
+                        <img class="img-fluid" src="{{ asset('public/upload/property_photo/'.$imageCount[0]) }}" alt="">
+                    </div>
+                  
                   <div class="property-lable">
                     <span class="badge badge-md badge-primary">{{ ucfirst($value['type']) }}</span>
                     <span class="badge badge-md badge-info">{{ ucfirst($value['offer']) }}</span>

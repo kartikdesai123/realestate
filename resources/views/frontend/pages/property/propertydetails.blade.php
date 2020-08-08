@@ -60,7 +60,7 @@ var lng = '<?php echo $propertyDetail[0]['longitude']?>';
           </div>
         </div>
         <div class="row">
-          <div class="col-lg-4 mb-5 mb-lg-0 order-lg-2">
+          <div class="col-lg-4 mb-5 mb-lg-0 order-lg-2 order-md-2 order-sm-2 order-2">
             <div class="sticky-top">
               <div class="sidebar">
                 <div class="agent-contact mb-4">
@@ -216,12 +216,17 @@ var lng = '<?php echo $propertyDetail[0]['longitude']?>';
                       $images = explode(',',$propertyDetail[0]['images'])
                       @endphp
                       @foreach($images as $value)
-                        <img class="img-fluid" src="{{ asset('public/upload/property_photo/'.$value) }}" alt="">
+                        <div class="detail_image">
+                            <img class="img-fluid" src="{{ asset('public/upload/property_photo/'.$value) }}" alt="">
+                        </div>
                       @endforeach
                     </div>
                     <div class="slider slider-nav">
                       @foreach($images as $value)
-                        <img class="img-fluid" src="{{ asset('public/upload/property_photo/'.$value) }}" alt="">
+                      <div class="detail_image_slide">
+                          <img class="img-fluid" src="{{ asset('public/upload/property_photo/'.$value) }}" alt="">
+                      </div>
+                        
                       @endforeach
                     </div>
                   </div>
@@ -444,7 +449,7 @@ var lng = '<?php echo $propertyDetail[0]['longitude']?>';
                     }
                   @endphp
                     <div class="tab-pane fade {{ $class }}" id="video-{{$i}}" role="tabpanel" aria-labelledby="video-{{$i}}-tab">
-                      <video width="520" height="340" controls>
+                      <video class="property_video" controls>
                             <source src="{{ asset('public/upload/property_video/'.$value) }}">
                           </video>
                     </div>
