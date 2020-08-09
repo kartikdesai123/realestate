@@ -2699,6 +2699,16 @@ button {
             object-fit: cover !important;
                 
         }
+        .compare_property{
+            width:  255px !important;
+            height: 155px !important;
+        }
+        .compare_property img{
+            height : 100% !important;
+            width: 100% !important;
+            object-fit: cover !important;
+                
+        }
         .feature_propertiess{
             height : 217px !important;
         }

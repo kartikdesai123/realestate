@@ -243,7 +243,7 @@ Listing – grid view -->
                   <div class="property-btn">
                     <a class="property-link" href="{{ route("property-details",$value['slug'])}}" target="_blank">See Details</a>
                     <ul class="property-listing-actions list-unstyled mb-0">
-                      <li class="property-compare"><a data-toggle="tooltip" data-placement="top" title="Compare" href="#"><i class="fas fa-exchange-alt"></i></a></li>
+                      <li class="property-compare"><a data-toggle="tooltip"  class="compareProperty" data-slug="{{ $value['slug'] }}" data-placement="top" title="Compare" href="javascript:;"><i class="fas fa-exchange-alt"></i></a></li>
                        @php 
                        $color = '';
                        if(is_array($favourite)){

@@ -46,6 +46,7 @@ class PropertyController extends Controller
         ));
 
         $data['js'] = array(
+//            'js.cookie.min.js',
             'comman_function.js',
             'property.js',
             'home.js'
@@ -72,7 +73,6 @@ class PropertyController extends Controller
     
     public function propertydetails(Request $request,$slug){
         
-        // getPropertyList
         $data['slug'] =$slug;
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Property Details';
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Property Details';
@@ -128,6 +128,15 @@ class PropertyController extends Controller
         }
         
         $data['propertyDetail'] = $objPropetyDetail->getPropertyDetail($slug);
+        $image = explode(',',$data['propertyDetail'][0]['images']);
+        $url = route("property-details",$data['propertyDetail'][0]['slug']);
+        
+        $data['share_socail'] = array(
+            'url' => $url,
+            'title' => $data['propertyDetail'][0]['title'],
+            'description' => $data['propertyDetail'][0]['about_property'],
+            'image' => asset('public/upload/property_photo/'.$image[0]),
+        );
         if(empty($data['propertyDetail'])){
             return redirect('property')->with('error', 'Property not found');
         }
@@ -136,6 +145,38 @@ class PropertyController extends Controller
         $data['recentPropety'] = $objPropetyDetail->getRecentProperty($slug);
         
         return view('frontend.pages.property.propertydetails', $data);
+    }
+    
+    public function compareProperty(Request $request,$slug){
+        
+        $data['slug'] =$slug;
+        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Compare Property';
+        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Compare Property';
+        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Compare Property';
+        $data['css'] = array(
+        );
+        $data['plugincss'] = array();
+        $data['pluginjs'] = array(
+        );
+        $data['header'] = array(
+            'title' => 'About Us',
+            'breadcrumb' => array(
+                'Home' => route("home"),
+                'Compare Property' => 'Compare Property',
+        ));
+      
+        $objExtrafacilities = new Extrafacilities();
+        $data['other'] = $objExtrafacilities->getlist();
+        $objPropetyDetail = new PropertyDetails();
+        $data['compare'] = $objPropetyDetail->compareProperty($slug);
+        
+        unset($_COOKIE['slug1']);
+        unset($_COOKIE['slug2']);
+        
+        setcookie('slug1', null, -1, '/'); 
+        setcookie('slug2', null, -1, '/'); 
+        
+        return view('frontend.pages.property.compare', $data);
     }
     
     public function favourite(Request $request){

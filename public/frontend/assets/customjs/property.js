@@ -47,6 +47,29 @@ var Property = function() {
             $('.finalAmount').val(final);
         });
     }
+    var compare = function(){
+        
+        $('.compareProperty').on('click',function(){
+           var slug = $(this).attr('data-slug');
+           if(typeof $.cookie("slug1") === 'undefined') {
+               $.cookie('slug1',slug);
+           }else{
+               if(slug != $.cookie("slug1")){
+                $.cookie('slug2',slug);
+               }else{
+                   alert('Please select diffrerant pproperty to compare')
+               }
+           }
+            
+            if(typeof $.cookie("slug1") !== 'undefined' && typeof $.cookie("slug2") !== 'undefined'){
+                var slug1 = $.cookie("slug1");
+                var slug2 = $.cookie("slug2");
+                
+                var finalUrl = 'compare-property/' + slug1 + '-compare-' + slug2;
+                window.location.href = finalUrl;
+            }
+        });
+    }
    
     var formvalidation = function(){
 
@@ -130,6 +153,7 @@ var Property = function() {
         calculation: function() {
             mortgage_calculation();
             favorite();
+            compare();
         },
         fancy : function(){
             mortgage_calculation();

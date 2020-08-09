@@ -6,7 +6,26 @@
     <meta content="{{ $description }}" name="description" />
     <meta content="{{ $keywords }}" name="keywords" />
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-
+    
+    <!--share_socail-->
+    
+    @if (@$share_socail) 
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="Realestate" />
+    <meta name="twitter:title" content="{{ $share_socail['title'] }}" />
+    <meta name="twitter:description" content="{{ $share_socail['description'] }}">
+    <meta name="twitter:image" content="{{ $share_socail['image'] }}" />
+    <meta name="twitter:url" content="{{ $share_socail['url'] }}" /> 
+    
+    <meta name="og:url" content="{{ $share_socail['url'] }}" />
+    <meta name="og:type" content="website" />
+    <meta name="og:title" content="{{ $share_socail['title'] }}" />
+    <meta name="og:description" content="{{ $share_socail['description'] }}" />
+    <meta name="og:image" content="{{ $share_socail['image'] }}" />
+    
+    @endif
+    
     <!-- Favicon -->
     <link rel="shortcut icon" href="images/favicon.ico" />
     <!-- Google Font -->

@@ -2,6 +2,7 @@
 <script src="{{ asset('public/frontend/assets/js/jquery-3.4.1.min.js') }}"></script>
 <script src="{{ asset('public/frontend/assets/js/popper/popper.min.js') }}"></script>
 <script src="{{ asset('public/frontend/assets/js/bootstrap/bootstrap.min.js') }}"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBW43KgTNs_Kusuvbian6KYGi_QzXOLS4w"></script>
 
 <!-- Template Scripts (Do not remove)-->

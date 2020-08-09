@@ -36,9 +36,9 @@ var lng = '<?php echo $propertyDetail[0]['longitude']?>';
                 <li class="share-box">
                   <a href="#"> <i class="fas fa-share-alt"></i> </a>
                   <ul class="list-unstyled share-box-social">
-                    <li> <a href="#"><i class="fab fa-facebook-f"></i></a> </li>
-                    <li> <a href="#"><i class="fab fa-twitter"></i></a> </li>
-                    <li> <a href="#"><i class="fab fa-whatsapp"></i></a> </li>
+                    <li> <a href="https://www.facebook.com/sharer/sharer.php?u={{ route("property-details",$propertyDetail[0]['slug'])}}" target="_blank"><i class="fab fa-facebook-f"></i></a> </li>
+                    <li> <a href="https://twitter.com/intent/tweet?url={{ route("property-details",$propertyDetail[0]['slug'])}}" target="_blank"><i class="fab fa-twitter"></i></a> </li>
+                    <li> <a href="https://web.whatsapp.com/send?text={{ route("property-details",$propertyDetail[0]['slug'])}}" target="_blank"><i class="fab fa-whatsapp"></i></a> </li>
                     <!--<li> <a href="#"><i class="fab fa-instagram"></i></a> </li>-->
                   </ul>
                 </li>
