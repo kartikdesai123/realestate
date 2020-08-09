@@ -28,6 +28,7 @@ My profile -->
                 <div class="section-title d-flex align-items-center">
                     <h2>{{ $page_name }} </h2>
                 </div>
+                @if(@$property)
               <div class="row">
                 <div class="col-lg-12">
                   @foreach($property as $key => $value)
@@ -39,7 +40,9 @@ My profile -->
             <div class="row no-gutters">
               <div class="col-lg-4 col-md-5">
                 <div class="property-image bg-overlay-gradient-04">
+                    <div class="my_property_listing">
                   <img class="img-fluid" src="{{ asset('public/upload/property_photo/'.$imageCount[0]) }}" alt="">
+                    </div>
                   <div class="property-lable">
                     <span class="badge badge-md badge-primary">{{ ucfirst($value['type']) }}</span>
                     <span class="badge badge-md badge-info">{{ ucfirst($value['offer']) }}</span>
@@ -84,6 +87,11 @@ My profile -->
                   <div class="property-btn">
                     <a class="property-link" href="{{ route("property-details",$value['slug'])}}" target="_blank">See Details</a>
                     <ul class="property-listing-actions list-unstyled mb-0">
+                        @php
+                        if (!empty(Auth()->guard('users')->user())) {@endphp
+                            <li class="property-assign"><a data-toggle="tooltip" data-placement="top" title="Assign Agent" href="{{ route('assign-agent',['userid' => $value['user_id'],'propertyid' => $value['id']])}}"><i class="fas fa-tasks"></i></a></li>
+                       @php }
+                      @endphp
                       <li class="property-compare"><a data-toggle="tooltip" data-placement="top" title="Compare" href="#"><i class="fas fa-exchange-alt"></i></a></li>
                       <li class="property-favourites"><a data-toggle="tooltip" data-placement="top" title="Favourite" href="#"><i class="far fa-heart"></i></a></li>
                     </ul>
@@ -113,6 +121,7 @@ My profile -->
                   @endif
                 </div>
               </div>
+                @endif
             </div>
           
           <!--=================================

@@ -529,11 +529,12 @@ class LoginController extends Controller
         }
        
     }
+    
     public function myproperty(Request $request){
         $session = $request->session()->all();
         
         if(isset($session['logindata'])){
-            $data['page_name'] = 'Save Property';
+            $data['page_name'] = 'My Property';
             $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || My Property';
             $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || My Property';
             $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || My Property';
@@ -564,7 +565,6 @@ class LoginController extends Controller
             
             $objPropetyList = new PropertyDetails();
             $data['property'] = $objPropetyList->getPropertyList($session['logindata'][0]['id']);
-            
             return view('frontend.pages.profile.myproperty', $data);
         }else{
             return redirect('signin');
@@ -613,6 +613,80 @@ class LoginController extends Controller
         }
     }
     
+    public function assignAgent(Request $request,$userid,$propertyid){
+        $session = $request->session()->all();
+        
+        if(isset($session['logindata'])){
+
+            if ($request->isMethod("post")) {
+                $objUsers = new Users();
+                $result = $objUsers->assignAgent($request);
+                
+                if($result == "true"){
+                    $return['status'] = 'success';
+                    $return['message'] = 'Agent assign successfully to this property';
+                    $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Save change");';
+                    $return['redirect'] = route('my-property');
+                }else{
+                    if($result == "assignalready"){
+                        $return['status'] = 'error';
+                        $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Save change");';
+                        $return['message'] = 'Agent already assign';
+                    }else{
+                        $return['status'] = 'error';
+                        $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Save change");';
+                        $return['message'] = 'Something goes to wrong';
+                    }
+                }
+                return json_encode($return);
+                exit();
+            }
+        
+        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Assign Agent ';
+        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Assign Agent';
+        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Assign Agent';
+
+        $data['css'] = array(
+            'toastr/toastr.min.css',
+            'magnific-popup/magnific-popup.css',
+        );
+
+        $data['plugincss'] = array();
+        $data['pluginjs'] = array(
+            'toastr/toastr.min.js',
+            'validate/jquery.validate.min.js',
+            'jquery.appear.js',
+            'counter/jquery.countTo.js',
+            'magnific-popup/jquery.magnific-popup.min.js',
+        );
+
+        $data['js'] = array(
+            'comman_function.js',
+            'myprofile.js'
+        );
+        $data['funinit'] = array(
+            'Myprofile.assign_agent()'
+        );
+
+        $data['header'] = array(
+            'breadcrumb' => array(
+                'Home' => route("home"),
+                'Assign Agent' => "Assign Agent",
+        ));
+        
+        $objUsers = new Users();
+        $data['agent'] = $objUsers->getAgentList();
+        $data['user_id'] = $userid;
+        $data['property_id'] = $propertyid;
+        
+        $objProperty = new PropertyDetails();
+        $data['property'] = $objProperty->getPropertyInfo($propertyid);
+        return view('frontend.pages.profile.assignagent', $data);
+        
+        }else{
+            return redirect('signin');
+        }
+    }
     public function saveRental(Request $request){
         $session = $request->session()->all();
         

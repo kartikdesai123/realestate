@@ -2699,6 +2699,15 @@ button {
             object-fit: cover !important;
                 
         }
+        .my_property_listing{
+            height : 306px !important;
+        }
+        .my_property_listing img{
+            height : 100% !important;
+            width: 100% !important;
+            object-fit: cover !important;
+                
+        }
         .compare_property{
             width:  255px !important;
             height: 155px !important;

@@ -116,6 +116,7 @@ var Myprofile = function(){
             handleAjaxFormSubmit(form);
         });
     };
+    
     return{
         init:function(){
             updateProfile();
@@ -129,5 +130,6 @@ var Myprofile = function(){
         resetPassword:function(){
             rpassword();
         },
+              
     }
 }();

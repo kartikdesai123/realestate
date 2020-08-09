@@ -128,6 +128,24 @@ var Myprofile = function(){
             handleAjaxFormSubmit(form);
         });
     };
+    
+    var assign_agent = function(){
+        
+        var form = $('#assign-agent');
+        var rules = {
+            agent:{required: true},
+        };
+
+        var messages = {
+            agent:{
+                required: "Please Select agent",
+            },
+        };
+        handleFormValidateWithMsg(form, rules, messages, function (form) {
+            handleAjaxFormSubmit(form);
+        });
+    };
+    
     return{
         init:function(){
             updateProfile();
@@ -141,5 +159,8 @@ var Myprofile = function(){
         resetPassword:function(){
             rpassword();
         },
+        assign_agent:function(){
+            assign_agent();
+        }  
     }
 }();

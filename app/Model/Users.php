@@ -7,6 +7,7 @@ use Hash;
 use App\Model\Emailverify;
 use App\Model\Forgotpassword;
 use App\Model\Sendmail;
+use App\Model\AssignAgent;
 use DB;
 class Users extends Model
 {
@@ -72,6 +73,33 @@ class Users extends Model
         }
     }
 
+    public function getAgentList(){
+        $agentList = Users::where("roles",'AG')->get()->toArray();
+        return $agentList;
+    }
+    
+    public function assignAgent($request){
+        $countAssign = AssignAgent::where("user_id",$request->input('user_id'))
+                        ->where("agent_id",$request->input('agent'))
+                        ->where("property_id",$request->input('property_id'))
+                        ->count(); 
+        
+        if($countAssign != 0){
+            return "assignalready";
+        }else{
+            $assign = new AssignAgent();
+            $assign->user_id = $request->input('user_id');
+            $assign->agent_id = $request->input('agent');
+            $assign->property_id = $request->input('property_id');
+            $assign->created_at = date("Y-m-d h:i:s");
+            $assign->updated_at = date("Y-m-d h:i:s");
+            if ($assign->save()) {
+                return "true";
+            }else{
+                return "wrong";
+            }
+        }
+    }
 
     public function editProfile($request,$id,$role){
         

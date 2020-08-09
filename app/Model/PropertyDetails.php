@@ -313,7 +313,13 @@ class PropertyDetails extends Model {
             return $property;
         }
     }
-
+    
+    public function getPropertyInfo($id){
+        return PropertyDetails::select('property_details.*')
+                        ->where("property_details.id", "=", $id)
+                        ->groupBy('property_details.id')
+                        ->get()->toArray();
+    }
     public function getPropertyDetail($slug) {
 
         $detailProperty = PropertyDetails::select('property_details.*', DB::raw('GROUP_CONCAT(property_photo.name) AS images'), DB::raw('GROUP_CONCAT(DISTINCT (property_audio.name)) AS audio'), DB::raw('GROUP_CONCAT(DISTINCT (property_video.name)) AS video'), 'users.username', 'users.userimage', 'users.phoneno', 'users.roles', 'users.email')

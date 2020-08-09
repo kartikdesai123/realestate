@@ -38,6 +38,7 @@ Route::match(['get', 'post'], 'change-password', ['as' => 'change-password', 'us
 Route::match(['get', 'post'], 'my-property', ['as' => 'my-property', 'uses' => 'frontend\LoginController@myproperty']);
 Route::match(['get', 'post'], 'save-homes', ['as' => 'save-homes', 'uses' => 'frontend\LoginController@saveHomes']);
 Route::match(['get', 'post'], 'save-rental', ['as' => 'save-rental', 'uses' => 'frontend\LoginController@saveRental']);
+Route::match(['get', 'post'], 'assign-agent/{userid}/{propertyid}', ['as' => 'assign-agent', 'uses' => 'frontend\LoginController@assignAgent']);
 
 
 // Submit Property
