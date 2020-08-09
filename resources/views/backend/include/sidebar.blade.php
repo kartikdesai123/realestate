@@ -186,6 +186,16 @@ $currentRoute = Route::current()->getName();
                 </ul>
             </li>
 
+            <li class="nav-item start {{ $currentRoute == "admin-reported-property" ? "active": ""}} ">
+                <a href="{{ route('admin-reported-property') }}" class="nav-link ">
+                    <i class="fa fa-sliders" aria-hidden="true"></i>
+                        <span class="title">Reported Property</span>
+                        @if($currentRoute == "admin-reported-property" )
+                            <span class="selected"></span>
+                        @endif
+                </a>
+            </li>
+
         </ul>
         <!-- END SIDEBAR MENU -->
         <!-- END SIDEBAR MENU -->
