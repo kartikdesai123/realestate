@@ -38,6 +38,16 @@ $currentRoute = Route::current()->getName();
                 </a>
             </li>
 
+            <li class="nav-item start {{ $currentRoute == "header-silder-text" ? "active": ""}} ">
+                <a href="{{ route('header-silder-text') }}" class="nav-link ">
+                    <i class="fa fa-sliders" aria-hidden="true"></i>
+                        <span class="title">Header Silder Text</span>
+                        @if($currentRoute == "header-silder-text" )
+                            <span class="selected"></span>
+                        @endif
+                </a>
+            </li>
+
 
             <li class="nav-item start  {{ $currentRoute == "admin-view-blog" ? "active": ""}} {{ $currentRoute == "admin-blog" ? "active": ""}} {{ $currentRoute == "view-blog" ? "active": ""}} {{ $currentRoute == "admin-add-blog" ? "active": ""}} {{ $currentRoute == "admin-edit-blog" ? "active": ""}} {{ $currentRoute == "blog-category" ? "active": ""}}  {{ $currentRoute == "add-blog-category" ? "active": ""}} {{ $currentRoute == "edit-blog-category" ? "active": ""}}">
                 <a href="javascript:;" class="nav-link nav-toggle">

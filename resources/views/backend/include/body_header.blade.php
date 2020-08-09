@@ -1,5 +1,6 @@
 @php
     $data = Auth()->guard('admin')->user();
+    
 @endphp
 <!-- BEGIN HEADER -->
 <div class="page-header navbar navbar-fixed-top">

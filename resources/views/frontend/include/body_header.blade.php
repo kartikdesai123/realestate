@@ -14,6 +14,8 @@ $currentRoute = Route::current()->getName();
          $data = Auth()->guard('company')->user();
       }
 
+      $getHeaderSlider = getHeaderSlider();
+
 @endphp
          @if($currentRoute == "home")
             <header class="header header-transparent">
@@ -34,7 +36,10 @@ $currentRoute = Route::current()->getName();
                      </div>
                      </div>
                      <div class="col-7">
-                        <marquee behavior="scroll" direction="right" style="color: #ffffff;">Welcome to real estate world . . . .</marquee>
+                        @if(count($getHeaderSlider) > 0)
+                           <marquee behavior="scroll" direction="right" style="color: #ffffff;">{{ $getHeaderSlider[0]->text }}</marquee>
+                        @endif
+                        
                      </div>
                      <div class="col-3 " style="text-align: right">
                         <div class="dropdown d-inline-block pl-2 pl-md-0">

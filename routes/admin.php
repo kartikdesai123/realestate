@@ -74,6 +74,9 @@ Route::group(['prefix' => $adminPrefix, 'middleware' => ['admin']], function() {
     
     // Services
     Route::match(['get', 'post'], 'admin-services-details', ['as' => 'admin-services-details', 'uses' => 'backend\servicesDetails\ServiceDetailsController@servicesDetails']);
+    
+    // Header Silder Text
+    Route::match(['get', 'post'], 'header-silder-text', ['as' => 'header-silder-text', 'uses' => 'backend\headertext\HeaderSilderTextController@text']);
 
     // Plan
     Route::match(['get', 'post'], 'admin-services', ['as' => 'admin-services', 'uses' => 'backend\servicesDetails\ServicesController@list']);

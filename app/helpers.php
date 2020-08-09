@@ -1,4 +1,5 @@
 <?php
+use App\Model\Headersildertext;
 
 function humanTiming($time) {
 
@@ -55,4 +56,8 @@ function bulidingAgeText($value){
     }
 }
 
+function getHeaderSlider(){
+    $objHeadersildertext = new Headersildertext();
+    return  $objHeadersildertext->getdetails();
+}
 ?>
