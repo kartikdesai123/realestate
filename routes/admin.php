@@ -74,7 +74,13 @@ Route::group(['prefix' => $adminPrefix, 'middleware' => ['admin']], function() {
     
     // Services
     Route::match(['get', 'post'], 'admin-services-details', ['as' => 'admin-services-details', 'uses' => 'backend\servicesDetails\ServiceDetailsController@servicesDetails']);
+    
+    // Header Silder Text
+    Route::match(['get', 'post'], 'header-silder-text', ['as' => 'header-silder-text', 'uses' => 'backend\headertext\HeaderSilderTextController@text']);
 
+    // Reported Property 
+    Route::match(['get', 'post'], 'admin-reported-property', ['as' => 'admin-reported-property', 'uses' => 'backend\reportedproperty\ReportedpropertyController@list']);
+    Route::match(['get', 'post'], 'admin-reported-property-ajaxAction', ['as' => 'admin-reported-property-ajaxAction', 'uses' => 'backend\reportedproperty\ReportedpropertyController@ajaxAction']);
     // Plan
     Route::match(['get', 'post'], 'admin-services', ['as' => 'admin-services', 'uses' => 'backend\servicesDetails\ServicesController@list']);
     Route::match(['get', 'post'], 'admin-add-services', ['as' => 'admin-add-services', 'uses' => 'backend\servicesDetails\ServicesController@add']);

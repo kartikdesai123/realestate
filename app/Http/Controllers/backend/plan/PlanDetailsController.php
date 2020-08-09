@@ -190,8 +190,6 @@ class PlanDetailsController extends Controller
                     }
                     echo json_encode($return);
                     exit;
-                echo json_encode($list);
-                break;
         }
 
     }
