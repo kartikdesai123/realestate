@@ -246,9 +246,10 @@ Listing – grid view -->
                       <li class="property-compare"><a data-toggle="tooltip"  class="compareProperty" data-slug="{{ $value['slug'] }}" data-placement="top" title="Compare" href="javascript:;"><i class="fas fa-exchange-alt"></i></a></li>
                        @php 
                        $color = '';
+                       $class = 'far fa-heart';
                        if(is_array($favourite)){
                             if(in_array($value['id'],$favourite)){
-                              $class = 'fas fa-heart text-danger';  
+                                $class = 'fas fa-heart text-danger';  
                             }else{
                                 $class = 'far fa-heart';  
                             }
@@ -257,7 +258,9 @@ Listing – grid view -->
                       <li class="property-favourites">
                           <a class="favourite" data-login-id="{{ $loginId }}" data-property-id="{{ $value['id'] }}" 
                              data-user-id="{{ $value['user_id']}}" data-href="{{ route('property-favourite') }}" data-toggle="tooltip" data-placement="top" 
-                             title="Favourite" href="javascript:;"><i class="{{ $class }}"></i></a>
+                             title="Favourite" href="javascript:;">
+                             <i class="{{ $class }}"></i>
+                          </a>
                       </li>
                     </ul>
                   </div>

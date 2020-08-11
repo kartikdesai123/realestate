@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Model\PropertyDetails;
 use App\Model\Home;
 use App\Model\HomeCity;
+use App\Model\Blog;
 use Config;
 use App\Model\Users;
 class HomeController extends Controller
@@ -24,6 +25,9 @@ class HomeController extends Controller
         $objUsers = new Users();
         $data['companyList'] = $objUsers->companyList();
         
+        $objBlog = new Blog();
+        $data['blogDetails'] = $objBlog->getBlogList();
+
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Real Estate';
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Real Estate';
         $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Real Estate';

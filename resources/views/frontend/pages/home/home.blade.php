@@ -751,6 +751,7 @@
             News, tips & articles -->
          <section class="space-ptb">
             <div class="container">
+
                <div class="row">
                   <div class="col-12">
                      <div class="section-title text-center">
@@ -758,102 +759,38 @@
                      </div>
                   </div>
                </div>
+
                <div class="row">
-                  <div class="col-lg-4">
+                  @foreach($blogDetails as $key => $value)
+                  <div class="col-lg-12">
+                     {!!  $value->description !!}
                      <div class="blog-post">
-                        <div class="blog-post-image">
-                           <img class="img-fluid" src="{{ asset('public/frontend/assets/images/blog/01.jpg') }}" alt="">
-                        </div>
                         <div class="blog-post-content">
-                           <div class="blog-post-details">
-                              <div class="blog-post-category">
-                                 <a class="mb-3" href="#"><strong>Home improvement</strong></a>
-                              </div>
-                              <div class="blog-post-title">
-                                 <h5><a href="{{ route("blog-details",'1')}}">7 pieces of advice to newbies</a></h5>
-                              </div>
-                              <div class="blog-post-description">
-                                 <p class="mb-0">You are going on a cruise, but when the ship sets sail, you discover.</p>
-                              </div>
-                           </div>
-                           <div class="blog-post-footer">
-                              <div class="blog-post-time">
-                                 <a href="#"> <i class="far fa-clock"></i>02 Jan 2019</a>
-                              </div>
-                              <div class="blog-post-author">
-                                 <span> By <a href="#"> <img class="img-fluid" src="{{ asset('public/frontend/assets/images/avatar/01.jpg') }}" alt="">Sara lisbon </a> </span>
-                              </div>
-                              
-                           </div>
+                          <div class="blog-post-details">
+                            <div class="blog-post-link mt-4">
+                              <a class="btn btn-link p-0" href="{{ route("blog-details",'1')}}"> Continue read</a>
+                            </div>
+                          </div>
+                          <div class="blog-post-footer">
+                            <div class="blog-post-time">
+                            <a href="#"> <i class="far fa-clock"></i>{{ date("d F, Y",strtotime( $value->created_at )) }}</a>
+                            </div>
+                            <div class="blog-post-author">
+                              <span> By {{  $value->authorName }} </span>
+                            </div>
+                          </div>
                         </div>
-                     </div>
+                      </div>
                   </div>
-                  <div class="col-lg-4 mt-4 mt-lg-0">
-                     <div class="blog-post">
-                        <div class="blog-post-image">
-                           <img class="img-fluid" src="{{ asset('public/frontend/assets/images/blog/02.jpg') }}" alt="">
-                        </div>
-                        <div class="blog-post-content">
-                           <div class="blog-post-details">
-                              <div class="blog-post-category">
-                                 <a class="mb-3" href="#"><strong>Tips and advice</strong></a>
-                              </div>
-                              <div class="blog-post-title">
-                                 <h5><a href="{{ route("blog-details",'1')}}">Where to Invest in Real Estate</a></h5>
-                              </div>
-                              <div class="blog-post-description">
-                                 <p class="mb-0">You will sail along until you collide with an immovable object.</p>
-                              </div>
-                           </div>
-                           <div class="blog-post-footer">
-                              <div class="blog-post-time">
-                                 <a href="#"> <i class="far fa-clock"></i>14 Feb 2019</a>
-                              </div>
-                              <div class="blog-post-author">
-                                 <span> By 
-                                    <a href="#"> 
-                                       <img class="img-fluid" src="{{ asset('public/frontend/assets/images/avatar/02.jpg') }}" alt="">Anne Smith
-                                    </a> </span>
-                              </div>
-                              
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-lg-4 mt-4 mt-lg-0">
-                     <div class="blog-post">
-                        <div class="blog-post-image">
-                           <img class="img-fluid" src="{{ asset('public/frontend/assets/images/blog/03.jpg') }}" alt="">
-                        </div>
-                        <div class="blog-post-content">
-                           <div class="blog-post-details">
-                              <div class="blog-post-category">
-                                 <a class="mb-3" href="#"><strong>Market trends</strong></a>
-                              </div>
-                              <div class="blog-post-title">
-                                 <h5><a href="{{ route("blog-details",'1')}}">Cutting your losses in Real Estate</a></h5>
-                              </div>
-                              <div class="blog-post-description">
-                                 <p class="mb-0">Trying to go through life without clarity is similar to sailing.</p>
-                              </div>
-                           </div>
-                           <div class="blog-post-footer">
-                              <div class="blog-post-time">
-                                 <a href="#"> <i class="far fa-clock"></i>30 March 2019</a>
-                              </div>
-                              <div class="blog-post-author">
-                                 <span> By <a href="#"> <img class="img-fluid" src="{{ asset('public/frontend/assets/images/avatar/03.jpg') }}" alt="">Alice Williams</a> </span>
-                              </div>
-                              
-                           </div>
-                        </div>
-                     </div>
-                  </div>
+                  @endforeach
                </div>
             </div>
          </section>
+
          <!--=================================
             News, tips & articles -->
+
+
          <!--=================================
             testimonial -->
          <section class="space-pb">
@@ -904,6 +841,8 @@
          </section>
          <!--=================================
             testimonial -->
+
+            
          <!--=================================
             newsletter -->
          <section class="py-5 bg-primary">
