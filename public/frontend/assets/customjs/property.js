@@ -144,7 +144,7 @@ var Property = function() {
                     alert('You can not favourite this property because this property alrady added by you');
                 }
             }else{
-                window.location.href = '/signin';
+                window.location.href = baseurl + '/signin';
             }
         });
     }

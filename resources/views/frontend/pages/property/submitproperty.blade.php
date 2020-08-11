@@ -133,7 +133,8 @@
                                        <label>Property Description</label>
                                        <textarea class="form-control" rows="4" placeholder="Description" id="about_property" name="about_property"></textarea>
                                     </div>
-                                     
+                                    
+                                    
                                  </div>
                               </div>
                               <div class="tab-pane" id="tab2">
@@ -253,11 +254,24 @@
                               
                                <div class="tab-pane" id="tab4">
                                  <div class="form-row mt-4">
+                                    
                                     <div class="form-group col-md-12">
-                                       <div class="custom-file">
-                                          <input type="file" class="custom-file-input" id="photos" name="photo[]" multiple accept="image/*">
-                                          <label class="custom-file-label" for="customFile">Choose file</label>
-                                       </div>
+
+                                      
+                                       <div class="form-group ">
+                                          <div class="col-md-3">
+                                              <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                  <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"> </div>
+                                                  <div>
+                                                      <span class="btn red btn-outline btn-file">
+                                                          <span class="fileinput-new"> Select image </span>
+                                                          <span class="fileinput-exists"> Change </span>
+                                                          <input type="file" class="custom-file-input" id="photos" name="photo[]" multiple accept="image/*">
+                                                      <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>  
                                     </div>
                                     <div class="form-group col-md-12">
                                        <div class="custom-file">

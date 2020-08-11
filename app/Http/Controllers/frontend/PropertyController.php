@@ -344,6 +344,7 @@ class PropertyController extends Controller
             $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Submit Property Details';
             $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Submit Property Details';
             $data['css'] = array(
+                'bootstrap-fileinput/bootstrap-fileinput.css',
                 'toastr/toastr.min.css',
                 'owl-carousel/owl.carousel.min.css',
                 'magnific-popup/magnific-popup.css',
@@ -353,6 +354,7 @@ class PropertyController extends Controller
             );
             $data['plugincss'] = array();
             $data['pluginjs'] = array(
+                'bootstrap-fileinput/bootstrap-fileinput.js',
                 'toastr/toastr.min.js',
                 'validate/jquery.validate.min.js',
                 'validate/additional-methods.min.js',
