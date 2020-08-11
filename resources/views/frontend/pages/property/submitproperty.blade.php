@@ -260,6 +260,9 @@
                                       
                                        <div class="form-group ">
                                           <div class="col-md-3">
+                                             <a href="javascript:;" class="btn btn-icon-only green addImages" style="position: absolute;width: 24px;height: 28px;padding: 5px;">
+                                                <i class="fa fa-plus"></i>
+                                             </a>
                                               <div class="fileinput fileinput-new" data-provides="fileinput">
                                                   <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"> </div>
                                                   <div>
