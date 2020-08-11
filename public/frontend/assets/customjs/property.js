@@ -163,10 +163,17 @@ var Property = function() {
         mapint: function(){
             var uluru = {lat: parseFloat(lat), lng: parseFloat(lng)};
             // The map, centered at Uluru
+            var infowindow = new google.maps.InfoWindow();
             var map = new google.maps.Map(
-                document.getElementById('mapInit'), {zoom: 4, center: uluru});
+                document.getElementById('mapInit'), {zoom: 15, center: uluru});
             // The marker, positioned at Uluru
             var marker = new google.maps.Marker({position: uluru, map: map});
+            google.maps.event.addListener(marker, 'click', (function(marker) {
+            return function() {
+              infowindow.setContent(address);
+              infowindow.open(map, marker);
+            }
+          })(marker));
         },    
         form:function(){
             formvalidation();

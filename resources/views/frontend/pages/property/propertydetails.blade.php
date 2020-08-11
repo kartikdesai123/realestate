@@ -9,6 +9,7 @@
 <script>
 var lat = '<?php echo $propertyDetail[0]['latitude']?>';
 var lng = '<?php echo $propertyDetail[0]['longitude']?>';
+var address = '<?php echo $propertyDetail[0]['address']?>';
 </script>
 
 <div class="wrapper">
@@ -80,6 +81,9 @@ var lng = '<?php echo $propertyDetail[0]['longitude']?>';
                     <div class="d-flex mb-4 align-items-center">
                       <h6 class="text-primary border p-2 mb-0"><a href="#"><i class="fab fa-whatsapp"></i> Whatsapp</a></h6>
                       <a class="btn btn-link p-0 ml-auto text-white" href="{{ route('property') }}"><u>View all listing </u></a>
+                    </div>
+                    <div class="d-flex mb-4 align-items-center">
+                      <h6 class="text-primary border p-2 mb-0"><a href="#"><i class="fas fa-phone-volume text-white pr-2"></i>{{ $propertyDetail[0]['phoneno'] }}</a></h6>
                     </div>
                   <form id="contact-form" action="{{ route('contact-owner') }}" method="POST">@csrf
                       <input type="hidden" value="{{ $slug }}" name="slug">
