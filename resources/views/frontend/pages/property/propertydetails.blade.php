@@ -44,6 +44,7 @@ var lng = '<?php echo $propertyDetail[0]['longitude']?>';
                 </li>
                 @php 
                        $color = '';
+                       $class = 'fas fa-heart'; 
                        if(is_array($favourite)){
                             if(in_array($propertyDetail[0]['id'],$favourite)){
                               $class = 'fas fa-heart text-danger'; 
