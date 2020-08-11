@@ -452,7 +452,7 @@ var lng = '<?php echo $propertyDetail[0]['longitude']?>';
                     }
                   @endphp
                     <div class="tab-pane fade {{ $class }}" id="video-{{$i}}" role="tabpanel" aria-labelledby="video-{{$i}}-tab">
-                      <video class="property_video" controls>
+                      <video class="" width="100%" height="300" controls>
                             <source src="{{ asset('public/upload/property_video/'.$value) }}">
                           </video>
                     </div>
