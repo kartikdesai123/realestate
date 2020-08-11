@@ -21,7 +21,7 @@ class PropertyDetails extends Model {
 
     public function addProperty($request, $userId) {
 
-        $url = strtolower($request->input('propertyTitle'));
+        $url = strtolower($request->input('propertyTitle')).'-'.strtolower($request->input('txtCity')).'-'.strtolower($request->input('txtState')).'-'.strtolower($request->input('txtCountry'));
         $slug = str_replace(' ', '-', $url);
 
         $objPropertyDetails = new PropertyDetails();
