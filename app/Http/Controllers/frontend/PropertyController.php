@@ -126,8 +126,11 @@ class PropertyController extends Controller
           $data['loginId'] = '';
           $data['favourite'] = '';
         }
-        
+        $objPropetyDetail = new PropertyDetails();
         $data['propertyDetail'] = $objPropetyDetail->getPropertyDetail($slug);
+
+        
+
         $image = explode(',',$data['propertyDetail'][0]['images']);
         $url = route("property-details",$data['propertyDetail'][0]['slug']);
         
@@ -328,6 +331,7 @@ class PropertyController extends Controller
         $session = $request->session()->all();
             if(isset($session['logindata'])){
                 if($request->isMethod("post")) {
+                    
                     $objPropertyDetails = new PropertyDetails();
                     $res = $objPropertyDetails->addProperty($request,$session['logindata'][0]['id']);
                     if($res){

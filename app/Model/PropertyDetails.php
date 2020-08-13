@@ -132,6 +132,20 @@ class PropertyDetails extends Model {
                     }
                 }
             }
+            if ($request->input('youtubelink')) {
+               
+                for($i = 0 ; $i < count($request->input('youtubelink')); $i++) {
+                   
+                    $objPropertyVideo = new PropertyVideo();
+                    $objPropertyVideo->user_id = $userId;
+                    $objPropertyVideo->property_id = $propertyId;
+
+                    $objPropertyVideo->name = $request->input('youtubelink')[$i];
+                    $objPropertyVideo->created_at = date("Y-m-d h:i:s");
+                    $objPropertyVideo->updated_at = date("Y-m-d h:i:s");
+                    $objPropertyVideo->save();
+                }
+            }
 
             if ($request->file('video')) {
 
