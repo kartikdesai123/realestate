@@ -449,16 +449,37 @@ var address = '<?php echo $propertyDetail[0]['address']?>';
                   @endphp
                   @foreach($video as $value)
                   @php
+                    $regex = "((https?|ftp)\:\/\/)?"; // SCHEME 
+                    $regex .= "([a-z0-9+!*(),;?&=\$_.-]+(\:[a-z0-9+!*(),;?&=\$_.-]+)?@)?"; // User and Pass 
+                    $regex .= "([a-z0-9-.]*)\.([a-z]{2,3})"; // Host or IP 
+                    $regex .= "(\:[0-9]{2,5})?"; // Port 
+                    $regex .= "(\/([a-z0-9+\$_-]\.?)+)*\/?"; // Path 
+                    $regex .= "(\?[a-z+&\$_.-][a-z0-9;:@&%=+\/\$_.-]*)?"; // GET Query 
+                    $regex .= "(#[a-z_.-][a-z0-9+\$_.-]*)?"; // Anchor 
+
+                      // if(preg_match("/^$regex$/i", $value)) // `i` flag for case-insensitive
+                      // { 
+                      //         $link = $value; 
+                      // }else{
+                      //     $link = asset('public/upload/property_video/'.$value);
+                      // } 
                     if($j == 1){
                         $class = 'show active';
                     }else{
                         $class = '';
                     }
+
                   @endphp
-                    <div class="tab-pane fade {{ $class }}" id="video-{{$i}}" role="tabpanel" aria-labelledby="video-{{$i}}-tab">
+                    <div class="tab-pane fade {{ $class }}" id="video-{{$j}}" role="tabpanel" aria-labelledby="video-{{$j}}-tab">
+                      @if(preg_match("/^$regex$/i", $value))
+                    <iframe width="100%" height="300" src="{{ $value }}">         </iframe>
+
+                      @else
                       <video class="" width="100%" height="300" controls>
-                            <source src="{{ asset('public/upload/property_video/'.$value) }}">
-                          </video>
+                        <source src="{{  asset('public/upload/property_video/'.$value) }}">
+                      </video>
+                      @endif
+                      
                     </div>
                   @php
                    $j++;

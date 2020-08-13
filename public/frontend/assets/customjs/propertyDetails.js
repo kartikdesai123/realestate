@@ -69,6 +69,54 @@ var PropertyDetails = function() {
                 }
                 
             });
+
+            $('body').on("click", ".addlink", function() {
+
+                var html =  '<div class="row removedivlink">'+
+                            '<div class="col-md-11">'+
+                            '<label style="margin-top:12px" >Youtube Link</label>'+
+                            '<input type="text" class="form-control youtubelink" name="youtubelink[]" id="youtubelink" placeholder="Please enter youtube link">'+
+                            '</div>'+
+                            '<div class="col-md-1">'+
+                            '<label>&nbsp;</label>'+
+                            '<button class="btn btn-danger removelink" type="button" style="padding-bottom: 12px;padding-top: 12px;padding-right: 15px;scroll-padding-left: 15px">'+
+                            '<i class="fa fa-minus"></i>'+
+                            '</button>'+
+                            '</div>'+
+                            '</div>';
+
+                $(".appenddivlink").append(html);
+            });
+
+            $('body').on("click", ".removelink", function() {
+                $(this).closest('.removedivlink').remove();
+            });
+            
+            $('body').on("click", ".removeImages", function() {
+                $(this).closest('.removeImagesDiv').remove();
+            });
+
+            $('body').on("click", ".addImages", function() {
+               var imageHtml = '<div class="col-md-3 removeImagesDiv" style="margin-top:10px">'+
+                                '<a href="javascript:;" class="btn btn-icon-only red removeImages" style="position: absolute;width: 24px;height: 28px;padding: 5px;">'+
+                                    '<i class="fa fa-times"></i>'+
+                                '</a>'+
+                                    '<div class="fileinput fileinput-new" data-provides="fileinput">'+
+                                        '<div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;">'+
+                                        '<img src="'+baseurl+'public/frontend/images/noimage.png" alt="">'+
+                                        '</div>'+
+                                        '<div>'+
+                                            '<span class="btn red btn-outline btn-file">'+
+                                                '<span class="fileinput-new"> Select image </span>'+
+                                                '<span class="fileinput-exists"> Change </span>'+
+                                                '<input type="file" class="custom-file-input" id="photos" name="photo[]" multiple accept="image/*">'+
+                                            '<a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>'+
+                                        '</div>'+
+                                    '</div>'+
+                                '</div>';
+                $(".appendImage").append(imageHtml);
+            });
+
             getMap();
             if (!jQuery().bootstrapWizard) {
                 return;

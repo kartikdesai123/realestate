@@ -259,20 +259,24 @@
 
                                       
                                        <div class="form-group ">
-                                          <div class="col-md-3">
-                                             <a href="javascript:;" class="btn btn-icon-only green addImages" style="position: absolute;width: 24px;height: 28px;padding: 5px;">
-                                                <i class="fa fa-plus"></i>
-                                             </a>
-                                              <div class="fileinput fileinput-new" data-provides="fileinput">
-                                                  <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"> </div>
-                                                  <div>
-                                                      <span class="btn red btn-outline btn-file">
-                                                          <span class="fileinput-new"> Select image </span>
-                                                          <span class="fileinput-exists"> Change </span>
-                                                          <input type="file" class="custom-file-input" id="photos" name="photo[]" multiple accept="image/*">
-                                                      <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
-                                                  </div>
-                                              </div>
+                                          <div class="row appendImage">
+                                             <div class="col-md-3" style="margin-top:10px">
+                                                <a href="javascript:;" class="btn btn-icon-only green addImages" style="position: absolute;width: 24px;height: 28px;padding: 5px;">
+                                                   <i class="fa fa-plus"></i>
+                                                </a>
+                                                <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                   <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"> 
+                                                   <img src="{{ asset('public/frontend/images/noimage.png')}}" alt="">
+                                                   </div>
+                                                   <div>
+                                                         <span class="btn red btn-outline btn-file">
+                                                            <span class="fileinput-new"> Select image </span>
+                                                            <span class="fileinput-exists"> Change </span>
+                                                            <input type="file" class="custom-file-input" id="photos" name="photo[]" multiple accept="image/*">
+                                                         <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
+                                                   </div>
+                                                </div>
+                                             </div>
                                           </div>
                                       </div>  
                                     </div>
@@ -286,12 +290,30 @@
                               </div>
                               <div class="tab-pane" id="tab5">
                                  <div class="form-row mt-4">
+
                                     <div class="form-group col-md-12">
                                        <div class="custom-file">
                                           <input type="file" class="custom-file-input" id="videos" name="video[]" multiple accept="video/*">
                                           <label class="custom-file-label" for="customFile">Choose Video file</label>
                                        </div>
                                     </div>
+
+                                    <div class="form-group col-md-12 appenddivlink">
+                                       <div class="row ">
+                                          <div class="col-md-11">
+                                             <label>Youtube Link</label>
+                                             <input type="text" class="form-control youtubelink" name="youtubelink[]" id="youtubelink" placeholder="Please enter youtube link">
+                                          </div>
+
+                                          <div class="col-md-1">
+                                             <label>&nbsp;</label>
+                                             <button class="btn btn-primary addlink" type="button" style="padding-bottom: 12px;padding-top: 12px;padding-right: 15px;scroll-padding-left: 15px">
+                                                <i class="fa fa-plus"></i>
+                                             </button>
+                                          </div>
+                                       </div>
+                                    </div>
+
                                     <div class="form-group col-md-12">
                                        <div class="custom-file">
                                           <input type="file" class="custom-file-input" id="audios" name="audio[]" multiple accept="audio/*">
