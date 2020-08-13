@@ -16,9 +16,21 @@ Feature box -->
     </div>
 
     <div class="row">
-
+      @php
+      $i=0;
+      $count = count($planlist);
+      @endphp
       @foreach($planlist as $key => $value)
-        <div class="col-lg-3 col-sm-6 mb-4 mb-md-0">
+      @php
+        if(($count -1) == $i){
+            $class = 'col-lg-4 col-md-4 col-sm-6 mb-4 mb-md-0';
+        }else if(($count -2) == $i){
+            $class = 'offset-lg-2 col-lg-4 offset-md-2 col-md-4 col-sm-6 mb-4 mb-md-0';
+        }else{
+            $class = 'col-lg-4 col-md-4 col-sm-6 mb-4 mb-md-0';
+        }
+      @endphp
+        <div class="{{ $class }}">
           <div class="feature-info feature-info-02">
             <div class="feature-info-detail">
               <div class="feature-info-icon">
@@ -39,6 +51,9 @@ Feature box -->
             <div class="feature-info-bg bg-holder bg-overlay-black-70" style="background-image: url({{ asset('public/upload/plan/background_image/'.$value->plan_bg_image) }})"></div>
           </div>
         </div>
+      @php
+      $i++;
+      @endphp
       @endforeach
     </div>
    
