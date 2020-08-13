@@ -27,7 +27,7 @@ Feature box -->
         }else if(($count -2) == $i){
             $class = 'offset-lg-2 col-lg-4 offset-md-2 col-md-4 col-sm-6 mb-4 mb-md-0';
         }else{
-            $class = 'col-lg-4 col-md-4 col-sm-6 mb-4 mb-md-0';
+            $class = 'col-lg-4 col-md-4 col-sm-6 mb-4';
         }
       @endphp
         <div class="{{ $class }}">

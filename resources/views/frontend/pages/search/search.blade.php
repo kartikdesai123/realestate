@@ -70,9 +70,13 @@ banner -->
        @foreach($property as $key => $value)
           
           @php
-          $array[] = array($value['address'],$value['latitude'],$value['longitude']);
+         
+          
+          
           $imageCount = explode(',',$value['images']);
+          $array[] = array($value['address'],$value['latitude'],$value['longitude'],$value['images']);
           @endphp
+          
           <div class="property-item property-col-list mt-4">
             <div class="row no-gutters">
               <div class="col-lg-4 col-md-5">

@@ -29,7 +29,13 @@ var mapInit = function(){
 
       google.maps.event.addListener(marker, 'click', (function(marker, i) {
         return function() {
-          infowindow.setContent(locations[i][0]);
+          var images = locations[i][3].split(",");
+//          if(images.lengeth > 0){
+              var content = "<img height='50' width='80' src=" + baseurl+'/public/upload/property_photo/'+images[0] + "><img width='80' height='50' src=" + baseurl+'/public/upload/property_photo/'+images[1] + ">" + locations[i][0];
+//          }else{
+//              var content = "<img width='80' src=" + baseurl+'/public/upload/property_photo/'+images[0] + "> " + locations[i][0]; 
+//          }
+          infowindow.setContent(content);
           infowindow.open(map, marker);
         }
       })(marker, i));
