@@ -648,7 +648,7 @@ var address = '<?php echo $propertyDetail[0]['address']?>';
               </div>
                
             </div>
-
+            @if(count($review) > 0)
             <hr class="mt-4 mb-4 mb-sm-5 mt-sm-5">
             <div class="property-nearby">
               <div class="row">
@@ -682,7 +682,7 @@ var address = '<?php echo $propertyDetail[0]['address']?>';
                 </div>
               </div>
             </div>
-            
+            @endif
           </div>
   
         </div>
