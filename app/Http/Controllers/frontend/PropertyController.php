@@ -15,6 +15,7 @@ use App\Model\PropertyVideo;
 use App\Model\PropertyDetails;
 use App\Model\Favourite;
 use App\Model\Sendmail;
+use App\Model\Propertyreview;
 class PropertyController extends Controller
 {
     
@@ -72,7 +73,23 @@ class PropertyController extends Controller
     }
     
     public function propertydetails(Request $request,$slug){
-        
+        if($request->isMethod("post")) {
+            $objPropertyreview = new Propertyreview();
+            $result = $objPropertyreview->addReview($request);
+            if($result){
+                $return['status'] = 'success';
+                $return['message'] = 'Thank you for your review.Your review successfully added.';
+                $return['redirect'] = route('property-details',$request->input('slug'));
+            }else{
+                $return['status'] = 'error';
+                $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Login");';
+                $return['message'] = 'Invalid Login Id/Password';
+            }
+            return json_encode($return);
+            exit();
+        }
+
+
         $data['slug'] =$slug;
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Property Details';
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Property Details';
@@ -114,7 +131,9 @@ class PropertyController extends Controller
             'Property.mapint()',
             'Property.form()',
         );
-        
+        $objPropertyreview = new Propertyreview();
+        $data['review'] = $objPropertyreview->getReview($slug);
+
         
         $session = $request->session()->all();
         

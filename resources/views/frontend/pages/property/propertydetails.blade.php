@@ -176,30 +176,53 @@ var address = '<?php echo $propertyDetail[0]['address']?>';
                 </div>
                 <div class="widget">
                   <div class="widget-title">
-                    <h6>Leave a review for Rylan Tolbert</h6>
+                    <h6>Leave a review for {{ $propertyDetail[0]['title'] }}</h6>
                   </div>
+
+
                   <div class="review d-flex">
-                    <div class="review-avatar avatar avatar-xl mr-3">
-                      <img class="img-fluid rounded-circle" src="{{ asset('public/frontend/assets/images/avatar/02.jpg') }}" alt="">
-                    </div>
-                    <div class="review-info flex-grow-1">
-                      <span class="mb-2 d-block">Rating:</span>
-                      <ul class="list-unstyled list-inline">
-                        <li class="list-inline-item m-0 text-warning"><i class="fas fa-star"></i></li>
-                        <li class="list-inline-item m-0 text-warning"><i class="fas fa-star"></i></li>
-                        <li class="list-inline-item m-0 text-warning"><i class="fas fa-star"></i></li>
-                        <li class="list-inline-item m-0 text-warning"><i class="fas fa-star-half-alt"></i></li>
-                        <li class="list-inline-item m-0 text-warning"><i class="far fa-star"></i></li>
-                      </ul>
-                      <div class="mb-3">
-                        <span class="mb-2 d-block">Rating comment:</span>
-                        <div class="form-group">
-                          <textarea class="form-control" rows="3"></textarea>
-                        </div>
+                    @if($loginId == null || $loginId == '')
+                  <span> <a href="{{ route('signin') }}"> <b>Login</b>  </a> to leave a review</span>
+                    @else
+                      <div class="review-avatar avatar avatar-xl mr-3">
+                        <img class="img-fluid rounded-circle" src="{{ asset('public/frontend/assets/images/avatar/02.jpg') }}" alt="">
                       </div>
-                      <span> <a href="login.html"> <b>Login</b>  </a> to leave a review</span>
-                    </div>
+
+                      <div class="review-info flex-grow-1">
+                        
+                        <div class="mb-3">
+                          
+                          <form id="reviewform" method="POST" >@csrf
+                          <input type="hidden" name="userId" value="{{ $loginId }}">
+                          <input type="hidden" value="{{ $slug }}" name="slug">
+                            <div class="form-group">
+                              <span class="mb-2 d-block">Rating:</span>
+                              <select name="star" class="form-control">
+                                  <option value="">Rating</option>
+                                  <option value="1">1 Star</option>
+                                  <option value="2">2 Star</option>
+                                  <option value="3">3 Star</option>
+                                  <option value="4">4 Star</option>
+                                  <option value="5">5 Star</option>
+                              </select>
+                            </div>
+                            <div class="form-group">
+                              <span class="mb-2 d-block">Rating comment:</span>
+                              <textarea class="form-control" rows="3" name="review"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="btn  btn-primary btnsubmit"> Submit your review</button>
+                            </div>
+                          </form>
+
+                        </div>
+
+                        
+                      </div>
+                    @endif
                   </div>
+
                 </div>
               </div>
             </div>
@@ -273,23 +296,6 @@ var address = '<?php echo $propertyDetail[0]['address']?>';
                       </ul>
                     </div>
                   </div>
-<!--                  <h6 class="text-primary">Additional details</h6>
-                  <div class="row">
-                    <div class="col-sm-6">
-                      <ul class="property-list list-unstyled mb-0">
-                        <li><b>Deposit:</b> 30%</li>
-                        <li><b>Pool Size:</b> 457 Sqft</li>
-                        <li><b>Last remodel year:</b> 1956</li>
-                      </ul>
-                    </div>
-                    <div class="col-sm-6">
-                      <ul class="property-list list-unstyled mb-0">
-                        <li><b>Amenities:</b> Clubhouse</li>
-                        <li><b>Additional Rooms:</b> Guest Bat</li>
-                        <li><b>Equipment:</b> Grill - Gas - light</li>
-                      </ul>
-                    </div>
-                  </div>-->
                 </div>
               </div>
             </div>
@@ -320,26 +326,8 @@ var address = '<?php echo $propertyDetail[0]['address']?>';
                         <li>{{ $value['facilitiesName'] }}</li>
                         @endforeach
                         @endif
-<!--                        <li>Air Conditioning</li>
-                        <li>Barbeque</li>
-                        <li>Gym</li>
-                        <li>Swimming Pool</li>
-                        <li>Laundry</li>
-                        <li>Microwave</li>
-                        <li>Outdoor Shower</li>-->
                       </ul>
                     </div>
-<!--                    <div class="col-sm-6">
-                      <ul class="property-list-style-2 list-unstyled mb-0">
-                        <li>Lawn</li>
-                        <li>Refrigerator</li>
-                        <li>Sauna</li>
-                        <li>Washer</li>
-                        <li>Dryer</li>
-                        <li>WiFi</li>
-                        <li>Window Coverings</li>
-                      </ul>
-                    </div>-->
                   </div>
                 </div>
               </div>
@@ -433,12 +421,6 @@ var address = '<?php echo $propertyDetail[0]['address']?>';
                    $i++;
                   @endphp
                 @endforeach
-<!--                    <li class="nav-item">
-                      <a class="nav-link" id="tab-04-tab" data-toggle="pill" href="#tab-04" role="tab" aria-controls="tab-04" aria-selected="false">Property Video 2</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" id="tab-05-tab" data-toggle="pill" href="#tab-05" role="tab" aria-controls="tab-05" aria-selected="false">Tour 360</a>
-                    </li>-->
                   </ul>
                 </div>
 
@@ -456,13 +438,6 @@ var address = '<?php echo $propertyDetail[0]['address']?>';
                     $regex .= "(\/([a-z0-9+\$_-]\.?)+)*\/?"; // Path 
                     $regex .= "(\?[a-z+&\$_.-][a-z0-9;:@&%=+\/\$_.-]*)?"; // GET Query 
                     $regex .= "(#[a-z_.-][a-z0-9+\$_.-]*)?"; // Anchor 
-
-                      // if(preg_match("/^$regex$/i", $value)) // `i` flag for case-insensitive
-                      // { 
-                      //         $link = $value; 
-                      // }else{
-                      //     $link = asset('public/upload/property_video/'.$value);
-                      // } 
                     if($j == 1){
                         $class = 'show active';
                     }else{
@@ -673,6 +648,41 @@ var address = '<?php echo $propertyDetail[0]['address']?>';
               </div>
                
             </div>
+
+            <hr class="mt-4 mb-4 mb-sm-5 mt-sm-5">
+            <div class="property-nearby">
+              <div class="row">
+                <div class="col-sm-3 mb-3 mb-sm-0">
+                  <h5>Users Reviews</h5>
+                </div>
+
+                <div class="col-sm-9">
+                @foreach($review as $key => $value)
+                  <div class="col-12">
+                    <div class="review d-flex">
+                      <div class="review-avatar avatar avatar-xl mr-3">
+                        <img class="img-fluid rounded-circle" src="{{ asset('public/upload/userimage/'.$value->userimage) }}" alt="">
+                      </div>
+                      <div class="review-info flex-grow-1">
+                        <span class="mb-2 d-block" style="color: black"><b>{{ $value->username }}</b></span>
+                        <ul class="list-unstyled list-inline">
+                          @for($i = 0 ; $i < $value->star ; $i++)
+                            <li class="list-inline-item m-0 text-warning"><i class="fas fa-star"></i></li>
+                          @endfor
+                        </ul>
+                        <div class="mb-3">
+                          <span class="mb-2 d-block">{{ $value->review }}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <hr >
+                @endforeach
+                
+                </div>
+              </div>
+            </div>
+            
           </div>
   
         </div>

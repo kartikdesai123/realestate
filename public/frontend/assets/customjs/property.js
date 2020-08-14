@@ -92,6 +92,17 @@ var Property = function() {
             handleAjaxFormSubmit(form);
         });
 
+
+        var form = $('#reviewform');
+        var rules = {
+            review:{required: true},
+            star:{required: true},
+        };
+
+        handleFormValidate(form, rules, function (form) {
+            handleAjaxFormSubmit(form);
+        });
+
         var form = $('#personal-visit-form');
         var rules = {
             date:{required: true},
