@@ -10,6 +10,7 @@ use App\Model\HomeCity;
 use App\Model\Blog;
 use Config;
 use App\Model\Users;
+use App\Model\Propertyreview;
 class HomeController extends Controller
 {
     
@@ -21,6 +22,9 @@ class HomeController extends Controller
 
         $objUsers = new Users();
         $data['agentList'] = $objUsers->agentListHome();
+
+        $objPropertyreview = new Propertyreview();
+        $data['review'] = $objPropertyreview->reviewList();
         
         $objUsers = new Users();
         $data['companyList'] = $objUsers->companyList();

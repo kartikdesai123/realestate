@@ -747,6 +747,50 @@
          </section>
          <!--=================================
             Feature -->
+
+
+            <!--=================================
+            testimonial -->
+         <section class="space-pb">
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-12">
+                     <div class="section-title">
+                        <h2>Testimonials</h2>
+                     </div>
+
+                     
+                     <div class="owl-carousel owl-nav-top-left" data-nav-arrow="true" data-items="1" data-md-items="1" data-sm-items="1" data-xs-items="1" data-xx-items="1" data-space="0">
+                        
+                        @foreach($review as $key => $value)
+                           <div class="item">
+                              <div class="testimonial-02">
+                                 <div class="testimonial-content">
+                                 <p><i class="fas fa-quote-right quotes"></i>{{ $value->review }}</p>
+                                 </div>
+                                 <div class="testimonial-author">
+                                    <div class="testimonial-avatar avatar avatar-lg mr-3">
+                                       <img class="img-fluid rounded-circle" src="{{ asset('public/upload/userimage/'.$value->userimage) }}" alt="">
+                                    </div>
+                                    <div class="testimonial-name">
+                                       <h6 class="text-primary mb-1">{{ $value->username }}</h6>
+                                       <span>{{ $value->about }}</span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        @endforeach
+                        
+                       
+                     </div>
+                  </div>
+                  
+               </div>
+            </div>
+         </section>
+         <!--=================================
+            testimonial -->
+
          <!--=================================
             News, tips & articles -->
          <section class="space-ptb">
@@ -791,56 +835,7 @@
             News, tips & articles -->
 
 
-         <!--=================================
-            testimonial -->
-         <section class="space-pb">
-            <div class="container">
-               <div class="row">
-                  <div class="col-md-12">
-                     <div class="section-title">
-                        <h2>Testimonials</h2>
-                     </div>
-                     <div class="owl-carousel owl-nav-top-left" data-nav-arrow="true" data-items="1" data-md-items="1" data-sm-items="1" data-xs-items="1" data-xx-items="1" data-space="0">
-                        <div class="item">
-                           <div class="testimonial-02">
-                              <div class="testimonial-content">
-                                 <p><i class="fas fa-quote-right quotes"></i>Oliver always had a smile and was so quick to answer and get the job done.  I'll definitely suggest you to anyone we know who is selling or wanting to purchase a home. He is the best!</p>
-                              </div>
-                              <div class="testimonial-author">
-                                 <div class="testimonial-avatar avatar avatar-lg mr-3">
-                                    <img class="img-fluid rounded-circle" src="{{ asset('public/frontend/assets/images/avatar/01.jpg') }}" alt="">
-                                 </div>
-                                 <div class="testimonial-name">
-                                    <h6 class="text-primary mb-1">Michael Bean</h6>
-                                    <span>Hamilton Rd. Willoughby</span>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="item">
-                           <div class="testimonial-02">
-                              <div class="testimonial-content">
-                                 <p><i class="fas fa-quote-right quotes"></i>Jennifer & Dave were both instructive and very valuable in making my decision. I would Surly recommend them to anyone looking for a hassle free and efficient real estate experience.</p>
-                              </div>
-                              <div class="testimonial-author">
-                                 <div class="testimonial-avatar avatar avatar-lg mr-3">
-                                    <img class="img-fluid rounded-circle" src="{{ asset('public/frontend/assets/images/avatar/02.jpg') }}" alt="">
-                                 </div>
-                                 <div class="testimonial-name">
-                                    <h6 class="text-primary mb-1">Isabelle</h6>
-                                    <span>West Division Street</span>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  
-               </div>
-            </div>
-         </section>
-         <!--=================================
-            testimonial -->
+         
 
             
          <!--=================================

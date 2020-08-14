@@ -37,4 +37,13 @@ class Propertyreview extends Model
                                 ->where("property_review.property_id",$property_id)
                                 ->get();
     }
+    public function reviewList(){
+        
+        
+        return Propertyreview::select("property_review.star","property_review.review","users.username","users.userimage","users.about")
+                                ->join("users","users.id","=","property_review.user_id")
+                                ->limit(4)
+                                ->orderBy("property_review.id","DESC")
+                                ->get();
+    }
 }
