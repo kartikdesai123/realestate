@@ -19,6 +19,7 @@
                         </div>
                     </div>
                 </div>@csrf
+                
                 <table class="table table-striped table-bordered table-hover table-checkable order-column" id="blog">
                     <thead>
                         <tr>                            

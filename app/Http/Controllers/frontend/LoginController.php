@@ -529,6 +529,89 @@ class LoginController extends Controller
         }
        
     }
+
+    public function myagent(Request $request){
+        $session = $request->session()->all();
+        
+        if(isset($session['logindata'])){
+            
+            $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || My Agent ';
+            $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || My Agent ';
+            $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || My Agent ';
+
+            $data['css'] = array(
+                'toastr/toastr.min.css',
+                'magnific-popup/magnific-popup.css',
+            );
+            $data['plugincss'] = array();
+            $data['pluginjs'] = array(
+                'toastr/toastr.min.js',
+                'validate/jquery.validate.min.js',
+                'jquery.appear.js',
+                'counter/jquery.countTo.js',
+                'magnific-popup/jquery.magnific-popup.min.js',
+            );
+            $data['js'] = array(
+                'comman_function.js',
+                'ajaxfileupload.js',
+                'jquery.form.min.js',
+                'myagent.js'
+            );
+            $data['funinit'] = array(
+                'Myagent.init()'
+            );
+            $data['header'] = array(
+                'breadcrumb' => array(
+                    'Home' => route("home"),
+                    'My Agent' => "My Agent",
+            ));
+            return view('frontend.pages.profile.myagent', $data);
+        }else{
+            return redirect('signin');
+        }
+       
+    }
+    public function addmyagent(Request $request){
+        $session = $request->session()->all();
+        
+        if(isset($session['logindata'])){
+            
+            $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || My Agent ';
+            $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || My Agent ';
+            $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || My Agent ';
+
+            $data['css'] = array(
+                'toastr/toastr.min.css',
+                'magnific-popup/magnific-popup.css',
+            );
+            $data['plugincss'] = array();
+            $data['pluginjs'] = array(
+                'toastr/toastr.min.js',
+                'validate/jquery.validate.min.js',
+                'jquery.appear.js',
+                'counter/jquery.countTo.js',
+                'magnific-popup/jquery.magnific-popup.min.js',
+            );
+            $data['js'] = array(
+                'comman_function.js',
+                'ajaxfileupload.js',
+                'jquery.form.min.js',
+                'myagent.js'
+            );
+            $data['funinit'] = array(
+                'Myagent.init()'
+            );
+            $data['header'] = array(
+                'breadcrumb' => array(
+                    'Home' => route("home"),
+                    'My Agent' => "My Agent",
+            ));
+            return view('frontend.pages.profile.addmyagent', $data);
+        }else{
+            return redirect('signin');
+        }
+       
+    }
     
     public function myproperty(Request $request){
         $session = $request->session()->all();

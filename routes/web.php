@@ -34,6 +34,8 @@ Route::match(['get', 'post'], 'company-register', ['as' => 'company-register', '
 
 Route::match(['get', 'post'], 'user-logout', ['as' => 'user-logout', 'uses' => 'frontend\LoginController@logout']);
 Route::match(['get', 'post'], 'my-profile', ['as' => 'my-profile', 'uses' => 'frontend\LoginController@myprofile']);
+Route::match(['get', 'post'], 'my-agent', ['as' => 'my-agent', 'uses' => 'frontend\LoginController@myagent']);
+Route::match(['get', 'post'], 'add-my-agent', ['as' => 'add-my-agent', 'uses' => 'frontend\LoginController@addmyagent']);
 Route::match(['get', 'post'], 'change-password', ['as' => 'change-password', 'uses' => 'frontend\LoginController@changepasswpord']);
 Route::match(['get', 'post'], 'my-property', ['as' => 'my-property', 'uses' => 'frontend\LoginController@myproperty']);
 Route::match(['get', 'post'], 'save-homes', ['as' => 'save-homes', 'uses' => 'frontend\LoginController@saveHomes']);

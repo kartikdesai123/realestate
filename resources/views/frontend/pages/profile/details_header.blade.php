@@ -2,6 +2,20 @@
 
 $currentRoute = Route::current()->getName();
 
+
+    if (!empty(Auth()->guard('users')->user())) {
+        $data = Auth()->guard('users')->user();
+    }
+    if (!empty(Auth()->guard('agent')->user())) {
+        $data = Auth()->guard('agent')->user();
+    }
+    if (!empty(Auth()->guard('agency')->user())) {
+        $data = Auth()->guard('agency')->user();
+    }
+    if (!empty(Auth()->guard('company')->user())) {
+        $data = Auth()->guard('company')->user();
+    }
+    
 @endphp
 <div class="col-12 mb-5">
     <div class="profile-sidebar bg-holder bg-overlay-black-70" style="background-image: url({{ asset('public/frontend/assets/images/banner-01.jpg') }})">
@@ -24,10 +38,20 @@ $currentRoute = Route::current()->getName();
           </li>
 
           <li class="nav-item">
-              <a class="nav-link {{ $currentRoute == 'change-password' ? 'active': ''}}" href="{{ route("change-password")}}"><i class="fa fa-key" ></i>
-                  Change Password</a>
+              <a class="nav-link {{ $currentRoute == 'change-password' ? 'active': ''}}" href="{{ route("change-password")}}">
+                <i class="fa fa-key" ></i>
+                  Change Password
+                </a>
           </li>
           
+          @if($data['roles'] == "AY" || $data['roles'] == "CC" )
+            <li class="nav-item">
+                <a class="nav-link {{ $currentRoute == 'my-agent' || $currentRoute == 'add-my-agent' ? 'active': ''}}" href="{{ route("my-agent")}}">
+                  <i class="fa fa-user"></i> My Agent
+                </a>
+            </li>
+          @endif
+
           <li class="nav-item">
             <a class="nav-link {{ $currentRoute == 'my-property' ? 'active': ''}}" href="{{ route("my-property")}}"><i class="fa fa-university" ></i>
                 My Property
@@ -39,6 +63,8 @@ $currentRoute = Route::current()->getName();
           <li class="nav-item">
               <a class="nav-link {{ $currentRoute == 'save-rental' ? 'active': ''}}" href="{{ route("save-rental")}}"><i class="fas fa-truck-moving"></i> Saved Rentals</a>
           </li>
+
+          
         </ul>
       </div>
     </div>
