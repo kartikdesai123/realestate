@@ -33,10 +33,10 @@ My profile -->
                 </div>
             </div>
             
-          <form id="edit-profile" enctype="multipart/form-data" method="POST">@csrf
+          <form id="add-my-agent" enctype="multipart/form-data" method="POST">
+            @csrf
+            
             <div class="form-row">
-
-             
               <div class="form-group col-sm-6">
                 <label>Username:</label>
                 <input type="text" class="form-control" name="agentusername" placeholder="Please enter agent's username">

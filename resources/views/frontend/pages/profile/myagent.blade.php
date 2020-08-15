@@ -48,15 +48,15 @@ My profile -->
             </div>
             <br>
 
-            <table class="table table-striped table-bordered table-hover table-checkable order-column" id="blog">
+            <table class="table table-striped table-bordered table-hover table-checkable order-column" id="agent-list">@csrf
                 <thead>
                     <tr>                            
                         <th> No </th>
-                        <th> Blog Title  </th>
-                        <th> Blog Category  </th>
-                        <th> Blog Author Name  </th>
-                        <th> Created Date  </th>
-                        <th> Actions </th>
+                        <th> Agent Image  </th>
+                        <th> Agent Name</th>
+                        <th> Agent Email  </th>
+                        <th> Phone No  </th>
+                        <th> About </th>
                     </tr>
                 </thead>
                 <tbody>   

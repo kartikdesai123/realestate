@@ -322,4 +322,73 @@ class Users extends Model
                 ->limit(4)
                 ->get();
     }
+
+    public function get_agent_datatable($id){
+        $requestData = $_REQUEST;
+        $columns = array(
+            0 => 'Users.id',
+            1 => 'Users.username',
+            2 => 'Users.email',
+            3 => 'Users.userimage',
+            4 => 'Users.phoneno',
+            4 => 'Users.about',
+        );
+        $query = Blog ::from('users')
+                        ->where('users.parent_id',$id);
+
+        if (!empty($requestData['search']['value'])) {   // if there is a search parameter, $requestData['search']['value'] contains search parameter
+            $searchVal = $requestData['search']['value'];
+            $query->where(function($query) use ($columns, $searchVal, $requestData) {
+                $flag = 0;
+                foreach ($columns as $key => $value) {
+                    $searchVal = $requestData['search']['value'];
+                    if ($requestData['columns'][$key]['searchable'] == 'true') {
+                        if ($flag == 0) {
+                            $query->where($value, 'like', '%' . $searchVal . '%');
+                            $flag = $flag + 1;
+                        } else {
+                            $query->orWhere($value, 'like', '%' . $searchVal . '%');
+                        }
+                    }
+                }
+            });
+        }
+
+        $temp = $query->orderBy($columns[$requestData['order'][0]['column']], $requestData['order'][0]['dir']);
+
+        $totalData = count($temp->get());
+        $totalFiltered = count($temp->get());
+
+        $resultArr = $query->skip($requestData['start'])
+                ->take($requestData['length'])
+                ->select('Users.id','Users.username','Users.email','Users.userimage','Users.phoneno','Users.about')
+                ->get();
+        $data = array();
+        $i = 0;
+
+        foreach ($resultArr as $row) {
+            if($row['userimage'] || $row['userimage'] != null){
+                $image = url("public/upload/userimage/" . $row['userimage']);
+            }else{
+                $image = url("public/upload/userimage/default.jpg");
+            }
+            
+            $i++;
+            $nestedData = array();
+            $nestedData[] = $i;
+            $nestedData[] = '<img height="60px" width="100px" src="' . $image . '" style="margin:20px;"></center>';
+            $nestedData[] = $row['username'];
+            $nestedData[] = $row['email'];
+            $nestedData[] = $row['phoneno'];
+            $nestedData[] = $row['about'];
+            $data[] = $nestedData;
+        }
+        $json_data = array(
+            "draw" => intval($requestData['draw']), // for every request/draw by clientside , they send a number as a parameter, when they recieve a response/data they first check the draw number, so we are sending same number in draw.
+            "recordsTotal" => intval($totalData), // total number of records
+            "recordsFiltered" => intval($totalFiltered), // total number of records after searching, if there is no searching then totalFiltered = totalData
+            "data" => $data   // total data array
+        );
+        return $json_data;
+    }
 }

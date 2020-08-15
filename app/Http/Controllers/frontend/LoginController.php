@@ -542,6 +542,8 @@ class LoginController extends Controller
             $data['css'] = array(
                 'toastr/toastr.min.css',
                 'magnific-popup/magnific-popup.css',
+                'datatable/datatables.min.css',
+                'datatable/plugins/bootstrap/datatables.bootstrap.css',
             );
             $data['plugincss'] = array();
             $data['pluginjs'] = array(
@@ -552,6 +554,9 @@ class LoginController extends Controller
                 'magnific-popup/jquery.magnific-popup.min.js',
             );
             $data['js'] = array(
+                'datatable/datatable.js',
+                'datatable/datatables.min.js',
+                'datatable/plugins/bootstrap/datatables.bootstrap.js',
                 'comman_function.js',
                 'ajaxfileupload.js',
                 'jquery.form.min.js',
@@ -575,6 +580,39 @@ class LoginController extends Controller
         $session = $request->session()->all();
         
         if(isset($session['logindata'])){
+
+            if ($request->isMethod("post")) {
+                $session = $request->session()->all();
+
+                $objAgent = new Agent();
+                $result = $objAgent->addMyAgent($request,$session['logindata'][0]['id']);
+                if($result == "true"){
+                    $return['status'] = 'success';
+                    $return['message'] = 'Well done your registration succesfully completed';
+                    $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
+                    $return['redirect'] = route('my-agent');
+                }else{
+                    if($result == "usernameexits"){
+                        $return['status'] = 'error';
+                        $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
+                        $return['message'] = 'username already exits';
+                    }else{
+                        if($result == "emailexits"){
+                            $return['status'] = 'error';
+                            $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
+                            $return['message'] = 'email already exits';
+                        }else{
+                            $return['status'] = 'error';
+                            $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
+                            $return['message'] = 'Something goes to wrong'; 
+                        }
+                    }
+                }
+                return json_encode($return);
+                exit();
+            }
+
+
             
             $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || My Agent ';
             $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || My Agent ';
@@ -599,7 +637,7 @@ class LoginController extends Controller
                 'myagent.js'
             );
             $data['funinit'] = array(
-                'Myagent.init()'
+                'Myagent.add()'
             );
             $data['header'] = array(
                 'breadcrumb' => array(
@@ -1089,5 +1127,20 @@ class LoginController extends Controller
         Auth::guard('agency')->logout();
         Auth::guard('company')->logout();
         Session::forget('logindata');
+    }
+
+
+    public function ajaxAction(Request $request){
+        $action = $request->input('action');
+
+        switch ($action) {
+            case 'getdatatable':
+                $session = $request->session()->all();
+
+                $objUsers = new Users();
+                $list = $objUsers->get_agent_datatable($session['logindata'][0]['id']);                    
+                echo json_encode($list);
+                break;
+        }
     }
 }
