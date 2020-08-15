@@ -326,12 +326,12 @@ class Users extends Model
     public function get_agent_datatable($id){
         $requestData = $_REQUEST;
         $columns = array(
-            0 => 'Users.id',
-            1 => 'Users.username',
-            2 => 'Users.email',
-            3 => 'Users.userimage',
-            4 => 'Users.phoneno',
-            4 => 'Users.about',
+            0 => 'users.id',
+            1 => 'users.username',
+            2 => 'users.email',
+            3 => 'users.userimage',
+            4 => 'users.phoneno',
+            4 => 'users.about',
         );
         $query = Blog ::from('users')
                         ->where('users.parent_id',$id);
@@ -361,7 +361,7 @@ class Users extends Model
 
         $resultArr = $query->skip($requestData['start'])
                 ->take($requestData['length'])
-                ->select('Users.id','Users.username','Users.email','Users.userimage','Users.phoneno','Users.about')
+                ->select('users.id','users.username','users.email','users.userimage','users.phoneno','users.about')
                 ->get();
         $data = array();
         $i = 0;
