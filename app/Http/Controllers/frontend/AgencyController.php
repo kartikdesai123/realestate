@@ -45,9 +45,12 @@ class AgencyController extends Controller
     }
     
     public function agencyDetail(Request $request,$agencyId){
+
         $session = $request->session()->all();
+
+
         $objPropertyDetails = new PropertyDetails();
-        $data['propertyList'] = $objPropertyDetails->getPropertyList($agencyId);
+        $data['propertyList'] = $objPropertyDetails->getAgencyPropertyList($agencyId);
 
         $objUsers = new Users();
         $data['agencyDetail'] = $objUsers->agencyDetail($agencyId);

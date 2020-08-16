@@ -48,7 +48,7 @@ class CompanyController extends Controller
         $session = $request->session()->all();
 
         $objPropertyDetails = new PropertyDetails();
-        $data['propertyList'] = $objPropertyDetails->getPropertyList($companyId);
+        $data['propertyList'] = $objPropertyDetails->getCompanyPropertyList($companyId);
 
         $objUsers = new Users();
         $data['companyDetail'] = $objUsers->companyDetail($companyId);

@@ -20,7 +20,7 @@ class PropertyDetails extends Model {
     protected $table = "property_details";
 
     public function addProperty($request, $userId) {
-
+       
         $url = strtolower($request->input('propertyTitle')).'-'.strtolower($request->input('txtCity')).'-'.strtolower($request->input('txtState')).'-'.strtolower($request->input('txtCountry'));
         $slug = str_replace(' ', '-', $url);
 
@@ -132,7 +132,7 @@ class PropertyDetails extends Model {
                     }
                 }
             }
-            if ($request->input('youtubelink')) {
+            if ($request->input('youtubelink')[0]) {
                
                 for($i = 0 ; $i < count($request->input('youtubelink')); $i++) {
                    
@@ -296,14 +296,33 @@ class PropertyDetails extends Model {
 
     public function getPropertyList($userId = NULL) {
         $property = PropertyDetails::select('property_details.*', DB::raw('GROUP_CONCAT(property_photo.name) AS images'), 'users.username', 'users.userimage', 'users.phoneno', 'users.roles', 'users.email')
-                ->join("property_photo", "property_details.id", "=", "property_photo.property_id")
-                ->join("users", "property_details.user_id", "=", "users.id");
-        if ($userId) {
-            $property->where('property_details.user_id', $userId);
-        }
-        $property->groupBy('property_details.id');
-        $result = $property->get();
-        return $result;
+                                    ->join("property_photo", "property_details.id", "=", "property_photo.property_id")
+                                    ->join("users", "property_details.user_id", "=", "users.id");
+            if ($userId) {
+                $property->where('property_details.user_id', $userId);
+            }
+            $property->groupBy('property_details.id');
+            $result = $property->get();
+            return $result;
+    }
+    public function getCompanyPropertyList($userId) {
+        return PropertyDetails::select('property_details.*', DB::raw('GROUP_CONCAT(property_photo.name) AS images'), 'users.username', 'users.userimage', 'users.phoneno', 'users.roles', 'users.email')
+                                    ->join("property_photo", "property_details.id", "=", "property_photo.property_id")
+                                    ->join("users", "property_details.user_id", "=", "users.id")
+                                    ->where('property_details.user_id', $userId)
+                                    ->orWhere('users.parent_id',$userId)
+                                    ->groupBy('property_details.id')
+                                    ->get();
+    }
+    
+    public function getAgencyPropertyList($userId = NULL) {
+        return PropertyDetails::select('property_details.*', DB::raw('GROUP_CONCAT(property_photo.name) AS images'), 'users.username', 'users.userimage', 'users.phoneno', 'users.roles', 'users.email')
+                                    ->join("property_photo", "property_details.id", "=", "property_photo.property_id")
+                                    ->join("users", "property_details.user_id", "=", "users.id")
+                                    ->where('property_details.user_id', $userId)
+                                    ->orWhere('users.parent_id',$userId)
+                                    ->groupBy('property_details.id')
+                                    ->get();
     }
 
     public function saveHomes($userId, $type) {
