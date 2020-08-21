@@ -441,4 +441,12 @@ class PropertyDetails extends Model {
         }
     }
 
+
+    public function getPropertyType(){
+        return PropertyDetails::select('type')
+                            ->where('isactive','0')
+                            ->groupBy('type')
+                            ->get();
+    }
+
 }

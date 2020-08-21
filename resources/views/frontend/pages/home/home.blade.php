@@ -30,24 +30,19 @@
                   <div class="col-12">
                      <div class="property-search-field bg-white">
                         <div class="property-search-item">
-                           <form class="form-row basic-select-wrapper">
+                           <form class="form-row basic-select-wrapper" method="POST" id="search">@csrf
                               <div class="form-group col-lg col-md-6">
                                  <label>Property type</label>
-                                 <select class="form-control basic-select buldingType">
-                                    <option>All Type</option>
-                                    <option>Villa</option>
-                                    <option>Apartment Building</option>
-                                    <option>Commercial</option>
-                                    <option>Office</option>
-                                    <option>Residential</option>
-                                    <option>Shop</option>
-                                    <option>Apartment</option>
-                                    <option value="project">Project</option>
+                                 <select class="form-control basic-select buldingType" name="property_type">
+                                    <option>All Type</option>.
+                                    @foreach($property_type as $key => $value)
+                                 <option value="{{ $value->type }}">{{ $value->type }}</option>
+                                    @endforeach
                                  </select>
                               </div>
                               <div class="form-group col-lg col-md-6">
                                  <label>Status</label>
-                                 <select class="form-control basic-select buldingStatus">
+                                 <select class="form-control basic-select buldingStatus" name="property_status">
                                     <option>For Rent</option>
                                     <option>For Sale</option>
                                  </select>
@@ -57,7 +52,7 @@
                                     <label>Location</label>
                                     <div class="d-flex align-items-center">
                                         <i class="far fa-compass mr-1"></i>
-                                        <input type="text" id="autoComplate" placeholder="Search Location" class="form-control" />
+                                        <input type="text" id="autoComplate" placeholder="Search Location" class="form-control" name="location" />
                                     </div>
                                  </div>
                                  <span class="align-items-center ml-3 d-none d-md-block"><button class="btn btn-primary d-flex align-items-center" type="submit"><i class="fas fa-search mr-1"></i><span>Search</span></button></span>
@@ -73,7 +68,7 @@
                                     <div class="form-row">
                                        <div class="form-group col-md-3">
                                           <label>Distance from location</label>
-                                          <select class="form-control basic-select">
+                                          <select class="form-control basic-select" name="distance">
                                              <option>This area only</option>
                                              <option>Within 1 mile</option>
                                              <option>Within 3 miles</option>
@@ -85,7 +80,7 @@
                                        </div>
                                        <div class="form-group col-md-3">
                                           <label>Bedrooms</label>
-                                          <select class="form-control basic-select">
+                                          <select class="form-control basic-select" name="badroom">
                                              <option>No max</option>
                                              <option>01</option>
                                              <option>02</option>
@@ -94,7 +89,7 @@
                                        </div>
                                        <div class="form-group col-md-3">
                                           <label>Sort by</label>
-                                          <select class="form-control basic-select">
+                                          <select class="form-control basic-select" name="sortby">
                                              <option>Most popular</option>
                                              <option>Highest price</option>
                                              <option>Lowest price</option>
@@ -103,7 +98,7 @@
                                        </div>
                                        <div class="form-group col-md-3">
                                           <label>Floor</label>
-                                          <select class="form-control basic-select">
+                                          <select class="form-control basic-select" name="floor">
                                              <option>Select Floor</option>
                                              <option>01</option>
                                              <option>02</option>
@@ -114,7 +109,7 @@
                                      <div class="form-row">
                                          <div class="form-group col-md-4">
                                           <label>Agent</label>
-                                          <select class="form-control basic-select">
+                                          <select class="form-control basic-select" name="agent">
                                              <option>Select Agent</option>
                                              <option>Agent1</option>
                                              <option>Agent2</option>
@@ -123,7 +118,7 @@
                                        </div>
                                          <div class="form-group col-md-4">
                                           <label>Agencies</label>
-                                          <select class="form-control basic-select">
+                                          <select class="form-control basic-select" name="agencies">
                                              <option>Select Agencies</option>
                                              <option>Agencies1</option>
                                              <option>Agencies2</option>
@@ -132,7 +127,7 @@
                                        </div>
                                          <div class="form-group col-md-4">
                                           <label>Company</label>
-                                          <select class="form-control basic-select">
+                                          <select class="form-control basic-select" name="company">
                                              <option>Select Company</option>
                                              <option>Company1</option>
                                              <option>Company2</option>
@@ -143,21 +138,24 @@
                                     <div class="form-row">
                                        <div class="form-group col-md-3">
                                           <label>Min Area (sq ft)</label>
-                                          <input class="form-control" placeholder="Type (sq ft)">
+                                          <input class="form-control" placeholder="Type (sq ft)" name="minarea">
                                        </div>
                                        <div class="form-group col-md-3">
                                           <label>Max Area (sq ft)</label>
-                                          <input class="form-control" placeholder="Type (sq ft)">
+                                          <input class="form-control" placeholder="Type (sq ft)" name="maxarea">
                                        </div>
                                        <div class="form-group col-md-6 property-price-slider ">
                                           <label>Select Price Range</label>
-                                          <input type="text" id="property-price-slider" name="example_name" value="" />
+                                          <input type="text" id="property-price-slider"  value="" name="price_range"/>
                                        </div>
                                     </div>
                                  </div>
                               </div>
                               <div class="d-md-none btn-block btn-mobile  m-3">
-                                 <button class="btn btn-primary btn-block align-items-center" type="submit"><i class="fas fa-search mr-1"></i><span>Search</span></button>
+                                 <button class="btn btn-primary btn-block align-items-center" type="submit">
+                                    <i class="fas fa-search mr-1"></i>
+                                    <span>Search</span>
+                                 </button>
                               </div>
                            </form>
                         </div>
@@ -542,24 +540,11 @@
                                     <li><a href="{{ route("search",$city)}}">{{ $value['city'] }} <span class="ml-auto">{{ $value['total'] }}</span> </a></li>
                                     @endforeach
                                   @endif
-<!--                                 <li><a href="property-list.html">Belgium <span class="ml-auto">02</span> </a></li>
-                                 <li><a href="property-list.html">Brazil <span class="ml-auto">02</span> </a></li>
-                                 <li><a href="property-list.html">Central African Republic <span class="ml-auto">02</span> </a></li>
-                                 <li><a href="property-list.html">Cook/ Chef <span class="ml-auto">02</span> </a></li>
-                                 <li><a href="property-list.html">Dominica <span class="ml-auto">02</span> </a></li>
-                                 <li><a href="property-list.html">Egypt <span class="ml-auto">02</span> </a></li>-->
+
                               </ul>
                            </div>
                            <div class="col-lg-4 col-sm-6">
-<!--                              <ul class="list-unstyled mb-0">
-                                 <li><a href="property-list.html">France <span class="ml-auto">02</span> </a></li>
-                                 <li><a href="property-list.html">Greece <span class="ml-auto">02</span> </a></li>
-                                 <li><a href="property-list.html">Hawaii* <span class="ml-auto">02</span> </a></li>
-                                 <li><a href="property-list.html">India <span class="ml-auto">02</span> </a></li>
-                                 <li><a href="property-list.html">Italy <span class="ml-auto">02</span> </a></li>
-                                 <li><a href="property-list.html">Jordan <span class="ml-auto">02</span> </a></li>
-                                 <li><a href="property-list.html">Kazakhstan <span class="ml-auto">02</span> </a></li>
-                              </ul>-->
+
                            </div>
                            <div class="col-lg-4">
                               <div class="bg-holder py-sm-5" style="background-image: url({{ asset('public/frontend/assets/images/google-map.png') }});">

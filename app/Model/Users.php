@@ -313,6 +313,15 @@ class Users extends Model
                 ->limit(4)
                 ->get();
     }
+    public function agentListSerch(){
+        return Users::select("users.username","users.email","users.userimage","users.phoneno","users.about","users.id","agentdetails.designation")
+                ->leftjoin("agentdetails","agentdetails.user_id","=","users.id")
+                ->where("users.roles","AG")
+                ->where("users.email_verfied","1")
+                ->where("users.isDeleted","0")
+                ->orderBy('users.id', 'desc')
+                ->get();
+    }
     public function companyList(){
         return Users::select("users.username","users.email","users.userimage","users.phoneno","users.about","users.id")
                 ->where("users.roles","CC")
@@ -320,6 +329,14 @@ class Users extends Model
                 ->where("users.isDeleted","0")                
                 ->orderBy('users.id', 'desc')
                 ->limit(4)
+                ->get();
+    }
+    public function companyListSerch(){
+        return Users::select("users.username","users.email","users.userimage","users.phoneno","users.about","users.id")
+                ->where("users.roles","CC")
+                ->where("users.email_verfied","1")
+                ->where("users.isDeleted","0")                
+                ->orderBy('users.id', 'desc')
                 ->get();
     }
 

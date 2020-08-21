@@ -19,6 +19,16 @@ class HomeController extends Controller
     }
 
     public function home(Request $request){
+        if ($request->isMethod("post")) {
+            print_r($request->input());
+            die();
+        }
+
+        $objPropertyDetails = new PropertyDetails();
+        $data['property_type'] = $objPropertyDetails->getPropertyType();
+        
+        $objUsers = new Users();
+        $data['agentListSerch'] = $objUsers->agentListSerch();
 
         $objUsers = new Users();
         $data['agentList'] = $objUsers->agentListHome();
@@ -28,6 +38,9 @@ class HomeController extends Controller
         
         $objUsers = new Users();
         $data['companyList'] = $objUsers->companyList();
+
+        $objUsers = new Users();
+        $data['companyListSerch'] = $objUsers->companyListSerch();
         
         $objBlog = new Blog();
         $data['blogDetails'] = $objBlog->getBlogList();
