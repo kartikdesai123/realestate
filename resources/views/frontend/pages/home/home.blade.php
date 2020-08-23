@@ -34,7 +34,7 @@
                               <div class="form-group col-lg col-md-6">
                                  <label>Property type</label>
                                  <select class="form-control basic-select buldingType" name="property_type">
-                                    <option>All Type</option>.
+                                    <option value="">All Type</option>.
                                     @foreach($property_type as $key => $value)
                                  <option value="{{ $value->type }}">{{ $value->type }}</option>
                                     @endforeach
@@ -97,41 +97,42 @@
                                           </select>
                                        </div>
                                        <div class="form-group col-md-3">
-                                          <label>Floor</label>
-                                          <select class="form-control basic-select" name="floor">
+                                          <label>Floor area</label>
+                                          <input class="form-control" placeholder="Type (sq ft)" name="floorarea">
+                                          {{-- <select class="form-control basic-select" name="floor">
                                              <option>Select Floor</option>
                                              <option>01</option>
                                              <option>02</option>
                                              <option>03</option>
-                                          </select>
+                                          </select> --}}
                                        </div>
                                     </div>
                                      <div class="form-row">
                                          <div class="form-group col-md-4">
                                           <label>Agent</label>
                                           <select class="form-control basic-select" name="agent">
-                                             <option>Select Agent</option>
-                                             <option>Agent1</option>
-                                             <option>Agent2</option>
-                                             <option>Agent3</option>
+                                             <option value="">Select Agent</option>
+                                             @foreach($agentListSerch as $key => $value)
+                                                <option value="{{ $value->id}}">{{ $value->username }}</option> 
+                                             @endforeach
                                           </select>
                                        </div>
                                          <div class="form-group col-md-4">
                                           <label>Agencies</label>
                                           <select class="form-control basic-select" name="agencies">
-                                             <option>Select Agencies</option>
-                                             <option>Agencies1</option>
-                                             <option>Agencies2</option>
-                                             <option>Agencies3</option>
+                                             <option value="">Select Agencies</option>
+                                             @foreach($agencyListSerch as $key => $value)
+                                                <option value="{{ $value->id}}">{{ $value->username }}</option> 
+                                             @endforeach
                                           </select>
                                        </div>
                                          <div class="form-group col-md-4">
                                           <label>Company</label>
                                           <select class="form-control basic-select" name="company">
-                                             <option>Select Company</option>
-                                             <option>Company1</option>
-                                             <option>Company2</option>
-                                             <option>Company3</option>
+                                             <option value="">Select Company</option>
+                                             @foreach($companyListSerch as $key => $value)
+                                                <option value="{{ $value->id}}">{{ $value->username }}</option> 
+                                             @endforeach
                                           </select>
                                        </div>
                                      </div>

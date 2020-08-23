@@ -29,7 +29,7 @@ class HomeController extends Controller
         
         $objUsers = new Users();
         $data['agentListSerch'] = $objUsers->agentListSerch();
-
+       
         $objUsers = new Users();
         $data['agentList'] = $objUsers->agentListHome();
 
@@ -42,6 +42,9 @@ class HomeController extends Controller
         $objUsers = new Users();
         $data['companyListSerch'] = $objUsers->companyListSerch();
         
+        $objUsers = new Users();
+        $data['agencyListSerch'] = $objUsers->agencyListSerch();
+
         $objBlog = new Blog();
         $data['blogDetails'] = $objBlog->getBlogList();
 
