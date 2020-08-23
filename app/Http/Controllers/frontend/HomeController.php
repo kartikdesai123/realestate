@@ -11,6 +11,7 @@ use App\Model\Blog;
 use Config;
 use App\Model\Users;
 use App\Model\Propertyreview;
+use App\Model\Userssearch;
 class HomeController extends Controller
 {
     
@@ -19,9 +20,19 @@ class HomeController extends Controller
     }
 
     public function home(Request $request){
-        if ($request->isMethod("post")) {
-            print_r($request->input());
-            die();
+        $session = $request->session()->all();
+
+        if ($request->isMethod("post")) 
+        {
+            if(isset($session['logindata'])){
+                $objUserssearch = new Userssearch();
+                $res = $objUserssearch->addEdituser($request,$session['logindata'][0]['id']);
+                if($res){
+                    return redirect('property');
+                }
+            }else{
+                return redirect('property');
+            }   
         }
 
         $objPropertyDetails = new PropertyDetails();

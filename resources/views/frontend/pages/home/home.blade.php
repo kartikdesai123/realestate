@@ -34,7 +34,7 @@
                               <div class="form-group col-lg col-md-6">
                                  <label>Property type</label>
                                  <select class="form-control basic-select buldingType" name="property_type">
-                                    <option value="">All Type</option>.
+                                    <option value="">All Type</option>
                                     @foreach($property_type as $key => $value)
                                  <option value="{{ $value->type }}">{{ $value->type }}</option>
                                     @endforeach
@@ -43,8 +43,9 @@
                               <div class="form-group col-lg col-md-6">
                                  <label>Status</label>
                                  <select class="form-control basic-select buldingStatus" name="property_status">
-                                    <option>For Rent</option>
-                                    <option>For Sale</option>
+                                    <option value="">All Type</option>.
+                                    <option value="rent" >For Rent</option>
+                                    <option value="sale">For Sale</option>
                                  </select>
                               </div>
                               <div class="form-group d-flex col-lg-5">
@@ -69,31 +70,31 @@
                                        <div class="form-group col-md-3">
                                           <label>Distance from location</label>
                                           <select class="form-control basic-select" name="distance">
-                                             <option>This area only</option>
-                                             <option>Within 1 mile</option>
-                                             <option>Within 3 miles</option>
-                                             <option>Within 5 miles</option>
-                                             <option>Within 10 miles</option>
-                                             <option>Within 15 miles</option>
-                                             <option>Within 30 miles</option>
+                                             <option value="">This area only</option>
+                                             <option value="1">Within 1 mile</option>
+                                             <option value="3">Within 3 miles</option>
+                                             <option value="5">Within 5 miles</option>
+                                             <option value="10">Within 10 miles</option>
+                                             <option value="15">Within 15 miles</option>
+                                             <option value="30">Within 30 miles</option>
                                           </select>
                                        </div>
                                        <div class="form-group col-md-3">
                                           <label>Bedrooms</label>
                                           <select class="form-control basic-select" name="badroom">
-                                             <option>No max</option>
-                                             <option>01</option>
-                                             <option>02</option>
-                                             <option>03</option>
+                                             <option value="">No max</option>
+                                             <option value="1">01</option>
+                                             <option value="2">02</option>
+                                             <option value="3">03</option>
                                           </select>
                                        </div>
                                        <div class="form-group col-md-3">
                                           <label>Sort by</label>
                                           <select class="form-control basic-select" name="sortby">
-                                             <option>Most popular</option>
-                                             <option>Highest price</option>
-                                             <option>Lowest price</option>
-                                             <option>Most reduced</option>
+                                             <option  value="">Most popular</option>
+                                             <option  value="high">Highest price</option>
+                                             <option value="low">Lowest price</option>
+                                             <option value="reduced">Most reduced</option>
                                           </select>
                                        </div>
                                        <div class="form-group col-md-3">
