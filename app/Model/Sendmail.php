@@ -12,6 +12,7 @@ use App\Model\PropertyDetails;
 use App\Model\Users;
 use App\Model\Propertyrequest;
 use App\Model\PropertyContactOwner;
+use App\Model\Userssearch;
 
 class Sendmail extends Model 
 {
@@ -218,27 +219,30 @@ class Sendmail extends Model
     }
 
 
-    // public function sendSMTPMail($mailData)
-    // {
-        
-    //             $pathToFile = $mailData['attachment'];
-            
-    //             $mailsend = Mail::send($mailData['template'], ['data' => $mailData['data']], function ($m) use ($mailData,$pathToFile) {
-    //                 $m->from('parthkhunt37@gmail.com', 'Real Estate');
-        
-    //                 $m->to($mailData['mailto'], "Real Estate")->subject($mailData['subject']);
-    //                 if($pathToFile != ""){
-    //                     // $m->attach($pathToFile);
-    //                 }
-                    
-    //                 //  $m->cc($mailData['bcc']);
-    //             });
-    //             if($mailsend){
-    //                 return true;
-    //             }else{
-    //                 return false;
-    //             }
-    // }
+    public function sendUsersMail($request,$userId){
+        if($request->input('area2')){
+            $area = $request->input('area2');
+        }else{
+            $area = 0;
+        }
+
+        $result =  Userssearch::select("user_id")
+                                ->where("property_type",$request->input('type'))
+                                ->orWhere("property_status",$request->input('offer'))
+                                ->orWhere("property_location",$request->input('txtaddress'))
+                                ->orWhere("property_badroom",$request->input('bedrooms'))
+                                ->orWhere("property_floorarea",$request->input('floorarea'))
+                                ->orWhere("property_floorarea",$area)
+                                ->orWhere("property_agent",$userId)
+                                ->orWhere("property_agency",$userId)
+                                ->orWhere("property_company",$userId)
+                                ->orWhere("property_minarea","<=",$request->input('area'))
+                                ->orWhere("property_maxarea","=>",$request->input('area'))
+                                ->get();
+                                
+        print_r($result);
+        die();
+    }
 
     public function sendSMTPMail($mailData)
     {
@@ -246,7 +250,7 @@ class Sendmail extends Model
                 $pathToFile = $mailData['attachment'];
             
                 $mailsend = Mail::send($mailData['template'], ['data' => $mailData['data']], function ($m) use ($mailData,$pathToFile) {
-                    $m->from('info@mototivewebsolution.com', 'Real Estate');
+                    $m->from('parthkhunt37@gmail.com', 'Real Estate');
         
                     $m->to($mailData['mailto'], "Real Estate")->subject($mailData['subject']);
                     if($pathToFile != ""){
@@ -261,4 +265,26 @@ class Sendmail extends Model
                     return false;
                 }
     }
+
+    // public function sendSMTPMail($mailData)
+    // {
+        
+    //             $pathToFile = $mailData['attachment'];
+            
+    //             $mailsend = Mail::send($mailData['template'], ['data' => $mailData['data']], function ($m) use ($mailData,$pathToFile) {
+    //                 $m->from('info@mototivewebsolution.com', 'Real Estate');
+        
+    //                 $m->to($mailData['mailto'], "Real Estate")->subject($mailData['subject']);
+    //                 if($pathToFile != ""){
+    //                     // $m->attach($pathToFile);
+    //                 }
+                    
+    //                 //  $m->cc($mailData['bcc']);
+    //             });
+    //             if($mailsend){
+    //                 return true;
+    //             }else{
+    //                 return false;
+    //             }
+    // }
 }

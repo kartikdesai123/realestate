@@ -82,7 +82,7 @@ class HomeController extends Controller
             'typeahead/typeahead.bundle.min.js',
         );
         $data['js'] = array(
-            'home.js'
+            'home.js',
         );
         $data['funinit'] = array(
             'Home.init()'

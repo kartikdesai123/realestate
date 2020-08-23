@@ -53,7 +53,7 @@
                                     <label>Location</label>
                                     <div class="d-flex align-items-center">
                                         <i class="far fa-compass mr-1"></i>
-                                        <input type="text" id="autoComplate" placeholder="Search Location" class="form-control" name="location" />
+                                        <input type="text" class="form-control txtaddress" name="txtaddress" id="txtaddress" placeholder="Address">
                                     </div>
                                  </div>
                                  <span class="align-items-center ml-3 d-none d-md-block"><button class="btn btn-primary d-flex align-items-center" type="submit"><i class="fas fa-search mr-1"></i><span>Search</span></button></span>

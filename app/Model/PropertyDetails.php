@@ -12,6 +12,8 @@ use App\Model\PropertyVideo;
 use App\Model\ReportProperty;
 use App\Model\HomeCity;
 use App\Model\Favourite;
+use App\Model\Userssearch;
+use App\Model\Sendmail;
 use DB;
 
 class PropertyDetails extends Model {
@@ -132,6 +134,7 @@ class PropertyDetails extends Model {
                     }
                 }
             }
+
             if ($request->input('youtubelink')[0]) {
                
                 for($i = 0 ; $i < count($request->input('youtubelink')); $i++) {
@@ -148,7 +151,6 @@ class PropertyDetails extends Model {
             }
 
             if ($request->file('video')) {
-
                 $i = 0;
                 foreach ($request->file('video') as $key => $value) {
                     $i++;
@@ -288,6 +290,10 @@ class PropertyDetails extends Model {
                     $objHomeUpdate->save();
                 }
             }
+
+            $objSendmail = new Sendmail();
+            $res= $objSendmail->sendUsersMail($request,$userId);
+
             return true;
         } else {
             return false;

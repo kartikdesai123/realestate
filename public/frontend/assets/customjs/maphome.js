@@ -1,6 +1,4 @@
 function getMap() {
-
-
     var places = new google.maps.places.Autocomplete(document.getElementById('txtaddress'));
     google.maps.event.addListener(places, 'place_changed', function() {
         var place = places.getPlace();

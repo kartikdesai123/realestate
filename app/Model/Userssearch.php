@@ -17,7 +17,7 @@ class Userssearch extends Model
             [       
                     'property_type' => $request->input("property_type"),
                     'property_status' => $request->input('property_status'),
-                    'property_location' => $request->input('location'),
+                    'property_location' => $request->input('txtaddress'),
                     'property_distance' => $request->input('distance'),
                     'property_badroom' => $request->input('badroom'),
                     'property_sortby' => $request->input('sortby'),
