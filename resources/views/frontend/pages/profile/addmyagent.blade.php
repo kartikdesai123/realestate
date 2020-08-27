@@ -34,7 +34,7 @@ My profile -->
             </div>
             
           <form id="add-my-agent" enctype="multipart/form-data" method="POST">
-            @csrf
+            @csrf 
             
             <div class="form-row">
               <div class="form-group col-sm-6">

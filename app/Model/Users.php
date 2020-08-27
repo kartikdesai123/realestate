@@ -393,6 +393,10 @@ class Users extends Model
         $i = 0;
 
         foreach ($resultArr as $row) {
+
+            $actionhtml = '';
+            $actionhtml = '<a href="'.route('my-profile-edit',$row['id']).'"  class="btn btn-icon primary"  ><i class="fa fa-edit"></i></a>';
+
             if($row['userimage'] || $row['userimage'] != null){
                 $image = url("public/upload/userimage/" . $row['userimage']);
             }else{
@@ -407,6 +411,7 @@ class Users extends Model
             $nestedData[] = $row['email'];
             $nestedData[] = $row['phoneno'];
             $nestedData[] = $row['about'];
+            $nestedData[] = $actionhtml;
             $data[] = $nestedData;
         }
         $json_data = array(
