@@ -57,6 +57,7 @@ My profile -->
                         <th> Agent Email  </th>
                         <th> Phone No  </th>
                         <th> About </th>
+                        <th> Action </th>
                     </tr>
                 </thead>
                 <tbody>   

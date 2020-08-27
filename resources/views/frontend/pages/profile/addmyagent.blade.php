@@ -58,15 +58,6 @@ My profile -->
                 <input type="text" class="form-control" name="agentphoneno" placeholder="Please enter agent's phone number">
               </div>
               
-              <div class="form-group col-sm-6">
-                <label>Photo:</label>
-                <input type="file" class="form-control" name="agentuserimage" accept="image/*">
-              </div>
-
-              <div class="form-group col-sm-12">
-                <label>About agent:</label>
-                <textarea  class="form-control" name="agentabout" placeholder="Please enter about agent" rows="2"></textarea>
-              </div>
 
               <div class="col-md-12">
                 <button type="submit" class="btn btn-primary btn-block btnsubmit">Save Changes</button>
