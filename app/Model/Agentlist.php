@@ -18,7 +18,7 @@ class Agentlist extends Model
             4 => 'users.phoneno',
             4 => 'users.about',
         );
-        $query = Blog ::from('users')
+        $query = Agentlist ::from('users')
                     ->leftjoin("users as u2","u2.id","=","users.parent_id")
                     ->where('users.roles','AG')
                     ->where('users.isDeleted','0');
@@ -61,8 +61,7 @@ class Agentlist extends Model
                 $verifyHtml = '<span class="badge badge-danger"> Not Verify </span>';
             }
             $actionhtml = '';
-            $actionhtml = '<a href="#"  class="btn btn-icon primary"  ><i class="fa fa-pencil" title="Edit Users"></i></a>'
-                    .'<a href="#"  class="btn btn-icon primary"  ><i class="fa fa-eye" title="View Users"></i></a>'
+            $actionhtml = '<a href="'.route("admin-agent-view",$row['id']).'"  class="btn btn-icon primary"  ><i class="fa fa-eye" title="View Agent"></i></a>'
                     . '<a href="" data-toggle="modal" data-target="#deleteModel" class="btn btn-icon  deleteLaghukatha" " data-id="' . $row["id"] . '" ><i class="fa fa-trash" title="Delete Users"></i></a>';
 
             if($row['userimage'] || $row['userimage'] != null){
@@ -95,5 +94,13 @@ class Agentlist extends Model
             "data" => $data   // total data array
         );
         return $json_data;
+    }
+
+    public function getAgentDetails($id){
+        return Agentlist ::from('users')
+                    ->leftjoin("users as u2","u2.id","=","users.parent_id")
+                    ->where('users.id',$id)
+                    ->select('users.id','u2.username as parent_id','users.username','users.email','users.userimage','users.phoneno','users.about','users.email_verfied')
+                    ->get();
     }
 }

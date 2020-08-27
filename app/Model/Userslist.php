@@ -62,8 +62,7 @@ class Userslist extends Model
             }
 
             $actionhtml = '';
-            $actionhtml = '<a href="#"  class="btn btn-icon primary"  ><i class="fa fa-pencil" title="Edit Users"></i></a>'
-                    .'<a href="#"  class="btn btn-icon primary"  ><i class="fa fa-eye" title="View Users"></i></a>'
+            $actionhtml = '<a href="'.route('admin-user-view', $row["id"]).'"  class="btn btn-icon primary"  ><i class="fa fa-eye" title="View Users"></i></a>'
                     . '<a href="" data-toggle="modal" data-target="#deleteModel" class="btn btn-icon  deleteLaghukatha" " data-id="' . $row["id"] . '" ><i class="fa fa-trash" title="Delete Users"></i></a>';
 
             if($row['userimage'] || $row['userimage'] != null){
@@ -91,5 +90,10 @@ class Userslist extends Model
             "data" => $data   // total data array
         );
         return $json_data;
+    }
+
+
+    public function getUserDetails($id){
+        return Userslist::select("*")->where("id",$id)->get();
     }
 }

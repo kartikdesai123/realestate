@@ -49,6 +49,38 @@ class UsersController extends Controller
         return view('backend.pages.users.users.list', $data);
     }
 
+    public function view(Request $request,$id){
+        
+        $objUserslist = new Userslist();
+        $data['userDetails'] = $objUserslist->getUserDetails($id);
+
+        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Users Details';
+        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Users Details';
+        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Users Details';        
+        $data['css'] = array(
+            'assets/pages/css/profile.min.css'
+        );
+        $data['plugincss'] = array(
+            
+        );
+        $data['pluginjs'] = array(
+            'assets/pages/scripts/profile.min.js',
+            'assets/pages/scripts/timeline.min.js',
+        );
+        $data['js'] = array(
+        );
+        $data['funinit'] = array(
+        );
+        $data['header'] = array(
+            'title' => 'Users Details',
+            'breadcrumb' => array(
+            'Dashboard' => route("admin-dashboard"),
+            'User List' => route("admin-user-list"),
+            'Users Details' => "Users Details",
+        ));
+        return view('backend.pages.users.users.view', $data);
+    }
+
     public function ajaxAction(Request $request){
         $action = $request->input('action');
         switch ($action) {

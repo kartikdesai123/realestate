@@ -28,18 +28,18 @@ $currentRoute = Route::current()->getName();
                 </a>
             </li>
 
-            <li class="nav-item start  {{ $currentRoute == "admin-user-list" || $currentRoute == "admin-agent-list" ? "active": ""}} ">
+            <li class="nav-item start  {{ $currentRoute == "admin-user-list" || $currentRoute == "admin-user-view" || $currentRoute == "admin-agent-list" ? "active": ""}} ">
                 <a href="javascript:;" class="nav-link nav-toggle">
                     <i class="fa fa-users"></i>
                     <span class="title">Users List</span>
                     <span class="arrow"></span>
-                    @if($currentRoute == "admin-user-list")
+                    @if($currentRoute == "admin-user-list" || $currentRoute == "admin-user-view" || $currentRoute == "admin-agent-list" || $currentRoute == "admin-user-view")
                             <span class="selected"></span>
                     @endif
                 </a>
 
                 <ul class="sub-menu">
-                    <li class="nav-item start {{ $currentRoute == "admin-user-list" ? "active": ""}}">
+                    <li class="nav-item start {{ $currentRoute == "admin-user-list"  || $currentRoute == "admin-user-view" ? "active": ""}}">
                         <a href="{{ route('admin-user-list') }}" class="nav-link ">
                             <i class="fa fa-hand-o-right"></i>
                             <span class="title">Users List</span>

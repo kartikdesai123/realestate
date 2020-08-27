@@ -27,10 +27,12 @@ Route::group(['prefix' => $adminPrefix, 'middleware' => ['admin']], function() {
     
     // Users List
     Route::match(['get', 'post'], 'admin-user-list', ['as' => 'admin-user-list', 'uses' => 'backend\users\UsersController@list']);
+    Route::match(['get', 'post'], 'admin-user-view/{id}', ['as' => 'admin-user-view', 'uses' => 'backend\users\UsersController@view']);
     Route::match(['get', 'post'], 'admin-user-list-ajaxAction', ['as' => 'admin-user-list-ajaxAction', 'uses' => 'backend\users\UsersController@ajaxAction']);
    
     // Agent List
     Route::match(['get', 'post'], 'admin-agent-list', ['as' => 'admin-agent-list', 'uses' => 'backend\users\AgentController@list']);
+    Route::match(['get', 'post'], 'admin-agent-view/{id}', ['as' => 'admin-agent-view', 'uses' => 'backend\users\AgentController@view']);
     Route::match(['get', 'post'], 'admin-agent-list-ajaxAction', ['as' => 'admin-agent-list-ajaxAction', 'uses' => 'backend\users\AgentController@ajaxAction']);
    
     // agency List
