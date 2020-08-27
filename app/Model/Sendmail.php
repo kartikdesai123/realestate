@@ -220,11 +220,13 @@ class Sendmail extends Model
 
 
     public function sendUsersMail($request,$userId){
+
         if($request->input('area2')){
             $area = $request->input('area2');
         }else{
             $area = 0;
         }
+
 
         $result =  Userssearch::select("user_id")
                                 ->where("property_type",$request->input('type'))
@@ -238,32 +240,9 @@ class Sendmail extends Model
                                 ->orWhere("property_company",$userId)
                                 ->orWhere("property_minarea","<=",$request->input('area'))
                                 ->orWhere("property_maxarea","=>",$request->input('area'))
-                                ->get();
-                                
-        print_r($result);
-        die();
-    }
-
-    public function sendSMTPMail($mailData)
-    {
-        
-                $pathToFile = $mailData['attachment'];
-            
-                $mailsend = Mail::send($mailData['template'], ['data' => $mailData['data']], function ($m) use ($mailData,$pathToFile) {
-                    $m->from('parthkhunt37@gmail.com', 'Real Estate');
-        
-                    $m->to($mailData['mailto'], "Real Estate")->subject($mailData['subject']);
-                    if($pathToFile != ""){
-                        // $m->attach($pathToFile);
-                    }
-                    
-                    //  $m->cc($mailData['bcc']);
-                });
-                if($mailsend){
-                    return true;
-                }else{
-                    return false;
-                }
+                                ->get();                
+        // print_r($result);
+        // die();
     }
 
     // public function sendSMTPMail($mailData)
@@ -272,7 +251,7 @@ class Sendmail extends Model
     //             $pathToFile = $mailData['attachment'];
             
     //             $mailsend = Mail::send($mailData['template'], ['data' => $mailData['data']], function ($m) use ($mailData,$pathToFile) {
-    //                 $m->from('info@mototivewebsolution.com', 'Real Estate');
+    //                 $m->from('parthkhunt37@gmail.com', 'Real Estate');
         
     //                 $m->to($mailData['mailto'], "Real Estate")->subject($mailData['subject']);
     //                 if($pathToFile != ""){
@@ -287,4 +266,26 @@ class Sendmail extends Model
     //                 return false;
     //             }
     // }
+
+    public function sendSMTPMail($mailData)
+    {
+        
+                $pathToFile = $mailData['attachment'];
+            
+                $mailsend = Mail::send($mailData['template'], ['data' => $mailData['data']], function ($m) use ($mailData,$pathToFile) {
+                    $m->from('info@mototivewebsolution.com', 'Real Estate');
+        
+                    $m->to($mailData['mailto'], "Real Estate")->subject($mailData['subject']);
+                    if($pathToFile != ""){
+                        // $m->attach($pathToFile);
+                    }
+                    
+                    //  $m->cc($mailData['bcc']);
+                });
+                if($mailsend){
+                    return true;
+                }else{
+                    return false;
+                }
+    }
 }

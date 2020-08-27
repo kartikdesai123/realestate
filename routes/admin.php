@@ -24,6 +24,22 @@ Route::group(['prefix' => $adminPrefix, 'middleware' => ['admin']], function() {
     Route::match(['get', 'post'], 'add-extra-facilities', ['as' => 'add-extra-facilities', 'uses' => 'backend\extrafacailies\ExtrafacilitiesController@addextrafacilities']);
     Route::match(['get', 'post'], 'edit-extra-facilities/{id}', ['as' => 'edit-extra-facilities','uses' => 'backend\extrafacailies\ExtrafacilitiesController@editextrafacilities']);
     Route::match(['get', 'post'], 'extrafacilities-ajaxAction', ['as' => 'extrafacilities-ajaxAction', 'uses' => 'backend\extrafacailies\ExtrafacilitiesController@ajaxAction']);
+    
+    // Users List
+    Route::match(['get', 'post'], 'admin-user-list', ['as' => 'admin-user-list', 'uses' => 'backend\users\UsersController@list']);
+    Route::match(['get', 'post'], 'admin-user-list-ajaxAction', ['as' => 'admin-user-list-ajaxAction', 'uses' => 'backend\users\UsersController@ajaxAction']);
+   
+    // Agent List
+    Route::match(['get', 'post'], 'admin-agent-list', ['as' => 'admin-agent-list', 'uses' => 'backend\users\AgentController@list']);
+    Route::match(['get', 'post'], 'admin-agent-list-ajaxAction', ['as' => 'admin-agent-list-ajaxAction', 'uses' => 'backend\users\AgentController@ajaxAction']);
+   
+    // agency List
+    Route::match(['get', 'post'], 'admin-agency-list', ['as' => 'admin-agency-list', 'uses' => 'backend\users\AgencyController@list']);
+    Route::match(['get', 'post'], 'admin-agency-list-ajaxAction', ['as' => 'admin-agency-list-ajaxAction', 'uses' => 'backend\users\AgencyController@ajaxAction']);
+  
+    // company List
+    Route::match(['get', 'post'], 'admin-company-list', ['as' => 'admin-company-list', 'uses' => 'backend\users\CompanyController@list']);
+    Route::match(['get', 'post'], 'admin-company-list-ajaxAction', ['as' => 'admin-company-list-ajaxAction', 'uses' => 'backend\users\CompanyController@ajaxAction']);
 
     // Blog Category
     Route::match(['get', 'post'], 'blog-category', ['as' => 'blog-category', 'uses' => 'backend\blog\BlogCategoryController@list']);

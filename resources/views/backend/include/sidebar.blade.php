@@ -28,6 +28,48 @@ $currentRoute = Route::current()->getName();
                 </a>
             </li>
 
+            <li class="nav-item start  {{ $currentRoute == "admin-user-list" || $currentRoute == "admin-agent-list" ? "active": ""}} ">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="fa fa-users"></i>
+                    <span class="title">Users List</span>
+                    <span class="arrow"></span>
+                    @if($currentRoute == "admin-user-list")
+                            <span class="selected"></span>
+                    @endif
+                </a>
+
+                <ul class="sub-menu">
+                    <li class="nav-item start {{ $currentRoute == "admin-user-list" ? "active": ""}}">
+                        <a href="{{ route('admin-user-list') }}" class="nav-link ">
+                            <i class="fa fa-hand-o-right"></i>
+                            <span class="title">Users List</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item start {{ $currentRoute == "admin-agent-list" ? "active": ""}}">
+                        <a href="{{ route('admin-agent-list') }}" class="nav-link ">                            
+                            <i class="fa fa-hand-o-right"></i>
+                            <span class="title">Agent List</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item start {{ $currentRoute == "admin-agency-list" ? "active": ""}}">
+                        <a href="{{ route('admin-agency-list') }}" class="nav-link ">                            
+                            <i class="fa fa-hand-o-right"></i>
+                            <span class="title">Agency List</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item start {{ $currentRoute == "admin-company-list" ? "active": ""}}">
+                        <a href="{{ route('admin-company-list') }}" class="nav-link ">                            
+                            <i class="fa fa-hand-o-right"></i>
+                            <span class="title">Company List</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </li>
+
             <li class="nav-item start {{ $currentRoute == "extra-facilities" ? "active": ""}} {{ $currentRoute == "add-extra-facilities" ? "active": ""}} {{ $currentRoute == "edit-extra-facilities" ? "active": ""}}">
                 <a href="{{ route('extra-facilities') }}" class="nav-link ">
                     <i class="fa fa-archive" aria-hidden="true"></i>
