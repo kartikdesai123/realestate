@@ -24,21 +24,21 @@ class Agency extends Model
                 return "emailexits";
             }else{
                 $objUser = new Users();
-                if ($request->file('agencyuserimage')) {
+                // if ($request->file('agencyuserimage')) {
                     
-                    $image = $request->file('agencyuserimage');                   
-                    $name = time() . '.' . $image->getClientOriginalExtension();                    
-                    $destinationPath = public_path('/upload/userimage');
-                    $image->move($destinationPath, $name);
-                    $objUser->userimage = $name;
+                //     $image = $request->file('agencyuserimage');                   
+                //     $name = time() . '.' . $image->getClientOriginalExtension();                    
+                //     $destinationPath = public_path('/upload/userimage');
+                //     $image->move($destinationPath, $name);
+                //     $objUser->userimage = $name;
     
-                }
+                // }
                 $objUser->username = $request->input('agencyusername');
                 $objUser->email = $request->input('agencyemail');
                 $objUser->password = Hash::make($request->input('agencypassword'));
                 $objUser->phoneno = $request->input('agencyphoneno');
                 $objUser->roles = "AY";
-                $objUser->about = $request->input('agencyabout');
+                // $objUser->about = $request->input('agencyabout');
                 $objUser->created_at = date("Y-m-d h:i:s");
                 $objUser->updated_at = date("Y-m-d h:i:s");
                 if($objUser->save()){

@@ -85,17 +85,17 @@ class Agent extends Model
                 return "emailexits";
             }else{
                 $objUser = new Users();
-                if ($request->file('agentuserimage')) {
+                // if ($request->file('agentuserimage')) {
                     
-                    $image = $request->file('agentuserimage');
+                //     $image = $request->file('agentuserimage');
                    
-                    $name = time() . '.' . $image->getClientOriginalExtension();
+                //     $name = time() . '.' . $image->getClientOriginalExtension();
                     
-                    $destinationPath = public_path('/upload/userimage');
-                    $image->move($destinationPath, $name);
-                    $objUser->userimage = $name;
+                //     $destinationPath = public_path('/upload/userimage');
+                //     $image->move($destinationPath, $name);
+                //     $objUser->userimage = $name;
     
-                }
+                // }
                 $objUser->username = $request->input('agentusername');
                 $objUser->email = $request->input('agentemail');
                 $objUser->password = Hash::make($request->input('agentpassword'));

@@ -30,17 +30,17 @@ class Users extends Model
                 return "emailexits";
             }else{
                 $objUser = new Users();
-                if ($request->file('userimage')) {
+                // if ($request->file('userimage')) {
                     
-                    $image = $request->file('userimage');
+                //     $image = $request->file('userimage');
                    
-                    $name = time() .'.' . $image->getClientOriginalExtension();
+                //     $name = time() .'.' . $image->getClientOriginalExtension();
                     
-                    $destinationPath = public_path('/upload/userimage');
-                    $image->move($destinationPath, $name);
-                    $objUser->userimage = $name;
+                //     $destinationPath = public_path('/upload/userimage');
+                //     $image->move($destinationPath, $name);
+                //     $objUser->userimage = $name;
     
-                }
+                // }
                 $objUser->username = $request->input('username');
                 $objUser->email = $request->input('email');
                 $objUser->password = Hash::make($request->input('password'));

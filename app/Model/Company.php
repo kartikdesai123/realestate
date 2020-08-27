@@ -25,21 +25,21 @@ class Company extends Model
                 return "emailexits";
             }else{
                 $objUser = new Users();
-                if ($request->file('companyuserimage')) {
+                // if ($request->file('companyuserimage')) {
                     
-                    $image = $request->file('companyuserimage');                   
-                    $name = time() . '.' . $image->getClientOriginalExtension();                    
-                    $destinationPath = public_path('/upload/userimage');
-                    $image->move($destinationPath, $name);
-                    $objUser->userimage = $name;
+                //     $image = $request->file('companyuserimage');                   
+                //     $name = time() . '.' . $image->getClientOriginalExtension();                    
+                //     $destinationPath = public_path('/upload/userimage');
+                //     $image->move($destinationPath, $name);
+                //     $objUser->userimage = $name;
     
-                }
+                // }
                 $objUser->username = $request->input('companyusername');
                 $objUser->email = $request->input('companyemail');
                 $objUser->password = Hash::make($request->input('companypassword'));
                 $objUser->phoneno = $request->input('companyphoneno');
                 $objUser->roles = "CC";
-                $objUser->about = $request->input('companyabout');
+                // $objUser->about = $request->input('companyabout');
                 $objUser->created_at = date("Y-m-d h:i:s");
                 $objUser->updated_at = date("Y-m-d h:i:s");
                 if($objUser->save()){
