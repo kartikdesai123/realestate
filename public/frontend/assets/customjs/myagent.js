@@ -1,5 +1,5 @@
-var Myagent = function(){
-    var list = function(){
+var Myagent = function() {
+    var list = function() {
         var dataArr = {};
         var columnWidth = {};
         var arrList = {
@@ -14,18 +14,19 @@ var Myagent = function(){
             'defaultSortOrder': 'DESC',
             'setColumnWidth': columnWidth
         };
-        getDataTable(arrList);      
+        getDataTable(arrList);
     };
-    var addAgent = function(){
+
+    var addAgent = function() {
         var form = $('#add-my-agent');
 
         var rules = {
-            agentusername: {required: true},
-            agentemail: {required: true,email:true},
-            agentpassword: {required: true,},
-            agentcpassword: {required: true,equalTo: "#agentpassword"},
-            agentphoneno: {required: true,},
-            agentabout: {required: true,},
+            agentusername: { required: true },
+            agentemail: { required: true, email: true },
+            agentpassword: { required: true, },
+            agentcpassword: { required: true, equalTo: "#agentpassword" },
+            agentphoneno: { required: true, },
+            agentabout: { required: true, },
         };
 
         var messages = {
@@ -50,16 +51,52 @@ var Myagent = function(){
                 required: "Please enter about agent",
             },
         };
-        handleFormValidateWithMsg(form, rules, messages, function (form) {
-            handleAjaxFormSubmit(form,true);
-        });     
+        handleFormValidateWithMsg(form, rules, messages, function(form) {
+            handleAjaxFormSubmit(form, true);
+        });
     };
-    return{
-        init:function(){
+    var editAgent = function() {
+        var form = $('#edit-agent');
+
+        var rules = {
+            username: { required: true },
+            email: { required: true, email: true },
+            password: { required: true, equalTo: "#cpassword" },
+            phoneno: { required: true, },
+        };
+
+        var messages = {
+            username: {
+                required: "Please enter agent's username",
+            },
+            email: {
+                required: "Please enter agent's email",
+                email: "Please enter vaild email",
+            },
+            password: {
+                required: "Please enter agent's password",
+            },
+            cpassword: {
+                required: "Please enter agent's confirm password",
+                equalTo: "Confirm password and password must be same",
+            },
+            phoneno: {
+                required: "Please enter agent's phone no",
+            },
+        };
+        handleFormValidateWithMsg(form, rules, messages, function(form) {
+            handleAjaxFormSubmit(form, true);
+        });
+    }
+    return {
+        init: function() {
             list();
         },
-        add:function(){
+        add: function() {
             addAgent();
         },
+        edit: function() {
+            editAgent();
+        }
     }
 }();

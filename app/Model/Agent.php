@@ -46,6 +46,7 @@ class Agent extends Model
                 $objUser->about = $request->input('agentabout');
                 $objUser->created_at = date("Y-m-d h:i:s");
                 $objUser->updated_at = date("Y-m-d h:i:s");
+                
                 if($objUser->save()){
                     $id = $objUser->id;
                     $token = bin2hex(random_bytes(10));
@@ -129,5 +130,103 @@ class Agent extends Model
             }
         }
         
+    }
+    public function editAgent($request,$id){
+        
+        $countusername = Users::where("username",$request->input('username'))
+                        ->where("id","!=",$id)
+                        ->count(); 
+
+        if($countusername != 0){
+            return "usernameexits";
+        }else{ 
+            $objUser = Users::find($id);
+            if ($request->file('userimage')) {
+                $oldImage = Users::where("id",$id)
+                            ->select('userimage')
+                            ->get();
+                        if($oldImage[0]->userimage != NULL){
+                            $path = 'public/upload/userimage/' . $oldImage[0]->userimage;
+                            
+                            if (file_exists($path)) {
+                                unlink($path);
+                            }
+                        }
+                        $image = $request->file('userimage');
+                        $name = time() . '.' . $image->getClientOriginalExtension();
+                        $destinationPath = public_path('/upload/userimage');
+                        $image->move($destinationPath, $name);
+                        $objUser->userimage = $name;
+                    
+                
+            }
+            $objUser->username = $request->input('username');
+            $objUser->phoneno = $request->input('phoneno');
+            if($role  != "U"){
+                $objUser->about = $request->input('aboutme');
+            }
+            $objUser->updated_at = date("Y-m-d h:i:s");
+            if($objUser->save()){
+                
+                if($role  == "AY"){
+                    $result = DB::table('agencydetails')->updateOrInsert(
+                        ['user_id' => $id],
+                        [   
+                            'user_id' => $id, 
+                            'location' => $request->input('location'), 
+                            'facebook' => $request->input('facebook'), 
+                            'twitter' => $request->input('twitter'), 
+                            'linkedin' => $request->input('linkedin'), 
+                            'website' => $request->input('website'), 
+                            'licenses' => $request->input('licenses'), 
+                            'officeno' => $request->input('officeno'),
+                            'overview' => $request->input('overview'),
+                            "created_at" => date("Y-m-d h:i:s"),
+                            "updated_at" => date("Y-m-d h:i:s")
+                        ]        
+                    );
+                }
+                
+                if($role  == "AG"){
+                    $result = DB::table('agentdetails')->updateOrInsert(
+                        ['user_id' => $id],
+                        [   'user_id' => $id, 
+                            'designation' => $request->input('designation'), 
+                            'facebook' => $request->input('facebook'), 
+                            'twitter' => $request->input('twitter'), 
+                            'linkedin' => $request->input('linkedin'), 
+                            'website' => $request->input('website'), 
+                            'licenses' => $request->input('licenses'), 
+                            'officeno' => $request->input('officeno'),
+                            "created_at" => date("Y-m-d h:i:s"),
+                            "updated_at" => date("Y-m-d h:i:s")
+                        ]        
+                    );
+                }
+                if($role  == "CC"){
+                    $result = DB::table('companyDetails')->updateOrInsert(
+                        ['user_id' => $id],
+                        [  
+                            'user_id' => $id, 
+                            'location' => $request->input('location'), 
+                            'facebook' => $request->input('facebook'), 
+                            'twitter' => $request->input('twitter'), 
+                            'linkedin' => $request->input('linkedin'), 
+                            'website' => $request->input('website'), 
+                            'licenses' => $request->input('licenses'), 
+                            'officeno' => $request->input('officeno'),
+                            'overview' => $request->input('overview'),
+                            "created_at" => date("Y-m-d h:i:s"),
+                            "updated_at" => date("Y-m-d h:i:s")
+                        ]        
+                    );
+                }
+                
+                
+                return "true";
+            }else{
+                return "wrong";
+            }
+        }
     }
 }

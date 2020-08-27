@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Route; 
 
 /*
   |--------------------------------------------------------------------------
@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::match(['get', 'post'], '/', ['as' => 'home', 'uses' => 'frontend\HomeController@home']);
+Route::match(['get', 'post'], '/', ['as' => 'home', 'uses' => 'frontend\HomeController@home']); 
 
 Route::match(['get', 'post'], 'signin', ['as' => 'signin', 'uses' => 'frontend\LoginController@index']);
 Route::match(['get', 'post'], 'forgot-password', ['as' => 'forgot-password', 'uses' => 'frontend\LoginController@forgotpassword']);
@@ -27,13 +27,14 @@ Route::match(['get', 'post'], 'setCookie', ['as' => 'setCookie', 'uses' => 'fron
 Route::match(['get', 'post'], 'email-verify/{token}', ['as' => 'email-verify', 'uses' => 'frontend\LoginController@emailverify']);
 
 Route::match(['get', 'post'], 'user-register', ['as' => 'user-register', 'uses' => 'frontend\LoginController@userregister']);
-Route::match(['get', 'post'], 'agent-register', ['as' => 'agent-register', 'uses' => 'frontend\LoginController@agentregister']);
+Route::match(['get', 'post'], 'agent-register', ['as' => 'agent-register', 'uses' => 'frontend\LoginController@agentregister']); 
 Route::match(['get', 'post'], 'agency-register', ['as' => 'agency-register', 'uses' => 'frontend\LoginController@agencyregister']);
 Route::match(['get', 'post'], 'company-register', ['as' => 'company-register', 'uses' => 'frontend\LoginController@companyregister']);
 
 
 Route::match(['get', 'post'], 'user-logout', ['as' => 'user-logout', 'uses' => 'frontend\LoginController@logout']);
 Route::match(['get', 'post'], 'my-profile', ['as' => 'my-profile', 'uses' => 'frontend\LoginController@myprofile']);
+Route::match(['get', 'post'], 'my-profile-edit/{id}', ['as' => 'my-profile-edit', 'uses' => 'frontend\LoginController@editmyagent']);
 Route::match(['get', 'post'], 'my-agent', ['as' => 'my-agent', 'uses' => 'frontend\LoginController@myagent']);
 Route::match(['get', 'post'], 'add-my-agent', ['as' => 'add-my-agent', 'uses' => 'frontend\LoginController@addmyagent']);
 Route::match(['get', 'post'], 'login-ajaxaction', ['as' => 'login-ajaxaction', 'uses' => 'frontend\LoginController@ajaxaction']);

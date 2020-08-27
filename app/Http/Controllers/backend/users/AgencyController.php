@@ -45,14 +45,14 @@ public function list(Request $request){
             'Dashboard' => route("admin-dashboard"),
             'Agency List' => "Agency List",
     ));
-    return view('backend.pages.users.users.list', $data);
+    return view('backend.pages.users.angency.list', $data);
 }
 public function ajaxAction(Request $request){
     $action = $request->input('action');
     switch ($action) {
         
         case 'getdatatable':
-            $objAgentlist = new Agentlist();
+            $objAgentlist = new Agencylist();
             $list = $objAgentlist->getdatatable();
             echo json_encode($list);
             break;

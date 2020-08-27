@@ -52,15 +52,7 @@ Service -->
                       <input type="text" class="form-control" name="companyphoneno" placeholder="Please enter company's phone number">
                     </div>
       
-                    {{-- <div class="form-group col-sm-12">
-                      <label>About company:</label>
-                      <textarea  class="form-control" name="companyabout" placeholder="Please enter about company"></textarea>
-                    </div>
-      
-                    <div class="form-group col-sm-12">
-                      <label>Logo:</label>
-                      <input type="file" class="form-control" name="companyuserimage" accept="image/*">
-                    </div> --}}
+                 
       
                     <div class="col-sm-6">
                       <button type="submit" class="btn btn-primary btn-block  btnsubmit">Register</button>
