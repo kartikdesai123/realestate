@@ -52,10 +52,7 @@ Service -->
                     <input type="text" class="form-control" name="phoneno" placeholder="Please enter your phone number">
                 </div>
 
-                    <div class="form-group col-sm-12">
-                    <label>Photo:</label>
-                    <input type="file" class="form-control" name="userimage" accept="image/*">
-                </div>
+                 
                 <div class="col-sm-6">
                     <button type="submit" class="btn btn-primary btn-block  btnsubmit">Register</button>
                 </div>

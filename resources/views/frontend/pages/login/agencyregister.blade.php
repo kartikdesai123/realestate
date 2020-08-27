@@ -46,14 +46,14 @@ Service -->
                   <label>Phone no:</label>
                   <input type="text" class="form-control" name="agencyphoneno" placeholder="Please enter agency's phone number">
                 </div>
-                <div class="form-group col-sm-12">
+                {{-- <div class="form-group col-sm-12">
                   <label>About agancy:</label>
                   <textarea  class="form-control" name="agencyabout" placeholder="Please enter about agency"></textarea>
                 </div>
                 <div class="form-group col-sm-12">
                   <label>Logo:</label>
                   <input type="file" class="form-control" name="agencyuserimage" accept="image/*">
-                </div>
+                </div> --}}
                 <div class="col-sm-6">
                   <button type="submit" class="btn btn-primary btn-block  btnsubmit">Register</button>
                 </div>
