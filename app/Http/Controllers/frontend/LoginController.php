@@ -1212,6 +1212,23 @@ class LoginController extends Controller
                 $list = $objUsers->get_agent_datatable($session['logindata'][0]['id']);                    
                 echo json_encode($list);
                 break;
+            case 'deleteAgent':
+                
+                $objAgent = new Agent();
+                $result = $objAgent->deleteAgent($request->input('data'));                    
+                if($result == "true"){
+                    $return['status'] = 'success';
+                    $return['message'] = 'Agent Details succesfully deleted';
+                    $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
+                    $return['redirect'] = route('my-agent');
+                }else{
+                    $return['status'] = 'error';
+                    $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
+                    $return['message'] = 'Something goes to wrong'; 
+                      
+                }
+                echo json_encode($return);
+                exit();
         }
     }
 }

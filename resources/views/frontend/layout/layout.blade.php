@@ -15,6 +15,7 @@ $currentRoute = Route::current()->getName();
       
      @include('frontend.include.body_footer')
 
+     @include('frontend.include.model')
      @include('frontend.include.footer')
       
    </body>

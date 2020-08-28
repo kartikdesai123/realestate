@@ -365,7 +365,8 @@ class Users extends Model
             4 => 'users.about',
         );
         $query = Blog ::from('users')
-                        ->where('users.parent_id',$id);
+                        ->where('users.parent_id',$id)
+                        ->where('users.isDeleted',"0");
 
         if (!empty($requestData['search']['value'])) {   // if there is a search parameter, $requestData['search']['value'] contains search parameter
             $searchVal = $requestData['search']['value'];
@@ -400,7 +401,8 @@ class Users extends Model
         foreach ($resultArr as $row) {
 
             $actionhtml = '';
-            $actionhtml = '<a href="'.route('my-profile-edit',$row['id']).'"  class="btn btn-icon primary"  ><i class="fa fa-edit"></i></a>';
+            $actionhtml = '<a href="'.route('my-profile-edit',$row['id']).'"  class="btn btn-icon primary"  ><i class="fa fa-edit"></i></a>'
+                        .'<a href="" data-toggle="modal" data-target="#deleteModel" class="btn btn-icon  deleteAgent" data-id="' . $row["id"] . '" ><i class="fa fa-trash" ></i></a>';
 
             if($row['userimage'] || $row['userimage'] != null){
                 $image = url("public/upload/userimage/" . $row['userimage']);
@@ -427,4 +429,7 @@ class Users extends Model
         );
         return $json_data;
     }
+
+
+    
 }

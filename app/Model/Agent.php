@@ -232,7 +232,7 @@ class Agent extends Model
     }
 
 
-    public function editAgentDetails($request){ 
+    public function editAgentDetails($data){ 
         
         $countusername = Users::where("username",$request->input('username'))
                         ->where("id","!=",$request->input('userId'))
@@ -252,10 +252,22 @@ class Agent extends Model
                 $objUser->email = $request->input('email');
                 $objUser->phoneno = $request->input('phoneno');
                 $objUser->updated_at = date("Y-m-d h:i:s");
-
-                return $objUser->save();
+                if($objUser->save()){
+                    return "true";
+                }else{
+                    return "wrong";
+                }
+                
                 
             }
         }
+    }
+
+    public function deleteAgent($data){
+        $objUser = Users::find($data['id']);
+        $objUser->isDeleted = "1";
+        $objUser->updated_at = date("Y-m-d h:i:s");
+
+        return $objUser->save();
     }
 }
