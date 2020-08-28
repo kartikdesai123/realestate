@@ -28,6 +28,16 @@ $currentRoute = Route::current()->getName();
                 </a>
             </li>
 
+            <li class="nav-item start {{ $currentRoute == "admin-slider-image" || $currentRoute == "add-admin-slider-image" ? "active": ""}} ">
+                <a href="{{ route('admin-slider-image') }}" class="nav-link ">
+                    <i class="fa fa-server" aria-hidden="true"></i>
+                        <span class="title">Slider Image</span>
+                        @if( $currentRoute == "admin-slider-image" || $currentRoute == "add-admin-slider-image")
+                            <span class="selected"></span>
+                        @endif
+                </a>
+            </li>
+            
             <li class="nav-item start  {{ $currentRoute == "admin-user-list" || $currentRoute == "admin-company-view" || $currentRoute == "admin-agency-view" || $currentRoute == "admin-agent-view" ||  $currentRoute == "admin-user-view" || $currentRoute == "admin-agent-list" ? "active": ""}}  {{ $currentRoute == "admin-agency-list" ? "active": ""}} {{ $currentRoute == "admin-company-list" ? "active": ""}} ">
                 <a href="javascript:;" class="nav-link nav-toggle">
                     <i class="fa fa-users"></i>
@@ -70,6 +80,9 @@ $currentRoute = Route::current()->getName();
                 </ul>
             </li>
 
+            
+
+            
             <li class="nav-item start {{ $currentRoute == "extra-facilities" ? "active": ""}} {{ $currentRoute == "add-extra-facilities" ? "active": ""}} {{ $currentRoute == "edit-extra-facilities" ? "active": ""}}">
                 <a href="{{ route('extra-facilities') }}" class="nav-link ">
                     <i class="fa fa-archive" aria-hidden="true"></i>

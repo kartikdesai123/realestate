@@ -19,6 +19,11 @@ $adminPrefix = "";
 Route::group(['prefix' => $adminPrefix, 'middleware' => ['admin']], function() {
     Route::match(['get', 'post'], 'admin-dashboard', ['as' => 'admin-dashboard', 'uses' => 'backend\dashboard\DashboardController@dashboard']);
     
+    // Reported Property 
+    Route::match(['get', 'post'], 'admin-slider-image', ['as' => 'admin-slider-image', 'uses' => 'backend\sliderimage\SliderimageController@list']);
+    Route::match(['get', 'post'], 'add-admin-slider-image', ['as' => 'add-admin-slider-image', 'uses' => 'backend\sliderimage\SliderimageController@add']);
+    Route::match(['get', 'post'], 'admin-slider-image-ajaxAction', ['as' => 'admin-slider-image-ajaxAction', 'uses' => 'backend\sliderimage\SliderimageController@ajaxAction']);
+
     // extra-facilities
     Route::match(['get', 'post'], 'extra-facilities', ['as' => 'extra-facilities', 'uses' => 'backend\extrafacailies\ExtrafacilitiesController@extrafacilities']);
     Route::match(['get', 'post'], 'add-extra-facilities', ['as' => 'add-extra-facilities', 'uses' => 'backend\extrafacailies\ExtrafacilitiesController@addextrafacilities']);
