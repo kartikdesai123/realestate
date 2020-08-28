@@ -53,15 +53,7 @@
                                             About : {{ $userDetails[0]->about }}
                                         </h4><br>
 
-                                        <h4 class="mt-username" style="text-align: left">
-                                            <i class="fa fa-hand-o-right" aria-hidden="true"></i> &nbsp;
-                                            @if($userDetails[0]->parent_id != null || $userDetails[0]->parent_id != '')
-                                                Added By : {{ $userDetails[0]->parent_id }}
-                                            @else
-                                                Added By : N/A
-                                            @endif
-                                            
-                                        </h4><br>
+                                       
                                     </div>
                                 </div>
                                 <!--end: widget 1-2 -->

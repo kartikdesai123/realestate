@@ -52,19 +52,17 @@ class AgentController extends Controller
         
         $objAgentlist = new Agentlist();
         $data['userDetails'] = $objAgentlist->getAgentDetails($id);
-
+        
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Users Details';
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Users Details';
         $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Users Details';        
         $data['css'] = array(
-            'assets/pages/css/profile.min.css'
+           
         );
         $data['plugincss'] = array(
             
         );
         $data['pluginjs'] = array(
-            'assets/pages/scripts/profile.min.js',
-            'assets/pages/scripts/timeline.min.js',
         );
         $data['js'] = array(
         );

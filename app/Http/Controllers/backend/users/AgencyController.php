@@ -47,6 +47,39 @@ public function list(Request $request){
     ));
     return view('backend.pages.users.angency.list', $data);
 }
+
+
+public function view(Request $request,$id){
+        
+    $objAgentlist = new Agencylist();
+    $data['userDetails'] = $objAgentlist->getAgencyDetails($id);
+    
+    $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agency Details';
+    $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agency Details';
+    $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agency Details';        
+    $data['css'] = array(
+        
+    );
+    $data['plugincss'] = array(
+        
+    );
+    $data['pluginjs'] = array(
+    );
+    $data['js'] = array(
+    );
+    $data['funinit'] = array(
+    );
+    $data['header'] = array(
+        'title' => 'Agency Details',
+        'breadcrumb' => array(
+        'Dashboard' => route("admin-dashboard"),
+        'agency List' => route("admin-agency-list"),
+        'Agency Details' => "Agency Details",
+    ));
+    return view('backend.pages.users.angency.view', $data);
+}
+
+
 public function ajaxAction(Request $request){
     $action = $request->input('action');
     switch ($action) {

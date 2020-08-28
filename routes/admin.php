@@ -37,10 +37,12 @@ Route::group(['prefix' => $adminPrefix, 'middleware' => ['admin']], function() {
    
     // agency List
     Route::match(['get', 'post'], 'admin-agency-list', ['as' => 'admin-agency-list', 'uses' => 'backend\users\AgencyController@list']);
+    Route::match(['get', 'post'], 'admin-agency-view/{id}', ['as' => 'admin-agency-view', 'uses' => 'backend\users\AgencyController@view']);
     Route::match(['get', 'post'], 'admin-agency-list-ajaxAction', ['as' => 'admin-agency-list-ajaxAction', 'uses' => 'backend\users\AgencyController@ajaxAction']);
   
     // company List
     Route::match(['get', 'post'], 'admin-company-list', ['as' => 'admin-company-list', 'uses' => 'backend\users\CompanyController@list']);
+    Route::match(['get', 'post'], 'admin-company-view/{id}', ['as' => 'admin-company-view', 'uses' => 'backend\users\CompanyController@view']);
     Route::match(['get', 'post'], 'admin-company-list-ajaxAction', ['as' => 'admin-company-list-ajaxAction', 'uses' => 'backend\users\CompanyController@ajaxAction']);
 
     // Blog Category

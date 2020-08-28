@@ -14,9 +14,9 @@ class CompanyController extends Controller
     }
 
     public function list(Request $request){
-        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Users List';
-        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Users List';
-        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Users List';        
+        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Company List';
+        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Company List';
+        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Company List';        
         $data['css'] = array(
             'toastr/toastr.min.css'
         );
@@ -34,17 +34,60 @@ class CompanyController extends Controller
             'comman_function.js',
             'ajaxfileupload.js',
             'jquery.form.min.js',
-            'users.js'
+            'companylist.js'
         );
         $data['funinit'] = array(
-            'Users.init()'
+            'Companylist.init()'
         );
         $data['header'] = array(
-            'title' => 'Users List',
+            'title' => 'Company List',
             'breadcrumb' => array(
                 'Dashboard' => route("admin-dashboard"),
-                'Users List' => "Users List",
+                'Company List' => "Company List",
         ));
-        return view('backend.pages.users.users.list', $data);
+        return view('backend.pages.users.company.list', $data);
+    }
+
+    public function view(Request $request,$id){
+        
+        $objCompanylist = new Companylist();
+        $data['userDetails'] = $objCompanylist->getCompanyDetails($id);
+
+        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Company Details';
+        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Company Details';
+        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Company Details';        
+        $data['css'] = array(
+        );
+        $data['plugincss'] = array(
+            
+        );
+        $data['pluginjs'] = array(
+        );
+        $data['js'] = array(
+        );
+        $data['funinit'] = array(
+        );
+        $data['header'] = array(
+            'title' => 'Company Details',
+            'breadcrumb' => array(
+            'Dashboard' => route("admin-dashboard"),
+            'Company List' => route("admin-company-list"),
+            'Company Details' => "Company Details",
+        ));
+        return view('backend.pages.users.company.view', $data);
+    }
+
+    public function ajaxAction(Request $request){
+        $action = $request->input('action');
+        switch ($action) {
+            
+            case 'getdatatable':
+                $objCompanylist = new Companylist();
+                $list = $objCompanylist->getdatatable();
+                    
+                echo json_encode($list);
+                break;
+            
+        }
     }
 }

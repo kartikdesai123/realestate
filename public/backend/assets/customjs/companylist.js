@@ -1,11 +1,11 @@
-var Agency = function(){
+var Companylist = function(){
     var list =  function(){
 
         var dataArr = {};
         var columnWidth = {};
         var arrList = {
-            'tableID': '#angency-list',
-            'ajaxURL': baseurl + "admin-agency-list-ajaxAction",
+            'tableID': '#company-list',
+            'ajaxURL': baseurl + "admin-company-list-ajaxAction",
             'ajaxAction': 'getdatatable',
             'postData': dataArr,
             'hideColumnList': [],
