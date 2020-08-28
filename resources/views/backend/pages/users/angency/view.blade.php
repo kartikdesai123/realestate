@@ -1,5 +1,7 @@
 @extends('backend.layout.app_layout')
 @section('content')
+
+
 <div class="row">
     <div class="col-lg-12 col-xs-12 col-sm-12">
         
@@ -52,8 +54,6 @@
                                             <i class="fa fa-hand-o-right" aria-hidden="true"></i> &nbsp;
                                             About : {{ $userDetails[0]->about }}
                                         </h4><br>
-
-                                       
                                     </div>
                                 </div>
                                 <!--end: widget 1-2 -->
@@ -62,9 +62,39 @@
                     </div>
                 </div>
             </div>
-        
-        
     </div>
-    
+</div>
+
+<br>
+<h1 class="page-title"> Agent List</h1>
+<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+        <div class="portlet light bordered">
+            
+            <div class="portlet-body">
+                @csrf
+            <input type="hidden" value="{{ $userDetails[0]->id }}" id="companyId" >
+
+                <table class="table table-striped table-bordered table-hover table-checkable order-column" id="agent-list">
+                    <thead>
+                        <tr>                            
+                            <th> No </th>
+                            <th> User Image  </th>
+                            <th> User Name</th>
+                            <th> User Email  </th>
+                            <th> Phone No  </th>
+                            <th> About </th>
+                            <th> Verify Status </th>
+                            <th> Action </th>
+                        </tr>
+                    </thead>
+                    <tbody>   
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- END EXAMPLE TABLE PORTLET-->
+    </div>
 </div>
 @endsection

@@ -61,8 +61,8 @@ class Agentlist extends Model
                 $verifyHtml = '<span class="badge badge-danger"> Not Verify </span>';
             }
             $actionhtml = '';
-            $actionhtml = '<a href="'.route("admin-agent-view",$row['id']).'"  class="btn btn-icon primary"  ><i class="fa fa-eye" title="View Agent"></i></a>'
-                    . '<a href="" data-toggle="modal" data-target="#deleteModel" class="btn btn-icon  deleteLaghukatha" " data-id="' . $row["id"] . '" ><i class="fa fa-trash" title="Delete Users"></i></a>';
+            $actionhtml = '<a href="'.route("admin-agent-view",$row['id']).'"  class="btn btn-icon primary"  ><i class="fa fa-eye" title="View Agent"></i></a>';
+                   
 
             if($row['userimage'] || $row['userimage'] != null){
                 $image = url("public/upload/userimage/" . $row['userimage']);

@@ -58,16 +58,26 @@ public function view(Request $request,$id){
     $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agency Details';
     $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agency Details';        
     $data['css'] = array(
-        
+        'toastr/toastr.min.css'
     );
     $data['plugincss'] = array(
-        
+        'global/plugins/datatables/datatables.min.css',
+        'global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css',
     );
     $data['pluginjs'] = array(
+        'customjs/plugins/toastr/toastr.min.js',
+        'global/scripts/datatable.js',
+        'global/plugins/datatables/datatables.min.js',
+        'global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js',
     );
     $data['js'] = array(
+        'comman_function.js',
+        'ajaxfileupload.js',
+        'jquery.form.min.js',
+        'agency.js'
     );
     $data['funinit'] = array(
+        'Agency.view()'
     );
     $data['header'] = array(
         'title' => 'Agency Details',
@@ -87,6 +97,11 @@ public function ajaxAction(Request $request){
         case 'getdatatable':
             $objAgentlist = new Agencylist();
             $list = $objAgentlist->getdatatable();
+            echo json_encode($list);
+            break;
+        case 'get_agent_datatable':
+            $objAgentlist = new Agencylist();
+            $list = $objAgentlist->get_agent_datatable($request->input('data')['id']);
             echo json_encode($list);
             break;
         

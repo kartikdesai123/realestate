@@ -62,8 +62,7 @@ class Userslist extends Model
             }
 
             $actionhtml = '';
-            $actionhtml = '<a href="'.route('admin-user-view', $row["id"]).'"  class="btn btn-icon primary"  ><i class="fa fa-eye" title="View Users"></i></a>'
-                    . '<a href="" data-toggle="modal" data-target="#deleteModel" class="btn btn-icon  deleteLaghukatha" " data-id="' . $row["id"] . '" ><i class="fa fa-trash" title="Delete Users"></i></a>';
+            $actionhtml = '<a href="'.route('admin-user-view', $row["id"]).'"  class="btn btn-icon primary"  ><i class="fa fa-eye" title="View Users"></i></a>';
 
             if($row['userimage'] || $row['userimage'] != null){
                 $image = url("public/upload/userimage/" . $row['userimage']);

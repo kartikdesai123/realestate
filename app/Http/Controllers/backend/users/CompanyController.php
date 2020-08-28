@@ -57,15 +57,26 @@ class CompanyController extends Controller
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Company Details';
         $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Company Details';        
         $data['css'] = array(
+            'toastr/toastr.min.css'
         );
         $data['plugincss'] = array(
-            
+            'global/plugins/datatables/datatables.min.css',
+            'global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css',
         );
         $data['pluginjs'] = array(
+            'customjs/plugins/toastr/toastr.min.js',
+            'global/scripts/datatable.js',
+            'global/plugins/datatables/datatables.min.js',
+            'global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js',
         );
         $data['js'] = array(
+            'comman_function.js',
+            'ajaxfileupload.js',
+            'jquery.form.min.js',
+            'companylist.js'
         );
         $data['funinit'] = array(
+            'Companylist.view()'
         );
         $data['header'] = array(
             'title' => 'Company Details',
@@ -84,6 +95,13 @@ class CompanyController extends Controller
             case 'getdatatable':
                 $objCompanylist = new Companylist();
                 $list = $objCompanylist->getdatatable();
+                    
+                echo json_encode($list);
+                break;
+            case 'get_agent_datatable':
+               
+                $objCompanylist = new Companylist();
+                $list = $objCompanylist->get_agent_datatable($request->input('data')['id']);
                     
                 echo json_encode($list);
                 break;
