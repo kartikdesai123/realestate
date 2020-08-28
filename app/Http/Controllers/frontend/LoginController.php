@@ -651,37 +651,57 @@ class LoginController extends Controller
        
     }
     public function editmyagent(Request $request,$id){
+
         $objExtrafacilities = new Users();
-        $data['details'] = $objExtrafacilities->getAgentList($id);
+        $data['details'] = $objExtrafacilities->getAgentDetails($id);
+
+       
+
         if ($request->isMethod("post")) {
+
             $objExtrafacilities = new Agent();
-            $result = $objExtrafacilities->editAgent($request);
-            if ($result == "true") {
+            $result = $objExtrafacilities->editAgentDetails($request);
+            
+            if($result == "true"){
                 $return['status'] = 'success';
-                $return['message'] = 'Agent details successfully added';
+                $return['message'] = 'Agent Details succesfully updated';
+                $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
                 $return['redirect'] = route('my-agent');
-            } else {
-                if ($result == "exits") {
+            }else{
+                if($result == "usernameexits"){
                     $return['status'] = 'error';
-                    $return['message'] = 'Facilities details already exits';
+                    $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
+                    $return['message'] = 'username already exits';
                 }else{
-                    $return['status'] = 'error';
-                    $return['message'] = 'Something goes to wrong.';
+                    if($result == "emailexits"){
+                        $return['status'] = 'error';
+                        $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
+                        $return['message'] = 'email already exits';
+                    }else{
+                        $return['status'] = 'error';
+                        $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
+                        $return['message'] = 'Something goes to wrong'; 
+                    }
                 }
             }
-            echo json_encode($return);
-            exit;
+            return json_encode($return);
+            exit();
         }
-        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Add New Extra Facailies';
-        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Add New Extra Facailies';
-        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Add New Extra Facailies';
+
+        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Edit Agent Details';
+        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Edit Agent Details';
+        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Edit Agent Details';
         $data['css'] = array(
             'toastr/toastr.min.css'
         );
         $data['plugincss'] = array(
         );
         $data['pluginjs'] = array(
-            'customjs/plugins/toastr/toastr.min.js',
+            'toastr/toastr.min.js',
+            'validate/jquery.validate.min.js',
+            'jquery.appear.js',
+            'counter/jquery.countTo.js',
+            'magnific-popup/jquery.magnific-popup.min.js',
         );
         $data['js'] = array(
             'comman_function.js',
@@ -693,11 +713,11 @@ class LoginController extends Controller
             'Myagent.edit()'
         );
         $data['header'] = array(
-            'title' => 'Edit Extra Facilities',
+            'title' => 'Edit Agent Details',
             'breadcrumb' => array(
-                'Dashboard' => route("admin-dashboard"),
-                'Extra Facilities List' => route("extra-facilities"),
-                'Edit Extra Facilities' => "Edit Extra Facilities",
+                'Home' => route("home"),
+                'My Agent' => route("my-agent"),
+                'Edit Agent Details' => "Edit Agent Details",
         ));
         return view('frontend.pages.profile.editmyagent', $data);
     }

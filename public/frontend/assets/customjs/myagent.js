@@ -61,7 +61,6 @@ var Myagent = function() {
         var rules = {
             username: { required: true },
             email: { required: true, email: true },
-            password: { required: true, equalTo: "#cpassword" },
             phoneno: { required: true, },
         };
 
@@ -72,13 +71,6 @@ var Myagent = function() {
             email: {
                 required: "Please enter agent's email",
                 email: "Please enter vaild email",
-            },
-            password: {
-                required: "Please enter agent's password",
-            },
-            cpassword: {
-                required: "Please enter agent's confirm password",
-                equalTo: "Confirm password and password must be same",
             },
             phoneno: {
                 required: "Please enter agent's phone no",

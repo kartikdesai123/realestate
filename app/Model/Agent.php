@@ -137,6 +137,7 @@ class Agent extends Model
                         ->where("id","!=",$id)
                         ->count(); 
 
+
         if($countusername != 0){
             return "usernameexits";
         }else{ 
@@ -226,6 +227,34 @@ class Agent extends Model
                 return "true";
             }else{
                 return "wrong";
+            }
+        }
+    }
+
+
+    public function editAgentDetails($request){ 
+        
+        $countusername = Users::where("username",$request->input('username'))
+                        ->where("id","!=",$request->input('userId'))
+                        ->count(); 
+        if($countusername != 0){
+            return "usernameexits";
+        }else{ 
+            $countusername = Users::where("email",$request->input('email'))
+                            ->where("id","!=",$request->input('userId'))
+                            ->count(); 
+            if($countusername != 0){
+                return "emailexits";
+            }else{
+                // die();
+                $objUser = Users::find($request->input('userId'));
+                $objUser->username = $request->input('username');
+                $objUser->email = $request->input('email');
+                $objUser->phoneno = $request->input('phoneno');
+                $objUser->updated_at = date("Y-m-d h:i:s");
+
+                return $objUser->save();
+                
             }
         }
     }

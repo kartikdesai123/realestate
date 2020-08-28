@@ -77,6 +77,11 @@ class Users extends Model
         $agentList = Users::where("roles",'AG')->get()->toArray();
         return $agentList;
     }
+    public function getAgentDetails($id){
+        return Users::select("id","email","username","phoneno")->where("id",$id)->get();
+    }
+    
+   
     
     public function assignAgent($request){
         $countAssign = AssignAgent::where("user_id",$request->input('user_id'))

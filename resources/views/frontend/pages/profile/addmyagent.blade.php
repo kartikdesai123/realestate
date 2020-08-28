@@ -53,7 +53,7 @@ My profile -->
                 <label>Confirm Password:</label>
                 <input type="password" class="form-control" name="agentcpassword" placeholder="Please enter agent's confirm password">
               </div>
-              <div class="form-group col-sm-6">
+              <div class="form-group col-sm-12">
                 <label>Phone no:</label>
                 <input type="text" class="form-control" name="agentphoneno" placeholder="Please enter agent's phone number">
               </div>
