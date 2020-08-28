@@ -87,11 +87,11 @@ var address = '<?php echo $propertyDetail[0]['address']?>';
                       @if($propertyDetail[0]['companyImage'] != null || $propertyDetail[0]['companyImage'])
                           @if($propertyDetail[0]['userType'] == 'CC')
                             <a class="btn btn-link p-0 ml-auto " href="{{ route("company-details",$propertyDetail[0]['companyId'])}}">
-                              <img class="img-fluid rounded-circle" src="{{ asset('public/upload/userimage/'.$propertyDetail[0]['companyImage']) }}" alt="">
+                              <img class="img-fluid rounded-circle" style="width: 100px;height: 100px;" src="{{ asset('public/upload/userimage/'.$propertyDetail[0]['companyImage']) }}" alt="">
                             </a>
                           @else
                           <a class="btn btn-link p-0 ml-auto " href="{{ route("agency-details",$propertyDetail[0]['companyId'])}}">
-                            <img class="img-fluid rounded-circle" src="{{ asset('public/upload/userimage/'.$propertyDetail[0]['companyImage']) }}" alt="">
+                            <img class="img-fluid rounded-circle" style="width: 100px;height: 100px;" src="{{ asset('public/upload/userimage/'.$propertyDetail[0]['companyImage']) }}" alt="">
                             </a>
                           @endif
                       @else
