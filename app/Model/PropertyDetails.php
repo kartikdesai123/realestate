@@ -361,11 +361,12 @@ class PropertyDetails extends Model {
     }
     public function getPropertyDetail($slug) {
 
-        $detailProperty = PropertyDetails::select('property_details.*', DB::raw('GROUP_CONCAT(property_photo.name) AS images'), DB::raw('GROUP_CONCAT(DISTINCT (property_audio.name)) AS audio'), DB::raw('GROUP_CONCAT(DISTINCT (property_video.name)) AS video'), 'users.username', 'users.userimage', 'users.phoneno', 'users.roles', 'users.email')
+        $detailProperty = PropertyDetails::select('property_details.*','u2.id as companyId','u2.roles as userType','u2.userimage as companyImage', DB::raw('GROUP_CONCAT(property_photo.name) AS images'), DB::raw('GROUP_CONCAT(DISTINCT (property_audio.name)) AS audio'), DB::raw('GROUP_CONCAT(DISTINCT (property_video.name)) AS video'), 'users.username', 'users.userimage', 'users.phoneno', 'users.roles', 'users.email')
                         ->join("property_photo", "property_details.id", "=", "property_photo.property_id")
                         ->join("property_audio", "property_details.id", "=", "property_audio.property_id")
                         ->join("property_video", "property_details.id", "=", "property_video.property_id")
                         ->join("users", "property_details.user_id", "=", "users.id")
+                        ->leftjoin("users as u2", "u2.id", "=", "users.parent_id")
                         ->where("property_details.slug", "=", $slug)
                         ->groupBy('property_details.id')
                         ->get()->toArray();
@@ -385,7 +386,7 @@ class PropertyDetails extends Model {
                             ->where('property_tour_view.property_id', $detailProperty[0]['id'])
                             ->get()->toArray();
         }
-
+       
         return $detailProperty;
     }
 

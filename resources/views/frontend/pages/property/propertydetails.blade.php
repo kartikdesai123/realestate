@@ -84,6 +84,19 @@ var address = '<?php echo $propertyDetail[0]['address']?>';
                     </div>
                     <div class="d-flex mb-4 align-items-center">
                       <h6 class="text-primary border p-2 mb-0"><a href="#"><i class="fas fa-phone-volume text-white pr-2"></i>{{ $propertyDetail[0]['phoneno'] }}</a></h6>
+                      @if($propertyDetail[0]['companyImage'] != null || $propertyDetail[0]['companyImage'])
+                          @if($propertyDetail[0]['userType'] == 'CC')
+                            <a class="btn btn-link p-0 ml-auto " href="{{ route("company-details",$propertyDetail[0]['companyId'])}}">
+                              <img class="img-fluid rounded-circle" src="{{ asset('public/upload/userimage/'.$propertyDetail[0]['companyImage']) }}" alt="">
+                            </a>
+                          @else
+                          <a class="btn btn-link p-0 ml-auto " href="{{ route("agency-details",$propertyDetail[0]['companyId'])}}">
+                            <img class="img-fluid rounded-circle" src="{{ asset('public/upload/userimage/'.$propertyDetail[0]['companyImage']) }}" alt="">
+                            </a>
+                          @endif
+                      @else
+                        
+                      @endif
                     </div>
                   <form id="contact-form" action="{{ route('contact-owner') }}" method="POST">@csrf
                       <input type="hidden" value="{{ $slug }}" name="slug">

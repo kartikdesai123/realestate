@@ -72,7 +72,7 @@ class PropertyController extends Controller
         return view('frontend.pages.property.propertylist', $data);
     }
     
-    public function propertydetails(Request $request,$slug){
+   public function propertydetails(Request $request,$slug){
         if($request->isMethod("post")) {
             $objPropertyreview = new Propertyreview();
             $result = $objPropertyreview->addReview($request);
