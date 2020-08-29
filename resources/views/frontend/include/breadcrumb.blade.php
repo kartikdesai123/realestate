@@ -1,6 +1,6 @@
 <!--=================================
 breadcrumb -->
-<div class="bg-light">
+<div class="breadcrumb-wrapper">
     <div class="container">
       <div class="row">
         <div class="col-12">

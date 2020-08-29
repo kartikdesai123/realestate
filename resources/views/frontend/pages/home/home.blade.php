@@ -299,8 +299,8 @@
                               <div class="property-details">
                                  <div class="property-details-inner">
                                     <h5 class="property-title"><a href="{{ route("property-details",$value['slug'])}}" target="_blank">{{ $value['title'] }} </a></h5>
-                                    <span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>{{ $value['address'] }}</span>
-                                    <span class="property-agent-date"><i class="far fa-clock fa-md"></i>{{ humanTiming($value['created_at']) }}</span>
+                                    <!-- <span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>{{ $value['address'] }}</span>
+                                    <span class="property-agent-date"><i class="far fa-clock fa-md"></i>{{ humanTiming($value['created_at']) }}</span> -->
                                     <div class="property-price">${{ $value['price'] }}</div>
                                     <ul class="property-info list-unstyled d-flex">
                                        <li class="flex-fill property-bed"><i class="fas fa-bed"></i>Bed<span>{{ $value['badroom'] }}</span></li>
@@ -331,12 +331,12 @@
             Featured properties-->
          <!--=================================
             about-->
-         <section class="space-ptb bg-holder bg-overlay-black-70" style="background-image: url({{ asset('public/frontend/assets/images/bg/01.jpg') }});">
+         <section class="space-ptb bg-holder bg-overlay-black-70 buy_sell_banner" style="background-image: url({{ asset('public/frontend/assets/images/bg/01.jpg') }});">
             <div class="container">
                <div class="row justify-content-center">
-                  <div class="col-lg-8 text-center">
+                  <div class="col-lg-12 text-center">
                      <div class="section-title">
-                        <span class="text-primary font-weight-bold d-block mb-3">Buy or sell</span>
+                        <span class="font-weight-bold d-block mb-3">Buy or sell</span>
                         <h2 class="text-white">Looking to buy a new property or sell an existing one? Real Villa provides an excellent solution!</h2>
                      </div>
                      <a class="btn btn-primary mb-2 mb-sm-0" href="#">Submit Property</a>
@@ -516,24 +516,21 @@
             offering the best -->
          <!--=================================
             Browse properties by location -->
-         <section class="space-ptb bg-light">
+         <section class="space-ptb bg-light browse-properties">
             <div class="container">
                <div class="row">
-                  <div class="col-lg-8">
-                     <div class="section-title">
-                        <h2>Browse properties by location</h2>
-                     </div>
-                  </div>
-                  <div class="col-lg-4 text-lg-right mt-lg-2 mb-lg-0 mb-3">
+                  
+                  <div class="col-lg-12 text-right show-propert-title ">
                      <a class="btn btn-link p-0 mt-1" href="{{ route('property') }}"> Show All Properties</a>
                   </div>
-               </div>
-               <div class="row">
-                  <div class="col-12">
-                     <div class="location-list">
-                        <div class="row align-items-center">
-                           <div class="col-lg-4 col-sm-6  border-right">
-                              <ul class="list-unstyled mb-0">
+           
+                     
+                       
+                           <div class="col-lg-6 col-sm-6  border-right">
+                           <div class="section-title">
+                              <h2>BROWSE PROPERTIES BY LOCATION</h2>
+                           </div>
+                              <ul class="list-unstyled mb-0 city-list">
                                   @if(count($property_location))
                                     @foreach($property_location as $value)
                                     @php
@@ -545,26 +542,23 @@
 
                               </ul>
                            </div>
-                           <div class="col-lg-4 col-sm-6">
-
-                           </div>
-                           <div class="col-lg-4">
+                         
+                           <div class="col-lg-6">
                               <div class="bg-holder py-sm-5" style="background-image: url({{ asset('public/frontend/assets/images/google-map.png') }});">
                                  <div class="d-flex align-items-center justify-content-center">
                                     <div class="counter">
-                                       <span class="timer text-primary" data-to="{{ count($property_location) }}" data-speed="10000">{{ count($property_location) }}</span>
+                                       <span class="timer" data-to="{{ count($property_location) }}" data-speed="10000">{{ count($property_location) }}</span>
                                     </div>
-                                    <div class="ml-3 mt-2">
+                                    <div class="counter-detail ml-3 mt-2">
                                        <span>Wide range of</span>
                                        <h5>Property</h5>
                                     </div>
                                  </div>
                               </div>
                            </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
+                       
+                         </div>
+                
             </div>
          </section>
          <!--=================================
@@ -587,17 +581,19 @@
                      <div class="agent agent-02">
                            <div class="agent-detail">
                               <div class="agent-avatar avatar avatar-xlll">
-                                 <img class="img-fluid rounded-circle" src="{{ asset('public/upload/userimage/'.$value['userimage']) }}" alt="">
+                                 <img class="img-fluid" src="{{ asset('public/upload/userimage/'.$value['userimage']) }}" alt="">
                               </div>
                               <div class="agent-info">
                               <h5 class="mb-0"> <a href="{{ route("agent-details", $value['id']) }}">{{ $value['username'] }}</a></h5>
                                  <span class="text-primary">{{ $value['designation'] }}</span>
-                                 <p class="mt-3 mb-0">{{ $value['about'] }}</p>
-                              </div>
-                           </div>
-                           <div class="agent-button">
+                                 <p class=" mb-0">{{ $value['about'] }}</p>
+                                  <div class="agent-button">
                               <a class="btn btn-light btn-block" href="{{ route("agent-details",$value['id'])}}">View Profile</a>
                            </div>
+                              </div>
+
+                           </div>
+                           
                         </div>
                      </div>
                   @endforeach
@@ -649,8 +645,8 @@
          <section class="space-ptb bg-light">
             <div class="container">
                <div class="row align-items-center">
-                  <div class="col-lg-6">
-                     <div class="section-title">
+                  <div class="col-lg-12">
+                     <div class="section-title text-center">
                         <h2>Plenty of reasons to choose us</h2>
                      </div>
                   </div>
@@ -671,11 +667,11 @@
                               <h6 class="mb-3 feature-info-title">Excellent reputation</h6>
                               <p>Our comprehensive database of listings and market info give the most accurate view of the market and your home value.</p>
                            </div>
-                           <div class="feature-info-button">
+                           <!-- <div class="feature-info-button">
                               <a class="btn btn-light btn-block" href="#">Read more</a>
-                           </div>
+                           </div> -->
                         </div>
-                        <div class="feature-info-bg bg-holder bg-overlay-black-70" style="background-image: url({{ asset('public/frontend/assets/images/property/grid/01.jpg') }});"></div>
+                        <div class="feature-info-bg bg-holder bg-overlay-black-70" style="background-image: linear-gradient(to bottom ,rgb(255 255 255 / 57%) 40%,rgb(16 92 114 )),url(http://localhost/realestate/public/frontend/assets/images/property/grid/01.jpg);"></div>
                      </div>
                   </div>
                   <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0">
@@ -688,11 +684,11 @@
                               <h6 class="mb-3 feature-info-title">Best local agents</h6>
                               <p>You are just minutes from joining with the best agents who are fired up about helping you Buy or sell.</p>
                            </div>
-                           <div class="feature-info-button">
+                          <!--  <div class="feature-info-button">
                               <a class="btn btn-light btn-block" href="#">Read more</a>
-                           </div>
+                           </div> -->
                         </div>
-                        <div class="feature-info-bg bg-holder bg-overlay-black-70" style="background-image: url({{ asset('public/frontend/assets/images/property/grid/02.jpg') }});"></div>
+                        <div class="feature-info-bg bg-holder bg-overlay-black-70" style="background-image: linear-gradient(to bottom ,rgb(255 255 255 / 57%) 40%,rgb(16 92 114 )),url(http://localhost/realestate/public/frontend/assets/images/property/grid/02.jpg);"></div>
                      </div>
                   </div>
                   <div class="col-lg-3 col-sm-6 mb-4 mb-sm-0">
@@ -705,11 +701,11 @@
                               <h6 class="mb-3 feature-info-title">Peace of mind</h6>
                               <p>Rest guaranteed that your agent and their expert team are handling every detail of your transaction from start to end.</p>
                            </div>
-                           <div class="feature-info-button">
+                           <!-- <div class="feature-info-button">
                               <a class="btn btn-light btn-block" href="#">Read more</a>
-                           </div>
+                           </div> -->
                         </div>
-                        <div class="feature-info-bg bg-holder bg-overlay-black-70" style="background-image: url({{ asset('public/frontend/assets/images/property/grid/03.jpg') }});"></div>
+                        <div class="feature-info-bg bg-holder bg-overlay-black-70" style="background-image:linear-gradient(to bottom ,rgb(255 255 255 / 57%) 40%,rgb(16 92 114 )),url(http://localhost/realestate/public/frontend/assets/images/property/grid/03.jpg);"></div>
                      </div>
                   </div>
                   <div class="col-lg-3 col-sm-6">
@@ -722,11 +718,13 @@
                               <h6 class="mb-3 feature-info-title">Tons of options</h6>
                               <p>Discover a place you’ll love to live in. Choose from our vast inventory and choose your desired house.</p>
                            </div>
-                           <div class="feature-info-button">
+                           <!-- <div class="feature-info-button">
                               <a class="btn btn-light btn-block" href="#">Read more</a>
-                           </div>
+                           </div> -->
                         </div>
-                        <div class="feature-info-bg bg-holder bg-overlay-black-70" style="background-image: url({{ asset('public/frontend/assets/images/property/grid/04.jpg') }});"></div>
+                        <div class="feature-info-bg bg-holder bg-overlay-black-70" style="background-image: linear-gradient(to bottom ,rgb(255 255 255 / 57%) 40%,rgb(16 92 114 )),url(http://localhost/realestate/public/frontend/assets/images/property/grid/04.jpg);"></div>
+
+
                      </div>
                   </div>
                </div>
@@ -780,7 +778,7 @@
 
          <!--=================================
             News, tips & articles -->
-         <section class="space-ptb">
+        <!--  <section class="space-ptb">
             <div class="container">
 
                <div class="row">
@@ -816,7 +814,7 @@
                   @endforeach
                </div>
             </div>
-         </section>
+         </section> -->
 
          <!--=================================
             News, tips & articles -->
@@ -827,19 +825,27 @@
             
          <!--=================================
             newsletter -->
-         <section class="py-5 bg-primary">
+         <section class=" bg-primary newsletter-wrapper">
             <div class="container">
                <div class="row">
                   <div class="col-md-5">
-                     <h3 class="text-white mb-0">Sign up to our newsletter to get the latest news and offers.</h3>
+                     <h3 class="mb-0 newsletter-heading">Sign up to our newsletter to get the latest news and offers.</h3>
                   </div>
                   <div class="col-md-7 mt-3 mt-md-0">
                      <div class="newsletter">
                         <form>
-                           <div class="form-group mb-0">
+                        <div class="row">
+                           <div class="offset-lg-1 col-lg-7">
+                               <div class="form-group mb-0">
                               <input type="email" class="form-control" placeholder="Enter email">
+                           </div> 
                            </div>
-                           <button type="submit" class="btn btn-dark b-radius-left-none">Get notified</button>
+                           <div class="col-lg-4">
+                              <button type="submit" class="btn btn-dark">Get notified</button>
+                           </div>
+                        </div>
+                         
+                           
                         </form>
                      </div>
                   </div>

@@ -72,18 +72,18 @@ Listing – grid view -->
                       <option>03</option>
                     </select>
                   </div>
-                  <div class="input-group mb-2">
+                  <div class="input-group mb-2 sqt-ft">
                     <input class="form-control" placeholder="Type (sq ft)">
                   </div>
-                  <div class="input-group mb-2">
+                  <div class="input-group mb-2 sqt-ft">
                     <input class="form-control" placeholder="Type (sq ft)">
                   </div>
                    <div class="form-group property-price-slider mt-3">
-                    <label>Select Price Range</label>
+                    <label>Select Price Range (sq ft)</label>
                     <input type="text" id="property-price-slider" name="example_name" value="" />
                   </div>
                   <div class="input-group mb-2">
-                    <button class="btn btn-primary btn-block align-items-center" type="submit"><i class="fas fa-filter mr-1"></i><span>Filter</span></button>
+                    <button class="btn btn-primary btn-block align-items-center" type="submit"><i class="fas fa-filter mr-1"></i><span class="filter-head">Filter</span></button>
                   </div>
                 </form>
               </div>
@@ -117,7 +117,7 @@ Listing – grid view -->
                 </ul>
               </div>
             </div>
-            <div class="widget">
+            <div class="widget mortage-calc">
               <div class="widget-title">
                 <h6>Mortgage calculator</h6>
               </div>
@@ -200,8 +200,8 @@ Listing – grid view -->
                     </div>
                   
                   <div class="property-lable">
-                    <span class="badge badge-md badge-primary">{{ ucfirst($value['type']) }}</span>
-                    <span class="badge badge-md badge-info">{{ ucfirst($value['offer']) }}</span>
+                    <span class="badge badge-md ">{{ ucfirst($value['type']) }}</span>
+                    <span class="badge badge-md ">{{ ucfirst($value['offer']) }}</span>
                   </div>
                   <!--<span class="property-trending" title="trending"><i class="fas fa-bolt"></i></span>-->
                   <div class="property-agent">
@@ -227,21 +227,30 @@ Listing – grid view -->
                   <div class="property-details-inner">
                     <div class="property-details-inner-box">
                       <div class="property-details-inner-box-left">
-                        <h5 class="property-title"><a href="{{ route("property-details",$value['slug'])}}" target="_blank">{{ $value['title'] }}</a></h5>
+                      <h5>Awesome Family home</h5>
+                      <span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>{{ $value['address'] }}</span>
+                      <span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>1 Year</span>
+                      <h6>Vrajdham - 2 , Vishwas City 1,Chanakuapuri, Ahmedabad,Gujarat, India <span class="property-agent-date">{{ humanTiming($value['created_at']) }}</span></h6>
+                      <p>125.00/month</p>
+                        <!-- <h5 class="property-title"><a href="{{ route("property-details",$value['slug'])}}" target="_blank">{{ $value['title'] }}</a></h5>
                         <span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>{{ $value['address'] }}</span>
-                        <span class="property-agent-date"><i class="far fa-clock fa-md"></i>{{ humanTiming($value['created_at']) }}</span>
+                        <span class="property-agent-date"><i class="far fa-clock fa-md"></i>{{ humanTiming($value['created_at']) }}</span> -->
                       </div>
-                      <div class="property-price">${{ $value['price'] }}<span class="d-block"> </span> </div>
-                    </div>
-                    <ul class="property-info list-unstyled d-flex">
+                      <div class="eminities-wrap">
+                         <ul class="property-info list-unstyled d-flex">
                       <li class="flex-fill property-bed"><i class="fas fa-bed"></i>Bed<span>{{ $value['badroom'] }}</span></li>
                       <li class="flex-fill property-bath"><i class="fas fa-bath"></i>Bath<span>{{ $value['bathroom'] }}</span></li>
                       <li class="flex-fill property-m-sqft"><i class="far fa-square"></i>Sqft<span>{{ $value['area'] }}</span></li>
                     </ul>
+                     <div class="property-price">${{ $value['price'] }}<span class="d-block"> </span> </div>
+                    </div>
+                      </div>
+                     
+
                     <p class="mb-0 d-none d-block mt-3">{{ $value['about_property'] }}</p>
                   </div>
                   <div class="property-btn">
-                    <a class="property-link" href="{{ route("property-details",$value['slug'])}}" target="_blank">See Details</a>
+                    <a class="property-link" href="{{ route("property-details",$value['slug'])}}" target="_blank">See More Details</a>
                     <ul class="property-listing-actions list-unstyled mb-0">
                       <li class="property-compare"><a data-toggle="tooltip"  class="compareProperty" data-slug="{{ $value['slug'] }}" data-placement="top" title="Compare" href="javascript:;"><i class="fas fa-exchange-alt"></i></a></li>
                        @php 

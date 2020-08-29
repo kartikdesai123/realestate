@@ -7,9 +7,58 @@ Design and Developed by: potenzaglobalsolutions.com
 
 NOTE: This is main stylesheet of template, This file contains the styling for the actual Template.
 
+
+
 */
+@font-face {
+    font-family: 'BalooChettan2-SemiBold';
+    src: url('../fonts/BalooChettan2-SemiBold.woff2') format('woff2'),
+        url('../fonts/BalooChettan2-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'BalooChettan2-Medium';
+    src: url('../fonts/BalooChettan2-Medium.woff2') format('woff2'),
+        url('../fonts/BalooChettan2-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'BalooChettan2-Bold';
+    src: url('../fonts/BalooChettan2-Bold.woff2') format('woff2'),
+        url('../fonts/BalooChettan2-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'BalooChettan2-Regular';
+    src: url('../fonts/BalooChettan2-Regular.woff2') format('woff2'),
+        url('../fonts/BalooChettan2-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'BalooChettan2-ExtraBold';
+    src: url('../fonts/BalooChettan2-ExtraBold.woff2') format('woff2'),
+        url('../fonts/BalooChettan2-ExtraBold.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
 body {
-  font-family: "Roboto", sans-serif;
+ font-family: 'BalooChettan2-Regular';
   font-weight: normal;
   font-style: normal;
   font-size: 14px;
@@ -32,18 +81,6 @@ input {
   outline: medium none !important;
   color: #26ae61; }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Barlow Semi Condensed", sans-serif;
-  font-weight: normal;
-  color: #001935;
-  margin-top: 0px;
-  font-weight: 600;
-  text-transform: capitalize; }
   h1 a,
   h2 a,
   h3 a,
@@ -93,13 +130,16 @@ p {
   color: #ffffff;
   text-shadow: none; }
 
+.margin_l_a {
+margin-left: auto;
+}
 .container-fluid.container-space {
   padding: 0 100px; }
 
 .form-control {
   border: 1px solid #eeeeee;
   border-radius: 0px;
-  height: 50px;
+  height: 60px;
   padding: 10px 20px;
   -webkit-box-shadow: none;
           box-shadow: none;
@@ -227,6 +267,9 @@ p {
     color: #ffffff; }
   .back-to-top:focus {
     color: #ffffff; }
+.breadcrumb-wrapper{
+  background-color: #1D5763 !important;
+}
 
 .breadcrumb {
   padding-left: 0;
@@ -236,7 +279,7 @@ p {
   .breadcrumb .breadcrumb-item {
     padding-right: 5px; }
     .breadcrumb .breadcrumb-item a {
-      color: #969696; }
+      color: #fff; }
       .breadcrumb .breadcrumb-item a:hover {
         color: #26ae61; }
     .breadcrumb .breadcrumb-item i {
@@ -311,13 +354,16 @@ p {
   color: #969696 !important; }
 
 .bg-primary {
-  background: #26ae61 !important; }
+  background: #e6e7e9 !important; }
 
 .bg-dark {
-  background: #001022 !important; }
+  background: #1d5764 !important; }
+
+.bg-light {
+  background: #f0f0ef !important; }
 
 .space-ptb {
-  padding: 90px 0; }
+  padding: 35px 0; }
 
 .space-pt {
   padding: 90px 0 0; }
@@ -425,7 +471,7 @@ p {
   position: relative;
   z-index: 1; }
   .bg-overlay-black-70:before {
-    background: rgba(0, 16, 34, 0.7);
+    background:rgb(29 87 100 / 90%);
     content: "";
     height: 100%;
     left: 0;
@@ -823,7 +869,7 @@ p {
     color: #001935; }
 
 .feature-info {
-  background: #ffffff;
+  background: #e6e7e9;
   border: 1px solid #eeeeee;
   padding: 36px;
   margin-right: -1px;
@@ -835,7 +881,7 @@ p {
   .feature-info .feature-info-icon {
     font-size: 40px;
     margin-bottom: 20px;
-    color: #26ae61; }
+    color: #1d5764; }
   .feature-info .feature-info-content {
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out; }
@@ -864,11 +910,21 @@ p {
             flex-direction: column;
     height: 100%; }
     .feature-info-02 .feature-info-detail .feature-info-icon {
-      background: #fafafa;
-      padding: 20px;
+    
+      padding: 10px 0px;
       margin: 5px; }
     .feature-info-02 .feature-info-detail .feature-info-content {
-      padding: 20px; }
+      padding: 10px 20px 20px 20px; }
+      .feature-info-02 .feature-info-detail .feature-info-content h6{
+        color: #1d5764;
+          font-family: 'BalooChettan2-Bold';
+        text-transform: uppercase;
+      }
+      .feature-info-02 .feature-info-detail .feature-info-content p{
+        color: #1d5764;
+        font-weight: bold;
+
+      }
     .feature-info-02 .feature-info-detail .feature-info-button {
       margin-top: auto; }
       .feature-info-02 .feature-info-detail .feature-info-button .btn {
@@ -897,6 +953,9 @@ p {
       background: #26ae61;
       border-color: #26ae61;
       color: #ffffff; }
+      .feature-info-02:hover .feature-info-content p{
+        color: white;
+      }
 
 .feature-info-round-icon {
   border: none; }
@@ -1057,22 +1116,45 @@ p {
   color: #001935; }
   .accordion-style-2 .accordion-title .btn.collapsed + i {
     color: #001935; }
+ .newsletter-wrapper{
+padding: 30px 0px;
+ }
+
+.newsletter-wrapper .newsletter-heading{
+  color: #e1282e;
+  font-family: 'BalooChettan2-ExtraBold';
+  text-transform: uppercase;
+}
 
 .newsletter {
   position: relative; }
   .newsletter .form-control {
-    padding-right: 150px; }
+    padding-right: 150px; 
+    height: 60px;
+    color:#b3b2b1;
+    text-transform: uppercase;
+    border-radius: 10px;
+       font-family: 'BalooChettan2-Bold';
+  }
+  .newsletter .form-control::placeholder{
+   color:#b3b2b1; 
+  }
   .newsletter .btn {
-    position: absolute;
-    right: 0;
+  width: 100%;
     line-height: 20px;
-    top: 0;
-    padding: 14px 30px; }
+    padding: 14px 30px;
+    background: #e1282e;
+    border-radius: 10px;
+    border: none;
+    text-transform: uppercase;
+      font-family: 'BalooChettan2-Bold';
+      height: 60px;
+  }
 
 .counter .timer {
-  font-size: 48px;
-  font-weight: 600;
-  font-family: "Barlow Semi Condensed", sans-serif; }
+  font-size: 80px;
+    font-family: 'BalooChettan2-Bold';
+    color: #1c5663;}
 
 .counter.counter-02 {
   display: -webkit-box;
@@ -1390,9 +1472,11 @@ button {
 
 .btn {
   font-size: 14px;
-  font-weight: 500;
+ text-transform: uppercase;
   padding: 12px 30px;
-  border-radius: 3px; }
+  border-radius: 3px;
+    font-family: 'BalooChettan2-Bold';
+   }
   .btn:not(:disabled):not(.disabled).active:focus {
     -webkit-box-shadow: none;
             box-shadow: none;
@@ -1428,11 +1512,13 @@ button {
   border-color: #26ae61; }
 
 .btn-primary {
-  background: #26ae61;
-  border-color: #26ae61; }
-  .btn-primary:hover {
-    background: #219553;
-    border-color: #219553; }
+  background: #e1282e;
+  border-color: #e1282e; 
+}
+/*  .btn-primary:hover {
+      background: #ffffff;
+    border-color: #ffffff;
+    color: #1c5663;}*/
     .btn-primary:hover:not(:disabled):not(.disabled).active {
       background: #26ae61;
       border-color: #26ae61; }
@@ -1483,7 +1569,7 @@ button {
 .btn-white {
   background: #ffffff;
   border-color: #ffffff;
-  color: #001022; }
+  color:#1c5663; }
   .btn-white:hover {
     background: #dfdfdf;
     border-color: #dfdfdf;
@@ -1558,11 +1644,11 @@ button {
 
 .irs--flat .irs-handle > i:first-child,
 .irs--flat .irs-handle > i:first-child {
-  background: #ffffff;
+  background: #e1282e;
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  border: 2px solid #26ae61;
+  border: 2px solid #e1282e;
   cursor: pointer;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out; }
@@ -1574,7 +1660,7 @@ button {
 
 .irs--flat .irs-handle.state_hover > i:first-child,
 .irs--flat .irs-handle:hover > i:first-child {
-  background: #26ae61; }
+  background: #e1282e; }
 
 .select2-container .select2-selection--single {
   height: auto;
@@ -1584,7 +1670,9 @@ button {
 
 .select2-container--default .select2-selection--single {
   border-radius: 0px;
-  border: none; }
+  border: none;
+  background: transparent;
+   }
   .select2-container--default .select2-selection--single .select2-selection__rendered {
     color: #001935;
     font-weight: bold;
@@ -1646,7 +1734,9 @@ button {
   border-radius: 3px; }
   .select-border .select2-container--default .select2-selection--single .select2-selection__arrow {
     top: 16px;
-    right: 20px; }
+    right: 20px;
+    background: transparent;
+     }
 
 .select2-results__option[aria-selected] {
   text-transform: capitalize; }
@@ -1655,7 +1745,7 @@ button {
   border: none; }
 
 .select2-container--default .select2-selection--single .select2-selection__rendered {
-  color: #3a4957; }
+  color: #fff; }
 
 .select2-container--open .select2-dropdown {
   background: #fafafa;
@@ -2040,14 +2130,25 @@ button {
 
 .sticky-top {
   top: 80px; }
+/*.sidebar {
+  background: #1d5763;
+}*/
 
 .sidebar .widget {
   margin-bottom: 30px;
   position: relative;
-  border: 1px solid #eeeeee;
-  padding: 20px; }
+  border: 1px solid #1d5763;
+  padding: 20px;
+  background: #1d5763;
+   }
+
+
   .sidebar .widget .widget-title {
     margin-bottom: 24px; }
+    .sidebar .widget .widget-title h6{
+      color: white;
+     font-family: 'BalooChettan2-Bold';
+    }
   .sidebar .widget .widget-collapse {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -2078,7 +2179,10 @@ button {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
-      color: #969696; }
+      color: #fff;
+      font-family: 'BalooChettan2-Bold';
+      font-size: 16px; 
+    }
       .sidebar .widget ul li a:hover {
         color: #26ae61; }
     .sidebar .widget ul li:last-child {
@@ -2290,7 +2394,12 @@ button {
 
 .section-title {
   margin-bottom: 40px; }
-
+.section-title h2 {
+  color: #e1282e;
+    font-family: 'BalooChettan2-ExtraBold';
+    text-transform: uppercase;
+    font-size: 40px;
+}
 .category ul {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2339,13 +2448,19 @@ button {
 
 .agent {
   border: 1px solid #eeeeee;
-  margin-right: -1px; }
+  margin-right: -1px; 
+  border-bottom-right-radius: 10px;
+}
   .agent .agent-detail {
-    padding: 30px; }
+    padding: 0px; }
   .agent .agent-avatar {
     margin-bottom: 20px; }
+    .agent .agent-avatar img {
+      width: 100%;
+      height: 100%;
+    }
   .agent .agent-button {
-    margin-top: auto; }
+    margin-top: 30px; }
     .agent .agent-button .btn {
       border-radius: 0;
       border-top: 1px solid #eeeeee; }
@@ -2359,16 +2474,42 @@ button {
 .agent.agent-02 .agent-detail {
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex; }
+  display: flex; 
+  width: 100%;
+}
+.agent.agent-02 .agent-detail .agent-info{
+width: 100%;
+}
+.agent.agent-02 .agent-detail .agent-info h5{
+  padding-left: 13px;
+  text-transform: uppercase;
+  color: #1c5663;
+    font-family: 'BalooChettan2-Bold';
+}
+.agent.agent-02 .agent-detail .agent-info p{
+  padding-left: 13px;
+  text-transform: uppercase;
+  color: #5d5b5a;
+    font-family: 'BalooChettan2-Bold';
+}
   .agent.agent-02 .agent-detail .agent-avatar {
-    margin-right: 30px;
+    margin-right: 0px;
     margin-bottom: 0px;
     -webkit-box-flex: 0;
         -ms-flex: 0 0 120px;
             flex: 0 0 120px; }
   .agent.agent-02 .agent-detail .agent-button .btn {
-    border-radius: 0;
-    border-top: 1px solid #eeeeee; }
+    border-top-right-radius : 10px;
+    border-bottom-right-radius : 10px;
+    background-color: #e11f25;
+    border:none; 
+    color: white;
+    font-family: 'BalooChettan2-Bold';
+    text-transform: uppercase;
+        font-size: 18px;
+    height: 45px;
+
+  }
 
 .agent.agent-02:hover .agent-button .btn {
   background: #26ae61;
@@ -2691,7 +2832,7 @@ button {
                 
         }
         .property_listing{
-            height : 306px !important;
+            height : 350px !important;
         }
         .property_listing img{
             height : 100% !important;
@@ -2769,6 +2910,10 @@ button {
     position: absolute;
     right: 8px;
     top: 8px; }
+     .property-image .property-lable span{
+      background: #e1282e;
+      color: white;
+     }
   .property-image .property-trending:before {
     content: "";
     width: 0;
@@ -2800,8 +2945,8 @@ button {
         margin-right: 2px; }
 
 .property-details {
-  background: #ffffff;
-  border: 1px solid #eeeeee;
+  background: #e6e7e9;
+  
   border-top: none; }
   .property-details i {
     margin-right: 5px; }
@@ -2814,7 +2959,7 @@ button {
         margin-right: 0;
         display: block;
         font-size: 18px;
-        color: #969696; }
+        color: #e1282e; }
       .property-details .property-info li span {
         color: #969696;
         font-size: 22px;
@@ -2825,14 +2970,18 @@ button {
     .property-details .property-details-inner .property-title {
       white-space: nowrap;
       overflow: hidden;
-      text-overflow: ellipsis; }
+      text-overflow: ellipsis;
+      color: #e1282e;
+        font-family: 'BalooChettan2-Bold';
+        text-transform: uppercase;
+         }
     .property-details .property-details-inner .property-address {
       margin-right: 10px; }
   .property-details .property-price {
-    color: #26ae61;
+    color: #1c5663;
     font-size: 24px;
     font-weight: 600;
-    font-family: "Barlow Semi Condensed", sans-serif;
+     font-family: 'BalooChettan2-Bold';
     margin-top: 14px; }
     .property-details .property-price span {
       font-size: 14px;
@@ -2844,31 +2993,38 @@ button {
     display: flex; }
     .property-details .property-btn .property-link {
       margin-right: auto;
-      width: 100%; }
+    width: 100%;
+    background: #e1282e;
+    max-width: 250px;
+    margin: 0 auto;
+    color: white;
+    border-radius: 10px;
+    font-size: 16px;
+     font-family: 'BalooChettan2-Bold';
+  }
     .property-details .property-btn .property-listing-actions {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
-      border-top: 1px solid #eeeeee;
-      border-bottom: 0px solid #eeeeee; }
+      }
       .property-details .property-btn .property-listing-actions li {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
         position: relative; }
-        .property-details .property-btn .property-listing-actions li:before {
+/*        .property-details .property-btn .property-listing-actions li:before {
           content: "";
           border-right: 1px solid #eeeeee;
           position: absolute;
           left: 0;
           top: 0;
-          height: 100%; }
+          height: 100%; }*/
         .property-details .property-btn .property-listing-actions li:first-child:before {
           content: none; }
         .property-details .property-btn .property-listing-actions li a {
           -ms-flex-item-align: center;
               align-self: center;
-          color: #969696;
+          color: #e1282e;
           padding: 12px 20px;
           background: transparent; }
           .property-details .property-btn .property-listing-actions li a:hover {
@@ -2876,7 +3032,9 @@ button {
         .property-details .property-btn .property-listing-actions li i {
           margin-right: 0px; }
   .property-details .property-btn {
-    margin-top: auto; }
+    margin-top: auto; 
+    padding: 5px 0px;
+  }
     .property-details .property-btn a {
       display: block;
       padding: 15px;
@@ -2885,8 +3043,8 @@ button {
       background: #fafafa;
       color: #001935; }
       .property-details .property-btn a:hover {
-        background: #26ae61;
-        color: #ffffff; }
+        background: #fff;
+        color: #000; }
 
 .property-filter-tag {
   display: -webkit-box;
@@ -2901,12 +3059,14 @@ button {
     display: flex; }
     .property-filter-tag ul li a {
       margin-left: 3px;
-      background: rgba(38, 174, 97, 0.1);
-      color: #26ae61;
-      font-weight: 500;
-      padding: 2px 8px;
-      font-size: 13px;
-      border-radius: 3px; }
+    background: rgb(29 87 99);
+    color: #ffffff;
+    font-weight: 500;
+    padding: 8px 20px;
+    font-size: 13px;
+    border-radius: 3px;
+    font-family: 'BalooChettan2-Bold';
+     }
       .property-filter-tag ul li a i {
         padding-left: 4px;
         font-size: 12px; }
@@ -2914,8 +3074,8 @@ button {
         background: #26ae61;
         color: #ffffff; }
     .property-filter-tag ul li .filter-clear {
-      background: rgba(0, 16, 34, 0.1);
-      color: #001022; }
+      background: rgb(225 40 46);
+      color: #fff; }
       .property-filter-tag ul li .filter-clear:hover {
         background: #001022;
         color: #ffffff; }
@@ -2928,7 +3088,7 @@ button {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 100%;
+  height: 350px;
   border-top: 1px solid #eeeeee;
   border-left: none; }
   .property-col-list .property-details .property-agent {
@@ -2937,16 +3097,70 @@ button {
   .property-col-list .property-details .property-price {
     margin-top: 0; }
   .property-col-list .property-details .property-details-inner-box {
-    display: -webkit-box;
+    /*display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap; }
-    .property-col-list .property-details .property-details-inner-box .property-price {
-      margin-left: auto; }
+        flex-wrap: wrap;*/
+        text-align: center; }
+.property-details-inner-box-left h5{
+  color: black;
+  font-family: 'BalooChettan2-Bold';
+  font-size: 16px;
+}      
+.property-details-inner-box-left .property-address{
+   font-family: 'BalooChettan2-Regular';
+   color: black;
+}
+.property-details-inner-box-left .property-address i {
+  color: #e1282e !important;
+} 
+.property-details-inner-box-left h6{
+  color: black;
+  font-family: 'BalooChettan2-Bold';
+  font-size: 16px;
+} 
+.property-details-inner-box-left p{
+  color: #1c5663;
+  font-family: 'BalooChettan2-Regular';
+  font-size: 18px;
+} 
+.eminities-wrap{
+  display: flex;
+}
+.eminities-wrap .property-info{
+  width:70%;
+}
+
+.eminities-wrap .property-info li{
+  color: black;
+    font-family: 'BalooChettan2-Bold';
+      font-size: 14px;
+}
+.eminities-wrap .property-info li span{
+  color: black;
+    font-family: 'BalooChettan2-Bold';
+    font-size: 14px;
+}
+.eminities-wrap .property-info li i {
+color: #1d5763;
+font-size: 30px;
+}
+
+.eminities-wrap .property-price{
+  width: 20%;
+}
+.eminities-wrap .property-price{
+  color: #e1282e;
+  font-size: 40px;
+  font-family: 'BalooChettan2-Regular';
+  font-weight: 100;
+}
+/*.property-col-list .property-details .property-details-inner-box .property-price {
+      margin-left: auto; }*/
 
 .property-offer .property-offer-image {
   padding: 90px 80px; }
@@ -3058,8 +3272,10 @@ button {
   border-color: #eeeeee; }
 
 .property-filter {
-  border: 1px solid #eeeeee;
-  position: relative; }
+  
+  position: relative; 
+  background: #1d5763;
+}
   .property-filter:after {
     position: absolute;
     left: 0;
@@ -3081,6 +3297,10 @@ button {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex; }
+    .property-filter ul li form label{
+      color: white;
+      font-family: 'BalooChettan2-Bold';
+    }
     .property-filter ul li a {
       color: #969696;
       font-size: 12px; }
@@ -3867,9 +4087,22 @@ button {
   100% {
     left: 110%; } }
 
+.footer .footer-contact-info h5{
+    font-family: 'BalooChettan2-Bold';
+    color: white;
+     font-size: 30px;
+     padding-left: 27px;
+}
+.footer .footer-contact-info p{
+    font-family: 'BalooChettan2-Bold';
+    padding-left: 27px;
+    letter-spacing: 1px;
+}
 .footer .footer-contact-info
 ul {
-  margin-bottom: 0; }
+  margin-bottom: 0;
+    font-family: 'BalooChettan2-Bold';
+   }
   .footer .footer-contact-info
 ul li {
     display: -webkit-box;
@@ -3879,7 +4112,7 @@ ul li {
     .footer .footer-contact-info
 ul li i {
       font-size: 18px;
-      color: #26ae61;
+      color: #fff;
       width: 20px; }
     .footer .footer-contact-info
 ul li span {
@@ -3889,7 +4122,15 @@ ul li span {
 ul li:last-child {
     padding-bottom: 0; }
 
+.footer .footer-link h5{
+    font-family: 'BalooChettan2-Bold';
+    color: white;
+     font-size: 30px;
+     padding-left: 0px;
+}
+
 .footer .footer-link ul {
+  font-family: 'BalooChettan2-Bold';
   display: inline-block;
   padding-right: 16px; }
   .footer .footer-link ul li {
@@ -3922,12 +4163,20 @@ ul li:last-child {
     margin-bottom: 0; }
 
 .footer .footer-bottom {
-  background: #00152c;
+  background: #1a353b;
   padding: 20px 0;
   margin-top: 60px; }
   .footer .footer-bottom .footer-logo {
-    height: 40px; }
-
+    height: 40px; 
+    padding: 0px 0px 0px 25px;
+  }
+.footer .footer-bottom .copyright{
+ padding: 0px 25px 0px 0px; 
+ color:#beb4b6;
+}
+.footer .footer-bottom .copyright a{
+  color:#beb4b6; 
+}
 /*************************
        1700px
 *************************/
@@ -4432,4 +4681,127 @@ ul li:last-child {
 
 .header-transparent .navbar-brand{
   margin-right: 0px;
+}
+
+
+/*================NEW CSS==============*/
+.browse-properties .section-title h2{
+font-size: 28px;
+}
+.browse-properties .show-propert-title a{
+  font-family: 'BalooChettan2-ExtraBold';
+  text-transform: uppercase;
+  font-size: 20px;
+  color: #e1282e;
+}
+.browse-properties .border-right{
+  border-right: 3px solid #e1282e!important;
+} 
+.browse-properties .city-list li a{
+  font-family: 'BalooChettan2-ExtraBold';
+  text-transform: uppercase;
+  font-size: 20px;
+  color: #1c5663;
+  position: relative;
+}
+.browse-properties .city-list li a span {
+  color: #e1282e;
+  margin-left: 25px;
+  position: absolute;
+  right: -40px;
+}
+.browse-properties .counter-detail span{
+  font-family: 'BalooChettan2-ExtraBold';
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #5d5b5a;
+}
+
+.browse-properties .counter-detail h5{
+  font-family: 'BalooChettan2-ExtraBold';
+  text-transform: uppercase;
+  font-size: 20px;
+  color: #e1282e;
+}
+
+.buy_sell_banner span{
+  font-size: 25px;
+  color: white;
+  text-transform: uppercase;
+}
+
+ .sidebar .widget form span{
+background: #e6e7e9;
+color: #1d5763 !important;
+border:none;
+font-family: 'BalooChettan2-Bold';
+font-size: 18px;
+transition: 0.2s linear;
+ }
+  .sidebar .widget form span:hover{
+    color: white;
+    background: #e1282e;
+    border:1px solid #e1282e;
+  }
+.sidebar .widget form span:hover .select2-selection__rendered{
+ color: white !important;
+    background: #e1282e;
+    border:none !important; 
+}
+
+
+.sidebar .widget form .sqt-ft input{
+text-align: right;
+background: #e6e7e9;
+font-family: 'BalooChettan2-Bold';
+color: #1d5763 !important;
+}
+.sidebar .widget form .sqt-ft input::placeholder{
+  color: #1d5763 !important;
+  font-family: 'BalooChettan2-Bold' !important;
+}
+
+.sidebar .widget form .property-price-slider{
+font-family: 'BalooChettan2-Regular';
+color: #fff !important;
+}
+.sidebar .widget form .property-price-slider span{
+  background: transparent !important;
+  color: white !important;
+}
+.sidebar .widget form .property-price-slider span:hover{
+  border:none;
+}
+.sidebar .widget form .property-price-slider span.irs-line{
+  background: white !important;
+}
+.sidebar .widget form .property-price-slider span.irs-bar{
+  background:#e1282e !important;
+}
+.sidebar .widget form button{
+  text-align: left;
+}
+.sidebar .widget form span.filter-head{
+  background: transparent !important;
+  color: white !important;
+  text-transform: capitalize;
+}
+.mortage-calc .input-group-prepend{
+  border:none;
+}
+.mortage-calc .input-group-prepend .input-group-text{
+  background: #e1282e;
+  color: white;
+  border:none;
+}
+
+.calculate:hover{
+color: black !important;
+background-color: white;
+}
+.owl-item .property-item .property-details .property-details-inner .property-title{
+  margin-bottom: 0px;
+}
+.owl-item .property-item .property-details .property-details-inner .property-price{
+margin-top: 0px;  
 }
