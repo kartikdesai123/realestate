@@ -192,90 +192,93 @@ Listing – grid view -->
           $imageCount = explode(',',$value['images']);
           @endphp
           <div class="property-item property-col-list mt-4">
-            <div class="row no-gutters">
-              <div class="col-lg-4 col-md-5">
-                <div class="property-image bg-overlay-gradient-04">
-                    <div class="property_listing">
-                        <img class="img-fluid" src="{{ asset('public/upload/property_photo/'.$imageCount[0]) }}" alt="">
+            @foreach($property as $key => $value)
+              <div class="row no-gutters">
+                <div class="col-lg-4 col-md-5">
+                  <div class="property-image bg-overlay-gradient-04">
+                      <div class="property_listing">
+                          <img class="img-fluid" src="{{ asset('public/upload/property_photo/'.$imageCount[0]) }}" alt="">
+                      </div>
+                    
+                    <div class="property-lable">
+                      <span class="badge badge-md ">{{ ucfirst($value['type']) }}</span>
+                      <span class="badge badge-md ">{{ ucfirst($value['offer']) }}</span>
                     </div>
-                  
-                  <div class="property-lable">
-                    <span class="badge badge-md ">{{ ucfirst($value['type']) }}</span>
-                    <span class="badge badge-md ">{{ ucfirst($value['offer']) }}</span>
+                    <!--<span class="property-trending" title="trending"><i class="fas fa-bolt"></i></span>-->
+                    <div class="property-agent">
+                      <div class="property-agent-image">
+                        <img class="img-fluid" src="{{ asset('public/upload/userimage/'.$value['userimage']) }}" alt="">
+                      </div>
+                      <div class="property-agent-info">
+                        <a class="property-agent-name" href="#">{{ $value['username'] }}</a>
+                        {{-- <span class="d-block">{{ getTypeText($value['roles']) }}</span> --}}
+                        <ul class="property-agent-contact list-unstyled">
+                          <li><a href="#"><i class="fas fa-mobile-alt"></i> </a></li>
+                          <li><a href="#"><i class="fas fa-envelope"></i> </a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="property-agent-popup">
+                      <a href="#"><i class="fas fa-camera"></i> {{ count($imageCount) }}</a>
+                    </div>
                   </div>
-                  <!--<span class="property-trending" title="trending"><i class="fas fa-bolt"></i></span>-->
-                  <div class="property-agent">
-                    <div class="property-agent-image">
-                      <img class="img-fluid" src="{{ asset('public/upload/userimage/'.$value['userimage']) }}" alt="">
+                </div>
+                <div class="col-lg-8 col-md-7">
+                  <div class="property-details">
+                    <div class="property-details-inner">
+                      <div class="property-details-inner-box">
+                        <div class="property-details-inner-box-left">
+                        <h5>Awesome Family home</h5>
+                        <span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>{{ $value['address'] }}</span>
+                        <span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>1 Year</span>
+                        <h6>Vrajdham - 2 , Vishwas City 1,Chanakuapuri, Ahmedabad,Gujarat, India <span class="property-agent-date">{{ humanTiming($value['created_at']) }}</span></h6>
+                        <p>125.00/month</p>
+                          <!-- <h5 class="property-title"><a href="{{ route("property-details",$value['slug'])}}" target="_blank">{{ $value['title'] }}</a></h5>
+                          <span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>{{ $value['address'] }}</span>
+                          <span class="property-agent-date"><i class="far fa-clock fa-md"></i>{{ humanTiming($value['created_at']) }}</span> -->
+                        </div>
+                        <div class="eminities-wrap">
+                          <ul class="property-info list-unstyled d-flex">
+                        <li class="flex-fill property-bed"><i class="fas fa-bed"></i>Bed<span>{{ $value['badroom'] }}</span></li>
+                        <li class="flex-fill property-bath"><i class="fas fa-bath"></i>Bath<span>{{ $value['bathroom'] }}</span></li>
+                        <li class="flex-fill property-m-sqft"><i class="far fa-square"></i>Sqft<span>{{ $value['area'] }}</span></li>
+                      </ul>
+                      <div class="property-price">${{ $value['price'] }}<span class="d-block"> </span> </div>
+                      </div>
+                        </div>
+                      
+
+                      <p class="mb-0 d-none d-block mt-3">{{ $value['about_property'] }}</p>
                     </div>
-                    <div class="property-agent-info">
-                      <a class="property-agent-name" href="#">{{ $value['username'] }}</a>
-                      {{-- <span class="d-block">{{ getTypeText($value['roles']) }}</span> --}}
-                      <ul class="property-agent-contact list-unstyled">
-                        <li><a href="#"><i class="fas fa-mobile-alt"></i> </a></li>
-                        <li><a href="#"><i class="fas fa-envelope"></i> </a></li>
+                    <div class="property-btn">
+                      <a class="property-link" href="{{ route("property-details",$value['slug'])}}" target="_blank">See More Details</a>
+                      <ul class="property-listing-actions list-unstyled mb-0">
+                        <li class="property-compare"><a data-toggle="tooltip"  class="compareProperty" data-slug="{{ $value['slug'] }}" data-placement="top" title="Compare" href="javascript:;"><i class="fas fa-exchange-alt"></i></a></li>
+                        @php 
+                        $color = '';
+                        $class = 'far fa-heart';
+                        if(is_array($favourite)){
+                              if(in_array($value['id'],$favourite)){
+                                  $class = 'fas fa-heart text-danger';  
+                              }else{
+                                  $class = 'far fa-heart';  
+                              }
+                        }
+                        @endphp
+                        <li class="property-favourites">
+                            <a class="favourite" data-login-id="{{ $loginId }}" data-property-id="{{ $value['id'] }}" 
+                              data-user-id="{{ $value['user_id']}}" data-href="{{ route('property-favourite') }}" data-toggle="tooltip" data-placement="top" 
+                              title="Favourite" href="javascript:;">
+                              <i class="{{ $class }}"></i>
+                            </a>
+                        </li>
                       </ul>
                     </div>
                   </div>
-                  <div class="property-agent-popup">
-                    <a href="#"><i class="fas fa-camera"></i> {{ count($imageCount) }}</a>
-                  </div>
                 </div>
               </div>
-              <div class="col-lg-8 col-md-7">
-                <div class="property-details">
-                  <div class="property-details-inner">
-                    <div class="property-details-inner-box">
-                      <div class="property-details-inner-box-left">
-                      <h5>Awesome Family home</h5>
-                      <span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>{{ $value['address'] }}</span>
-                      <span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>1 Year</span>
-                      <h6>Vrajdham - 2 , Vishwas City 1,Chanakuapuri, Ahmedabad,Gujarat, India <span class="property-agent-date">{{ humanTiming($value['created_at']) }}</span></h6>
-                      <p>125.00/month</p>
-                        <!-- <h5 class="property-title"><a href="{{ route("property-details",$value['slug'])}}" target="_blank">{{ $value['title'] }}</a></h5>
-                        <span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>{{ $value['address'] }}</span>
-                        <span class="property-agent-date"><i class="far fa-clock fa-md"></i>{{ humanTiming($value['created_at']) }}</span> -->
-                      </div>
-                      <div class="eminities-wrap">
-                         <ul class="property-info list-unstyled d-flex">
-                      <li class="flex-fill property-bed"><i class="fas fa-bed"></i>Bed<span>{{ $value['badroom'] }}</span></li>
-                      <li class="flex-fill property-bath"><i class="fas fa-bath"></i>Bath<span>{{ $value['bathroom'] }}</span></li>
-                      <li class="flex-fill property-m-sqft"><i class="far fa-square"></i>Sqft<span>{{ $value['area'] }}</span></li>
-                    </ul>
-                     <div class="property-price">${{ $value['price'] }}<span class="d-block"> </span> </div>
-                    </div>
-                      </div>
-                     
-
-                    <p class="mb-0 d-none d-block mt-3">{{ $value['about_property'] }}</p>
-                  </div>
-                  <div class="property-btn">
-                    <a class="property-link" href="{{ route("property-details",$value['slug'])}}" target="_blank">See More Details</a>
-                    <ul class="property-listing-actions list-unstyled mb-0">
-                      <li class="property-compare"><a data-toggle="tooltip"  class="compareProperty" data-slug="{{ $value['slug'] }}" data-placement="top" title="Compare" href="javascript:;"><i class="fas fa-exchange-alt"></i></a></li>
-                       @php 
-                       $color = '';
-                       $class = 'far fa-heart';
-                       if(is_array($favourite)){
-                            if(in_array($value['id'],$favourite)){
-                                $class = 'fas fa-heart text-danger';  
-                            }else{
-                                $class = 'far fa-heart';  
-                            }
-                       }
-                       @endphp
-                      <li class="property-favourites">
-                          <a class="favourite" data-login-id="{{ $loginId }}" data-property-id="{{ $value['id'] }}" 
-                             data-user-id="{{ $value['user_id']}}" data-href="{{ route('property-favourite') }}" data-toggle="tooltip" data-placement="top" 
-                             title="Favourite" href="javascript:;">
-                             <i class="{{ $class }}"></i>
-                          </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
+            @endforeach
+            
           </div>
           @endforeach
 
