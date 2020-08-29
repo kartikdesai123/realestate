@@ -15,9 +15,13 @@ class AgentController extends Controller
     }
 
     public function agentList(Request $request){
+        if($request->input('agentype')){
+            $data['agentType']=$agentType = $request->input('agentype');
+        }else{
+            $data['agentType']=$agentType = 0;
+        }
         $objUsers =  new Users();
-        $data['agencyList'] = $objUsers->agentList("AG");
-
+        $data['agencyList'] = $objUsers->agentList("AG",$agentType);
 
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agent List';
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agent List';
@@ -40,8 +44,12 @@ class AgentController extends Controller
                 'Agent List' => 'Agent  List',
         ));
 
-        $data['js'] = array();
-        $data['funinit'] = array();
+        $data['js'] = array(
+            'agent.js'
+        );
+        $data['funinit'] = array(
+            'Agent.init()'
+        );
         return view('frontend.pages.agent.list', $data);
     }
     
