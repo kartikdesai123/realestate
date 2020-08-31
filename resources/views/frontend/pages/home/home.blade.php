@@ -542,8 +542,9 @@
                                  </div>
                               </div>
                            </div>
-                        </div>
+                        
                         @endforeach
+                        </div>
                      </div>
                   </div>
                   <div class="col-12 text-center mt-4">
@@ -1051,33 +1052,7 @@
             
          <!--=================================
             newsletter -->
-         <section class=" bg-primary newsletter-wrapper">
-            <div class="container">
-               <div class="row">
-                  <div class="col-md-5">
-                     <h3 class="mb-0 newsletter-heading">Sign up to our newsletter to get the latest news and offers.</h3>
-                  </div>
-                  <div class="col-md-7 mt-3 mt-md-0">
-                     <div class="newsletter">
-                        <form>
-                        <div class="row">
-                           <div class="offset-lg-1 col-lg-7">
-                               <div class="form-group mb-0">
-                              <input type="email" class="form-control" placeholder="Enter email">
-                           </div> 
-                           </div>
-                           <div class="col-lg-4">
-                              <button type="submit" class="btn btn-dark">Get notified</button>
-                           </div>
-                        </div>
-                         
-                           
-                        </form>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </section>
+         
          <!--=================================
             newsletter -->
 @endsection
