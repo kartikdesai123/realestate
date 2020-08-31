@@ -83,7 +83,24 @@
       </div>
       <div class="col-lg-9 col-md-8">
         <div class="property-filter d-sm-flex">
-<!--            <h6> Agent List</h6>-->
+          <ul class="property-short list-unstyled d-sm-flex mb-0">
+            <li>
+              <form class="form-inline">
+                <div class="form-group d-lg-flex d-block">
+                  <label class="justify-content-start">Agent Type:</label>
+                  <div class="short-by">
+                    <select class="form-control basic-select agent_type">
+                      <option value="">Select Agent type</option>
+                      <option value="1" {{ $agentType == 1 ? 'selected="selected"' : ''}}>Independent Agent</option>
+                      <option value="2"  {{ $agentType == 2 ? 'selected="selected"' : ''}}>Agancy agent</option>
+                      <option value="3"  {{ $agentType == 3 ? 'selected="selected"' : ''}}>Company agent</option>
+                    </select>
+                  </div>
+                </div>
+              </form>
+            </li>
+          </ul>
+          
         </div>
         <div class="row">
           @foreach($agencyList as $key => $value)

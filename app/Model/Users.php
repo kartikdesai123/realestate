@@ -259,14 +259,54 @@ class Users extends Model
                     ->get();
     }
 
-    public function agentList($userType){
-        return Users::select("users.username","users.email","users.userimage","users.phoneno","users.about","users.id","agentdetails.designation")
+    public function agentList($userType,$agentType){
+        if($agentType == 1){
+                return Users::select("users.username","users.email","users.userimage","users.phoneno","users.about","users.id","agentdetails.designation")
+                        ->leftjoin("agentdetails","agentdetails.user_id","=","users.id")
+                        ->where("users.roles",$userType)
+                        ->where("users.email_verfied","1")
+                        ->where("users.isDeleted","0")
+                        ->where("users.parent_id",null)
+                        ->orderBy("users.id","DESC")
+                        ->paginate(4);               
+        }
+
+        if($agentType == 2){
+                return Users::select("users.username","users.email","users.userimage","users.phoneno","users.about","users.id","agentdetails.designation")
+                    ->leftjoin("agentdetails","agentdetails.user_id","=","users.id")
+                    ->leftjoin("users as u2","u2.id","=","users.parent_id")
+                    ->where("users.roles",$userType)
+                    ->where("users.email_verfied","1")
+                    ->where("users.isDeleted","0")
+                    ->where("users.parent_id","!=",null)
+                    ->where("u2.roles","AY")
+                    ->orderBy("users.id","DESC")
+                    ->paginate(4);
+        }
+
+        if($agentType == 3){
+            return Users::select("users.username","users.email","users.userimage","users.phoneno","users.about","users.id","agentdetails.designation")
+                        ->leftjoin("agentdetails","agentdetails.user_id","=","users.id")
+                        ->leftjoin("users as u2","u2.id","=","users.parent_id")
+                        ->where("users.roles",$userType)
+                        ->where("users.email_verfied","1")
+                        ->where("users.isDeleted","0")
+                        ->where("users.parent_id","!=",null)
+                        ->where("u2.roles","CC")
+                        ->orderBy("users.id","DESC")
+                        ->paginate(4);
+        }
+
+        if($agentType == 0){
+            return Users::select("users.username","users.email","users.userimage","users.phoneno","users.about","users.id","agentdetails.designation")
                     ->leftjoin("agentdetails","agentdetails.user_id","=","users.id")
                     ->where("users.roles",$userType)
                     ->where("users.email_verfied","1")
                     ->where("users.isDeleted","0")
                     ->orderBy("users.id","DESC")
                     ->paginate(4);
+        }   
+        
     }
 
     public function agencyList($userType){

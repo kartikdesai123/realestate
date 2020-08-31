@@ -58,17 +58,19 @@ class PropertyController extends Controller
         );
         
         $session = $request->session()->all();
-        $objPropetyList = new PropertyDetails();
+        
         if(isset($session['logindata'])){
-          $data['loginId'] = $session['logindata'][0]['id'];
-          $data['favourite'] = $objPropetyList->faveProperty($session['logindata'][0]['id']);
+            $objPropetyList = new PropertyDetails();
+            $data['loginId'] = $session['logindata'][0]['id'];
+            $data['favourite'] = $objPropetyList->faveProperty($session['logindata'][0]['id']);
         }else{
-          $data['loginId'] = '';
-          $data['favourite'] = '';
+            $data['loginId'] = '';
+            $data['favourite'] = '';
         }
         
-        
+        $objPropetyList = new PropertyDetails();
         $data['property'] = $objPropetyList->getPropertyList();
+        
         return view('frontend.pages.property.propertylist', $data);
     }
     
