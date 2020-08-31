@@ -3,7 +3,7 @@
 
 <!--=================================
 Mortgage Interest Rates -->
-<section class="space-ptb">
+<section class="space-ptb mt-100">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -29,21 +29,21 @@ Mortgage Interest Rates -->
                     </tbody>
                 </table>
             @else
-                <table class="table table-bordered table-striped mb-0">
+                <table class="table   table-striped mb-0">
                     <thead>
                     <tr>
-                        <th>
-                            <center>
-                            <h2>Pricing table</h2>
-                            </center>
+                        <th class="table-th-title">
+                           <p>
+                           Pricing table</p>
+                           
                         </th>
                         @foreach($plandetails as $key => $value)
-                            <th>
-                                <center>
-                                    <h4>{{ $value->planprice == 0 ? '' : "$".$value->planprice}}</h4>
-                                    <h3 style="color: #26ae61">{{ $value->planname }}</h3>
+                            <th class="s-plan border-rht-no">
+                                
+                                    <h3>{{ $value->planprice == 0 ? '' : "$".$value->planprice}}</h3>
+                                    <h3>{{ $value->planname }}</h3>
                                     <h4>Per Annum</h4>
-                                </center>
+                               
                             </th>
                         @endforeach
                     </tr>
@@ -121,7 +121,7 @@ Mortgage Interest Rates -->
                     <tr>
                         <td><center></center></td>
                         @foreach($plandetails as $key => $value)
-                            <td><center><span class="btn btn-primary btn-block planBtn" plandetailId="{{ $value->id}}">Select plan</span></center></td>
+                            <td><center><span class="btn  btn-block planBtn" plandetailId="{{ $value->id}}">Select plan</span></center></td>
                             
                         @endforeach
                     </tr>

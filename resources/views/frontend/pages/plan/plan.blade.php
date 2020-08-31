@@ -3,7 +3,7 @@
 
 <!--=================================
 Feature box -->
-<section class="space-ptb">
+<section class="space-ptb mt-100">
   <div class="container">
     
     <div class="row">
@@ -45,7 +45,7 @@ Feature box -->
                 <p>{{ $value->plandescription }}</p>
               </div>
               <div class="feature-info-button">
-                <a class="btn btn-light btn-block" href="{{ route("plan-details",$value->id)}}">See More Details</a>
+                <a class="btn btn-sec  btn-block" href="{{ route("plan-details",$value->id)}}">See More Details</a>
               </div>
             </div>
             <div class="feature-info-bg bg-holder bg-overlay-black-70" style="background-image: url({{ asset('public/upload/plan/background_image/'.$value->plan_bg_image) }})"></div>

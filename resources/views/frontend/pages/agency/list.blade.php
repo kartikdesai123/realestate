@@ -90,20 +90,20 @@ about -->
         </div>
         <div class="row">
           @foreach($agencyList as $key => $value)
-          <div class="col-lg-6 col-sm-6">
-            <div class="agent text-center mt-4">
+          <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="agent text-center mt-4 list-agent-page">
               <div class="agent-detail">
                 <div class="agent-avatar avatar avatar-xllll">
-                  <img class="img-fluid rounded-circle" src="{{ asset('public/upload/userimage/'.$value->userimage) }}" alt="Image can't load">
+                  <img class="img-fluid" src="{{ asset('public/upload/userimage/'.$value->userimage) }}" alt="Image can't load">
                 </div>
                 <div class="agent-info">
                   <h6> <a href="{{ route("agency-details",$value->id)}}">{{ $value->username }}</a></h6>
                   <span><i class="fas fa-map-marker-alt fa-xs pr-2"></i>{{ $value->location }}</span>
-                  <p class="mt-3 mb-0">{{ $value->about }}</p>
+                  <p class="mb-0">{{ $value->about }}</p>
                 </div>
               </div>
               <div class="agent-button">
-                <a class="btn btn-light btn-block" href="{{ route("agency-details",$value->id)}}">View Profile</a>
+                <a class="btn btn-primary btn-block" href="{{ route("agency-details",$value->id)}}">View Profile</a>
               </div>
             </div>
           </div>

@@ -2,7 +2,7 @@
 @section('content')
 <!--=================================
 about -->
-<section class="space-ptb bg-holder" style="background-image: url(images/pattern-bg.html);">
+<section class="space-ptb bg-holder mt-100" style="background-image: url(images/pattern-bg.html);">
     <div class="container">
       <div class="row justify-content-center mb-5">
         <div class="col-lg-9">
@@ -23,8 +23,8 @@ about -->
   <section class="space-ptb bg-light">
             <div class="container">
                <div class="row align-items-center">
-                  <div class="col-lg-6">
-                     <div class="section-title">
+                  <div class="col-lg-12">
+                     <div class="section-title text-center">
                         <h2>Plenty of reasons to choose us</h2>
                      </div>
                   </div>
@@ -45,9 +45,9 @@ about -->
                               <h6 class="mb-3 feature-info-title">Excellent reputation</h6>
                               <p>Our comprehensive database of listings and market info give the most accurate view of the market and your home value.</p>
                            </div>
-                           <div class="feature-info-button">
+                           <!-- <div class="feature-info-button">
                               <a class="btn btn-light btn-block" href="#">Read more</a>
-                           </div>
+                           </div> -->
                         </div>
                         <div class="feature-info-bg bg-holder bg-overlay-black-70" style="background-image: url({{ asset('public/frontend/assets/images/property/grid/01.jpg') }});"></div>
                      </div>
@@ -62,9 +62,9 @@ about -->
                               <h6 class="mb-3 feature-info-title">Best local agents</h6>
                               <p>You are just minutes from joining with the best agents who are fired up about helping you Buy or sell.</p>
                            </div>
-                           <div class="feature-info-button">
+                         <!--   <div class="feature-info-button">
                               <a class="btn btn-light btn-block" href="#">Read more</a>
-                           </div>
+                           </div> -->
                         </div>
                         <div class="feature-info-bg bg-holder bg-overlay-black-70" style="background-image: url({{ asset('public/frontend/assets/images/property/grid/02.jpg') }});"></div>
                      </div>
@@ -79,9 +79,9 @@ about -->
                               <h6 class="mb-3 feature-info-title">Peace of mind</h6>
                               <p>Rest guaranteed that your agent and their expert team are handling every detail of your transaction from start to end.</p>
                            </div>
-                           <div class="feature-info-button">
+                           <!-- <div class="feature-info-button">
                               <a class="btn btn-light btn-block" href="#">Read more</a>
-                           </div>
+                           </div> -->
                         </div>
                         <div class="feature-info-bg bg-holder bg-overlay-black-70" style="background-image: url({{ asset('public/frontend/assets/images/property/grid/03.jpg') }});"></div>
                      </div>
@@ -96,9 +96,9 @@ about -->
                               <h6 class="mb-3 feature-info-title">Tons of options</h6>
                               <p>Discover a place you’ll love to live in. Choose from our vast inventory and choose your desired house.</p>
                            </div>
-                           <div class="feature-info-button">
+                          <!--  <div class="feature-info-button">
                               <a class="btn btn-light btn-block" href="#">Read more</a>
-                           </div>
+                           </div> -->
                         </div>
                         <div class="feature-info-bg bg-holder bg-overlay-black-70" style="background-image: url({{ asset('public/frontend/assets/images/property/grid/04.jpg') }});"></div>
                      </div>
@@ -165,7 +165,7 @@ about -->
   
   <!--=================================
   agent -->
-  <section class="space-ptb">
+  <section class="space-ptb meet_agent">
     <div class="container">
       <div class="row">
         <div class="col-12">
@@ -174,12 +174,12 @@ about -->
           </div>
         </div>
       </div>
-      <div class="row no-gutters">
+      <div class="row">
         <div class="col-lg-3 col-sm-6 mb-4 mb-sm-0">
           <div class="agent text-center">
             <div class="agent-detail">
               <div class="agent-avatar avatar avatar-xllll">
-                <img class="img-fluid rounded-circle" src="{{ asset('public/frontend/assets/images/agent/01.jpg') }}" alt="">
+                <img class="img-fluid " src="{{ asset('public/frontend/assets/images/agent/01.jpg') }}" alt="">
               </div>
               <div class="agent-info">
                 <h6 class="mb-0"> <a href="{{ route("agent-details",'1')}}">Alice Williams </a></h6>
@@ -188,7 +188,7 @@ about -->
               </div>
             </div>
             <div class="agent-button">
-              <a class="btn btn-light btn-block" href="{{ route("agent-details",'1')}}">View Profile</a>
+              <a class="btn btn-primary btn-block" href="{{ route("agent-details",'1')}}">View Profile</a>
             </div>
           </div>
         </div>
@@ -196,7 +196,7 @@ about -->
           <div class="agent text-center">
             <div class="agent-detail">
               <div class="agent-avatar avatar avatar-xllll">
-                <img class="img-fluid rounded-circle" src="{{ asset('public/frontend/assets/images/agent/02.jpg') }}" alt="">
+                <img class="img-fluid " src="{{ asset('public/frontend/assets/images/agent/02.jpg') }}" alt="">
               </div>
               <div class="agent-info">
                 <h6 class="mb-0"> <a href="{{ route("agent-details",'1')}}">Felica queen </a></h6>
@@ -205,7 +205,7 @@ about -->
               </div>
             </div>
             <div class="agent-button">
-              <a class="btn btn-light btn-block" href="{{ route("agent-details",'1')}}">View Profile</a>
+              <a class="btn btn-primary btn-block" href="{{ route("agent-details",'1')}}">View Profile</a>
             </div>
           </div>
         </div>
@@ -213,7 +213,7 @@ about -->
           <div class="agent text-center">
             <div class="agent-detail">
               <div class="agent-avatar avatar avatar-xllll">
-                <img class="img-fluid rounded-circle" src="{{ asset('public/frontend/assets/images/agent/03.jpg') }}" alt="">
+                <img class="img-fluid " src="{{ asset('public/frontend/assets/images/agent/03.jpg') }}" alt="">
               </div>
               <div class="agent-info">
                 <h6 class="mb-0"> <a href="{{ route("agent-details",'1')}}">Paul flavius </a></h6>
@@ -222,7 +222,7 @@ about -->
               </div>
             </div>
             <div class="agent-button">
-              <a class="btn btn-light btn-block" href="{{ route("agent-details",'1')}}">View Profile</a>
+              <a class="btn btn-primary btn-block" href="{{ route("agent-details",'1')}}">View Profile</a>
             </div>
           </div>
         </div>
@@ -230,7 +230,7 @@ about -->
           <div class="agent text-center">
             <div class="agent-detail">
               <div class="agent-avatar avatar avatar-xllll">
-                <img class="img-fluid rounded-circle" src="{{ asset('public/frontend/assets/images/agent/04.jpg') }}" alt="">
+                <img class="img-fluid" src="{{ asset('public/frontend/assets/images/agent/04.jpg') }}" alt="">
               </div>
               <div class="agent-info">
                 <h6 class="mb-0"> <a href="{{ route("agent-details",'1')}}">Sara lisbon  </a></h6>
@@ -239,7 +239,7 @@ about -->
               </div>
             </div>
             <div class="agent-button">
-              <a class="btn btn-light btn-block" href="{{ route("agent-details",'1')}}">View Profile</a>
+              <a class="btn btn-primary btn-block" href="{{ route("agent-details",'1')}}">View Profile</a>
             </div>
           </div>
         </div>

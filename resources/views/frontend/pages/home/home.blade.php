@@ -1,8 +1,213 @@
 @extends('frontend.layout.layout')
 @section('content')
+
+
+<div id="demo" class="carousel slide banner-slider" data-ride="carousel">
+
+  <!-- Indicators -->
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+  </ul>
+  
+  <!-- The slideshow -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{{ asset('public/frontend/assets/images/banner-02.jpg') }}" alt="Los Angeles" width="1100" height="500">
+    </div>
+    <div class="carousel-item">
+      <img src="{{ asset('public/frontend/assets/images/banner-02.jpg') }}" alt="Chicago" width="1100" height="500">
+    </div>
+    <div class="carousel-item">
+      <img src="{{ asset('public/frontend/assets/images/banner-02.jpg') }}" alt="New York" width="1100" height="500">
+    </div>
+  </div>
+  
+  <!-- Left and right controls -->
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+  <!--=================================
+            property Type -->
+         <section class="property-search-field-top position-reletive">
+            <div class="container">
+               <div class="row">
+                  <div class="col-12">
+                     <div class="property-search-field bg-white">
+                        <div class="property-search-item">
+                           <form class="form-row basic-select-wrapper" method="POST" id="search">@csrf
+                              <div class="form-group col-lg col-md-6">
+                                 <div class="row">
+                                    <div class="col-md-8">
+                                       <label>Property type</label>
+                                    </div>
+                                     <div class="col-md-4">
+                                       <select class="form-control basic-select buldingType" name="property_type">
+                                    <option value="">All Type</option>
+                                    @foreach($property_type as $key => $value)
+                                 <option value="{{ $value->type }}">{{ $value->type }}</option>
+                                    @endforeach
+                                 </select>
+                                    </div>
+                                 </div>     
+                              </div>
+
+                              <div class="form-group col-lg col-md-6">
+                                 <div class="row">
+                                    <div class="col-md-8">
+                                     <label>Status</label>
+                                    </div>
+                                     <div class="col-md-4">
+                                       <select class="form-control basic-select buldingStatus" name="property_status">
+                                    <option value="">All Type</option>.
+                                    <option value="rent" >For Rent</option>
+                                    <option value="sale">For Sale</option>
+                                 </select>
+                                    </div>
+                                 </div>     
+                              </div>
+
+                              <div class="form-group col-lg col-md-6">
+                                 <div class="row">
+                                    <div class="col-md-8">
+                                     <label>Location</label>
+                                    </div>
+                                     <div class="col-md-4">
+                                       <div class="d-flex align-items-center">
+                                        <i class="far fa-compass mr-1"></i>
+                                        <input type="text" class="form-control txtaddress" name="txtaddress" id="txtaddress" placeholder="Address">
+                                    </div>
+                                    </div>
+                                 </div>     
+                              </div>
+
+                              
+                              <div class="form-group d-flex col-lg-5">
+                                 
+                                 <span class="align-items-center ml-3 d-none d-md-block"><button class="btn btn-primary d-flex align-items-center" type="submit"><i class="fas fa-search mr-1"></i><span>Search</span></button></span>
+                              </div>
+                              <div class="form-group text-center col-lg col-md-4 ">
+                                 <div class="d-flex justify-content-center d-md-inline-block">
+                                    <a class="more-search p-0" data-toggle="collapse" href="#advanced-search" role="button" aria-expanded="false" aria-controls="advanced-search"> <span class="d-block pr-2 mb-1">Advanced search</span>
+                                    <i class="fas fa-angle-double-down"></i></a>
+                                 </div>
+                              </div>
+                              <div class="collapse advanced-search" id="advanced-search">
+                                 <div class="card card-body">
+                                    <div class="form-row">
+                                       <div class="form-group col-md-3">
+                                          <label>Distance from location</label>
+                                          <select class="form-control basic-select" name="distance">
+                                             <option value="">This area only</option>
+                                             <option value="1">Within 1 mile</option>
+                                             <option value="3">Within 3 miles</option>
+                                             <option value="5">Within 5 miles</option>
+                                             <option value="10">Within 10 miles</option>
+                                             <option value="15">Within 15 miles</option>
+                                             <option value="30">Within 30 miles</option>
+                                          </select>
+                                       </div>
+                                       <div class="form-group col-md-3">
+                                          <label>Bedrooms</label>
+                                          <select class="form-control basic-select" name="badroom">
+                                             <option value="">No max</option>
+                                             <option value="1">01</option>
+                                             <option value="2">02</option>
+                                             <option value="3">03</option>
+                                          </select>
+                                       </div>
+                                       <div class="form-group col-md-3">
+                                          <label>Sort by</label>
+                                          <select class="form-control basic-select" name="sortby">
+                                             <option  value="">Most popular</option>
+                                             <option  value="high">Highest price</option>
+                                             <option value="low">Lowest price</option>
+                                             <option value="reduced">Most reduced</option>
+                                          </select>
+                                       </div>
+                                       <div class="form-group col-md-3">
+                                          <label>Floor area</label>
+                                          <input class="form-control" placeholder="Type (sq ft)" name="floorarea">
+                                          {{-- <select class="form-control basic-select" name="floor">
+                                             <option>Select Floor</option>
+                                             <option>01</option>
+                                             <option>02</option>
+                                             <option>03</option>
+                                          </select> --}}
+                                       </div>
+                                    </div>
+                                     <div class="form-row">
+                                         <div class="form-group col-md-4">
+                                          <label>Agent</label>
+                                          <select class="form-control basic-select" name="agent">
+                                             <option value="">Select Agent</option>
+                                             @foreach($agentListSerch as $key => $value)
+                                                <option value="{{ $value->id}}">{{ $value->username }}</option> 
+                                             @endforeach
+                                          </select>
+                                       </div>
+                                         <div class="form-group col-md-4">
+                                          <label>Agencies</label>
+                                          <select class="form-control basic-select" name="agencies">
+                                             <option value="">Select Agencies</option>
+                                             @foreach($agencyListSerch as $key => $value)
+                                                <option value="{{ $value->id}}">{{ $value->username }}</option> 
+                                             @endforeach
+                                          </select>
+                                       </div>
+                                         <div class="form-group col-md-4">
+                                          <label>Company</label>
+                                          <select class="form-control basic-select" name="company">
+                                             <option value="">Select Company</option>
+                                             @foreach($companyListSerch as $key => $value)
+                                                <option value="{{ $value->id}}">{{ $value->username }}</option> 
+                                             @endforeach
+                                          </select>
+                                       </div>
+                                     </div>
+                                    <div class="form-row">
+                                       <div class="form-group col-md-3">
+                                          <label>Min Area (sq ft)</label>
+                                          <input class="form-control" placeholder="Type (sq ft)" name="minarea">
+                                       </div>
+                                       <div class="form-group col-md-3">
+                                          <label>Max Area (sq ft)</label>
+                                          <input class="form-control" placeholder="Type (sq ft)" name="maxarea">
+                                       </div>
+                                       <div class="form-group col-md-6 property-price-slider ">
+                                          <label>Select Price Range</label>
+                                          <input type="text" id="property-price-slider"  value="" name="price_range"/>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="d-md-none btn-block btn-mobile  m-3">
+                                 <button class="btn btn-primary btn-block align-items-center" type="submit">
+                                    <i class="fas fa-search mr-1"></i>
+                                    <span>Search</span>
+                                 </button>
+                              </div>
+                           </form>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!--=================================
+            Property Types -->
+        
+</div>
+
+
+
 <!--=================================
          banner -->
-         <section class="position-relative">
+         <!-- <section class="position-relative">
             <div class="banner bg-holder bg-overlay-gradient-02" style="background-image: url({{ asset('public/frontend/assets/images/banner-02.jpg') }});">
                <div class="container">
                   <div class="row">
@@ -19,12 +224,12 @@
                <path fill-rule="evenodd"  fill="rgb(255, 255, 255)"
                   d="M1920.000,100.000 L0.000,100.000 L1920.000,-0.000 L1920.000,100.000 Z"/>
             </svg>
-         </section>
+         </section> -->
          <!--=================================
             banner -->
          <!--=================================
             property Type -->
-         <section class="property-search-field-top position-reletive">
+         <!-- <section class="property-search-field-top position-reletive">
             <div class="container">
                <div class="row">
                   <div class="col-12">
@@ -165,12 +370,12 @@
                   </div>
                </div>
             </div>
-         </section>
+         </section> -->
          <!--=================================
             Property Types -->
          <!--=================================
             location -->
-         <section class="space-ptb">
+        <!--  <section class="space-ptb">
             <div class="container">
                <div class="row">
                   <div class="col-12">
@@ -246,12 +451,12 @@
                     @endif
                </div>
             </div>
-         </section>
+         </section> -->
          <!--=================================
             location -->
          <!--=================================
             Featured properties-->
-         <section class="space-pb">
+         <section class="space-pb featured-property">
             <div class="container">
                <div class="row">
                   <div class="col-12">
@@ -303,9 +508,29 @@
                                     <span class="property-agent-date"><i class="far fa-clock fa-md"></i>{{ humanTiming($value['created_at']) }}</span> -->
                                     <div class="property-price">${{ $value['price'] }}</div>
                                     <ul class="property-info list-unstyled d-flex">
-                                       <li class="flex-fill property-bed"><i class="fas fa-bed"></i>Bed<span>{{ $value['badroom'] }}</span></li>
-                                       <li class="flex-fill property-bath"><i class="fas fa-bath"></i>Bath<span>{{ $value['bathroom'] }}</span></li>
-                                       <li class="flex-fill property-m-sqft"><i class="far fa-square"></i>sqft<span>{{ $value['area'] }}</span></li>
+                                       <li class="flex-fill property-bed"><i class="fas fa-bed"></i>
+                                       <div class="property-det-wrap">
+                                      <p> Bed</p>
+                                       <span>{{ $value['badroom'] }}</span>
+                                       </div>
+                                       </li>
+                                       <li class="flex-fill property-bath"><i class="fas fa-bath"></i>
+                                       <div class="property-det-wrap">
+                                       <p>Bath</p>
+                                       <span>{{ $value['bathroom'] }}</span>
+                                       </div>
+                                       </li>
+                                       <li class="flex-fill property-m-sqft"><i class="far fa-square"></i>
+                                        <div class="property-det-wrap">     
+                                       <p>sqft</p>
+                                       <span>{{ $value['area'] }}</span>
+                                       </div>
+                                       </li>
+                                        <li class="flex-fill property-type"><i class="far fa-square"></i>
+                                        <div class="property-det-wrap"> 
+                                        <p> sqft</p>
+                                       <span>{{ $value['area'] }}</span></li>
+                                       </div>
                                     </ul>
                                  </div>
                                  <div class="property-btn">
@@ -349,7 +574,7 @@
             about-->
          <!--=================================
             offering the best-->
-         <section class="space-ptb">
+         <!-- <section class="space-ptb">
             <div class="container">
                <div class="row">
                   <div class="col-12">
@@ -511,7 +736,7 @@
                   </div>
                </div>
             </div>
-         </section>
+         </section> -->
          <!--=================================
             offering the best -->
          <!--=================================
@@ -606,7 +831,7 @@
             agent -->
          <!--=================================
             Company-->
-         <section class="space-ptb">
+         <!-- <section class="space-ptb">
             <div class="container">
                <div class="row">
                   <div class="col-12">
@@ -637,7 +862,7 @@
                   @endforeach
                </div>
             </div>
-         </section>
+         </section> -->
          <!--=================================
             Company -->
          <!--=================================
@@ -668,10 +893,11 @@
                               <p>Our comprehensive database of listings and market info give the most accurate view of the market and your home value.</p>
                            </div>
                            <!-- <div class="feature-info-button">
-                              <a class="btn btn-light btn-block" href="#">Read more</a>
+                              <a class="btn btn-primary btn-block" href="#">See more Detail</a>
                            </div> -->
                         </div>
-                        <div class="feature-info-bg bg-holder bg-overlay-black-70" style="background-image: linear-gradient(to bottom ,rgb(255 255 255 / 57%) 40%,rgb(16 92 114 )),url(http://localhost/realestate/public/frontend/assets/images/property/grid/01.jpg);"></div>
+                        <div class="feature-info-bg bg-holder" style="background-image: linear-gradient(to bottom ,rgb(131 131 131 / 57%) 12%,rgb(16 92 114 )),url(http://localhost/realestate/public/frontend/assets/images/property/grid/01.jpg);"></div>
+
                      </div>
                   </div>
                   <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0">
@@ -685,10 +911,10 @@
                               <p>You are just minutes from joining with the best agents who are fired up about helping you Buy or sell.</p>
                            </div>
                           <!--  <div class="feature-info-button">
-                              <a class="btn btn-light btn-block" href="#">Read more</a>
+                              <a class="btn btn-primary btn-block" href="#">See more Detail</a>
                            </div> -->
                         </div>
-                        <div class="feature-info-bg bg-holder bg-overlay-black-70" style="background-image: linear-gradient(to bottom ,rgb(255 255 255 / 57%) 40%,rgb(16 92 114 )),url(http://localhost/realestate/public/frontend/assets/images/property/grid/02.jpg);"></div>
+                        <div class="feature-info-bg bg-holder " style="background-image: linear-gradient(to bottom ,rgb(131 131 131 / 57%) 12%,rgb(16 92 114 )),url(http://localhost/realestate/public/frontend/assets/images/property/grid/02.jpg);"></div>
                      </div>
                   </div>
                   <div class="col-lg-3 col-sm-6 mb-4 mb-sm-0">
@@ -702,10 +928,10 @@
                               <p>Rest guaranteed that your agent and their expert team are handling every detail of your transaction from start to end.</p>
                            </div>
                            <!-- <div class="feature-info-button">
-                              <a class="btn btn-light btn-block" href="#">Read more</a>
+                              <a class="btn btn-primary btn-block" href="#">See more Detail</a>
                            </div> -->
                         </div>
-                        <div class="feature-info-bg bg-holder bg-overlay-black-70" style="background-image:linear-gradient(to bottom ,rgb(255 255 255 / 57%) 40%,rgb(16 92 114 )),url(http://localhost/realestate/public/frontend/assets/images/property/grid/03.jpg);"></div>
+                        <div class="feature-info-bg bg-holder " style="background-image:linear-gradient(to bottom ,rgb(131 131 131 / 57%) 12%,rgb(16 92 114 )),url(http://localhost/realestate/public/frontend/assets/images/property/grid/03.jpg);"></div>
                      </div>
                   </div>
                   <div class="col-lg-3 col-sm-6">
@@ -719,10 +945,10 @@
                               <p>Discover a place you’ll love to live in. Choose from our vast inventory and choose your desired house.</p>
                            </div>
                            <!-- <div class="feature-info-button">
-                              <a class="btn btn-light btn-block" href="#">Read more</a>
+                              <a class="btn btn-primary btn-block" href="#">See more Detail</a>
                            </div> -->
                         </div>
-                        <div class="feature-info-bg bg-holder bg-overlay-black-70" style="background-image: linear-gradient(to bottom ,rgb(255 255 255 / 57%) 40%,rgb(16 92 114 )),url(http://localhost/realestate/public/frontend/assets/images/property/grid/04.jpg);"></div>
+                        <div class="feature-info-bg bg-holder" style="background-image: linear-gradient(to bottom ,rgb(131 131 131 / 57%) 12%,rgb(16 92 114 )),url(http://localhost/realestate/public/frontend/assets/images/property/grid/04.jpg);"></div>
 
 
                      </div>
@@ -736,7 +962,7 @@
 
             <!--=================================
             testimonial -->
-         <section class="space-pb">
+        <!--  <section class="space-pb">
             <div class="container">
                <div class="row">
                   <div class="col-md-12">
@@ -772,7 +998,7 @@
                   
                </div>
             </div>
-         </section>
+         </section> -->
          <!--=================================
             testimonial -->
 

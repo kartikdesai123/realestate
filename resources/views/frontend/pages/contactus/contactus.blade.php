@@ -2,7 +2,7 @@
 @section('content')
 <!--=================================
 Contact -->
-<section class="space-ptb">
+<section class="space-ptb mt-100">
     <div class="container">
       <div class="row">
         <div class="col-12">
@@ -16,7 +16,7 @@ Contact -->
           <div class="contact-address bg-light p-4">
             <div class="d-flex mb-3">
               <div class="contact-address-icon">
-                <i class="flaticon-map text-primary font-xlll"></i>
+                <i class="flaticon-map font-xlll"></i>
               </div>
               <div class="ml-3">
                 <h6>Address</h6>
@@ -25,7 +25,7 @@ Contact -->
             </div>
             <div class="d-flex mb-3">
               <div class="contact-address-icon">
-                <i class="flaticon-email text-primary font-xlll"></i>
+                <i class="flaticon-email font-xlll"></i>
               </div>
               <div class="ml-3">
                 <h6>Email</h6>
@@ -34,7 +34,7 @@ Contact -->
             </div>
             <div class="d-flex mb-3">
               <div class="contact-address-icon">
-                <i class="flaticon-call text-primary font-xlll"></i>
+                <i class="flaticon-call font-xlll"></i>
               </div>
               <div class="ml-3">
                 <h6>Phone Number</h6>
@@ -43,7 +43,7 @@ Contact -->
             </div>
             <div class="d-flex mb-3">
               <div class="contact-address-icon">
-                <i class="flaticon-fax text-primary font-xlll"></i>
+                <i class="flaticon-fax font-xlll"></i>
               </div>
               <div class="ml-3">
                 <h6>Fax</h6>
@@ -100,10 +100,10 @@ Contact -->
       </div>
       <div class="row mt-1 mt-md-2">
         <div class="col-12">
-          <h4 class="mb-4 my-4 my-sm-5">Additional contact Info</h4>
+          <h4 class="mb-4 my-4 my-sm-5 text-primary" style="font-weight: bold;">Additional contact Info</h4>
         </div>
         <div class="col-md-4">
-          <div class="d-flex">
+          <div class="d-flex add-cnt-info">
             <i class="flaticon-time-call font-xlll text-primary"></i>
             <div class="ml-4">
               <h5>Estate agency offices</h5>
@@ -113,7 +113,7 @@ Contact -->
           </div>
         </div>
         <div class="col-md-4 mt-4 mt-md-0">
-          <div class="d-flex">
+          <div class="d-flex add-cnt-info">
             <i class="flaticon-email-1 font-xlll text-primary"></i>
             <div class="ml-4">
               <h5>Lettings offices</h5>
@@ -123,7 +123,7 @@ Contact -->
           </div>
         </div>
         <div class="col-md-4 mt-4 mt-md-0">
-          <div class="d-flex">
+          <div class="d-flex add-cnt-info">
             <i class="flaticon-group font-xlll text-primary"></i>
             <div class="ml-4">
               <h5>Chat to us </h5>

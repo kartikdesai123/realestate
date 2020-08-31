@@ -1,6 +1,6 @@
 @extends('frontend.layout.layout')
 @section('content')
-<section class="space-ptb">
+<section class="space-ptb mt-100">
   <div class="container">
     <div class="row">
       <div class="col-12">
@@ -8,8 +8,8 @@
           <div class="row no-gutters">
             <div class="col-md-3 text-center border-right">
               <div class="d-flex flex-column h-100">
-                <div class="agent-avatar p-3 my-auto">
-                  <img class="img-fluid rounded-circle" src="{{ asset('public/upload/userimage/'.$agencyDetail[0]->userimage) }}" alt="">
+                <div class="agent-avatar  my-auto">
+                  <img class="img-fluid " src="{{ asset('public/upload/userimage/'.$agencyDetail[0]->userimage) }}" alt="">
                 </div>
                 <div class="agent-listing text-center mt-auto">
                 <a href="#"><strong class="text-primary mr-2 d-inline-block">{{ count($propertyList) }}</strong>Listed Properties </a>
@@ -17,7 +17,7 @@
               </div>
             </div>
             <div class="col-md-9">
-              <div class="d-flex h-100 flex-column">
+              <div class="d-flex pl-25 h-100 flex-column">
                 <div class="agent-detail">
                   <div class="d-block d-sm-flex">
                     <div class="agent-name mb-3 mt-sm-0">

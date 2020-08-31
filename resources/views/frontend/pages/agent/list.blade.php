@@ -1,7 +1,7 @@
 @extends('frontend.layout.layout')
 @section('content')
 
-<section class="space-ptb">
+<section class="space-ptb mt-100">
   <div class="container">
     <div class="row">
       <div class="col-md-6">
@@ -17,8 +17,8 @@
     </div>
     <div class="row">
       <div class="col-lg-3 col-md-4 mb-5 mb-md-0">
-        <div class="sidebar">
-          <div class="widget">
+        <div class="sidebar agent_sidebar">
+          <div class="widget feat-prop">
             <div class="widget-title">
               <h6>Featured property</h6>
             </div>
@@ -53,28 +53,28 @@
             <div class="recent-list-item">
               <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/list/01.jpg') }}" alt="">
               <div class="recent-list-item-info">
-                <a class="address mb-2" href="{{ route("property-details",'1')}}">Awesome family home</a>
+                <a class="address" href="{{ route("property-details",'1')}}">Awesome family home</a>
                 <span class="text-primary">$1,456,233 </span>
               </div>
             </div>
             <div class="recent-list-item">
               <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/list/02.jpg') }}" alt="">
               <div class="recent-list-item-info">
-                <a class="address mb-2" href="{{ route("property-details",'1')}}">Contemporary apartment</a>
+                <a class="address" href="{{ route("property-details",'1')}}">Contemporary apartment</a>
                 <span class="text-primary">$2,496,454 </span>
               </div>
             </div>
             <div class="recent-list-item">
               <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/list/03.jpg') }}" alt="">
               <div class="recent-list-item-info">
-                <a class="address mb-2" href="{{ route("property-details",'1')}}">Family home for sale</a>
+                <a class="address" href="{{ route("property-details",'1')}}">Family home for sale</a>
                 <span class="text-primary">$4,662,457 </span>
               </div>
             </div>
             <div class="recent-list-item">
               <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/list/04.jpg') }}" alt="">
               <div class="recent-list-item-info">
-                <a class="address mb-2" href="{{ route("property-details",'1')}}">184 lexington avenue</a>
+                <a class="address" href="{{ route("property-details",'1')}}">184 lexington avenue</a>
                 <span class="text-primary">$2,456,452 </span>
               </div>
             </div>
@@ -87,20 +87,20 @@
         </div>
         <div class="row">
           @foreach($agencyList as $key => $value)
-            <div class="col-lg-6 col-sm-6">
-              <div class="agent text-center mt-4">
+            <div class="col-lg-4 col-md-4 col-sm-6">
+              <div class="agent text-center mt-4 list-agent-page">
                 <div class="agent-detail">
                   <div class="agent-avatar avatar avatar-xllll">
-                    <img class="img-fluid rounded-circle" src="{{ asset('public/upload/userimage/'.$value->userimage) }}" alt="">
+                    <img class="img-fluid" src="{{ asset('public/upload/userimage/'.$value->userimage) }}" alt="">
                   </div>
                   <div class="agent-info">
                     <h6 class="mb-0"> <a href="{{ route("agent-details",$value->id)}}">{{ $value->username }}</a></h6>
                     <span class="font-sm">{{ $value->designation }}</span>  
-                    <p class="mt-3 mb-0">{{ $value->about }}</p>
+                    <p class="mb-0">{{ $value->about }}</p>
                   </div>
                 </div>
                 <div class="agent-button">
-                  <a class="btn btn-light btn-block" href="{{ route("agent-details",$value->id)}}">View Profile</a>
+                  <a class="btn btn-primary btn-block" href="{{ route("agent-details",$value->id)}}">View Profile</a>
                 </div>
               </div>
             </div>

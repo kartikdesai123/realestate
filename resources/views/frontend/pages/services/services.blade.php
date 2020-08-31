@@ -2,7 +2,7 @@
 @section('content')
 <!--=================================
 Service -->
-<section class="space-ptb">
+<section class="space-ptb service-counter mt-100">
     <div class="container">
       <div class="row">
         <div class="col-lg-6">
@@ -33,29 +33,29 @@ Service -->
               </ul>
             </div>
           </div>
-          <div class="p-4 bg-dark mt-4">
+          <div class="p-4 bg-light mt-4">
             <div class="row">
               <div class="col-sm-4 mb-3 mb-sm-0">
                 <div class="counter counter-02">
                   <div class="counter-content">
-                    <span class="timer mb-1 text-white" data-to="2457" data-speed="10000">2457</span>
-                    <label class="mb-0 text-white">Property locations</label>
+                    <span class="timer mb-1 " data-to="2457" data-speed="10000">2457</span>
+                    <label class="mb-0 ">Property locations</label>
                   </div>
                 </div>
               </div>
               <div class="col-sm-4 mb-3 mb-sm-0">
                 <div class="counter counter-02">
                   <div class="counter-content">
-                    <span class="timer mb-1 text-white" data-to="1284" data-speed="10000">1284</span>
-                    <label class="mb-0 text-white">Property rent</label>
+                    <span class="timer mb-1 " data-to="1284" data-speed="10000">1284</span>
+                    <label class="mb-0 ">Property rent</label>
                   </div>
                 </div>
               </div>
               <div class="col-sm-4">
                 <div class="counter counter-02">
                   <div class="counter-content">
-                    <span class="timer mb-1 text-white" data-to="2354" data-speed="10000">2354</span>
-                    <label class="mb-0 text-white">Property sell</label>
+                    <span class="timer mb-1" data-to="2354" data-speed="10000">2354</span>
+                    <label class="mb-0">Property sell</label>
                   </div>
                 </div>
               </div>
@@ -67,36 +67,54 @@ Service -->
         </div>
       </div>
       <div class="row mt-0 mt-lg-5">
-        <div class="col-lg-4 col-sm-6 mt-5 text-center">
+        <div class="col-lg-4 col-sm-6 mt-5 text-center ">
+        <div class="service-offer">
           <i class="fas fa-sliders-h font-xlll text-primary mb-3"></i>
           <h5 class="mb-4">Real Estate Services</h5>
           <p>Focus is having the unwavering attention to complete what you set out to do. There are a million distractions in every facet of our lives.</p>
+          </div>
         </div>
         <div class="col-lg-4 col-sm-6 mt-5 text-center">
+        <div class=" service-offer">
           <i class="fas fa-file-invoice-dollar font-xlll text-primary mb-3"></i>
           <h5 class="mb-4">Increase Value</h5>
           <p>So, how can we stay on course with all the distractions in our lives? Willpower is a good start, but it’s very difficult to stay on track.</p>
+          </div>
         </div>
-        <div class="col-lg-4 col-sm-6 mt-5 text-center">
+
+        <div class="col-lg-4 col-sm-6 mt-5 text-center ">
+        <div class="service-offer">
           <i class="fas fa-user-friends font-xlll text-primary mb-3"></i>
           <h5 class="mb-4">Services For Individuals</h5>
           <p>The best way is to develop and follow a plan. Start with your goals in mind and then work backwards to develop the plan.</p>
+           </div>
         </div>
-        <div class="col-lg-4 col-sm-6 mt-5 text-center">
+
+        <div class="col-lg-4 col-sm-6 mt-5 text-center ">
+        <div class="service-offer">
           <i class="far fa-building font-xlll text-primary mb-3"></i>
           <h5 class="mb-4">Business Services</h5>
           <p>Along with your plans, you should consider developing an action orientation that will keep you motivated to move forward at all times.</p>
         </div>
-        <div class="col-lg-4 col-sm-6 mt-5 text-center">
+        </div>
+        
+        <div class="col-lg-4 col-sm-6 mt-5 text-center ">
+        <div class="service-offer">
           <i class="fas fa-comments-dollar font-xlll text-primary mb-3"></i>
           <h5 class="mb-4">Tax Services</h5>
           <p>I coach my clients to practice the 3 D’s – Defer, Delegate or Delete. Can the particular activity be done later? Defer it! Can it be</p>
         </div>
-        <div class="col-lg-4 col-sm-6 mt-5 text-center">
+        </div>
+
+        
+        <div class="col-lg-4 col-sm-6 mt-5 text-center ">
+        <div class="service-offer">
           <i class="fas fa-cart-arrow-down font-xlll text-primary mb-3"></i>
           <h5 class="mb-4">QuickBooks Services</h5>
           <p>Commitment is something that comes from understanding that everything has its price and then having the.</p>
         </div>
+        </div>
+
       </div>
     </div>
   </section>

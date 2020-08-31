@@ -2,7 +2,7 @@
 @section('content')
 <!--=================================
 Service -->
-<section class="space-ptb signin">
+<section class="space-ptb signin mt-100">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-8 col-sm-10">
@@ -20,14 +20,14 @@ Service -->
                   <input type="password" class="form-control" name="password" placeholder="Please enter your password">
                 </div>
                 <div class="form-group col-sm-12" style="text-align: right">
-                  <a href="{{ route('forgot-password') }}" class="">Forgot Password ?</a>
+                  <a href="{{ route('forgot-password') }}" class="text-primary">Forgot Password ?</a>
                 </div>
                 <div class="col-sm-6"> 
                   <button type="submit" class="btn btn-primary btn-block btnsubmit">Login</button>
                 </div>
                 <div class="col-sm-6">
                   <ul class="list-unstyled d-flex mb-1 mt-sm-0 mt-3">
-                    <li class="mr-1"><a href="{{ route('user-register') }}">Click here to Signup</a></li>
+                    <li class="mr-1"><a class="text-primary" href="{{ route('user-register') }}">Click here to Signup</a></li>
                   </ul>
                 </div>
         </form>

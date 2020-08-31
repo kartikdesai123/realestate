@@ -19,25 +19,31 @@ $currentRoute = Route::current()->getName();
 @endphp
          @if($currentRoute == "home")
             <header class="header header-transparent">
+              <div class="logo-wrap">
+              <img class="img-fluid" src="{{ asset('public/frontend/assets/images/logo.svg') }}" alt="logo" style="max-width: 150px;">
+             </div> 
          @else
-            <header class="header">
-               
+            <header class="header header-transparent">
+             <div class="logo-wrap">
+              <img class="img-fluid" src="{{ asset('public/frontend/assets/images/logo-light.svg') }}" alt="logo" style="max-width: 150px;">
+             </div>  
          @endif
+         <div class="nav_bar_wrapper">
          <div class="topbar">
             <div class="container-fluid">
               <div class="row">
                 <div class="col-12">
                   <div class="d-block d-md-flex align-items-center text-center">
-                     <div class="col-2">
+                 <!--     <div class="col-2">
                         <div class="mr-3 d-inline-block">
                            <a href="tel:1-800-555-1234">
                               <i class="fa fa-phone mr-2 fa fa-flip-horizontal"></i>1-800-555-1234 
                            </a>
                      </div>
-                     </div>
-                     <div class="col-7">
+                     </div> -->
+                     <div class="col-9">
                         @if(count($getHeaderSlider) > 0)
-                           <marquee behavior="scroll" direction="right" style="color: #ffffff;">{{ $getHeaderSlider[0]->text }}</marquee>
+                           <marquee behavior="scroll" direction="right" style="color: #ffffff;font-family: 'BalooChettan2-Bold';font-size: 20px;">{{ $getHeaderSlider[0]->text }}</marquee>
                         @endif
                         
                      </div>
@@ -69,7 +75,7 @@ $currentRoute = Route::current()->getName();
                         </div>
                         @else
                            <div class="login d-inline-block">
-                              <a  href="{{ route('signin') }}"><i class="fa fa-user pl-2"></i>  Sign in</a>
+                              <a  href="{{ route('signin') }}">  Sign in <i class="fa fa-user pl-2"></i></a>
                            </div>
                         @endif
                      </div>
@@ -173,4 +179,5 @@ $currentRoute = Route::current()->getName();
                   </div>
                </div>
             </nav>
+            </div>
          </header>

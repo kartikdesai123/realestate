@@ -12,7 +12,7 @@ var lng = '<?php echo $propertyDetail[0]['longitude']?>';
 var address = '<?php echo $propertyDetail[0]['address']?>';
 </script>
 
-<div class="wrapper">
+<div class="wrapper mt-100">
     <!--=================================
     Property Detail -->
     
