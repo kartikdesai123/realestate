@@ -66,7 +66,7 @@
                <div class="container-fluid">
                   <div class="row align-items-center">
                      <div class="col-md-4 text-center text-md-left">
-                        <a href="index.html"><img class="img-fluid footer-logo" src="{{ asset('public/frontend/assets/images/logo-light.svg') }}" alt=""> </a>
+                        <a href="index.html"><img class="img-fluid footer-logo" src="{{ asset('public/frontend/assets/images/logo_tus_w.png') }}" alt=""> </a>
                      </div>
                      <div class="col-md-4 text-center my-3 mt-md-0 mb-md-0">
                         <!-- <a id="back-to-top" class="back-to-top" href="#"><i class="fas fa-angle-double-up"></i> </a> -->

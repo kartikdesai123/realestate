@@ -5,11 +5,11 @@
 <div id="demo" class="carousel slide banner-slider" data-ride="carousel">
 
   <!-- Indicators -->
-  <ul class="carousel-indicators">
+<!--   <ul class="carousel-indicators">
     <li data-target="#demo" data-slide-to="0" class="active"></li>
     <li data-target="#demo" data-slide-to="1"></li>
     <li data-target="#demo" data-slide-to="2"></li>
-  </ul>
+  </ul> -->
   
   <!-- The slideshow -->
   <div class="carousel-inner">
@@ -31,71 +31,47 @@
   <a class="carousel-control-next" href="#demo" data-slide="next">
     <span class="carousel-control-next-icon"></span>
   </a>
-  <!--=================================
-            property Type -->
+     <!--  property Type  -->
          <section class="property-search-field-top position-reletive">
             <div class="container">
                <div class="row">
                   <div class="col-12">
                      <div class="property-search-field bg-white">
                         <div class="property-search-item">
-                           <form class="form-row basic-select-wrapper" method="POST" id="search">@csrf
-                              <div class="form-group col-lg col-md-6">
-                                 <div class="row">
-                                    <div class="col-md-8">
-                                       <label>Property type</label>
-                                    </div>
-                                     <div class="col-md-4">
-                                       <select class="form-control basic-select buldingType" name="property_type">
-                                    <option value="">All Type</option>
+                           <form class=" basic-select-wrapper" method="POST" id="search">@csrf
+                             <div class="form-row">
+                              <div class="form-group col-lg-2 col-md-6">
+                                 
+                                 <select class="form-control basic-select buldingType" name="property_type">
+                                    <option value="">Property type</option>
                                     @foreach($property_type as $key => $value)
                                  <option value="{{ $value->type }}">{{ $value->type }}</option>
                                     @endforeach
                                  </select>
-                                    </div>
-                                 </div>     
                               </div>
-
-                              <div class="form-group col-lg col-md-6">
-                                 <div class="row">
-                                    <div class="col-md-8">
-                                     <label>Status</label>
-                                    </div>
-                                     <div class="col-md-4">
-                                       <select class="form-control basic-select buldingStatus" name="property_status">
-                                    <option value="">All Type</option>.
+                              <div class="form-group col-lg-2 col-md-6">
+                                 <select class="form-control basic-select buldingStatus" name="property_status">
+                                    <option value="">Status</option>.
                                     <option value="rent" >For Rent</option>
                                     <option value="sale">For Sale</option>
                                  </select>
-                                    </div>
-                                 </div>     
                               </div>
-
-                              <div class="form-group col-lg col-md-6">
-                                 <div class="row">
-                                    <div class="col-md-8">
-                                     <label>Location</label>
-                                    </div>
-                                     <div class="col-md-4">
-                                       <div class="d-flex align-items-center">
-                                        <i class="far fa-compass mr-1"></i>
-                                        <input type="text" class="form-control txtaddress" name="txtaddress" id="txtaddress" placeholder="Address">
-                                    </div>
-                                    </div>
-                                 </div>     
+                              <div class="form-group col-lg-3 col-md-6">
+                                 <select class="form-control basic-select buldingStatus" name="property_status">
+                                    <option value="">Location</option>.
+                                    <option value="rent" >For Rent</option>
+                                    <option value="sale">For Sale</option>
+                                 </select>
                               </div>
 
                               
-                              <div class="form-group d-flex col-lg-5">
-                                 
+                              <div class="form-group col-lg-2">
                                  <span class="align-items-center ml-3 d-none d-md-block"><button class="btn btn-primary d-flex align-items-center" type="submit"><i class="fas fa-search mr-1"></i><span>Search</span></button></span>
                               </div>
-                              <div class="form-group text-center col-lg col-md-4 ">
-                                 <div class="d-flex justify-content-center d-md-inline-block">
-                                    <a class="more-search p-0" data-toggle="collapse" href="#advanced-search" role="button" aria-expanded="false" aria-controls="advanced-search"> <span class="d-block pr-2 mb-1">Advanced search</span>
-                                    <i class="fas fa-angle-double-down"></i></a>
-                                 </div>
+                                 <div class="form-group col-lg-3">
+                                 <span class="align-items-center ml-3 d-none d-md-block"><button class="btn btn-primary d-flex align-items-center adv_srh" type="submit"><span>Advance Search</span> <i class="fas fa-angle-double-down"></i></button></span>
                               </div>
+                              
                               <div class="collapse advanced-search" id="advanced-search">
                                  <div class="card card-body">
                                     <div class="form-row">
@@ -191,6 +167,7 @@
                                     <span>Search</span>
                                  </button>
                               </div>
+                              </div>
                            </form>
                         </div>
                      </div>
@@ -200,7 +177,7 @@
          </section>
          <!--=================================
             Property Types -->
-        
+
 </div>
 
 
@@ -1071,4 +1048,4 @@ foreach ($property_location as $key => $value) {
      var data = '';
 <?php }  ?>
 
-</script>
+</script> 

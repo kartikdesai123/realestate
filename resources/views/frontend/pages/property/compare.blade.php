@@ -35,8 +35,8 @@ Compare properties -->
                     <div class="compare_property">
                         <img class="img-fluid" src="{{ asset('public/upload/property_photo/'.$image1[0]) }}" alt="">
                     </div>
-                  <h6 class="mt-2"><a href="{{ route("property-details",$compare['property_1'][0]['slug'])}}" target="_blank">{{ $compare['property_1'][0]['title'] }}</a></h6>
-                  <strong class="text-primary">$ {{ $compare['property_1'][0]['price'] }}</strong>
+                  <h6 class="compare_property_title"><a href="{{ route("property-details",$compare['property_1'][0]['slug'])}}" target="_blank">{{ $compare['property_1'][0]['title'] }}</a></h6>
+                  <strong class="compare_property_price">$ {{ $compare['property_1'][0]['price'] }}</strong>
                 </div>
               </th>
               <th>
@@ -44,8 +44,8 @@ Compare properties -->
                     <div class="compare_property">
                         <img class="img-fluid" src="{{ asset('public/upload/property_photo/'.$image2[0]) }}" alt="">
                     </div>
-                  <h6 class="mt-2"><a href="{{ route("property-details",$compare['property_2'][0]['slug'])}}" target="_blank">{{ $compare['property_2'][0]['title'] }}</a></h6>
-                  <strong class="text-primary">$ {{ $compare['property_2'][0]['price'] }}</strong>
+                  <h6  class="compare_property_title"><a href="{{ route("property-details",$compare['property_2'][0]['slug'])}}" target="_blank">{{ $compare['property_2'][0]['title'] }}</a></h6>
+                  <strong class="compare_property_price">$ {{ $compare['property_2'][0]['price'] }}</strong>
                 </div>
               </th>
          
@@ -95,7 +95,7 @@ Compare properties -->
              <th>{{ $value['facilitiesName']}}</th>
                 @if(in_array($value['facilitiesName'],$compare['property_1'][0]['features']))
                 @php
-                $class1 = 'fa-check text-primary'
+                $class1 = 'fa-check text-red'
                 @endphp
                 @else
                 @php
@@ -105,7 +105,7 @@ Compare properties -->
               <td><i class="fas {{ $class1 }}"></i></td>
               @if(in_array($value['facilitiesName'],$compare['property_2'][0]['features']))
                 @php
-                $class2 = 'fa-check text-primary'
+                $class2 = 'fa-check text-red'
                 @endphp
                 @else
                 @php

@@ -193,7 +193,7 @@ Listing – grid view -->
           @endphp
           <div class="property-item property-col-list mt-4">
             @foreach($property as $key => $value)
-              <div class="row no-gutters">
+              <div class="row no-gutters mb-3">
                 <div class="col-lg-4 col-md-5">
                   <div class="property-image bg-overlay-gradient-04">
                       <div class="property_listing">

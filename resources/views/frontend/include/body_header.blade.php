@@ -20,12 +20,12 @@ $currentRoute = Route::current()->getName();
          @if($currentRoute == "home")
             <header class="header header-transparent">
               <div class="logo-wrap">
-              <img class="img-fluid" src="{{ asset('public/frontend/assets/images/logo.svg') }}" alt="logo" style="max-width: 150px;">
+              <img class="img-fluid" src="{{ asset('public/frontend/assets/images/logo_tus.png') }}" alt="logo" style="max-width: 150px;">
              </div> 
          @else
             <header class="header header-transparent">
              <div class="logo-wrap">
-              <img class="img-fluid" src="{{ asset('public/frontend/assets/images/logo-light.svg') }}" alt="logo" style="max-width: 150px;">
+              <img class="img-fluid" src="{{ asset('public/frontend/assets/images/logo_tus.png') }}" alt="logo" style="max-width: 150px;">
              </div>  
          @endif
          <div class="nav_bar_wrapper">
@@ -96,9 +96,9 @@ $currentRoute = Route::current()->getName();
                   <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse">☰</button>
                   <a class="navbar-brand" href="{{ route('home') }}">
                      @if($currentRoute == "home")
-                        <img class="img-fluid" src="{{ asset('public/frontend/assets/images/logo-light.svg') }}" alt="logo">
+                        <img class="img-fluid" src="{{ asset('public/frontend/assets/images/logo_tus_w.png') }}" alt="logo">
                      @else
-                        <img class="img-fluid" src="{{ asset('public/frontend/assets/images/logo.svg') }}" alt="logo">
+                        <img class="img-fluid" src="{{ asset('public/frontend/assets/images/logo_tus.png') }}" alt="logo">
                      @endif
                   
                   </a>

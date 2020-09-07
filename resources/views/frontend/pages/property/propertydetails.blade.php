@@ -74,16 +74,16 @@ var address = '<?php echo $propertyDetail[0]['address']?>';
                         <img class="img-fluid rounded-circle avatar avatar-lg" src="{{ asset('public/upload/userimage/'.$propertyDetail[0]['userimage']) }}" alt="">
                       </div>
                       <div class="agent-contact-name">
-                        <h6 class="text-white">{{ $propertyDetail[0]['username'] }}</h6>
-                        <span>{{ getTypeText($propertyDetail[0]['roles']) }}</span>
+                        <h6 class="text-white mb-0">{{ $propertyDetail[0]['username'] }}</h6>
+                        <span class="text-white">{{ getTypeText($propertyDetail[0]['roles']) }}</span>
                       </div>
                     </div>
                     <div class="d-flex mb-4 align-items-center">
-                      <h6 class="text-primary border p-2 mb-0"><a href="#"><i class="fab fa-whatsapp"></i> Whatsapp</a></h6>
+                      <h6 class="text-white  border p-2 mb-0"><a href="#"><i class="fab fa-whatsapp"></i> Whatsapp</a></h6>
                       <a class="btn btn-link p-0 ml-auto text-white" href="{{ route('property') }}"><u>View all listing </u></a>
                     </div>
                     <div class="d-flex mb-4 align-items-center">
-                      <h6 class="text-primary border p-2 mb-0"><a href="#"><i class="fas fa-phone-volume text-white pr-2"></i>{{ $propertyDetail[0]['phoneno'] }}</a></h6>
+                      <h6 class="text-white border p-2 mb-0"><a href="#"><i class="fas fa-phone-volume text-white pr-2"></i>{{ $propertyDetail[0]['phoneno'] }}</a></h6>
                       @if($propertyDetail[0]['companyImage'] != null || $propertyDetail[0]['companyImage'])
                           @if($propertyDetail[0]['userType'] == 'CC')
                             <a class="btn btn-link p-0 ml-auto " href="{{ route("company-details",$propertyDetail[0]['companyId'])}}">
@@ -132,25 +132,25 @@ var address = '<?php echo $propertyDetail[0]['address']?>';
                   </div>
                     <div class="input-group mb-2">
                       <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="fas fa-dollar-sign"></i></div>
+                        <div class="input-group-text text-red" style="font-size: 30px;"><i class="fas fa-dollar-sign"></i></div>
                       </div>
                       <input type="text" class="form-control amount" id='amount' placeholder="Total Amount">
                     </div>
                     <div class="input-group mb-2">
                       <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="fas fa-dollar-sign"></i></div>
+                        <div class="input-group-text text-red " style="font-size: 30px;"><i class="fas fa-dollar-sign"></i></div>
                       </div>
                       <input type="text" class="form-control downPayment" id="inlineFormInputGroup" placeholder="Down Payment">
                     </div>
                     <div class="input-group mb-2">
                       <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="fas fa-percent"></i></div>
+                        <div class="input-group-text text-red " style="font-size: 30px;"><i class="fas fa-percent"></i></div>
                       </div>
                       <input type="text" class="form-control rateofintrest" placeholder="Interest Rate">
                     </div>
                     <div class="input-group mb-2">
                       <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="far fa-clock"></i></div>
+                        <div class="input-group-text text-red" style="font-size: 30px;"><i class="far fa-clock"></i></div>
                       </div>
                       <input type="text" class="form-control loanyear" placeholder="Loan Term (Years)">
                     </div>
@@ -164,7 +164,7 @@ var address = '<?php echo $propertyDetail[0]['address']?>';
                     </div>
                     <div class="input-group mb-2">
                       <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="fas fa-dollar-sign"></i></div>
+                        <div class="input-group-text text-red" style="font-size: 30px;"><i class="fas fa-dollar-sign"></i></div>
                       </div>
                       <input type="text" class="form-control finalAmount" readonly='true'>
                     </div>
