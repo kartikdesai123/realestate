@@ -192,7 +192,7 @@ Listing – grid view -->
           $imageCount = explode(',',$value['images']);
           @endphp
           <div class="property-item property-col-list mt-4">
-            @foreach($property as $key => $value)
+            
               <div class="row no-gutters mb-3">
                 <div class="col-lg-4 col-md-5">
                   <div class="property-image bg-overlay-gradient-04">
@@ -228,11 +228,11 @@ Listing – grid view -->
                     <div class="property-details-inner">
                       <div class="property-details-inner-box">
                         <div class="property-details-inner-box-left">
-                        <h5>Awesome Family home</h5>
-                        <span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>{{ $value['address'] }}</span>
-                        <span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>1 Year</span>
-                        <h6>Vrajdham - 2 , Vishwas City 1,Chanakuapuri, Ahmedabad,Gujarat, India <span class="property-agent-date">{{ humanTiming($value['created_at']) }}</span></h6>
-                        <p>125.00/month</p>
+                        <h5>{{ $value['title'] }}</h5>
+                        <!--<span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>{{ $value['address'] }}</span>-->
+                        <!--<span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>1 Year</span>-->
+                        <h6><i class="fas fa-map-marker-alt fa-xs"></i> {{ $value['address'] }} <span class="property-agent-date"> <i class="far fa-clock fa-md"></i> {{ humanTiming($value['created_at']) }}</span></h6>
+                        <p>$ {{ $value['price'] }}</p>
                           <!-- <h5 class="property-title"><a href="{{ route("property-details",$value['slug'])}}" target="_blank">{{ $value['title'] }}</a></h5>
                           <span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>{{ $value['address'] }}</span>
                           <span class="property-agent-date"><i class="far fa-clock fa-md"></i>{{ humanTiming($value['created_at']) }}</span> -->
@@ -243,7 +243,7 @@ Listing – grid view -->
                         <li class="flex-fill property-bath"><i class="fas fa-bath"></i>Bath<span>{{ $value['bathroom'] }}</span></li>
                         <li class="flex-fill property-m-sqft"><i class="far fa-square"></i>Sqft<span>{{ $value['area'] }}</span></li>
                       </ul>
-                      <div class="property-price">${{ $value['price'] }}<span class="d-block"> </span> </div>
+                      <div class="property-price" style='font-size: 35px !important;'>${{ $value['price'] }}<span class="d-block"> </span> </div>
                       </div>
                         </div>
                       
@@ -277,7 +277,6 @@ Listing – grid view -->
                   </div>
                 </div>
               </div>
-            @endforeach
             
           </div>
           @endforeach
