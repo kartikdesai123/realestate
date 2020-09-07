@@ -3008,7 +3008,11 @@ width: 100%;
     position: absolute;
     right: 8px;
     top: 0px; }
-    .property-image .property-lable:before{
+    
+    .rent_label{
+      position: relative;
+    }
+    .rent_label:before{
     content: "";
     position: absolute;
     width: 0;
@@ -3016,11 +3020,14 @@ width: 100%;
     border-right: 26px solid transparent;
     border-left: 26px solid transparent;
     border-top: 19px solid #e1282e;
-    right: 0;
+    right: -58px;
     top: 38px;
 
     }
-    .property-image .property-lable:after{
+    .sale_label{
+      position: relative;
+    }
+    .sale_label:after{
     content: "";
     position: absolute;
     width: 0;
@@ -4388,11 +4395,17 @@ ul li:last-child {
     padding: 12px 20px; }
   .header .container-fluid {
     padding: 0 20px; }
+    .navbar{
+    background:#001022;
+    padding: 5px 5px;
+    }
   .navbar-toggler {
     border: none;
     position: absolute;
-    height: 75px;
-    right: 10px; }
+    height: 32px;
+    right: 10px;
+      color: rgba(255,255,255,1);
+    border-color: rgba(255,255,255,1); }
   .megamenu {
     margin-left: 0;
     margin-right: 0; }
@@ -4436,7 +4449,7 @@ ul li:last-child {
     -webkit-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
             box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1); }
   .navbar-brand img {
-    height: 34px; }
+    height: 50px; }
   .navbar .navbar-nav {
     padding: 10px 0; }
   .navbar .navbar-nav .nav-link {
@@ -4581,7 +4594,10 @@ ul li:last-child {
     -o-object-fit: cover;
        object-fit: cover; }
   #slider .carousel-item .slider-content span {
-    margin-bottom: 10px; } }
+    margin-bottom: 10px; } 
+
+
+  }
 
 @media (max-width: 575px) {
   h1 {
@@ -5370,4 +5386,20 @@ margin-left: 10px;
     font-family: 'BalooChettan2-Bold';
     padding-bottom: 7px;
     border-bottom: 2px solid black;
+}
+
+
+@media(max-width: 767px){
+.logo-wrap{
+  display: none;
+}
+.header{
+  display: block;
+}
+.header-transparent .navbar-brand{
+  display: block;
+}
+.navbar-dark .navbar-toggler{
+  height: 75px;
+}
 }
