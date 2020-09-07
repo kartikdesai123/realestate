@@ -54,7 +54,7 @@ class ReportProperty extends Model
                 ->select('report_property.id','property_details.title','property_details.offer',
                         'property_details.type','property_details.price','property_details.isactive',
                         'property_details.area','report_property.report_type','property_details.id as propertyId',
-                        'report_property.message','users.username',)
+                        'report_property.message','users.username')
                 ->get();
         $data = array();
 

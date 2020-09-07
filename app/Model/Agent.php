@@ -6,15 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 use Hash;
 use App\Model\Users;
 use App\Model\Emailverify;
+use App\Model\UsersPayment;
 
 class Agent extends Model
 {
     protected $table="users";
 
-
     public function addAgent($request){
-
-
+        
+        $objPayment = new UsersPayment();
+        $paymentResult = $objPayment->addPayment($request,'1');
+        exit();
         $countusername = Users::where("username",$request->input('username'))
                         ->count(); 
 
@@ -54,7 +56,9 @@ class Agent extends Model
                     $objEmailverify = new Emailverify();
                     $result = $objEmailverify->saveToken($id,$token);
                     if($result){
-
+//                        $objPayment = new UsersPayment();
+//                        $paymentResult = $objPayment->addPayment($request,$id);
+                        
                         $objSendmail = new Sendmail();
                         $Sendmail = $objSendmail->userRegister($token,$request->input('agentusername'),$request->input('agentemail'));
                         if($Sendmail){

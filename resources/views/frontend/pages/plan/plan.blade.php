@@ -18,7 +18,7 @@ Feature box -->
     <div class="row">
       @php
       $i=0;
-      $count = count($planlist);
+      $count = count($planlist) - 1;
       @endphp
       @foreach($planlist as $key => $value)
       @php
@@ -30,7 +30,8 @@ Feature box -->
             $class = 'col-lg-4 col-md-4 col-sm-6 mb-4';
         }
       @endphp
-        <div class="{{ $class }}">
+      @if($value->planname != 'FREE Options')
+        <div class="col-lg-3 col-md-3 col-sm-6 mb-4">
           <div class="feature-info feature-info-02">
             <div class="feature-info-detail">
               <div class="feature-info-icon">
@@ -51,6 +52,7 @@ Feature box -->
             <div class="feature-info-bg bg-holder bg-overlay-black-70" style="background-image: url({{ asset('public/upload/plan/background_image/'.$value->plan_bg_image) }})"></div>
           </div>
         </div>
+      @endif
       @php
       $i++;
       @endphp

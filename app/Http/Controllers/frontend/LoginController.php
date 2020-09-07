@@ -194,6 +194,8 @@ class LoginController extends Controller
             return json_encode($return);
             exit();
         }
+        
+        if ($request->cookie('planId')) {
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Register ';
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Register ';
         $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Register ';
@@ -228,7 +230,11 @@ class LoginController extends Controller
         $data['funinit'] = array(
             'Register.init()'
         );
+        $data['plan_id'] = $request->cookie('planId');
         return view('frontend.pages.login.userregister', $data);
+        }else{
+            return redirect()->route('plan');
+        }
     }
 
 
@@ -266,40 +272,51 @@ class LoginController extends Controller
             exit();
 
         }
-        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agent Register ';
-        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agent Register ';
-        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agent Register ';
+        
+        if ($request->cookie('planId')) {
+            
+            $data['title'] = Config::get('constants.PROJECT_NAME') . ' || Agent Register ';
+            $data['description'] = Config::get('constants.PROJECT_NAME') . ' || Agent Register ';
+            $data['keywords'] = Config::get('constants.PROJECT_NAME') . ' || Agent Register ';
 
-        $data['css'] = array(
-            'toastr/toastr.min.css',
-            'magnific-popup/magnific-popup.css',
-        );
+            $data['css'] = array(
+                'toastr/toastr.min.css',
+                'magnific-popup/magnific-popup.css',
+            );
 
-        $data['plugincss'] = array();
-        $data['pluginjs'] = array(
-            'toastr/toastr.min.js',
-            'validate/jquery.validate.min.js',
-            'jquery.appear.js',
-            'counter/jquery.countTo.js',
-            'magnific-popup/jquery.magnific-popup.min.js',
-        );
+            $data['plugincss'] = array();
+            $data['pluginjs'] = array(
+                'toastr/toastr.min.js',
+                'validate/jquery.validate.min.js',
+                'jquery.appear.js',
+                'counter/jquery.countTo.js',
+                'magnific-popup/jquery.magnific-popup.min.js',
+            );
 
-        $data['js'] = array(
-            'comman_function.js',
-            'ajaxfileupload.js',
-            'jquery.form.min.js',
-            'register.js'
-        );
-        $data['funinit'] = array(
-            'Register.init()'
-        );
+            $data['js'] = array(
+                'comman_function.js',
+                'ajaxfileupload.js',
+                'jquery.form.min.js',
+                'register.js'
+            );
+            $data['funinit'] = array(
+                'Register.init()'
+            );
 
-        $data['header'] = array(
-            'breadcrumb' => array(
-                'Home' => route("home"),
-                'Agent Registration' => "Agent Registration",
-        ));
-        return view('frontend.pages.login.agentregister', $data);
+            $data['header'] = array(
+                'breadcrumb' => array(
+                    'Home' => route("home"),
+                    'Agent Registration' => "Agent Registration",
+            ));
+            
+            $data['plan_id'] = $request->cookie('planId');
+            
+            return view('frontend.pages.login.agentregister', $data);
+        } else {
+            return redirect()->route('plan');
+        }
+        
+        
     }
 
 
@@ -336,6 +353,8 @@ class LoginController extends Controller
             return json_encode($return);
             exit();
         }
+        
+        if ($request->cookie('planId')) {
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agency Register ';
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agency Register ';
         $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agency Register ';
@@ -370,12 +389,18 @@ class LoginController extends Controller
         $data['funinit'] = array(
             'Register.init()'
         );
+        $data['plan_id'] = $request->cookie('planId');
         return view('frontend.pages.login.agencyregister', $data);
+        
+        } else {
+            return redirect()->route('plan');
+        }
     }
 
 
     public function companyregister(Request $request){
         if ($request->isMethod("post")) {
+            
             $objCompany = new Company();
             $result = $objCompany->addCompany($request);
             if($result == "true"){
@@ -405,6 +430,9 @@ class LoginController extends Controller
             return json_encode($return);
             exit();
         }
+        
+        if ($request->cookie('planId')) {
+            
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Construction Company Register ';
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Construction Company Register ';
         $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Construction Company Register ';
@@ -439,7 +467,11 @@ class LoginController extends Controller
         $data['funinit'] = array(
             'Register.init()'
         );
+        $data['plan_id'] = $request->cookie('planId');
         return view('frontend.pages.login.companyregister', $data);
+        } else {
+            return redirect()->route('plan');
+        }
     }
 
 
@@ -1230,5 +1262,16 @@ class LoginController extends Controller
                 echo json_encode($return);
                 exit();
         }
+    }
+    
+    public function payResponse(Request $request){
+//        echo "<pre/>"; print_r($request->input()); exit();
+        if(($request->input('message') == "APPROVED") && ($request->input('transactionId') != '')){
+            
+        }
+    }
+    
+    public function payConfirm(Request $request){
+        echo "<pre/>"; print_r($request->input()); exit();
     }
 }

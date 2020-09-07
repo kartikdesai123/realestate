@@ -100,8 +100,9 @@ class PlanController extends Controller
                 
 
                 $minutes = 10;
-                $response = new Response();
-                $response->withCookie(cookie('planId', $request->input('planId'), $minutes));
+//                $response = new Response();
+//                $response->withCookie(cookie('planId', $request->input('planId'), $minutes));
+                \Cookie::queue('planId', $request->input('planId'), $minutes);
                 return $planUser[0]->planfor;
 
                 // $response = new Response();

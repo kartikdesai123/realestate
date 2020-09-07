@@ -12,7 +12,12 @@ use Illuminate\Support\Facades\Route;
   | contains the "web" middleware group. Now create something great!
   |
  */
-
+Route::get('/clear', function () {
+    Artisan::call('config:clear');
+    Artisan::call('config:cache');
+    Artisan::call('view:clear');
+    return 'running';
+});
 
 
 Route::match(['get', 'post'], '/', ['as' => 'home', 'uses' => 'frontend\HomeController@home']); 
@@ -30,6 +35,9 @@ Route::match(['get', 'post'], 'user-register', ['as' => 'user-register', 'uses' 
 Route::match(['get', 'post'], 'agent-register', ['as' => 'agent-register', 'uses' => 'frontend\LoginController@agentregister']); 
 Route::match(['get', 'post'], 'agency-register', ['as' => 'agency-register', 'uses' => 'frontend\LoginController@agencyregister']);
 Route::match(['get', 'post'], 'company-register', ['as' => 'company-register', 'uses' => 'frontend\LoginController@companyregister']);
+
+Route::match(['get', 'post'], 'payment-response', ['as' => 'payment-response', 'uses' => 'frontend\LoginController@payResponse']);
+Route::match(['get', 'post'], 'payment-confirm', ['as' => 'payment-confirm', 'uses' => 'frontend\LoginController@payConfirm']);
 
 
 Route::match(['get', 'post'], 'user-logout', ['as' => 'user-logout', 'uses' => 'frontend\LoginController@logout']);
