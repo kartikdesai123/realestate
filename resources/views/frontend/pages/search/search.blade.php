@@ -9,6 +9,9 @@
         height: 400px;  /* The height is 400 pixels */
         width: 100%;  /* The width is the width of the web page */
        }
+       .property-search-field .form-group-search i{
+               color: #e1282e;
+       }
     </style>
 <section >
   <div class="container">
@@ -16,7 +19,7 @@
       <div class="col-12">
         <div class="property-search-field bg-white">
           <!--<div class="property-search-item" style="border: 2px solid #eeeeee">-->
-            <form class="form-row basic-select-wrapper">
+            <form class="form-row basic-select-wrapper" method='post' style="margin-top:70px;">
               <div class="form-group d-flex col-lg-2" style="border: 0px"></div>
               <div class="form-group d-flex col-lg-8" style="border: 0px">
                 <div class="form-group-search" >
@@ -27,13 +30,13 @@
                       <input type="text" id="autoComplate" placeholder="Search Location" class="form-control" />
                   </div>
                 </div>
-                <span class="align-items-center ml-3 d-none d-lg-block"><button class="btn btn-primary d-flex align-items-center" type="submit"><i class="fas fa-search mr-1"></i><span>Search</span></button></span>
+                <span class="align-items-center ml-3 d-none d-lg-block"><button class="btn btn-primary d-flex align-items-center searchClick" type="button"><i class="fas fa-search mr-1"></i><span>Search</span></button></span>
               </div>
               <div class="form-group d-flex col-lg-2" style="border: 0px"></div>
-              <div class="d-lg-none btn-block btn-mobile m-3">
+<!--              <div class="d-lg-none btn-block btn-mobile m-3">
                 
-                <button class="btn btn-primary btn-block align-items-center" type="submit"><i class="fas fa-search mr-1"></i><span>Search</span></button>
-              </div>
+                <button class="btn btn-primary btn-block align-items-center " type="button"><i class="fas fa-search mr-1"></i><span>Search</span></button>
+              </div>-->
             </form>
           <!--</div>-->
         </div>
@@ -70,9 +73,6 @@ banner -->
        @foreach($property as $key => $value)
           
           @php
-         
-          
-          
           $imageCount = explode(',',$value['images']);
           $array[] = array($value['address'],$value['latitude'],$value['longitude'],$value['images']);
           @endphp
@@ -150,13 +150,14 @@ banner -->
   
   
 @endsection
-<?php
+@php
+$property_locations = array();
 foreach ($property_location as $key => $value) {
     unset($value['total']);
-    $property_location[$key] = $value;  
+    $property_locations[] = $value['city'];
 }
-?>
+@endphp
 <script>
-var data = '<?php echo json_encode($property_location); ?>';
+var data = '<?php echo json_encode($property_locations); ?>';
 var data1 = '<?php echo json_encode($array); ?>';
 </script>

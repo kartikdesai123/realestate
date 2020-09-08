@@ -22,14 +22,12 @@ class SearchController extends Controller
         $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Search';
 
         $data['css'] = array(
-            'typeahead/typeahead.css',
+            'jquery-ui/jquery-ui.min.css',
         );
          $data['pluginjs'] = array(
-            'typeahead/handlebars.min.js',
-            'typeahead/typeahead.bundle.min.js',
+             'jquery-ui/jquery-ui.min.js',
         );
         $data['js'] = array(
-            
             'search.js',
         );
         $data['funinit'] = array(

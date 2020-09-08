@@ -1,7 +1,27 @@
 @extends('frontend.layout.layout')
 @section('content')
 
-
+<style>
+    .carousel-control-prev-icon {
+        background-image: url('../public/frontend/assets/images/left.png');
+    }
+    .carousel-control-next-icon {
+    background-image: url('../public/frontend/assets/images/right.png');
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow:before {
+    
+     background-image: url('../public/frontend/assets/images/up.png');
+    background-size: 15px 15px;
+    display: inline-block;
+    width: 15px; 
+    height: 15px;
+    content: "";
+/*    font-family: "Font Awesome 5 Free";
+    font-style: normal;
+    font-weight: 900;
+    color: #e1282e;*/
+}
+</style>
 <div id="demo" class="carousel slide banner-slider" data-ride="carousel">
 
   <!-- Indicators -->
@@ -461,7 +481,7 @@
                                     <span class="badge badge-md badge-info sale_label">{{ ucfirst($value['offer']) }} </span>
                                  </div>
                                  <!--<span class="property-trending" title="trending"><i class="fas fa-bolt"></i></span>-->
-                                 <div class="property-agent">
+<!--                                 <div class="property-agent">
                                     <div class="property-agent-image">
                                        <img class="img-fluid" src="{{ asset('public/upload/userimage/'.$value['userimage']) }}" alt="">
                                     </div>
@@ -473,10 +493,10 @@
                                           <li><a href="#"><i class="fas fa-envelope"></i> </a></li>
                                        </ul>
                                     </div>
-                                 </div>
-                                 <div class="property-agent-popup">
+                                 </div>-->
+<!--                                 <div class="property-agent-popup">
                                     <a href="#"><i class="fas fa-camera"></i> {{ count($imageCount) }}</a>
-                                 </div>
+                                 </div>-->
                               </div>
                               <div class="property-details">
                                  <div class="property-details-inner">
@@ -485,10 +505,11 @@
                                     <span class="property-agent-date"><i class="far fa-clock fa-md"></i>{{ humanTiming($value['created_at']) }}</span> -->
                                     <div class="property-price">${{ $value['price'] }}</div>
                                     <ul class="property-info list-unstyled d-flex">
-                                       <li class="flex-fill property-bed"><i class="fas fa-bed"></i>
-                                       <div class="property-det-wrap">
-                                      <p> Bed</p>
-                                       <span>{{ $value['badroom'] }}</span>
+                                       
+                                       <li class="flex-fill property-m-sqft"><i class="far fa-square"></i>
+                                        <div class="property-det-wrap">     
+                                       <p>sqft</p>
+                                       <span>{{ $value['area'] }}</span>
                                        </div>
                                        </li>
                                        <li class="flex-fill property-bath"><i class="fas fa-bath"></i>
@@ -497,16 +518,18 @@
                                        <span>{{ $value['bathroom'] }}</span>
                                        </div>
                                        </li>
-                                       <li class="flex-fill property-m-sqft"><i class="far fa-square"></i>
-                                        <div class="property-det-wrap">     
-                                       <p>sqft</p>
-                                       <span>{{ $value['area'] }}</span>
+                                       <li class="flex-fill property-bed"><i class="fas fa-bed"></i>
+                                       <div class="property-det-wrap">
+                                      <p> Bed</p>
+                                       <span>{{ $value['badroom'] }}</span>
                                        </div>
                                        </li>
-                                        <li class="flex-fill property-type"><i class="far fa-square"></i>
+                                        <li class="flex-fill property-type"><i class="fas fa-tag"></i>
                                         <div class="property-det-wrap"> 
-                                        <p> sqft</p>
-                                       <span>{{ $value['area'] }}</span></li>
+                                        <p> Type</p>
+                                       <span>{{ $value['type'] }}</span>
+                                        </div>
+                                        </li>
                                        </div>
                                     </ul>
                                  </div>

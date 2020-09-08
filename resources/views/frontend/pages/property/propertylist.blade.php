@@ -1,5 +1,31 @@
 @extends('frontend.layout.layout')
 @section('content')
+<style>
+        .ml-auto > .fa-chevron-down:before { 
+            background-image: url('../public/frontend/assets/images/down1.png');
+    background-size: 20px 20px;
+    display: inline-block;
+    width: 20px; 
+    height: 20px;
+    content:"";
+        }
+.select2-container--default .select2-selection--single .select2-selection__arrow:before{
+    background-image: url('../public/frontend/assets/images/down.png');
+    background-size: 15px 15px;
+    display: inline-block;
+    width: 15px; 
+    height: 15px;
+    content:"";
+}
+.short-by > .select2-container--default .select2-selection--single .select2-selection__arrow:before{
+    background-image: url('../public/frontend/assets/images/down1.png');
+    background-size: 15px 15px;
+    display: inline-block;
+    width: 15px; 
+    height: 15px;
+    content:"";
+}
+    </style>
 
 <!--=================================
 Listing – grid view -->
@@ -173,7 +199,7 @@ Listing – grid view -->
                   <div class="form-group d-lg-flex d-block">
                     <label class="justify-content-start">Short by:</label>
                     <div class="short-by">
-                      <select class="form-control basic-select">
+                      <select class="form-control basic-select design">
                         <option>Date new to old</option>
                         <option>Price Low to High</option>
                         <option>Price High to Low</option>

@@ -164,15 +164,14 @@ $currentRoute = Route::current()->getName();
                   <div class="d-flex align-items-center">
                      @if(isset($data))
                      <div class="add-listing d-none d-sm-block">
+                         <a class="btn btn-primary btn-md" href="{{ route('submit-property') }}"> <i class="fa fa-plus-circle"></i>Add Listing</a>
                         <a class="btn btn-primary btn-md" href="{{ route('plan-details',1) }}"> <i class="fa fa-plus-pen"></i>Get Free Plan</a>
-                        <a class="btn btn-primary btn-md" href="{{ route('submit-property') }}"> <i class="fa fa-plus-circle"></i>Add Listing</a>
-                        
                       </div>
                      
                       @else
                         <div class="add-listing d-none d-sm-block">
-                           <a class="btn btn-primary btn-md" href="{{ route('plan-details',1) }}"> <i class="fa fa-plus-circle"></i>Get Free Plan</a>
-                           <a class="btn btn-primary btn-md" href="{{ route('plan') }}"> <i class="fa fa-plus-circle"></i>Add Listing</a>
+                           <a class="btn btn-primary btn-md" href="{{ route('plan') }}"> <i class="fa fa-plus-circle"></i>Buy A Plan </a>
+                           <a class="btn btn-primary btn-md" href="{{ route('plan-details',1) }}"> <i class="fa fa-plus-circle"></i>Free Publication</a>
                         </div>
                         
                       @endif

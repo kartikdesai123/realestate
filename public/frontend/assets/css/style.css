@@ -5293,9 +5293,9 @@ font-family: 'BalooChettan2-Bold';
   left: 0;
   right: 0;
   margin: 0 auto;
-  bottom: 200px;
+  bottom: 225px;
   width:100%;
-  z-index: 1;
+  z-index: 0;
 }
 
 .mt-100{
