@@ -10,7 +10,7 @@ detail -->
           <div class="row no-gutters">
             <div class="col-md-3 text-center border-right">
               <div class="d-flex flex-column h-100">
-                <div class="agent-avatar p-3 my-auto">
+                <div class="agent-avatar p-3 my-auto new_agent_wd">
                   <img class="img-fluid rounded-circle" src="{{ asset('public/upload/userimage/'.$agencyList[0]->userimage) }}" alt="">
                 </div>
                 <div class="agent-listing text-center mt-auto">

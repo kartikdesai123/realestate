@@ -477,7 +477,7 @@
                                       <img class="img-fluid" src="{{ asset('public/upload/property_photo/'.$imageCount[0]) }}" alt="">
                                   </div>
                                  <div class="property-lable">
-                                    <span class="badge badge-md badge-primary rent_label">{{ ucfirst($value['type']) }}</span>
+                                   <!--  <span class="badge badge-md badge-primary rent_label">{{ ucfirst($value['type']) }}</span> -->
                                     <span class="badge badge-md badge-info sale_label">{{ ucfirst($value['offer']) }} </span>
                                  </div>
                                  <!--<span class="property-trending" title="trending"><i class="fas fa-bolt"></i></span>-->

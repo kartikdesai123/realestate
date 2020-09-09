@@ -1,6 +1,6 @@
 @extends('frontend.layout.layout')
 @section('content')
-<section class="space-ptb">
+<section class="space-ptb mt-100">
   <div class="container">
     <div class="row">
       <div class="col-12">
@@ -8,7 +8,7 @@
           <div class="row no-gutters">
             <div class="col-md-3 text-center border-right">
               <div class="d-flex flex-column h-100">
-                <div class="agent-avatar p-3 my-auto">
+                <div class="agent-avatar p-3 my-auto new_agent_wd">
                   <img class="img-fluid rounded-circle" src="{{ asset('public/upload/userimage/'.$companyDetail[0]->userimage) }}" alt="">
                 </div>
                 <div class="agent-listing text-center mt-auto">
@@ -188,7 +188,7 @@ review -->
               <div class="col-md-4 mb-4 mb-md-0">
                 <div class="agent text-center">
                   <div class="agent-detail">
-                    <div class="agent-avatar avatar avatar-xllll">
+                    <div class="agent-avatar avatar avatar-xllll compant_list_img">
                       <img class="img-fluid rounded-circle" src="{{ asset('public/frontend/assets/images/agent/01.jpg') }}" alt="">
                     </div>
                     <div class="agent-info">
@@ -198,14 +198,14 @@ review -->
                     </div>
                   </div>
                   <div class="agent-button">
-                    <a class="btn btn-light btn-block" href="{{ route("agent-details",'1')}}">View Profile</a>
+                    <a class="btn btn-primary btn-block" href="{{ route("agent-details",'1')}}">View Profile</a>
                   </div>
                 </div>
               </div>
               <div class="col-md-4 mb-4 mb-md-0">
                 <div class="agent text-center">
                   <div class="agent-detail">
-                    <div class="agent-avatar avatar avatar-xllll">
+                    <div class="agent-avatar avatar avatar-xllll compant_list_img">
                       <img class="img-fluid rounded-circle" src="{{ asset('public/frontend/assets/images/agent/02.jpg') }}" alt="">
                     </div>
                     <div class="agent-info">
@@ -215,14 +215,14 @@ review -->
                     </div>
                   </div>
                   <div class="agent-button">
-                    <a class="btn btn-light btn-block" href="{{ route("agent-details",'1')}}">View Profile</a>
+                    <a class="btn btn-primary btn-block" href="{{ route("agent-details",'1')}}">View Profile</a>
                   </div>
                 </div>
               </div>
               <div class="col-md-4 mb-4 mb-md-0">
                 <div class="agent text-center">
                   <div class="agent-detail">
-                    <div class="agent-avatar avatar avatar-xllll">
+                    <div class="agent-avatar avatar avatar-xllll compant_list_img">
                       <img class="img-fluid rounded-circle" src="{{ asset('public/frontend/assets/images/agent/03.jpg') }}" alt="">
                     </div>
                     <div class="agent-info">
@@ -232,7 +232,7 @@ review -->
                     </div>
                   </div>
                   <div class="agent-button">
-                    <a class="btn btn-light btn-block" href="{{ route("agent-details",'1')}}">View Profile</a>
+                    <a class="btn btn-primary btn-block" href="{{ route("agent-details",'1')}}">View Profile</a>
                   </div>
                 </div>
               </div>

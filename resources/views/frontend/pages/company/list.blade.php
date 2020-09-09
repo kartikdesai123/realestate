@@ -2,7 +2,7 @@
 @section('content')
 <!--=================================
 about -->
-<section class="space-ptb">
+<section class="space-ptb mt-100">
   <div class="container">
     <div class="row">
       <div class="col-md-6">
@@ -95,8 +95,8 @@ about -->
           <div class="col-lg-6 col-sm-6">
             <div class="agent text-center mt-4">
               <div class="agent-detail">
-                <div class="agent-avatar avatar avatar-xllll">
-                  <img class="img-fluid rounded-circle" src="{{ asset('public/upload/userimage/'.$value->userimage) }}" alt="">
+                <div class="agent-avatar avatar avatar-xllll compant_list_img">
+                  <img class="img-fluid" src="{{ asset('public/upload/userimage/'.$value->userimage) }}" alt="">
                 </div>
                 <div class="agent-info">
                   <h6> <a href="{{ route("company-details",$value->id)}}">{{ $value->username }}</a></h6>
@@ -105,7 +105,7 @@ about -->
                 </div>
               </div>
               <div class="agent-button">
-                <a class="btn btn-light btn-block" href="{{ route("company-details",$value->id)}}">View Profile</a>
+                <a class="btn btn-primary btn-block" href="{{ route("company-details",$value->id)}}">View Profile</a>
               </div>
             </div>
           </div>
