@@ -20,8 +20,8 @@ about -->
     </div>
     <div class="row">
       <div class="col-lg-3 col-md-4 mb-5 mb-md-0">
-        <div class="sidebar">
-          <div class="widget">
+        <div class="sidebar agent_sidebar">
+          <div class="widget feat-prop">
             <div class="widget-title">
               <h6>Featured property</h6>
             </div>
@@ -56,28 +56,28 @@ about -->
             <div class="recent-list-item">
               <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/list/01.jpg') }}" alt="">
               <div class="recent-list-item-info">
-                <a class="address mb-2" href="{{ route("property-details",'1')}}">Awesome family home</a>
+                <a class="address" href="{{ route("property-details",'1')}}">Awesome family home</a>
                 <span class="text-primary">$1,456,233 </span>
               </div>
             </div>
             <div class="recent-list-item">
               <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/list/02.jpg') }}" alt="">
               <div class="recent-list-item-info">
-                <a class="address mb-2" href="{{ route("property-details",'1')}}">Contemporary apartment</a>
+                <a class="address" href="{{ route("property-details",'1')}}">Contemporary apartment</a>
                 <span class="text-primary">$2,496,454 </span>
               </div>
             </div>
             <div class="recent-list-item">
               <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/list/03.jpg') }}" alt="">
               <div class="recent-list-item-info">
-                <a class="address mb-2" href="{{ route("property-details",'1')}}">Family home for sale</a>
+                <a class="address" href="{{ route("property-details",'1')}}">Family home for sale</a>
                 <span class="text-primary">$4,662,457 </span>
               </div>
             </div>
             <div class="recent-list-item">
               <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/list/04.jpg') }}" alt="">
               <div class="recent-list-item-info">
-                <a class="address mb-2" href="{{ route("property-details",'1')}}">184 lexington avenue</a>
+                <a class="address" href="{{ route("property-details",'1')}}">184 lexington avenue</a>
                 <span class="text-primary">$2,456,452 </span>
               </div>
             </div>
