@@ -17,6 +17,7 @@ use App\Model\Sendmail;
 use App\Model\Emailverify;
 use App\Model\Forgotpassword;
 use App\Model\Extrafacilities;
+use App\Model\Plandetails;
 use App\Model\PropertyAudio;
 use App\Model\PropertyFloorPlan;
 use App\Model\PropertyPhoto;
@@ -26,7 +27,9 @@ use App\Model\PropertyDetails;
 use App\Model\AgentDetails;
 use App\Model\AgencyDetails;
 use App\Model\Companydetails;
+use App\Model\UsersPayment;
 use DB;
+
 class LoginController extends Controller
 {
     function __construct(){
@@ -164,36 +167,36 @@ class LoginController extends Controller
     }
     
     public function userregister(Request $request){
-        if ($request->isMethod("post")) {
-            $objUsers = new Users();
-            $result = $objUsers->addUser($request);
-            if($result == "true"){
-                $return['status'] = 'success';
-                $return['message'] = 'Well done your registration succesfully completed';
-                $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
-                $return['redirect'] = route('user-register');
-            }else{
-                if($result == "usernameexits"){
-                    $return['status'] = 'error';
-                    $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
-                    $return['message'] = 'username already exits';
+        // if ($request->isMethod("post")) {
+        //     $objUsers = new Users();
+        //     $result = $objUsers->addUser($request);
+        //     if($result == "true"){
+        //         $return['status'] = 'success';
+        //         $return['message'] = 'Well done your registration succesfully completed';
+        //         $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
+        //         $return['redirect'] = route('user-register');
+        //     }else{
+        //         if($result == "usernameexits"){
+        //             $return['status'] = 'error';
+        //             $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
+        //             $return['message'] = 'username already exits';
                     
-                }else{
-                    if($result == "emailexits"){
-                        $return['status'] = 'error';
-                        $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
-                        $return['message'] = 'email already exits';
+        //         }else{
+        //             if($result == "emailexits"){
+        //                 $return['status'] = 'error';
+        //                 $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
+        //                 $return['message'] = 'email already exits';
                         
-                    }else{
-                        $return['status'] = 'error';
-                        $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
-                        $return['message'] = 'Something goes to wrong';
-                    }
-                }
-            }
-            return json_encode($return);
-            exit();
-        }
+        //             }else{
+        //                 $return['status'] = 'error';
+        //                 $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
+        //                 $return['message'] = 'Something goes to wrong';
+        //             }
+        //         }
+        //     }
+        //     return json_encode($return);
+        //     exit();
+        // }
         
         if ($request->cookie('planId')) {
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Register ';
@@ -231,6 +234,11 @@ class LoginController extends Controller
             'Register.init()'
         );
         $data['plan_id'] = $request->cookie('planId');
+        // $data['plan_detail'] = Plandetails::where('id','=',$data['plan_id'])->get()->toArray();
+        // $amount = $data['plan_detail'][0]['amount'];
+        // $data['time'] = time();
+        // $data['signature'] = md5('4Vj8eK4rloUd272L48hsrarnUA~508029~'.time().'~'.$amount.'~COP');
+
         return view('frontend.pages.login.userregister', $data);
         }else{
             return redirect()->route('plan');
@@ -239,39 +247,39 @@ class LoginController extends Controller
 
 
     public function agentregister(Request $request){
-        if ($request->isMethod("post")) {
-            $objAgent = new Agent();
-            $result = $objAgent->addAgent($request);
-            if($result == "true"){
-                $return['status'] = 'success';
-                $return['message'] = 'Well done your registration succesfully completed';
-                $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
-                $return['redirect'] = route('agent-register');
-            }else{
-                if($result == "usernameexits"){
-                    $return['status'] = 'error';
-                    $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
-                    $return['message'] = 'username already exits';
+        // if ($request->isMethod("post")) {
+        //     $objAgent = new Agent();
+        //     $result = $objAgent->addAgent($request);
+        //     if($result == "true"){
+        //         $return['status'] = 'success';
+        //         $return['message'] = 'Well done your registration succesfully completed';
+        //         $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
+        //         $return['redirect'] = route('agent-register');
+        //     }else{
+        //         if($result == "usernameexits"){
+        //             $return['status'] = 'error';
+        //             $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
+        //             $return['message'] = 'username already exits';
                     
-                }else{
-                    if($result == "emailexits"){
-                        $return['status'] = 'error';
-                        $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
-                        $return['message'] = 'email already exits';
+        //         }else{
+        //             if($result == "emailexits"){
+        //                 $return['status'] = 'error';
+        //                 $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
+        //                 $return['message'] = 'email already exits';
                         
-                    }else{
-                        $return['status'] = 'error';
-                        $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
-                        $return['message'] = 'Something goes to wrong';
+        //             }else{
+        //                 $return['status'] = 'error';
+        //                 $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
+        //                 $return['message'] = 'Something goes to wrong';
                         
-                    }
-                }
+        //             }
+        //         }
                 
-            }
-            return json_encode($return);
-            exit();
+        //     }
+        //     return json_encode($return);
+        //     exit();
 
-        }
+        // }
         
         if ($request->cookie('planId')) {
             
@@ -310,7 +318,11 @@ class LoginController extends Controller
             ));
             
             $data['plan_id'] = $request->cookie('planId');
-            
+            $data['plan_detail'] = Plandetails::where('id','=',$data['plan_id'])->get()->toArray();
+            $amount = $data['plan_detail'][0]['planprice'];
+            $data['time'] = time();
+            $data['signature'] = md5('4Vj8eK4rloUd272L48hsrarnUA~508029~'.time().'~'.$amount.'~COP');
+
             return view('frontend.pages.login.agentregister', $data);
         } else {
             return redirect()->route('plan');
@@ -321,38 +333,38 @@ class LoginController extends Controller
 
 
     public function agencyregister(Request $request){
-        if ($request->isMethod("post")) {
-            $objAgency = new Agency();
-            $result = $objAgency->addAgency($request);
-            if($result == "true"){
-                $return['status'] = 'success';
-                $return['message'] = 'Well done your registration succesfully completed';
-                $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
-                $return['redirect'] = route('agency-register');
-            }else{
-                if($result == "usernameexits"){
-                    $return['status'] = 'error';
-                    $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
-                    $return['message'] = 'username already exits';
+        // if ($request->isMethod("post")) {
+        //     $objAgency = new Agency();
+        //     $result = $objAgency->addAgency($request);
+        //     if($result == "true"){
+        //         $return['status'] = 'success';
+        //         $return['message'] = 'Well done your registration succesfully completed';
+        //         $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
+        //         $return['redirect'] = route('agency-register');
+        //     }else{
+        //         if($result == "usernameexits"){
+        //             $return['status'] = 'error';
+        //             $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
+        //             $return['message'] = 'username already exits';
                     
-                }else{
-                    if($result == "emailexits"){
-                        $return['status'] = 'error';
-                        $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
-                        $return['message'] = 'email already exits';
+        //         }else{
+        //             if($result == "emailexits"){
+        //                 $return['status'] = 'error';
+        //                 $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
+        //                 $return['message'] = 'email already exits';
                         
-                    }else{
-                        $return['status'] = 'error';
-                        $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
-                        $return['message'] = 'Something goes to wrong';
+        //             }else{
+        //                 $return['status'] = 'error';
+        //                 $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
+        //                 $return['message'] = 'Something goes to wrong';
                         
-                    }
-                }
+        //             }
+        //         }
                 
-            }
-            return json_encode($return);
-            exit();
-        }
+        //     }
+        //     return json_encode($return);
+        //     exit();
+        // }
         
         if ($request->cookie('planId')) {
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Agency Register ';
@@ -390,6 +402,12 @@ class LoginController extends Controller
             'Register.init()'
         );
         $data['plan_id'] = $request->cookie('planId');
+
+        $data['plan_detail'] = Plandetails::where('id','=',$data['plan_id'])->get()->toArray();
+        $amount = $data['plan_detail'][0]['planprice'];
+        $data['time'] = time();
+        $data['signature'] = md5('4Vj8eK4rloUd272L48hsrarnUA~508029~'.time().'~'.$amount.'~COP');
+
         return view('frontend.pages.login.agencyregister', $data);
         
         } else {
@@ -399,37 +417,37 @@ class LoginController extends Controller
 
 
     public function companyregister(Request $request){
-        if ($request->isMethod("post")) {
+        // if ($request->isMethod("post")) {
             
-            $objCompany = new Company();
-            $result = $objCompany->addCompany($request);
-            if($result == "true"){
-                $return['status'] = 'success';
-                $return['message'] = 'Well done your registration succesfully completed';
-                $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
-                $return['redirect'] = route('company-register');
-            }else{
-                if($result == "usernameexits"){
-                    $return['status'] = 'error';
-                    $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
-                    $return['message'] = 'username already exits';
-                }else{
-                    if($result == "emailexits"){
-                        $return['status'] = 'error';
-                        $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
-                        $return['message'] = 'email already exits';
+        //     $objCompany = new Company();
+        //     $result = $objCompany->addCompany($request);
+        //     if($result == "true"){
+        //         $return['status'] = 'success';
+        //         $return['message'] = 'Well done your registration succesfully completed';
+        //         $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
+        //         $return['redirect'] = route('company-register');
+        //     }else{
+        //         if($result == "usernameexits"){
+        //             $return['status'] = 'error';
+        //             $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
+        //             $return['message'] = 'username already exits';
+        //         }else{
+        //             if($result == "emailexits"){
+        //                 $return['status'] = 'error';
+        //                 $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
+        //                 $return['message'] = 'email already exits';
                         
-                    }else{
-                        $return['status'] = 'error';
-                        $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
-                        $return['message'] = 'Something goes to wrong';
+        //             }else{
+        //                 $return['status'] = 'error';
+        //                 $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
+        //                 $return['message'] = 'Something goes to wrong';
                         
-                    }
-                }
-            }
-            return json_encode($return);
-            exit();
-        }
+        //             }
+        //         }
+        //     }
+        //     return json_encode($return);
+        //     exit();
+        // }
         
         if ($request->cookie('planId')) {
             
@@ -467,7 +485,13 @@ class LoginController extends Controller
         $data['funinit'] = array(
             'Register.init()'
         );
+        
         $data['plan_id'] = $request->cookie('planId');
+        $data['plan_detail'] = Plandetails::where('id','=',$data['plan_id'])->get()->toArray();
+        $amount = $data['plan_detail'][0]['planprice'];
+        $data['time'] = time();
+        $data['signature'] = md5('4Vj8eK4rloUd272L48hsrarnUA~508029~'.time().'~'.$amount.'~COP');
+
         return view('frontend.pages.login.companyregister', $data);
         } else {
             return redirect()->route('plan');
@@ -1265,10 +1289,42 @@ class LoginController extends Controller
     }
     
     public function payResponse(Request $request){
-//        echo "<pre/>"; print_r($request->input()); exit();
+//        echo "</pre>"; print_r($request->input()); exit();
         if(($request->input('message') == "APPROVED") && ($request->input('transactionId') != '')){
             
+            $explode = explode('-',$request->input('extra3'));
+            $roles = $explode[0]; 
+            if($roles == 'AG'){
+                $routeRedirect = 'agent-register';
+            }else if($roles == 'AY'){
+                $routeRedirect = 'agency-register';
+            }else if($roles == 'CC'){
+                $routeRedirect = 'company-register';
+            }else{
+                $routeRedirect = 'user-register';
+            }
+            
+            
+            $objUserPay = new UsersPayment();
+            $result = $objUserPay->addPaymentUser($request);
+            if($result){
+                return redirect()->route($routeRedirect)->with('success', 'Account Activation Request has been submitted Successfully! Please check mail and verify your email');
+            }  
+        }else{
+            $explode = explode('-',$request->input('extra3'));
+            $roles = $explode[0]; 
+            if($roles == 'AG'){
+                $routeRedirect = 'agent-register';
+            }else if($roles == 'AY'){
+                $routeRedirect = 'agency-register';
+            }else if($roles == 'CC'){
+                $routeRedirect = 'company-register';
+            }else{
+                $routeRedirect = 'user-register';
+            }
+            return redirect()->route($routeRedirect)->with('unsuccess', 'Payment made not successfully done please try again later');
         }
+        
     }
     
     public function payConfirm(Request $request){

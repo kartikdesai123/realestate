@@ -1,6 +1,14 @@
 var Register = function(){
     
     var registeruses = function(){
+
+        $('.username').change(function(){
+            var value = $(this).val();
+            var extra3 = $('.extra3').val();
+            var finalVal = extra3 +'-'+ value;
+            $('.extra3').val(finalVal);
+        });
+
         $('#email').change(function(){
             $('.buyerEmail').val($(this).val());
         });
@@ -55,7 +63,7 @@ var Register = function(){
                 agentpassword: {required: true,},
                 agentcpassword: {required: true,equalTo: "#agentpassword"},
                 agentphoneno: {required: true,},
-                agentabout: {required: true,},
+                // agentabout: {required: true,},
             };
 
             var agentmessages = {
@@ -76,9 +84,9 @@ var Register = function(){
                 agentphoneno: {
                     required: "Please enter agent's phone no",
                 },
-                agentabout: {
-                    required: "Please enter about agent",
-                },
+                // agentabout: {
+                //     required: "Please enter about agent",
+                // },
             };
 //            handleFormValidateWithMsg(form, rules, messages, function (form) {
 //                handleAjaxFormSubmit(form,true);
@@ -94,7 +102,7 @@ var Register = function(){
             agencypassword: {required: true, },
             agencycpassword: {required: true, equalTo: "#agencypassword"},
             agencyphoneno: {required: true, },
-            agencyabout: {required: true, },
+            // agencyabout: {required: true, },
         };
 
         var agencymessages = {
@@ -115,9 +123,9 @@ var Register = function(){
             agencyphoneno: {
                 required: "Please enter agency's phone no",
             },
-            agencyabout: {
-                required: "Please enter about agency",
-            },
+            // agencyabout: {
+            //     required: "Please enter about agency",
+            // },
         };
 
         validateForm(agencyform,agencyrules,agencymessages);
@@ -133,7 +141,7 @@ var Register = function(){
                 companypassword: {required: true,},
                 companycpassword: {required: true,equalTo: "#companypassword"},
                 companyphoneno: {required: true,},
-                companyabout: {required: true,},
+                // companyabout: {required: true,},
             };
 
             var companymessages = {
@@ -154,9 +162,9 @@ var Register = function(){
                 companyphoneno: {
                     required: "Please enter company's phone no",
                 },
-                companyabout: {
-                    required: "Please enter about company",
-                },
+                // companyabout: {
+                //     required: "Please enter about company",
+                // },
             };
     
             validateForm(companyform,companyrules,companymessages);
