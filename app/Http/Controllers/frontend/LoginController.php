@@ -53,6 +53,7 @@ class LoginController extends Controller
                         'userimage' => Auth::guard('users')->user()->userimage,
                         'roles' => Auth::guard('users')->user()->roles,
                         'about' => Auth::guard('users')->user()->about,
+                        'expire_date' => Auth::guard('users')->user()->expiry_date,
                         'id' => Auth::guard('users')->user()->id
                     );
                     
@@ -71,6 +72,7 @@ class LoginController extends Controller
                             'userimage' => Auth::guard('agent')->user()->userimage,
                             'roles' => Auth::guard('agent')->user()->roles,
                             'about' => Auth::guard('agent')->user()->about,
+                            'expire_date' => Auth::guard('agent')->user()->expiry_date,
                             'id' => Auth::guard('agent')->user()->id
                         );
         
@@ -89,6 +91,7 @@ class LoginController extends Controller
                                 'userimage' => Auth::guard('agency')->user()->userimage,
                                 'roles' => Auth::guard('agency')->user()->roles,
                                 'about' => Auth::guard('agency')->user()->about,
+                                'expire_date' => Auth::guard('agency')->user()->expiry_date,
                                 'id' => Auth::guard('agency')->user()->id
                             );
             
@@ -107,6 +110,7 @@ class LoginController extends Controller
                                     'userimage' => Auth::guard('company')->user()->userimage,
                                     'roles' => Auth::guard('company')->user()->roles,
                                     'about' => Auth::guard('company')->user()->about,
+                                    'expire_date' => Auth::guard('company')->user()->expiry_date,
                                     'id' => Auth::guard('company')->user()->id
                                 );
                 
@@ -588,7 +592,7 @@ class LoginController extends Controller
 
     public function myagent(Request $request){
         $session = $request->session()->all();
-        
+//       
         if(isset($session['logindata'])){
             
             $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || My Agent ';
@@ -626,6 +630,11 @@ class LoginController extends Controller
                     'Home' => route("home"),
                     'My Agent' => "My Agent",
             ));
+            
+            $userPayment = UsersPayment::where('user_id','=',$session['logindata'][0]['id'])->get()->toArray();
+            $data['plan_detail'] = Plandetails::where('id','=',$userPayment[0]['plan_id'])->get()->toArray();
+            $data['total_agent'] = Users::where('users.parent_id',$session['logindata'][0]['id'])->where('users.isDeleted',"0")->count();
+            
             return view('frontend.pages.profile.myagent', $data);
         }else{
             return redirect('signin');
@@ -782,7 +791,7 @@ class LoginController extends Controller
         $session = $request->session()->all();
         
         if(isset($session['logindata'])){
-            $data['page_name'] = 'My Property';
+            
             $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || My Property';
             $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || My Property';
             $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || My Property';
@@ -813,6 +822,15 @@ class LoginController extends Controller
             
             $objPropetyList = new PropertyDetails();
             $data['property'] = $objPropetyList->getPropertyList($session['logindata'][0]['id']);
+            $userPayment = UsersPayment::where('user_id','=',$session['logindata'][0]['id'])->get()->toArray();
+            if(!empty($userPayment)){
+                $data['plan_detail'] = Plandetails::where('id','=',$userPayment[0]['plan_id'])->get()->toArray();
+               $data['page_name'] = count($data['property']).' of '.$data['plan_detail'][0]['planproperty'].' My Properties' ;
+            }else{
+                $data['plan_detail'] = array();
+            $data['page_name'] = 'My Properties' ;
+            }
+            
             return view('frontend.pages.profile.myproperty', $data);
         }else{
             return redirect('signin');
@@ -1288,8 +1306,57 @@ class LoginController extends Controller
         }
     }
     
+    
+    public function currentPlan(Request $request){
+        
+        $session = $request->session()->all();
+        
+        if(isset($session['logindata'])){
+            
+            $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Current plan';
+            $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Current plan';
+            $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Current plan';
+
+            $data['css'] = array(
+                
+            );
+
+            $data['plugincss'] = array();
+            $data['pluginjs'] = array(
+            );
+
+            $data['js'] = array(
+                'comman_function.js',
+                'ajaxfileupload.js',
+                'jquery.form.min.js',
+                'myprofile.js'
+            );
+            $data['funinit'] = array(
+            );
+
+            $data['header'] = array(
+                'breadcrumb' => array(
+                    'Home' => route("home"),
+                    'My Profile' => route("my-profile"),
+                    'Current plan' => "Current plan",
+            ));
+            
+            
+            $userPayment = UsersPayment::where('user_id','=',$session['logindata'][0]['id'])->get()->toArray();
+            if(!empty($userPayment)){
+                $data['plandetails'] = Plandetails::where('id','=',$userPayment[0]['plan_id'])->get();
+            }else{
+                $data['plandetails'] = array();
+            }
+            $data['page_name'] = 'Current plan';
+            return view('frontend.pages.profile.currentplan', $data);
+        }else{
+            return redirect('signin');
+        }
+    }
+    
     public function payResponse(Request $request){
-//        echo "</pre>"; print_r($request->input()); exit();
+
         if(($request->input('message') == "APPROVED") && ($request->input('transactionId') != '')){
             
             $explode = explode('-',$request->input('extra3'));

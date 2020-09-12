@@ -30,7 +30,7 @@ Service -->
                     <div class="form-group col-sm-12">
                       <label>Username:</label>
                       <input type="hidden" class="form-control" name="plan_id" value="{{ $plan_id }}">
-                  <input type="text" class="form-control username" name="companyusername" placeholder="Please enter agent's username">
+                  <input type="text" class="form-control username" name="companyusername" placeholder="Please enter company's username">
                   <input name="merchantId"    type="hidden"  value="508029"   >
                 <input name="accountId"     type="hidden"  value="512321" >
                 <input name="description"   type="hidden"  value="Subscription plan type - {{ $plan_detail[0]['planname'] }}"  >
@@ -45,12 +45,12 @@ Service -->
                 <input name="extra3" class="extra3" type="hidden" value="CC-{{ $plan_id }}-{{ $plan_detail[0]['plandays'] }}" >
                 <input name="responseUrl"    type="hidden"  value="{{ route('payment-response') }}" >
                 <input name="confirmationUrl"    type="hidden"  value="{{ route('payment-confirm') }}" >
-                      <input type="text" class="form-control" name="companyusername" placeholder="Please enter company's username">
+                      <!--<input type="text" class="form-control" name="companyusername" placeholder="Please enter company's username">-->
                     </div>
       
                     <div class="form-group col-sm-12">
                       <label>Email Address:</label>
-                      <input type="email" class="form-control" name="companyemail" placeholder="Please enter company's email">
+                      <input type="email" class="form-control" id='email' name="companyemail" placeholder="Please enter company's email">
                     </div>
       
                     <div class="form-group col-sm-12">
