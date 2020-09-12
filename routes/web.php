@@ -19,6 +19,7 @@ Route::get('/clear', function () {
     return 'running';
 });
 
+Route::match(['get', 'post'], '/language/{ln}', ['as' => 'language', 'uses' => 'frontend\HomeController@language']); 
 
 Route::match(['get', 'post'], '/', ['as' => 'home', 'uses' => 'frontend\HomeController@home']); 
 

@@ -16,7 +16,7 @@ class HomeController extends Controller
 {
     
     function __construct(){
-
+         parent::__construct();
     }
 
     public function home(Request $request){
@@ -98,5 +98,10 @@ class HomeController extends Controller
         $data['homecity'] = $objhomeCity->gethomeCity();
        
         return view('frontend.pages.home.home', $data);
+    }
+    
+    public function language($lang){
+        setcookie('language', $lang, time() + (86400 * 30), "/"); // 86400 = 1 day
+        return  redirect()->route('home');
     }
 }

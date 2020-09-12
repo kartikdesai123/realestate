@@ -55,10 +55,10 @@ $currentRoute = Route::current()->getName();
                               </a>
 
                               <div class="dropdown-menu mt-0" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">English</a>
-                                    <a class="dropdown-item" href="#">Freanch</a>
-                                    <a class="dropdown-item" href="#">Spenish</a>
-                                    <a class="dropdown-item" href="#">Italian</a>
+                                    <a class="dropdown-item" href="{{ route("language",'en')}}">English</a>
+                                    <a class="dropdown-item" href="{{ route("language",'fr')}}">Freanch</a>
+                                    <a class="dropdown-item" href="{{ route("language",'sp')}}">Spenish</a>
+                                    <a class="dropdown-item" href="{{ route("language",'it')}}">Italian</a>
                               </div>
                         </div>
                     
@@ -107,7 +107,7 @@ $currentRoute = Route::current()->getName();
                        
                         <li class="nav-item dropdown text-center  {{ $currentRoute == "home" ? "active": ""}}">
                            <a class="nav-link" href="{{ route('home') }}"   aria-haspopup="true" aria-expanded="false">
-                              Home
+                              {{ trans('home.home') }}
                            </a>
                         </li>
 
