@@ -63,7 +63,9 @@ $currentRoute = Route::current()->getName();
           <li class="nav-item">
               <a class="nav-link {{ $currentRoute == 'save-rental' ? 'active': ''}}" href="{{ route("save-rental")}}"><i class="fas fa-truck-moving"></i> Saved Rentals</a>
           </li>
-
+          <li class="nav-item">
+              <a class="nav-link {{ $currentRoute == 'current-plan' ? 'active': ''}}" href="{{ route("current-plan")}}"><i class="fas fa-university"></i> Current Plan</a>
+          </li>
           
         </ul>
       </div>

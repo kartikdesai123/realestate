@@ -48,7 +48,7 @@ Service -->
                 </div>
                 <div class="form-group col-sm-12">
                   <label>Email Address:</label>
-                  <input type="email" class="form-control" name="agencyemail" placeholder="Please enter agency's email">
+                  <input type="email" class="form-control" id='email' name="agencyemail" placeholder="Please enter agency's email">
                 </div>
                 <div class="form-group col-sm-12">
                   <label>Password:</label>

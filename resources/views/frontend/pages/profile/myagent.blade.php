@@ -29,7 +29,7 @@ My profile -->
         <div class="col-12">
             <div class="col-12">
                 <div class="section-title d-flex align-items-center">
-                    <h2>My Agent</h2>
+                    <h2>{{ $total_agent }} out of {{ $plan_detail[0]['planagent'] }}  Agents</h2>
                 </div>
             </div>
             <div class="col-12">
@@ -38,9 +38,13 @@ My profile -->
                     <div class="col-2">
                         <div class="d-flex align-items-center">
                             <div class="add-listing d-none d-sm-block ">
+                                @if($plan_detail[0]['planagent'] != NULL)
+                                @if($total_agent <= $plan_detail[0]['planagent'])
                                 <a class="btn btn-primary " href="{{ route('add-my-agent') }}" style="width: 100%;float: right !important"> 
                                         <i class="fa fa-plus-circle"></i>Add Agent
                                 </a>
+                                @endif
+                                @endif
                             </div>
                         </div>
                     </div>

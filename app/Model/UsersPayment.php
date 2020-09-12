@@ -60,12 +60,10 @@ class UsersPayment extends Model
                     $objEmailverify = new Emailverify();
                     $result = $objEmailverify->saveToken($id,$token);
                     if($result){
-
                         $objSendmail = new Sendmail();
                         $Sendmail = $objSendmail->userRegister($token,$userName,$request->input('buyerEmail'));
                         if($Sendmail){
                             return "success";
-//                            return redirect()->route($routeRedirect)->with('success', 'Account Activation Request has been submitted Successfully! Please check mail and verify your email');
                         }else{
                             return "wrong";
                         }
