@@ -25,9 +25,25 @@ Service -->
         </ul>
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="regular-user" role="tabpanel" aria-labelledby="regular-user-tab">
-              <form class="form-row mt-4 align-items-center" id="agency-register" method="post" action="{{ route("agency-register")}}">@csrf
+              <form class="form-row mt-4 align-items-center" id="agency-register" method="post" action="https://sandbox.checkout.payulatam.com/ppp-web-gateway-payu/">@csrf
                 <div class="form-group col-sm-12">
                   <label>Username:</label>
+                  <input type="hidden" class="form-control" name="plan_id" value="{{ $plan_id }}">
+                  <input type="text" class="form-control username" name="agentusername" placeholder="Please enter agent's username">
+                  <input name="merchantId"    type="hidden"  value="508029"   >
+                <input name="accountId"     type="hidden"  value="512321" >
+                <input name="description"   type="hidden"  value="Subscription plan type - {{ $plan_detail[0]['planname'] }}"  >
+                <input name="referenceCode" type="hidden"  value="{{ $time }}" >
+                <input name="amount"        type="hidden"  value="{{ $plan_detail[0]['planprice'] }}">
+                <input name="currency"      type="hidden"  value="COP" >
+                <input name="signature"     type="hidden"  value="{{ $signature }}"  >
+                <input name="test"          type="hidden"  value="1" >
+                <input name="buyerEmail"    type="hidden"  class='buyerEmail' value="" >
+                <input name="extra1"    type="hidden"  class='passwords' value="" >
+                <input name="extra2"    type="hidden"  class='phone' value="" >
+                <input name="extra3" class="extra3" type="hidden" value="AY-{{ $plan_id }}-{{ $plan_detail[0]['plandays'] }}" >
+                <input name="responseUrl"    type="hidden"  value="{{ route('payment-response') }}" >
+                <input name="confirmationUrl"    type="hidden"  value="{{ route('payment-confirm') }}" >
                   <input type="text" class="form-control" name="agencyusername" placeholder="Please enter agency's username">
                 </div>
                 <div class="form-group col-sm-12">
@@ -36,7 +52,7 @@ Service -->
                 </div>
                 <div class="form-group col-sm-12">
                   <label>Password:</label>
-                  <input type="password" class="form-control" name="agencypassword" id="agencypassword" placeholder="Please enter agency's password">
+                  <input type="password" class="form-control password" name="agencypassword" id="agencypassword" placeholder="Please enter agency's password">
                 </div>
                 <div class="form-group col-sm-12">
                   <label>Confirm Password:</label>
@@ -44,7 +60,7 @@ Service -->
                 </div>
                 <div class="form-group col-sm-12">
                   <label>Phone no:</label>
-                  <input type="text" class="form-control" name="agencyphoneno" placeholder="Please enter agency's phone number">
+                  <input type="text" class="form-control" name="agencyphoneno" id='phoneNo' placeholder="Please enter agency's phone number">
                 </div>
                 <div class="col-sm-6">
                   <button type="submit" class="btn btn-primary btn-block  btnsubmit">Register</button>

@@ -29,19 +29,19 @@ Service -->
                 <div class="form-group col-sm-12">
                   <label>Username:</label>
                   <input type="hidden" class="form-control" name="plan_id" value="{{ $plan_id }}">
-                  <input type="text" class="form-control" name="agentusername" placeholder="Please enter agent's username">
+                  <input type="text" class="form-control username" name="agentusername" placeholder="Please enter agent's username">
                   <input name="merchantId"    type="hidden"  value="508029"   >
                 <input name="accountId"     type="hidden"  value="512321" >
-                <input name="description"   type="hidden"  value="SubScriptionPaln"  >
-                <input name="referenceCode" type="hidden"  value="TestPayU123" >
-                <input name="amount"        type="hidden"  value="2000">
+                <input name="description"   type="hidden"  value="Subscription plan type - {{ $plan_detail[0]['planname'] }}"  >
+                <input name="referenceCode" type="hidden"  value="{{ $time }}" >
+                <input name="amount"        type="hidden"  value="{{ $plan_detail[0]['planprice'] }}">
                 <input name="currency"      type="hidden"  value="COP" >
-                <input name="signature"     type="hidden"  value="{{ md5('4Vj8eK4rloUd272L48hsrarnUA~508029~TestPayU123~2000~COP')}}"  >
+                <input name="signature"     type="hidden"  value="{{ $signature }}"  >
                 <input name="test"          type="hidden"  value="1" >
                 <input name="buyerEmail"    type="hidden"  class='buyerEmail' value="" >
                 <input name="extra1"    type="hidden"  class='passwords' value="" >
                 <input name="extra2"    type="hidden"  class='phone' value="" >
-                <input name="extra3"    type="hidden" value="AG-{{ $plan_id }}" >
+                <input name="extra3" class="extra3"   type="hidden" value="AG-{{ $plan_id }}-{{ $plan_detail[0]['plandays'] }}" >
                 <input name="responseUrl"    type="hidden"  value="{{ route('payment-response') }}" >
                 <input name="confirmationUrl"    type="hidden"  value="{{ route('payment-confirm') }}" >
                 </div>
