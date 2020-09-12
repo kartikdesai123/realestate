@@ -79,21 +79,23 @@ var Home = function() {
         init: function() {
             general();
             map();
-            //            if(data != ''){
-            //                var data1 = JSON.parse(data);
-            //            
-            //                var numbers = new Bloodhound({
-            //                    datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.num); },
-            //                    queryTokenizer: Bloodhound.tokenizers.whitespace,
-            //                    local: data1
-            //                });
-            //
-            //                numbers.initialize();
-            //                $('#autoComplate').typeahead(null, {
-            //                  displayKey: 'city',
-            //                  source: numbers.ttAdapter()
-            //                });
-            //            }
+                        if(data != ''){
+                            var data1 = JSON.parse(data);
+                        
+//                            var numbers = new Bloodhound({
+//                                datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.num); },
+//                                queryTokenizer: Bloodhound.tokenizers.whitespace,
+//                                local: data1
+//                            });
+//            
+//                            numbers.initialize();
+                            var data1 = JSON.parse(data);
+                            if(data1.length > 0){
+                                $( "#autoComplate" ).autocomplete({
+                                source: data1,
+                             });
+                            }
+                        }
         }
     }
 }();

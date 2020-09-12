@@ -55,58 +55,54 @@ Listing – grid view -->
                 <a class="ml-auto" data-toggle="collapse" href="#filter-property" role="button" aria-expanded="false" aria-controls="filter-property"> <i class="fas fa-chevron-down"></i> </a>
               </div>
               <div class="collapse show" id="filter-property">
-                <form class="mt-3">
+                <form class="mt-3" method="GET" action="/search">
                   <div class="input-group mb-2 select-border">
-                    <select class="form-control basic-select buldingType">
-                      <option>All Type</option>
-                      <option>Villa</option>
-                      <option>Commercial</option>
-                      <option>Office</option>
-                      <option>Residential</option>
-                      <option>Shop</option>
-                      <option>Apartment</option>
-                      <option value="project">Project</option>
+                    <select class="form-control basic-select buldingType" name="property_type">
+                      @foreach($property_type as $key => $value)
+                        <option value="{{ $value->type }}">{{ $value->type }}</option>
+                    @endforeach
                     </select>
                   </div>
                   <div class="input-group mb-2 select-border">
-                    <select class="form-control basic-select buldingStatus">
-                      <option>For Rent</option>
-                      <option>For Sale</option>
+                    <select class="form-control basic-select buldingStatus" name="property_status">
+                        <option value="">Status</option>.
+                        <option value="rent" >For Rent</option>
+                        <option value="sale">For Sale</option>
                     </select>
                   </div>
                   <div class="input-group mb-2 select-border">
-                    <select class="form-control basic-select">
-                      <option>Bedrooms</option>
-                      <option>01</option>
-                      <option>02</option>
-                      <option>03</option>
+                    <select class="form-control basic-select" name="badroom">
+                      <option value="">Bedrooms</option>
+                      <option value="1">01</option>
+                      <option value="2">02</option>
+                      <option value="3">03</option>
                     </select>
                   </div>
                   <div class="input-group mb-2 select-border">
-                    <select class="form-control basic-select">
-                      <option>Sort by</option>
-                      <option>Most popular</option>
-                      <option>Highest price</option>
-                      <option>Lowest price</option>
+                    <select class="form-control basic-select" name="sortby">
+                      <option value="">Sort by</option>
+                      <!--<option>Most popular</option>-->
+                      <option  value="high">Highest price</option>
+                      <option value="low">Lowest price</option>
                     </select>
                   </div>
-                  <div class="input-group mb-2 select-border">
+<!--                  <div class="input-group mb-2 select-border">
                     <select class="form-control basic-select">
                       <option>Select Floor</option>
                       <option>01</option>
                       <option>02</option>
                       <option>03</option>
                     </select>
+                  </div>-->
+                  <div class="input-group mb-2 sqt-ft">
+                    <input class="form-control" placeholder="Min Area Type (sq ft)" name="minarea">
                   </div>
                   <div class="input-group mb-2 sqt-ft">
-                    <input class="form-control" placeholder="Type (sq ft)">
-                  </div>
-                  <div class="input-group mb-2 sqt-ft">
-                    <input class="form-control" placeholder="Type (sq ft)">
+                    <input class="form-control" placeholder="Max Area Type (sq ft)" name="maxarea">
                   </div>
                    <div class="form-group property-price-slider mt-3">
                     <label>Select Price Range (sq ft)</label>
-                    <input type="text" id="property-price-slider" name="example_name" value="" />
+                    <input type="text" id="property-price-slider" name="price_range" value="" />
                   </div>
                   <div class="input-group mb-2">
                     <button class="btn btn-primary btn-block align-items-center" type="submit"><i class="fas fa-filter mr-1"></i><span class="filter-head">Filter</span></button>

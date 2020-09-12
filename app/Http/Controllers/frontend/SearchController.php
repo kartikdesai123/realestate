@@ -40,10 +40,13 @@ class SearchController extends Controller
                 'Property Search' => 'Property Search',
         ));
         
-        if($city){
-            $objSearch = new Search();
-            $data['property'] = $objSearch->propertiesSearch($city);
+        $objSearch = new Search();
+        $getParam = $request->query();
+        
+        if(isset($city) || !empty($getParam)){
+            $data['property'] = $objSearch->propertiesSearch($city,$getParam);
         }
+        
         
         $objPropetyByLoc = new Home();
         $data['property_location'] = $objPropetyByLoc->propertiesByLocation();

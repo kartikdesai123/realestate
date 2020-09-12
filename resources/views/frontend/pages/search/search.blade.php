@@ -145,11 +145,6 @@ banner -->
          @endif
        @endif
   </section>
-  <!--=================================
-  Listing – grid view -->
-  
-  
-@endsection
 @php
 $property_locations = array();
 foreach ($property_location as $key => $value) {
@@ -157,7 +152,13 @@ foreach ($property_location as $key => $value) {
     $property_locations[] = $value['city'];
 }
 @endphp
+  <!--=================================
+  Listing – grid view -->
 <script>
 var data = '<?php echo json_encode($property_locations); ?>';
 var data1 = '<?php echo json_encode($array); ?>';
 </script>
+  
+@endsection
+
+

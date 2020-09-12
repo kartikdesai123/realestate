@@ -58,14 +58,14 @@
                   <div class="col-12">
                      <div class="property-search-field bg-white">
                         <div class="property-search-item">
-                           <form class=" basic-select-wrapper" method="POST" id="search">@csrf
+                           <form class=" basic-select-wrapper" method="GET" action="/search" id="search">@csrf
                              <div class="form-row">
                               <div class="form-group col-lg-2 col-md-6">
                                  
                                  <select class="form-control basic-select buldingType" name="property_type">
                                     <option value="">Property type</option>
                                     @foreach($property_type as $key => $value)
-                                 <option value="{{ $value->type }}">{{ $value->type }}</option>
+                                        <option value="{{ $value->type }}">{{ $value->type }}</option>
                                     @endforeach
                                  </select>
                               </div>
@@ -77,11 +77,12 @@
                                  </select>
                               </div>
                               <div class="form-group col-lg-3 col-md-6">
-                                 <select class="form-control basic-select buldingStatus" name="property_status">
+<!--                                 <select class="form-control basic-select buldingStatus" name="property_status">
                                     <option value="">Location</option>.
                                     <option value="rent" >For Rent</option>
                                     <option value="sale">For Sale</option>
-                                 </select>
+                                 </select>-->
+                                  <input type="text" id="autoComplate" name="property_city" placeholder="Search Location" class="form-control" />
                               </div>
 
                               
@@ -89,13 +90,15 @@
                                  <span class="align-items-center ml-3 d-none d-md-block"><button class="btn btn-primary d-flex align-items-center" type="submit"><i class="fas fa-search mr-1"></i><span>Search</span></button></span>
                               </div>
                                  <div class="form-group col-lg-3">
-                                 <span class="align-items-center ml-3 d-none d-md-block"><button class="btn btn-primary d-flex align-items-center adv_srh" type="submit"><span>Advance Search</span> <i class="fas fa-angle-double-down"></i></button></span>
-                              </div>
+                                 <!--<span class="align-items-center ml-3 d-none d-md-block"><a class="btn btn-primary d-flex align-items-center adv_srh"><span>Advance Search</span> <i class="fas fa-angle-double-down"></i></a></span>-->
+                              <a class="more-search p-0 collapsed btn btn-primary d-flex align-items-center adv_srh" style="color:white;" data-toggle="collapse" href="#advanced-search" role="button" aria-expanded="false" aria-controls="advanced-search"> <span class="d-block pr-2 mb-1">Advanced search</span>
+<i class="fas fa-angle-double-down"></i></a>
+                                 </div>
                               
                               <div class="collapse advanced-search" id="advanced-search">
                                  <div class="card card-body">
                                     <div class="form-row">
-                                       <div class="form-group col-md-3">
+                                       <div class="form-group col-md-4">
                                           <label>Distance from location</label>
                                           <select class="form-control basic-select" name="distance">
                                              <option value="">This area only</option>
@@ -107,7 +110,7 @@
                                              <option value="30">Within 30 miles</option>
                                           </select>
                                        </div>
-                                       <div class="form-group col-md-3">
+                                       <div class="form-group col-md-4">
                                           <label>Bedrooms</label>
                                           <select class="form-control basic-select" name="badroom">
                                              <option value="">No max</option>
@@ -116,16 +119,16 @@
                                              <option value="3">03</option>
                                           </select>
                                        </div>
-                                       <div class="form-group col-md-3">
+                                       <div class="form-group col-md-4">
                                           <label>Sort by</label>
                                           <select class="form-control basic-select" name="sortby">
-                                             <option  value="">Most popular</option>
+                                             <!--<option  value="">Most popular</option>-->
                                              <option  value="high">Highest price</option>
                                              <option value="low">Lowest price</option>
-                                             <option value="reduced">Most reduced</option>
+                                             <!--<option value="reduced">Most reduced</option>-->
                                           </select>
                                        </div>
-                                       <div class="form-group col-md-3">
+<!--                                       <div class="form-group col-md-3">
                                           <label>Floor area</label>
                                           <input class="form-control" placeholder="Type (sq ft)" name="floorarea">
                                           {{-- <select class="form-control basic-select" name="floor">
@@ -134,7 +137,7 @@
                                              <option>02</option>
                                              <option>03</option>
                                           </select> --}}
-                                       </div>
+                                       </div>-->
                                     </div>
                                      <div class="form-row">
                                          <div class="form-group col-md-4">
@@ -1055,20 +1058,18 @@
          
          <!--=================================
             newsletter -->
-@endsection
-<?php
+@php
+$property_locations = array();
 foreach ($property_location as $key => $value) {
     unset($value['total']);
-    $property_location[$key] = $value;  
+    $property_locations[] = $value['city'];
 }
-
-?>
+@endphp
+  <!--=================================
+  Listing – grid view -->
 <script>
- <?php   
- if(!empty($property_location)){ ?>
-    var data = '<?php echo json_encode($property_location); ?>';
-<?php } else { ?>
-     var data = '';
-<?php }  ?>
-
-</script> 
+var data = '<?php echo json_encode($property_locations); ?>';
+//var data1 = '<?php //echo json_encode($array); ?>';
+</script>
+@endsection
+ 

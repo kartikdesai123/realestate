@@ -68,6 +68,7 @@ class HomeController extends Controller
             'owl-carousel/owl.carousel.min.css',
             'magnific-popup/magnific-popup.css',
             'typeahead/typeahead.css',
+            'jquery-ui/jquery-ui.min.css'
         );
         $data['plugincss'] = array();
         $data['pluginjs'] = array(
@@ -80,6 +81,7 @@ class HomeController extends Controller
             'countdown/jquery.downCount.js',
             'typeahead/handlebars.min.js',
             'typeahead/typeahead.bundle.min.js',
+            'jquery-ui/jquery-ui.min.js'
         );
         $data['js'] = array(
             'home.js',

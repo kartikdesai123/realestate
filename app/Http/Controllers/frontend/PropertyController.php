@@ -71,6 +71,9 @@ class PropertyController extends Controller
         $objPropetyList = new PropertyDetails();
         $data['property'] = $objPropetyList->getPropertyList();
         
+        $objPropertyDetails = new PropertyDetails();
+        $data['property_type'] = $objPropertyDetails->getPropertyType();
+        
         return view('frontend.pages.property.propertylist', $data);
     }
     
