@@ -1358,24 +1358,26 @@ class LoginController extends Controller
     public function payResponse(Request $request){
 
         if(($request->input('message') == "APPROVED") && ($request->input('transactionId') != '')){
-            
+//            \Cookie::queue(Cookie::forget('planId'));
+
+
             $explode = explode('-',$request->input('extra3'));
             $roles = $explode[0]; 
-            if($roles == 'AG'){
-                $routeRedirect = 'agent-register';
-            }else if($roles == 'AY'){
-                $routeRedirect = 'agency-register';
-            }else if($roles == 'CC'){
-                $routeRedirect = 'company-register';
-            }else{
-                $routeRedirect = 'user-register';
-            }
+//            if($roles == 'AG'){
+//                $routeRedirect = 'agent-register';
+//            }else if($roles == 'AY'){
+//                $routeRedirect = 'agency-register';
+//            }else if($roles == 'CC'){
+//                $routeRedirect = 'company-register';
+//            }else{
+//                $routeRedirect = 'user-register';
+//            }
             
             
             $objUserPay = new UsersPayment();
             $result = $objUserPay->addPaymentUser($request);
             if($result){
-                return redirect()->route($routeRedirect)->with('success', 'Account Activation Request has been submitted Successfully! Please check mail and verify your email');
+                return redirect()->route('signin')->with('success', 'Account Activation Request has been submitted Successfully! Please check mail and verify your email');
             }  
         }else{
             $explode = explode('-',$request->input('extra3'));
