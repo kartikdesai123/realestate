@@ -8,7 +8,7 @@ use Config;
 class ContactusController extends Controller
 {
     function __construct(){
-
+         parent::__construct();
     }
 
     public function contactus (Request $request){
