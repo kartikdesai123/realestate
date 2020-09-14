@@ -24,12 +24,7 @@
 </style>
 <div id="demo" class="carousel slide banner-slider" data-ride="carousel">
 
-  <!-- Indicators -->
-<!--   <ul class="carousel-indicators">
-    <li data-target="#demo" data-slide-to="0" class="active"></li>
-    <li data-target="#demo" data-slide-to="1"></li>
-    <li data-target="#demo" data-slide-to="2"></li>
-  </ul> -->
+
   
   <!-- The slideshow -->
   <div class="carousel-inner">
@@ -63,7 +58,7 @@
                               <div class="form-group col-lg-2 col-md-6">
                                  
                                  <select class="form-control basic-select buldingType" name="property_type">
-                                    <option value="">Property type</option>
+                                    <option value="">{{ trans('home.pro_type') }}</option>
                                     @foreach($property_type as $key => $value)
                                         <option value="{{ $value->type }}">{{ $value->type }}</option>
                                     @endforeach
@@ -71,17 +66,12 @@
                               </div>
                               <div class="form-group col-lg-2 col-md-6">
                                  <select class="form-control basic-select buldingStatus" name="property_status">
-                                    <option value="">Status</option>.
-                                    <option value="rent" >For Rent</option>
-                                    <option value="sale">For Sale</option>
+                                    <option value="">{{ trans('home.status') }}</option>.
+                                    <option value="rent" >{{ trans('home.rent') }}</option>
+                                    <option value="sale">{{ trans('home.sale') }}</option>
                                  </select>
                               </div>
                               <div class="form-group col-lg-3 col-md-6">
-<!--                                 <select class="form-control basic-select buldingStatus" name="property_status">
-                                    <option value="">Location</option>.
-                                    <option value="rent" >For Rent</option>
-                                    <option value="sale">For Sale</option>
-                                 </select>-->
                                   <input type="text" id="autoComplate" name="property_city" placeholder="Search Location" class="form-control" />
                               </div>
 
@@ -99,69 +89,59 @@
                                  <div class="card card-body">
                                     <div class="form-row">
                                        <div class="form-group col-md-4">
-                                          <label>Distance from location</label>
+                                          <label>{{ trans('home.distance') }}</label>
                                           <select class="form-control basic-select" name="distance">
-                                             <option value="">This area only</option>
-                                             <option value="1">Within 1 mile</option>
-                                             <option value="3">Within 3 miles</option>
-                                             <option value="5">Within 5 miles</option>
-                                             <option value="10">Within 10 miles</option>
-                                             <option value="15">Within 15 miles</option>
-                                             <option value="30">Within 30 miles</option>
+                                             <option value="">{{ trans('home.area_only') }}</option>
+                                             <option value="1">{{ trans('home.one_mile') }}</option>
+                                             <option value="3">{{ trans('home.three_mile') }}</option>
+                                             <option value="5">{{ trans('home.five_mile') }}</option>
+                                             <option value="10">{{ trans('home.ten_mile') }}</option>
+                                             <option value="15">{{ trans('home.fifrteen_mile') }}</option>
+                                             <option value="30">{{ trans('home.thirty_mile') }}</option>
                                           </select>
                                        </div>
                                        <div class="form-group col-md-4">
-                                          <label>Bedrooms</label>
+                                          <label>{{ trans('home.thirty_mile') }}</label>
                                           <select class="form-control basic-select" name="badroom">
-                                             <option value="">No max</option>
+                                             <option value="">{{ trans('home.bedrooms') }}</option>
                                              <option value="1">01</option>
                                              <option value="2">02</option>
                                              <option value="3">03</option>
                                           </select>
                                        </div>
                                        <div class="form-group col-md-4">
-                                          <label>Sort by</label>
+                                          <label>{{ trans('home.no_max') }}</label>
                                           <select class="form-control basic-select" name="sortby">
                                              <!--<option  value="">Most popular</option>-->
-                                             <option  value="high">Highest price</option>
-                                             <option value="low">Lowest price</option>
+                                             <option  value="high">{{ trans('home.highest_price') }}</option>
+                                             <option value="low">{{ trans('home.lowest_price') }}</option>
                                              <!--<option value="reduced">Most reduced</option>-->
                                           </select>
                                        </div>
-<!--                                       <div class="form-group col-md-3">
-                                          <label>Floor area</label>
-                                          <input class="form-control" placeholder="Type (sq ft)" name="floorarea">
-                                          {{-- <select class="form-control basic-select" name="floor">
-                                             <option>Select Floor</option>
-                                             <option>01</option>
-                                             <option>02</option>
-                                             <option>03</option>
-                                          </select> --}}
-                                       </div>-->
                                     </div>
                                      <div class="form-row">
                                          <div class="form-group col-md-4">
-                                          <label>Agent</label>
+                                          <label>{{ trans('home.agents') }}</label>
                                           <select class="form-control basic-select" name="agent">
-                                             <option value="">Select Agent</option>
+                                             <option value="">{{ trans('home.select_agent') }}</option>
                                              @foreach($agentListSerch as $key => $value)
                                                 <option value="{{ $value->id}}">{{ $value->username }}</option> 
                                              @endforeach
                                           </select>
                                        </div>
                                          <div class="form-group col-md-4">
-                                          <label>Agencies</label>
+                                          <label>{{ trans('home.agences') }}</label>
                                           <select class="form-control basic-select" name="agencies">
-                                             <option value="">Select Agencies</option>
+                                             <option value="">{{ trans('home.select_agencies') }}</option>
                                              @foreach($agencyListSerch as $key => $value)
                                                 <option value="{{ $value->id}}">{{ $value->username }}</option> 
                                              @endforeach
                                           </select>
                                        </div>
                                          <div class="form-group col-md-4">
-                                          <label>Company</label>
+                                          <label>{{ trans('home.company') }}</label>
                                           <select class="form-control basic-select" name="company">
-                                             <option value="">Select Company</option>
+                                             <option value="">{{ trans('home.select_company') }}</option>
                                              @foreach($companyListSerch as $key => $value)
                                                 <option value="{{ $value->id}}">{{ $value->username }}</option> 
                                              @endforeach
@@ -170,15 +150,15 @@
                                      </div>
                                     <div class="form-row">
                                        <div class="form-group col-md-3">
-                                          <label>Min Area (sq ft)</label>
+                                          <label>{{ trans('home.min_area') }}</label>
                                           <input class="form-control" placeholder="Type (sq ft)" name="minarea">
                                        </div>
                                        <div class="form-group col-md-3">
-                                          <label>Max Area (sq ft)</label>
+                                          <label>{{ trans('home.max_area') }}</label>
                                           <input class="form-control" placeholder="Type (sq ft)" name="maxarea">
                                        </div>
                                        <div class="form-group col-md-6 property-price-slider ">
-                                          <label>Select Price Range</label>
+                                          <label>{{ trans('home.price_range') }}</label>
                                           <input type="text" id="property-price-slider"  value="" name="price_range"/>
                                        </div>
                                     </div>
@@ -187,7 +167,7 @@
                               <div class="d-md-none btn-block btn-mobile  m-3">
                                  <button class="btn btn-primary btn-block align-items-center" type="submit">
                                     <i class="fas fa-search mr-1"></i>
-                                    <span>Search</span>
+                                    <span>{{ trans('home.serch') }}</span>
                                  </button>
                               </div>
                               </div>
@@ -205,257 +185,6 @@
 
 
 
-<!--=================================
-         banner -->
-         <!-- <section class="position-relative">
-            <div class="banner bg-holder bg-overlay-gradient-02" style="background-image: url({{ asset('public/frontend/assets/images/banner-02.jpg') }});">
-               <div class="container">
-                  <div class="row">
-                     <div class="col-md-8 col-xl-6">
-                        <h1 class="text-white mb-4 display-4 font-weight-bold">Find the perfect home to buy or rent</h1>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <svg class="banner-shap"
-               xmlns="http://www.w3.org/2000/svg"
-               xmlns:xlink="http://www.w3.org/1999/xlink"
-               width="100%" height="100px">
-               <path fill-rule="evenodd"  fill="rgb(255, 255, 255)"
-                  d="M1920.000,100.000 L0.000,100.000 L1920.000,-0.000 L1920.000,100.000 Z"/>
-            </svg>
-         </section> -->
-         <!--=================================
-            banner -->
-         <!--=================================
-            property Type -->
-         <!-- <section class="property-search-field-top position-reletive">
-            <div class="container">
-               <div class="row">
-                  <div class="col-12">
-                     <div class="property-search-field bg-white">
-                        <div class="property-search-item">
-                           <form class="form-row basic-select-wrapper" method="POST" id="search">@csrf
-                              <div class="form-group col-lg col-md-6">
-                                 <label>Property type</label>
-                                 <select class="form-control basic-select buldingType" name="property_type">
-                                    <option value="">All Type</option>
-                                    @foreach($property_type as $key => $value)
-                                 <option value="{{ $value->type }}">{{ $value->type }}</option>
-                                    @endforeach
-                                 </select>
-                              </div>
-                              <div class="form-group col-lg col-md-6">
-                                 <label>Status</label>
-                                 <select class="form-control basic-select buldingStatus" name="property_status">
-                                    <option value="">All Type</option>.
-                                    <option value="rent" >For Rent</option>
-                                    <option value="sale">For Sale</option>
-                                 </select>
-                              </div>
-                              <div class="form-group d-flex col-lg-5">
-                                 <div class="form-group-search">
-                                    <label>Location</label>
-                                    <div class="d-flex align-items-center">
-                                        <i class="far fa-compass mr-1"></i>
-                                        <input type="text" class="form-control txtaddress" name="txtaddress" id="txtaddress" placeholder="Address">
-                                    </div>
-                                 </div>
-                                 <span class="align-items-center ml-3 d-none d-md-block"><button class="btn btn-primary d-flex align-items-center" type="submit"><i class="fas fa-search mr-1"></i><span>Search</span></button></span>
-                              </div>
-                              <div class="form-group text-center col-lg col-md-4 ">
-                                 <div class="d-flex justify-content-center d-md-inline-block">
-                                    <a class="more-search p-0" data-toggle="collapse" href="#advanced-search" role="button" aria-expanded="false" aria-controls="advanced-search"> <span class="d-block pr-2 mb-1">Advanced search</span>
-                                    <i class="fas fa-angle-double-down"></i></a>
-                                 </div>
-                              </div>
-                              <div class="collapse advanced-search" id="advanced-search">
-                                 <div class="card card-body">
-                                    <div class="form-row">
-                                       <div class="form-group col-md-3">
-                                          <label>Distance from location</label>
-                                          <select class="form-control basic-select" name="distance">
-                                             <option value="">This area only</option>
-                                             <option value="1">Within 1 mile</option>
-                                             <option value="3">Within 3 miles</option>
-                                             <option value="5">Within 5 miles</option>
-                                             <option value="10">Within 10 miles</option>
-                                             <option value="15">Within 15 miles</option>
-                                             <option value="30">Within 30 miles</option>
-                                          </select>
-                                       </div>
-                                       <div class="form-group col-md-3">
-                                          <label>Bedrooms</label>
-                                          <select class="form-control basic-select" name="badroom">
-                                             <option value="">No max</option>
-                                             <option value="1">01</option>
-                                             <option value="2">02</option>
-                                             <option value="3">03</option>
-                                          </select>
-                                       </div>
-                                       <div class="form-group col-md-3">
-                                          <label>Sort by</label>
-                                          <select class="form-control basic-select" name="sortby">
-                                             <option  value="">Most popular</option>
-                                             <option  value="high">Highest price</option>
-                                             <option value="low">Lowest price</option>
-                                             <option value="reduced">Most reduced</option>
-                                          </select>
-                                       </div>
-                                       <div class="form-group col-md-3">
-                                          <label>Floor area</label>
-                                          <input class="form-control" placeholder="Type (sq ft)" name="floorarea">
-                                          {{-- <select class="form-control basic-select" name="floor">
-                                             <option>Select Floor</option>
-                                             <option>01</option>
-                                             <option>02</option>
-                                             <option>03</option>
-                                          </select> --}}
-                                       </div>
-                                    </div>
-                                     <div class="form-row">
-                                         <div class="form-group col-md-4">
-                                          <label>Agent</label>
-                                          <select class="form-control basic-select" name="agent">
-                                             <option value="">Select Agent</option>
-                                             @foreach($agentListSerch as $key => $value)
-                                                <option value="{{ $value->id}}">{{ $value->username }}</option> 
-                                             @endforeach
-                                          </select>
-                                       </div>
-                                         <div class="form-group col-md-4">
-                                          <label>Agencies</label>
-                                          <select class="form-control basic-select" name="agencies">
-                                             <option value="">Select Agencies</option>
-                                             @foreach($agencyListSerch as $key => $value)
-                                                <option value="{{ $value->id}}">{{ $value->username }}</option> 
-                                             @endforeach
-                                          </select>
-                                       </div>
-                                         <div class="form-group col-md-4">
-                                          <label>Company</label>
-                                          <select class="form-control basic-select" name="company">
-                                             <option value="">Select Company</option>
-                                             @foreach($companyListSerch as $key => $value)
-                                                <option value="{{ $value->id}}">{{ $value->username }}</option> 
-                                             @endforeach
-                                          </select>
-                                       </div>
-                                     </div>
-                                    <div class="form-row">
-                                       <div class="form-group col-md-3">
-                                          <label>Min Area (sq ft)</label>
-                                          <input class="form-control" placeholder="Type (sq ft)" name="minarea">
-                                       </div>
-                                       <div class="form-group col-md-3">
-                                          <label>Max Area (sq ft)</label>
-                                          <input class="form-control" placeholder="Type (sq ft)" name="maxarea">
-                                       </div>
-                                       <div class="form-group col-md-6 property-price-slider ">
-                                          <label>Select Price Range</label>
-                                          <input type="text" id="property-price-slider"  value="" name="price_range"/>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="d-md-none btn-block btn-mobile  m-3">
-                                 <button class="btn btn-primary btn-block align-items-center" type="submit">
-                                    <i class="fas fa-search mr-1"></i>
-                                    <span>Search</span>
-                                 </button>
-                              </div>
-                           </form>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </section> -->
-         <!--=================================
-            Property Types -->
-         <!--=================================
-            location -->
-        <!--  <section class="space-ptb">
-            <div class="container">
-               <div class="row">
-                  <div class="col-12">
-                     <div class="section-title text-center">
-                        <h2>Find properties in these cities</h2>
-                     </div>
-                  </div>
-               </div>
-               <div class="row">
-                  <div class="col-lg-6">
-                     <div class="row">
-                         @if(@$homecity[0])
-                        <div class="col-md-6 mb-4 mb-lg-0">
-                            @php
-                            $city = str_replace(' ','-',strtolower($homecity[0]['city_name']));
-                            @endphp
-                           <a href="{{ route("search",$city)}}">
-                              <div class="location-item bg-overlay-gradient bg-holder" style="background-image: url({{ asset('public/upload/home_city/'.$homecity[0]['images']) }});">
-                                 <div class="location-item-info">
-                                    <h5 class="location-item-title">{{ $homecity[0]['city_name'] }}</h5>
-                                    <span class="location-item-list">{{ $homecity[0]['total_propeties'] }} Properties</span>
-                                 </div>
-                              </div>
-                           </a>
-                        </div>
-                         @endif
-                         @if(@$homecity[1])
-                        <div class="col-md-6 mb-4 mb-md-0">
-                           @php
-                            $city = str_replace(' ','-',strtolower($homecity[1]['city_name']));
-                           @endphp
-                           <a href="{{ route("search",$city)}}">
-                              <div class="location-item bg-overlay-gradient bg-holder" style="background-image: url({{ asset('public/upload/home_city/'.$homecity[1]['images']) }});">
-                                 <div class="location-item-info">
-                                    <h5 class="location-item-title">{{ $homecity[1]['city_name'] }}</h5>
-                                    <span class="location-item-list">{{ $homecity[1]['total_propeties'] }} Properties</span>
-                                 </div>
-                              </div>
-                           </a>
-                        </div>
-                         @endif
-                         @if(@$homecity[2])
-                        <div class="col-lg-12 mt-0 mt-lg-4">
-                            @php
-                            $city = str_replace(' ','-',strtolower($homecity[2]['city_name']));
-                            @endphp
-                           <a href="{{ route("search",$city)}}">
-                              <div class="location-item bg-overlay-gradient bg-holder" style="background-image: url({{ asset('public/upload/home_city/'.$homecity[2]['images']) }});">
-                                 <div class="location-item-info">
-                                    <h5 class="location-item-title">{{ $homecity[2]['city_name'] }}</h5>
-                                    <span class="location-item-list">{{ $homecity[2]['total_propeties'] }} Properties</span>
-                                 </div>
-                              </div>
-                           </a>
-                        </div>
-                         @endif
-                     </div>
-                  </div>
-                   @if(@$homecity[3])
-                  <div class="col-lg-6 mt-4 mt-lg-0">
-                    @php
-                    $city = str_replace(' ','-',strtolower($homecity[3]['city_name']));
-                    @endphp
-                     <a href="{{ route("search",$city)}}">
-                        <div class="location-item location-item-big bg-overlay-gradient bg-holder" style="background-image: url({{ asset('public/upload/home_city/'.$homecity[3]['images']) }});">
-                           <div class="location-item-info">
-                              <h5 class="location-item-title">{{ $homecity[3]['city_name'] }} </h5>
-                              <span class="location-item-list">{{ $homecity[3]['total_propeties'] }} Properties</span>
-                           </div>
-                        </div>
-                     </a>
-                  </div>
-                    @endif
-               </div>
-            </div>
-         </section> -->
-         <!--=================================
-            location -->
-         <!--=================================
-            Featured properties-->
          <section class="space-pb featured-property">
             <div class="container">
                <div class="row">
@@ -483,23 +212,6 @@
                                    <!--  <span class="badge badge-md badge-primary rent_label">{{ ucfirst($value['type']) }}</span> -->
                                     <span class="badge badge-md badge-info sale_label">{{ ucfirst($value['offer']) }} </span>
                                  </div>
-                                 <!--<span class="property-trending" title="trending"><i class="fas fa-bolt"></i></span>-->
-<!--                                 <div class="property-agent">
-                                    <div class="property-agent-image">
-                                       <img class="img-fluid" src="{{ asset('public/upload/userimage/'.$value['userimage']) }}" alt="">
-                                    </div>
-                                    <div class="property-agent-info">
-                                       <a class="property-agent-name" href="#">{{ $value['username'] }}</a>
-                                       <span class="d-block">{{ getTypeText($value['roles']) }}</span>
-                                       <ul class="property-agent-contact list-unstyled">
-                                          <li><a href="#"><i class="fas fa-mobile-alt"></i> </a></li>
-                                          <li><a href="#"><i class="fas fa-envelope"></i> </a></li>
-                                       </ul>
-                                    </div>
-                                 </div>-->
-<!--                                 <div class="property-agent-popup">
-                                    <a href="#"><i class="fas fa-camera"></i> {{ count($imageCount) }}</a>
-                                 </div>-->
                               </div>
                               <div class="property-details">
                                  <div class="property-details-inner">
@@ -574,177 +286,7 @@
                </div>
             </div>
          </section>
-         <!--=================================
-            about-->
-         <!--=================================
-            offering the best-->
-         <!-- <section class="space-ptb">
-            <div class="container">
-               <div class="row">
-                  <div class="col-12">
-                     <div class="section-title">
-                        <h2>We are offering the best deal this week</h2>
-                     </div>
-                  </div>
-               </div>
-               <div class="row">
-                  <div class="col-sm-12">
-                     <div class="owl-carousel owl-nav-top-left" data-nav-arrow="true" data-items="1" data-md-items="1" data-sm-items="1" data-xs-items="1" data-xx-items="1" data-space="0">
-                        <div class="item">
-                           <div class="property-item property-col-list mb-0 text-center">
-                              <div class="row no-gutters">
-                                 <div class="col-lg-6">
-                                    <div class="property-image bg-overlay-gradient-04">
-                                       <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/medium-img-01.jpg') }}" alt="">
-                                       <div class="property-lable">
-                                          <span class="badge badge-md badge-primary">Studio</span>
-                                          <span class="badge badge-md badge-info">New </span>
-                                       </div>
-                                       <div class="property-agent">
-                                          <div class="property-agent-image">
-                                             <img class="img-fluid" src="{{ asset('public/frontend/assets/images/avatar/06.jpg') }}" alt="">
-                                          </div>
-                                          <div class="property-agent-info">
-                                             <a class="property-agent-name" href="#">Michael Bean</a>
-                                             <span class="d-block">Research</span>
-                                             <ul class="property-agent-contact list-unstyled">
-                                                <li><a href="#"><i class="fas fa-mobile-alt"></i> </a></li>
-                                                <li><a href="#"><i class="fas fa-envelope"></i> </a></li>
-                                             </ul>
-                                          </div>
-                                       </div>
-                                       <div class="property-agent-popup">
-                                          <a href="#"><i class="fas fa-camera"></i> 02</a>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="col-lg-6">
-                                    <div class="property-details pt-4">
-                                       <div class="property-details-inner">
-                                          <h5 class="property-title"><a href="{{ route("property-details",'1')}}">184 lexington avenue</a></h5>
-                                          <span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>Hamilton rd. willoughby, oh</span>
-                                          <span class="property-agent-date"><i class="far fa-clock fa-md"></i>3 years ago</span>
-                                          <p class="mb-0 d-none d-block mt-3">The first thing to remember about success is that it is a process – nothing more, nothing less. There is really no magic to it.</p>
-                                          <div class="property-price">$236.00<span> / month</span> </div>
-                                          <ul class="property-info list-unstyled d-flex">
-                                             <li class="flex-fill property-bed"><i class="fas fa-bed"></i>Bed<span>2</span></li>
-                                             <li class="flex-fill property-bath"><i class="fas fa-bath"></i>Bath<span>2</span></li>
-                                             <li class="flex-fill property-m-sqft"><i class="far fa-square"></i>sqft<span>3,657m</span></li>
-                                          </ul>
-                                          <div class="property-countdown mt-4 mb-3 mb-lg-0">
-                                             <h5 class="mb-3">Deal ends in: </h5>
-                                             <div class="countdown countdown-small">
-                                                <span class="theme-color days">00</span>
-                                                <p class="days_ref">days</p>
-                                             </div>
-                                             <div class="countdown countdown-small">
-                                                <span class="theme-color hours">00</span>
-                                                <p class="hours_ref">hours</p>
-                                             </div>
-                                             <div class="countdown countdown-small">
-                                                <span class="theme-color minutes">00</span>
-                                                <p class="minutes_ref">minutes</p>
-                                             </div>
-                                             <div class="countdown countdown-small">
-                                                <span class="theme-color seconds">00</span>
-                                                <p class="seconds_ref">seconds</p>
-                                             </div>
-                                          </div>
-                                       </div>
-                                       <div class="property-btn">
-                                          <a class="property-link" href="{{ route("property-details",'1')}}">See Details</a>
-                                          <ul class="property-listing-actions list-unstyled mb-0">
-                                             <li class="property-compare"><a data-toggle="tooltip" data-placement="top" title="Compare" href="#"><i class="fas fa-exchange-alt"></i></a></li>
-                                             <li class="property-favourites"><a data-toggle="tooltip" data-placement="top" title="Favourite" href="#"><i class="far fa-heart"></i></a></li>
-                                          </ul>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="item">
-                           <div class="property-item property-col-list mb-0 text-center">
-                              <div class="row no-gutters">
-                                 <div class="col-lg-6">
-                                    <div class="property-image bg-overlay-gradient-04">
-                                       <img class="img-fluid" src="{{ asset('public/frontend/assets/images/property/medium-img-02.jpg') }}" alt="">
-                                       <div class="property-lable">
-                                          <span class="badge badge-md badge-primary">Summer House</span>
-                                          <span class="badge badge-md badge-info">Hot </span>
-                                       </div>
-                                       <div class="property-agent">
-                                          <div class="property-agent-image">
-                                             <img class="img-fluid" src="{{ asset('public/frontend/assets/images/avatar/04.jpg') }}" alt="">
-                                          </div>
-                                          <div class="property-agent-info">
-                                             <a class="property-agent-name" href="#">Michael Bean</a>
-                                             <span class="d-block">Research</span>
-                                             <ul class="property-agent-contact list-unstyled">
-                                                <li><a href="#"><i class="fas fa-mobile-alt"></i> </a></li>
-                                                <li><a href="#"><i class="fas fa-envelope"></i> </a></li>
-                                             </ul>
-                                          </div>
-                                       </div>
-                                       <div class="property-agent-popup">
-                                          <a href="#"><i class="fas fa-camera"></i> 02</a>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="col-lg-6">
-                                    <div class="property-details pt-4">
-                                       <div class="property-details-inner">
-                                          <h5 class="property-title"><a href="{{ route("property-details",'1')}}">Awesome family home</a></h5>
-                                          <span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>West Division Street</span>
-                                          <span class="property-agent-date"><i class="far fa-clock fa-md"></i>1 years ago</span>
-                                          <p class="mb-0 d-none d-block mt-3">TThere are basically six key areas to higher achievement. Some people will tell you there are four while others may tell you there.</p>
-                                          <div class="property-price">$125.00<span> / month</span> </div>
-                                          <ul class="property-info list-unstyled d-flex">
-                                             <li class="flex-fill property-bed"><i class="fas fa-bed"></i>Bed<span>3</span></li>
-                                             <li class="flex-fill property-bath"><i class="fas fa-bath"></i>Bath<span>3</span></li>
-                                             <li class="flex-fill property-m-sqft"><i class="far fa-square"></i>sqft<span>1,215m</span></li>
-                                          </ul>
-                                          <div class="property-countdown mt-4 mb-3 mb-lg-0">
-                                             <h5 class="mb-3">Deal ends in: </h5>
-                                             <div class="countdown countdown-small">
-                                                <span class="theme-color days">00</span>
-                                                <p class="days_ref">days</p>
-                                             </div>
-                                             <div class="countdown countdown-small">
-                                                <span class="theme-color hours">00</span>
-                                                <p class="hours_ref">hours</p>
-                                             </div>
-                                             <div class="countdown countdown-small">
-                                                <span class="theme-color minutes">00</span>
-                                                <p class="minutes_ref">minutes</p>
-                                             </div>
-                                             <div class="countdown countdown-small">
-                                                <span class="theme-color seconds">00</span>
-                                                <p class="seconds_ref">seconds</p>
-                                             </div>
-                                          </div>
-                                       </div>
-                                       <div class="property-btn">
-                                          <a class="property-link" href="{{ route("property-details",'1')}}">See Details</a>
-                                          <ul class="property-listing-actions list-unstyled mb-0">
-                                             <li class="property-compare"><a data-toggle="tooltip" data-placement="top" title="Compare" href="#"><i class="fas fa-exchange-alt"></i></a></li>
-                                             <li class="property-favourites"><a data-toggle="tooltip" data-placement="top" title="Favourite" href="#"><i class="far fa-heart"></i></a></li>
-                                          </ul>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </section> -->
-         <!--=================================
-            offering the best -->
-         <!--=================================
-            Browse properties by location -->
+         
          <section class="space-ptb bg-light browse-properties">
             <div class="container">
                <div class="row">
@@ -831,46 +373,7 @@
                </div>
             </div>
          </section>
-         <!--=================================
-            agent -->
-         <!--=================================
-            Company-->
-         <!-- <section class="space-ptb">
-            <div class="container">
-               <div class="row">
-                  <div class="col-12">
-                     <div class="section-title text-center">
-                        <h2>Construction Company</h2>
-                     </div>
-                  </div>
-               </div>
-               <div class="row">
-
-                  @foreach($companyList as $key => $value)
-                  <div class="col-md-6 mb-4">
-                     <div class="agent agent-02">
-                           <div class="agent-detail">
-                              <div class="agent-avatar avatar avatar-xlll">
-                                 <img class="img-fluid rounded-circle" src="{{ asset('public/upload/userimage/'.$value['userimage']) }}" alt="">
-                              </div>
-                              <div class="agent-info">
-                              <h5 class="mb-0"> <a href="{{ route("agent-details", $value['id']) }}">{{ $value['username'] }}</a></h5>
-                                 <p class="mt-3 mb-0">{{ $value['about'] }}</p>
-                              </div>
-                           </div>
-                           <div class="agent-button">
-                              <a class="btn btn-light btn-block" href="{{ route("company-details",$value['id'])}}">View Profile</a>
-                           </div>
-                        </div>
-                     </div>
-                  @endforeach
-               </div>
-            </div>
-         </section> -->
-         <!--=================================
-            Company -->
-         <!--=================================
-            Feature -->
+         
          <section class="space-ptb bg-light">
             <div class="container">
                <div class="row align-items-center">
@@ -960,104 +463,7 @@
                </div>
             </div>
          </section>
-         <!--=================================
-            Feature -->
-
-
-            <!--=================================
-            testimonial -->
-        <!--  <section class="space-pb">
-            <div class="container">
-               <div class="row">
-                  <div class="col-md-12">
-                     <div class="section-title">
-                        <h2>Testimonials</h2>
-                     </div>
-
-                     
-                     <div class="owl-carousel owl-nav-top-left" data-nav-arrow="true" data-items="1" data-md-items="1" data-sm-items="1" data-xs-items="1" data-xx-items="1" data-space="0">
-                        
-                        @foreach($review as $key => $value)
-                           <div class="item">
-                              <div class="testimonial-02">
-                                 <div class="testimonial-content">
-                                 <p><i class="fas fa-quote-right quotes"></i>{{ $value->review }}</p>
-                                 </div>
-                                 <div class="testimonial-author">
-                                    <div class="testimonial-avatar avatar avatar-lg mr-3">
-                                       <img class="img-fluid rounded-circle" src="{{ asset('public/upload/userimage/'.$value->userimage) }}" alt="">
-                                    </div>
-                                    <div class="testimonial-name">
-                                       <h6 class="text-primary mb-1">{{ $value->username }}</h6>
-                                       <span>{{ $value->about }}</span>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        @endforeach
-                        
-                       
-                     </div>
-                  </div>
-                  
-               </div>
-            </div>
-         </section> -->
-         <!--=================================
-            testimonial -->
-
-         <!--=================================
-            News, tips & articles -->
-        <!--  <section class="space-ptb">
-            <div class="container">
-
-               <div class="row">
-                  <div class="col-12">
-                     <div class="section-title text-center">
-                        <h2>News, tips & articles</h2>
-                     </div>
-                  </div>
-               </div>
-
-               <div class="row">
-                  @foreach($blogDetails as $key => $value)
-                  <div class="col-lg-12">
-                     {!!  $value->description !!}
-                     <div class="blog-post">
-                        <div class="blog-post-content">
-                          <div class="blog-post-details">
-                            <div class="blog-post-link mt-4">
-                              <a class="btn btn-link p-0" href="{{ route("blog-details",'1')}}"> Continue read</a>
-                            </div>
-                          </div>
-                          <div class="blog-post-footer">
-                            <div class="blog-post-time">
-                            <a href="#"> <i class="far fa-clock"></i>{{ date("d F, Y",strtotime( $value->created_at )) }}</a>
-                            </div>
-                            <div class="blog-post-author">
-                              <span> By {{  $value->authorName }} </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                  </div>
-                  @endforeach
-               </div>
-            </div>
-         </section> -->
-
-         <!--=================================
-            News, tips & articles -->
-
-
          
-
-            
-         <!--=================================
-            newsletter -->
-         
-         <!--=================================
-            newsletter -->
 @php
 $property_locations = array();
 foreach ($property_location as $key => $value) {
