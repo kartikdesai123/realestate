@@ -1889,7 +1889,7 @@ button {
 
 .navbar .navbar-nav .nav-link {
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
   padding: 10px 20px;
   color: #001935;
   text-transform: capitalize; }
@@ -4366,7 +4366,7 @@ ul li:last-child {
 
 @media (max-width: 1400px) {
   .navbar .navbar-nav .nav-link {
-    padding: 10px 12px; }
+    padding: 10px 8px; }
   #slider h1 {
     font-size: 50px;
     line-height: 50px; }
@@ -5331,7 +5331,7 @@ font-family: 'BalooChettan2-Bold';
   left: 0;
   right: 0;
   margin: 0 auto;
-  bottom: 225px;
+  bottom: 240px;
   width:100%;
   z-index: 0;
 }
@@ -5483,12 +5483,12 @@ margin-left: 10px;
 }
 
 .carousel-control-next{
-  right: 0px;
+  right: 35px !important;
   justify-content: flex-end;
 }
 
 .carousel-control-prev{
-  left: 0px;
+  left: 35px !important;
   justify-content: flex-start;
 }
 

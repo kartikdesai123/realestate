@@ -159,6 +159,7 @@ $('[data-toggle="popover"]').popover()
   /*************************
         Slickslider
 *************************/
+  
   POTENZA.slickslider = function () {
     if ($('.slider-for').exists()) {
       $('.slider-for').slick({

@@ -96,7 +96,7 @@ Mortgage Interest Rates -->
                         @foreach($plandetails as $key => $value)
                         <td><center>
                             @if($value->tourBooking == "Y")
-                                <i class="fa fa-check" style="color:green"></i>
+                            <img src="{{ asset('public/frontend/assets/images/yes.png') }}" width='20px'/>
                             @else
                             <i class="fa fa-times  " style="color:red"></i>
                             @endif
@@ -110,7 +110,7 @@ Mortgage Interest Rates -->
                         @foreach($plandetails as $key => $value)
                         <td><center>
                             @if($value->angleview == "Y")
-                                <i class="fa fa-check" style="color:green"></i>
+                                <img src="{{ asset('public/frontend/assets/images/yes.png') }}" width='20px'/>
                             @else
                             <i class="fa fa-times  " style="color:red"></i>
                             @endif

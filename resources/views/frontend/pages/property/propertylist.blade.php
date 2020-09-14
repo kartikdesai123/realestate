@@ -17,13 +17,14 @@
     height: 15px;
     content:"";
 }
+
 .short-by > .select2-container--default .select2-selection--single .select2-selection__arrow:before{
     background-image: url('../public/frontend/assets/images/down1.png');
     background-size: 15px 15px;
     display: inline-block;
     width: 15px; 
     height: 15px;
-    content:"";
+    content:unset;
 }
     </style>
 
