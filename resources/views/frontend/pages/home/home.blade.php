@@ -81,7 +81,7 @@
                               </div>
                                  <div class="form-group col-lg-3">
                                  <!--<span class="align-items-center ml-3 d-none d-md-block"><a class="btn btn-primary d-flex align-items-center adv_srh"><span>Advance Search</span> <i class="fas fa-angle-double-down"></i></a></span>-->
-                              <a class="more-search p-0 collapsed btn btn-primary d-flex align-items-center adv_srh" style="color:white;" data-toggle="collapse" href="#advanced-search" role="button" aria-expanded="false" aria-controls="advanced-search"> <span class="d-block pr-2 mb-1">Advanced search</span>
+                              <a class="more-search p-0 collapsed btn btn-primary d-flex align-items-center adv_srh"  data-toggle="collapse" href="#advanced-search" role="button" aria-expanded="false" aria-controls="advanced-search"> <span class="d-block pr-2 mb-1">Advanced search</span>
 <i class="fas fa-angle-double-down"></i></a>
                                  </div>
                               

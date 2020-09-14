@@ -1440,7 +1440,7 @@ color: #1d5764 !important;
   margin-bottom: 0; }
 
 .carousel-control-next, .carousel-control-prev {
-  opacity: .6; }
+  opacity: 1; }
 
 .bootstrap-datetimepicker-widget table td.active {
   background-color: #e1282e; }
@@ -1788,7 +1788,7 @@ button {
   border-radius: 0px; }
 
 .select-border .select2-container--default .select2-selection--single {
-  border: 1px solid #eeeeee;
+  border: none;
   height: 50px;
   padding: 15px 20px;
   border-radius: 3px; }
@@ -3379,6 +3379,11 @@ font-size: 30px;
 }
 .property-search-field .btn-primary.adv_srh{
   width: 100% !important;
+  color: white;
+}
+
+.property-search-field .btn-primary.adv_srh:hover{
+  color: black;
 }
 
   .property-search-field .form-group:first-child {
@@ -4919,7 +4924,6 @@ transition: 0.2s linear;
   .sidebar .widget form span:hover{
     color: white;
     background: #e1282e;
-    border:1px solid #e1282e;
   }
 .sidebar .widget form span:hover .select2-selection__rendered{
  color: white !important;
@@ -5267,7 +5271,7 @@ display: flex;
 color: white !important;
 background-color: #1D5763;
 font-family: 'BalooChettan2-Bold';
-padding: 10px 16px;
+/*padding: 10px 16px;*/
 margin: 0px 5px 0px 0px;
 
 }
@@ -5471,6 +5475,46 @@ margin-left: 10px;
   margin-top: 10px;
 }
 
+.carousel-inner{
+  height: 100%;
+}
+.carousel-item{
+  height: 100%;
+}
+
+.carousel-control-next{
+  right: 0px;
+  justify-content: flex-end;
+}
+
+.carousel-control-prev{
+  left: 0px;
+  justify-content: flex-start;
+}
+
+
+@media(max-width: 1300px){
+  .btn.btn-md {
+    padding: 9px 10px;
+}
+.nav_bar_wrapper .navbar .navbar-nav .nav-link{
+  margin: 0px 3px 0px 0px;
+}
+}
+
+@media(max-width: 1155px){
+  .btn.btn-md {
+    padding: 9px 5px;
+    font-size: 13px;
+}
+.nav_bar_wrapper .navbar .navbar-nav .nav-link{
+  margin: 0px 0px 0px 0px;
+}
+.navbar .navbar-nav .nav-link {
+    padding: 10px 5px;
+ 
+}
+}
 @media(max-width: 767px){
 .logo-wrap{
   display: none;
