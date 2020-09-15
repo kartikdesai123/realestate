@@ -71,12 +71,12 @@
                                     <option value="sale">{{ trans('home.sale') }}</option>
                                  </select>
                               </div>
-                              <div class="form-group col-lg-3 col-md-6">
+                              <div class="form-group col-lg-3 col-md-12">
                                   <input type="text" id="autoComplate" name="property_city" placeholder="Search Location" class="form-control" />
                               </div>
 
                               
-                              <div class="form-group col-lg-2">
+                              <div class="form-group col-lg-2 dis_n">
                                  <span class="align-items-center ml-3 d-none d-md-block"><button class="btn btn-primary d-flex align-items-center" type="submit"><i class="fas fa-search mr-1"></i><span>Search</span></button></span>
                               </div>
                                  <div class="form-group col-lg-3">
