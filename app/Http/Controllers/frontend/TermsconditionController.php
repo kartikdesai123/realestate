@@ -8,8 +8,8 @@ use Config;
 use App\Model\TermsCondition;
 class TermsconditionController extends Controller
 {
-    function __construct(){
-
+   function __construct(){
+         parent::__construct();
     }
 
     public function termcondition(Request $request){

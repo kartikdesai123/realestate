@@ -1889,7 +1889,7 @@ button {
 
 .navbar .navbar-nav .nav-link {
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
   padding: 10px 20px;
   color: #001935;
   text-transform: capitalize; }
@@ -2910,7 +2910,7 @@ color: black;}
         margin-top: 10px;
         margin-bottom: 0; }
       .property-image .property-agent .property-agent-info .property-agent-contact li a i{
-	line-height:30px;
+  line-height:30px;
         }
         .property_video{
             height : 100% !important;
@@ -4366,7 +4366,7 @@ ul li:last-child {
 
 @media (max-width: 1400px) {
   .navbar .navbar-nav .nav-link {
-    padding: 10px 12px; }
+    padding: 10px 8px; }
   #slider h1 {
     font-size: 50px;
     line-height: 50px; }
@@ -5331,7 +5331,7 @@ font-family: 'BalooChettan2-Bold';
   left: 0;
   right: 0;
   margin: 0 auto;
-  bottom: 225px;
+  bottom: 240px;
   width:100%;
   z-index: 0;
 }
@@ -5493,12 +5493,17 @@ margin-left: 10px;
 }
 
 .carousel-control-next{
+
   right: 10px;
+  right: 35px !important;
+
   justify-content: flex-end;
 }
 
 .carousel-control-prev{
+
   left: 10px;
+  left: 35px !important;
   justify-content: flex-start;
 }
 

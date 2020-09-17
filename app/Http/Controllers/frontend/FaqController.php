@@ -10,7 +10,7 @@ use App\Model\Faqs;
 class FaqController extends Controller
 {
     function __construct(){
-
+         parent::__construct();
     }
 
     public function faq(Request $request){

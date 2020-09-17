@@ -11,7 +11,7 @@ use App\Model\PropertyDetails;
 class AgencyController extends Controller
 {
     function __construct(){
-
+         parent::__construct();
     }
 
     public function agencyList(Request $request){

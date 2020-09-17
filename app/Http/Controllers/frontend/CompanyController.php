@@ -10,8 +10,8 @@ use App\Model\Companydetails;
 use App\Model\PropertyDetails;
 class CompanyController extends Controller
 {
-    function __construct(){
-
+   function __construct(){
+         parent::__construct();
     }
 
     public function companyList(Request $request){

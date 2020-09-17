@@ -69,7 +69,7 @@ var address = '<?php echo $propertyDetail[0]['address']?>';
               <div class="sidebar">
                 <div class="agent-contact mb-4">
                   <div class="agent-contact-inner bg-dark p-4">
-                    <div class="d-flex align-items-center mb-4">
+                    <div class="d-flex mb-4 align-items-center">
                       <div class="agent-contact-avatar mr-3">
                         <img class="img-fluid rounded-circle avatar avatar-lg" src="{{ asset('public/upload/userimage/'.$propertyDetail[0]['userimage']) }}" alt="">
                       </div>
@@ -77,14 +77,7 @@ var address = '<?php echo $propertyDetail[0]['address']?>';
                         <h6 class="text-white mb-0">{{ $propertyDetail[0]['username'] }}</h6>
                         <span class="text-white">{{ getTypeText($propertyDetail[0]['roles']) }}</span>
                       </div>
-                    </div>
-                    <div class="d-flex mb-4 align-items-center">
-                      <h6 class="text-white  border p-2 mb-0"><a href="#"><i class="fab fa-whatsapp"></i> Whatsapp</a></h6>
-                      <a class="btn btn-link p-0 ml-auto text-white" href="{{ route('property') }}"><u>View all listing </u></a>
-                    </div>
-                    <div class="d-flex mb-4 align-items-center">
-                      <h6 class="text-white border p-2 mb-0"><a href="#"><i class="fas fa-phone-volume text-white pr-2"></i>{{ $propertyDetail[0]['phoneno'] }}</a></h6>
-                      @if($propertyDetail[0]['companyImage'] != null || $propertyDetail[0]['companyImage'])
+                        @if($propertyDetail[0]['companyImage'] != null || $propertyDetail[0]['companyImage'])
                           @if($propertyDetail[0]['userType'] == 'CC')
                             <a class="btn btn-link p-0 ml-auto " href="{{ route("company-details",$propertyDetail[0]['companyId'])}}">
                               <img class="img-fluid " style="width: 70px;height: 70px;" src="{{ asset('public/upload/userimage/'.$propertyDetail[0]['companyImage']) }}" alt="">
@@ -97,6 +90,14 @@ var address = '<?php echo $propertyDetail[0]['address']?>';
                       @else
                         
                       @endif
+                    </div>
+                    <div class="d-flex mb-4 align-items-center">
+                      <h6 class="text-white  border p-2 mb-0"><a href="#"><i class="fab fa-whatsapp"></i> Whatsapp</a></h6>
+                      <a class="btn btn-link p-0 ml-auto text-white" href="{{ route('property') }}"><u>View all listing </u></a>
+                    </div>
+                    <div class="d-flex mb-4 align-items-center">
+                      <h6 class="text-white border p-2 mb-0"><a href="#"><i class="fas fa-phone-volume text-white pr-2"></i>{{ $propertyDetail[0]['phoneno'] }}</a></h6>
+                      
                     </div>
                   <form id="contact-form" action="{{ route('contact-owner') }}" method="POST">@csrf
                       <input type="hidden" value="{{ $slug }}" name="slug">
@@ -126,50 +127,52 @@ var address = '<?php echo $propertyDetail[0]['address']?>';
                     </form>
                   </div>
                 </div>
-                <div class="widget">
-                  <div class="widget-title">
-                    <h6>Mortgage calculator</h6>
+                <div class="widget mortage-calc">
+              <div class="widget-title">
+                <h6>Mortgage calculator</h6>
+              </div>
+              <form>
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fas fa-dollar-sign"></i></div>
                   </div>
-                    <div class="input-group mb-2">
-                      <div class="input-group-prepend">
-                        <div class="input-group-text text-red" style="font-size: 30px;"><i class="fas fa-dollar-sign"></i></div>
-                      </div>
-                      <input type="text" class="form-control amount" id='amount' placeholder="Total Amount">
-                    </div>
-                    <div class="input-group mb-2">
-                      <div class="input-group-prepend">
-                        <div class="input-group-text text-red " style="font-size: 30px;"><i class="fas fa-dollar-sign"></i></div>
-                      </div>
-                      <input type="text" class="form-control downPayment" id="inlineFormInputGroup" placeholder="Down Payment">
-                    </div>
-                    <div class="input-group mb-2">
-                      <div class="input-group-prepend">
-                        <div class="input-group-text text-red " style="font-size: 30px;"><i class="fas fa-percent"></i></div>
-                      </div>
-                      <input type="text" class="form-control rateofintrest" placeholder="Interest Rate">
-                    </div>
-                    <div class="input-group mb-2">
-                      <div class="input-group-prepend">
-                        <div class="input-group-text text-red" style="font-size: 30px;"><i class="far fa-clock"></i></div>
-                      </div>
-                      <input type="text" class="form-control loanyear" placeholder="Loan Term (Years)">
-                    </div>
-                    <div class="input-group mb-3 select-border">
-                      <select class="form-control basic-select selectType">
-                        <option value=''>Please Select</option>
+                  <input type="text" class="form-control amount" placeholder="Total Amount">
+                </div>
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fas fa-dollar-sign"></i></div>
+                  </div>
+                  <input type="text" class="form-control downPayment" id="inlineFormInputGroup" placeholder="Down Payment">
+                </div>
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fas fa-percent"></i></div>
+                  </div>
+                  <input type="text" class="form-control rateofintrest" placeholder="Interest Rate">
+                </div>
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="far fa-clock"></i></div>
+                  </div>
+                  <input type="text" class="form-control loanyear" placeholder="Loan Term (Years)">
+                </div>
+                <div class="input-group mb-3 select-border">
+                  <select class="form-control basic-select selectType">
+                    <option value=''>Please Select</option>
                         <option value='weekly'>Weekly</option>
                         <option value='monthly'>Monthly</option>
                         <option value='yearly'>Yearly</option>
-                      </select>
-                    </div>
-                    <div class="input-group mb-2">
-                      <div class="input-group-prepend">
-                        <div class="input-group-text text-red" style="font-size: 30px;"><i class="fas fa-dollar-sign"></i></div>
-                      </div>
-                      <input type="text" class="form-control finalAmount" readonly='true'>
-                    </div>
-                    <a class="btn btn-primary btn-block calculate" style="color: white">Calculate</a>
+                  </select>
                 </div>
+                  <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fas fa-dollar-sign"></i></div>
+                  </div>
+                  <input type="text" class="form-control finalAmount" placeholder="Total Amount" readonly='true'>
+                </div>
+                <a class="btn btn-primary btn-block calculate" style="color: white">Calculate</a>
+              </form>
+            </div>
                 <div class="widget">
                   <div class="widget-title">
                     <h6>Recently listed properties</h6>

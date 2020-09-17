@@ -33,15 +33,21 @@ $currentRoute = Route::current()->getName();
             <div class="container-fluid">
               <div class="row">
                 <div class="col-12">
-                  <div class= "margquee_tag">
-                  <div class="row">
-                     <div class="col-lg-8 col-md-6">
+                  <div class= "d-flex align-items-center text-center margquee_tag">
+                 <!--     <div class="col-2">
+                        <div class="mr-3 d-inline-block">
+                           <a href="tel:1-800-555-1234">
+                              <i class="fa fa-phone mr-2 fa fa-flip-horizontal"></i>1-800-555-1234 
+                           </a>
+                     </div>
+                     </div> -->
+                     <div class="col-8">
                         @if(count($getHeaderSlider) > 0)
                            <marquee behavior="scroll" direction="right" style="color: #ffffff;font-family: 'BalooChettan2-Bold';font-size: 20px;">{{ $getHeaderSlider[0]->text }}</marquee>
                         @endif
                         
                      </div>
-                     <div class="col-lg-4 col-md-6 " style="text-align: right">
+                     <div class="col-4 " style="text-align: right">
                         <div class="dropdown d-inline-block pl-2 pl-md-0">
 
                               <a class="dropdown-toggle" href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -74,7 +80,7 @@ $currentRoute = Route::current()->getName();
                         @endif
                      </div>
                         
-                    </div>
+                    
                   </div>
                 </div>
               </div>

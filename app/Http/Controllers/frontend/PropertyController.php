@@ -20,7 +20,7 @@ class PropertyController extends Controller
 {
     
     function __construct(){
-
+         parent::__construct();
     }
 
     public function propertylist(Request $request){
