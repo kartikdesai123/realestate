@@ -352,7 +352,11 @@
                      <div class="agent agent-02">
                            <div class="agent-detail">
                               <div class="agent-avatar avatar avatar-xlll">
+                                  @if($value['userimage'] != '')
                                  <img class="img-fluid" src="{{ asset('public/upload/userimage/'.$value['userimage']) }}" alt="">
+                                 @else
+                                 <img class="img-fluid" src="{{ asset('public/upload/userimage/default.png') }}" alt="">
+                                 @endif
                               </div>
                               <div class="agent-info">
                               <h5 class="mb-0"> <a href="{{ route("agent-details", $value['id']) }}">{{ $value['username'] }}</a></h5>
