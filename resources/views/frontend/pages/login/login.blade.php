@@ -9,7 +9,16 @@ Service -->
         <div class="section-title">
           <h2 class="text-center">{{ trans('signin.signin') }}</h2>
         </div>
-            
+            @if(session()->has('success'))
+            <div class="alert alert-success">
+                {{ session()->get('success') }}
+            </div>
+        @endif
+        @if(session()->has('fail'))
+            <div class="alert alert-danger">
+                {{ session()->get('fail') }}
+            </div>
+        @endif
         <form class="form-row mt-4 mb-5 align-items-center" id="login-form" method="POST" >@csrf
                 <div class="form-group col-sm-12">
                   <label>{{ trans('signin.email') }}</label>

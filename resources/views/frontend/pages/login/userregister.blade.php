@@ -30,6 +30,9 @@ Service -->
                 <div class="form-group col-sm-12">
                     <label>{{ trans('signin.user_username') }}:</label>
                     <input type="text" class="form-control" name="username" placeholder="{{ trans('signin.user_username_placeholder') }}">
+                    <input type="hidden" name="plan_id" value="{{ $plan_id }}">
+                    <input type="hidden" name="plan_days" value="{{ $plan_detail[0]['plandays'] }}">
+                    <input type="hidden" name="amount" value="{{ $plan_detail[0]['planprice'] }}">
                 </div>
 
                 <div class="form-group col-sm-12">
