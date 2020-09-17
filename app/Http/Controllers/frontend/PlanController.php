@@ -11,7 +11,7 @@ use App\Model\Plandetails;
 class PlanController extends Controller
 {
     function __construct(){
-
+         parent::__construct();
     }
 
     public function plan(Request $request){

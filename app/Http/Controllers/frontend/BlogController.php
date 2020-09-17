@@ -11,7 +11,7 @@ use App\Model\GeneralSettings;
 class BlogController extends Controller
 {
     function __construct(){
-
+         parent::__construct();
     }
 
     public function blog(Request $request){

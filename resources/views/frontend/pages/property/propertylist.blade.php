@@ -17,13 +17,14 @@
     height: 15px;
     content:"";
 }
+
 .short-by > .select2-container--default .select2-selection--single .select2-selection__arrow:before{
     background-image: url('../public/frontend/assets/images/down1.png');
     background-size: 15px 15px;
     display: inline-block;
     width: 15px; 
     height: 15px;
-    content:"";
+    content:unset;
 }
     </style>
 
@@ -117,8 +118,8 @@ Listing – grid view -->
               </div>
               <div class="collapse show" id="status-property">
                 <ul class="list-unstyled mb-0 pt-3">
-                  <li><a href="#">For rent<span class="ml-auto">(500)</span></a></li>
-                  <li><a href="#">For Sale<span class="ml-auto">(1200)</span></a></li>
+                  <li><a href="#">For rent<span class="ml-auto">({{ $final['rent'] }})</span></a></li>
+                  <li><a href="#">For Sale<span class="ml-auto">({{ $final['sale'] }})</span></a></li>
                 </ul>
               </div>
             </div>
@@ -129,13 +130,12 @@ Listing – grid view -->
               </div>
               <div class="collapse show" id="type-property">
                 <ul class="list-unstyled mb-0 pt-3">
-                  <li><a href="#">Residential<span class="ml-auto">(12)</span></a></li>
-                  <li><a href="#">Commercial<span class="ml-auto">(45)</span></a></li>
-                  <li><a href="#">Industrial<span class="ml-auto">(23)</span></a></li>
-                  <li><a href="#">Apartment<span class="ml-auto">(05)</span></a></li>
-                  <li><a href="#">Building code<span class="ml-auto">(10)</span></a></li>
-                  <li><a href="#">Communal land<span class="ml-auto">(47)</span></a></li>
-                  <li><a href="#">Insurability<span class="ml-auto">(32)</span></a></li>
+                  <li><a href="#">Apartment<span class="ml-auto">({{ $final['appratment'] }})</span></a></li>
+                  <li><a href="#">Commercial<span class="ml-auto">({{ $final['commercial'] }})</span></a></li>
+                  <li><a href="#">Residential<span class="ml-auto">({{ $final['residential'] }})</span></a></li>
+                  <li><a href="#">Shop<span class="ml-auto">({{ $final['shop'] }})</span></a></li>
+                  <li><a href="#">Villa<span class="ml-auto">({{ $final['villa'] }})</span></a></li>
+                  <li><a href="#">Office<span class="ml-auto">({{ $final['office'] }})</span></a></li>
                 </ul>
               </div>
             </div>

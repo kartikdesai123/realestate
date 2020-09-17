@@ -8,7 +8,7 @@ use Config;
 class ServicesController extends Controller
 {
     function __construct(){
-
+         parent::__construct();
     }
 
     public function services(Request $request){

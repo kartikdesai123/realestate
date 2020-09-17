@@ -16,7 +16,7 @@ class Controller extends BaseController
         if (isset($_COOKIE["language"])) {
             $lang = $_COOKIE["language"];
         } else {
-            $lang = 'en';
+            $lang = 'sp';
             $_COOKIE["language"] = $lang;
             setcookie('language', 'en', time() + (86400 * 30), "/"); // 86400 = 1 day
             

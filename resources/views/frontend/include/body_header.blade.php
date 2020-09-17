@@ -41,13 +41,13 @@ $currentRoute = Route::current()->getName();
                            </a>
                      </div>
                      </div> -->
-                     <div class="col-9">
+                     <div class="col-8">
                         @if(count($getHeaderSlider) > 0)
                            <marquee behavior="scroll" direction="right" style="color: #ffffff;font-family: 'BalooChettan2-Bold';font-size: 20px;">{{ $getHeaderSlider[0]->text }}</marquee>
                         @endif
                         
                      </div>
-                     <div class="col-3 " style="text-align: right">
+                     <div class="col-4 " style="text-align: right">
                         <div class="dropdown d-inline-block pl-2 pl-md-0">
 
                               <a class="dropdown-toggle" href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -69,13 +69,13 @@ $currentRoute = Route::current()->getName();
                                  {{ $data['username'] }} <i class="fas fa-chevron-down pl-2"></i>
                               </a>
                               <div class="dropdown-menu mt-0" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="{{ route("my-profile")}}">My Profile</a>
-                                    <a class="dropdown-item" href="{{ route('user-logout') }}">Logout</a>
+                                    <a class="dropdown-item" href="{{ route("my-profile")}}">{{ trans('home.myprofile') }}</a>
+                                    <a class="dropdown-item" href="{{ route('user-logout') }}">{{ trans('home.logout') }}</a>
                               </div>
                         </div>
                         @else
                            <div class="login d-inline-block">
-                              <a  href="{{ route('signin') }}">  Sign in <i class="fa fa-user pl-2"></i></a>
+                              <a  href="{{ route('signin') }}">  {{ trans('home.signin') }} <i class="fa fa-user pl-2"></i></a>
                            </div>
                         @endif
                      </div>
@@ -113,48 +113,48 @@ $currentRoute = Route::current()->getName();
 
                         <li class="nav-item dropdown text-center  {{ $currentRoute == "services" ? "active": ""}}  ">
                            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              About<i class="fas fa-chevron-down fa-xs"></i>
+                              {{ trans('home.about') }}<i class="fas fa-chevron-down fa-xs"></i>
                            </a>
                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                             <li class="{{ $currentRoute == "services" ? "active": ""}}"><a class="dropdown-item" href="{{ route('services') }}" >Services</a></li>
-                             <li class="{{ $currentRoute == "about-us" ? "active": ""}}"><a class="dropdown-item" href="{{ route('about-us') }}" >About us</a></li>
-                             <li class="{{ $currentRoute == "servicess" ? "active": ""}}"><a class="dropdown-item" href="{{ route('services') }}" >How we work</a></li>
-                             <li class="{{ $currentRoute == "servicess" ? "active": ""}}"><a class="dropdown-item" href="{{ route('services') }}" >How  to use it</a></li>
-                             <li class="{{ $currentRoute == "faq" ? "active": ""}}"><a class="dropdown-item" href="{{ route('faq') }}" >FAQs</a></li>
+                             <li class="{{ $currentRoute == "services" ? "active": ""}}"><a class="dropdown-item" href="{{ route('services') }}" >{{ trans('home.services') }}</a></li>
+                             <li class="{{ $currentRoute == "about-us" ? "active": ""}}"><a class="dropdown-item" href="{{ route('about-us') }}" >{{ trans('home.aboutus') }}</a></li>
+                             <li class="{{ $currentRoute == "servicess" ? "active": ""}}"><a class="dropdown-item" href="{{ route('services') }}" >{{ trans('home.work') }}</a></li>
+                             <li class="{{ $currentRoute == "servicess" ? "active": ""}}"><a class="dropdown-item" href="{{ route('services') }}" >{{ trans('home.useit') }}</a></li>
+                             <li class="{{ $currentRoute == "faq" ? "active": ""}}"><a class="dropdown-item" href="{{ route('faq') }}" >{{ trans('home.faqs') }}</a></li>
                              
                            </ul>
                          </li>
 
                         <li class="nav-item dropdown text-center   {{ $currentRoute == "property" ? "active": ""}}  {{ $currentRoute == "property-details" ? "active": ""}}">
                            <a class="nav-link" href="{{ route('property') }}"   aria-haspopup="true" aria-expanded="false">
-                              Properties
+                              {{ trans('home.ptroperties') }}
                            </a>
                         </li>
                        
                         <li class="nav-item dropdown text-center  {{ $currentRoute == "plan" ? "active": ""}}  ">
                            <a class="nav-link" href="{{ route('plan') }}"   aria-haspopup="true" aria-expanded="false">
-                              Plans
+                              {{ trans('home.plans') }}
                            </a>
                         </li>
 
                         <li class="nav-item dropdown text-center  {{ $currentRoute == "agent" ||  $currentRoute == "agent-details" ? "active": ""}}  ">
                            <a class="nav-link" href="{{ route('agent') }}"   aria-haspopup="true" aria-expanded="false">
-                              Agents
+                              {{ trans('home.agents') }}
                            </a>
                         </li>
                         <li class="nav-item dropdown {{ $currentRoute == "agency" ||  $currentRoute == "agency-details"  ? "active": ""}}  ">
                            <a class="nav-link" href="{{ route('agency') }}"   aria-haspopup="true" aria-expanded="false">
-                              Agences
+                              {{ trans('home.agences') }}
                            </a>
                         </li>
                         <li class="nav-item dropdown {{ $currentRoute == "company"  || $currentRoute == "company-details"  ? "active": ""}}  ">
                            <a class="nav-link" href="{{ route('company') }}"   aria-haspopup="true" aria-expanded="false">
-                              Company
+                              {{ trans('home.company') }}
                            </a>
                         </li>
                         <li class="nav-item dropdown {{ $currentRoute == "search" ? "active": ""}}  ">
                            <a class="nav-link" href="{{ route('search') }}"   aria-haspopup="true" aria-expanded="false">
-                              Map search
+                              {{ trans('home.mapserching') }}
                            </a>
                         </li>
                      </ul>
@@ -164,14 +164,14 @@ $currentRoute = Route::current()->getName();
                   <div class="d-flex align-items-center">
                      @if(isset($data))
                      <div class="add-listing d-none d-sm-block">
-                         <a class="btn btn-primary btn-md" href="{{ route('submit-property') }}"> <i class="fa fa-plus-circle"></i>Add Listing</a>
-                        <a class="btn btn-primary btn-md" href="{{ route('plan-details',1) }}"> <i class="fa fa-plus-pen"></i>Get Free Plan</a>
+                         <a class="btn btn-primary btn-md" href="{{ route('submit-property') }}"> <i class="fa fa-plus-circle"></i>{{ trans('home.addlisting') }}</a>
+                        <a class="btn btn-primary btn-md" href="{{ route('plan-details',1) }}"> <i class="fa fa-plus-pen"></i>{{ trans('home.getfreeplan') }}</a>
                       </div>
                      
                       @else
                         <div class="add-listing d-none d-sm-block">
-                           <a class="btn btn-primary btn-md" href="{{ route('plan') }}"> <i class="fa fa-plus-circle"></i>Buy A Plan </a>
-                           <a class="btn btn-primary btn-md" href="{{ route('plan-details',1) }}"> <i class="fa fa-plus-circle"></i>Free Publication</a>
+                           <a class="btn btn-primary btn-md" href="{{ route('plan') }}"> <i class="fa fa-plus-circle"></i>{{ trans('home.buyplan') }}</a>
+                           <a class="btn btn-primary btn-md" href="{{ route('plan-details',1) }}"> <i class="fa fa-plus-circle"></i>{{ trans('home.freepublication') }}</a>
                         </div>
                         
                       @endif
