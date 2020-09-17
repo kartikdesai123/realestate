@@ -6,20 +6,28 @@
                   </div>
                   <div class="col-md-7 mt-3 mt-md-0">
                      <div class="newsletter">
-                        <form>
+                        <form action="http://sendy.revisiontecnicomecanica.com/subscribe" method="POST" accept-charset="utf-8">
                         <div class="row">
                            <div class="offset-lg-1 col-lg-7">
                                <div class="form-group mb-0">
-                              <input type="email" class="form-control" placeholder="Enter email">
+                                <input type="email" style="padding-right:20px;text-transform: none;" placeholder="Please enter email" class="form-control" name="email" id="email" required/>
+                                
+                                <input type="hidden" name="list" value="reydNE763sdBiw4NnxuMAncw"/>
+                                <input type="hidden" name="subform" value="yes"/>
+                                <!--<input type="submit" name="submit" id="submit"/>-->
                            </div> 
                            </div>
-                           <div class="col-lg-4">
-                              <button type="submit" class="btn btn-dark">Get notified</button>
+                            <div class="col-lg-1" style="margin-top: 20px;">
+                                <input type="checkbox" name="gdpr" id="gdpr" required/>
+                            </div>
+                           <div class="col-lg-3">
+                              <!--<button type="submit" class="btn btn-dark">Get notified</button>-->
+                              <input type="submit" class="btn btn-dark" name="submit" id="submit"/>
                            </div>
                         </div>
-                         
                            
                         </form>
+                         
                      </div>
                   </div>
                </div>

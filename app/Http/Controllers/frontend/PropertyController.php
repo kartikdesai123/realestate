@@ -71,6 +71,50 @@ class PropertyController extends Controller
         $objPropetyList = new PropertyDetails();
         $data['property'] = $objPropetyList->getPropertyList();
         
+        $sale = 0;
+        $rent = 0;
+        $residential = 0;
+        $commercial = 0;
+        $shop = 0;
+        $appratment = 0;
+        $villa = 0;
+        $office = 0;
+      
+        
+        for($i=0; $i<count($data['property']); $i++){
+            if($data['property'][$i]->offer == 'sale'){
+                $sale = $sale + 1;
+            }else if($data['property'][$i]->offer == 'rent'){
+                $rent = $rent + 1;
+            }
+            
+            if($data['property'][$i]->type == 'apartment'){
+                $appratment = $appratment + 1;
+            }else if($data['property'][$i]->type == 'commercial'){
+                $commercial = $commercial + 1;
+            }else if($data['property'][$i]->type == 'shop'){
+                $shop = $shop + 1;
+            }else if($data['property'][$i]->type == 'residential'){
+                $residential = $residential + 1;
+            }else if($data['property'][$i]->type == 'villa'){
+                $villa = $villa + 1;
+            }else if($data['property'][$i]->type == 'office'){
+                $office = $office + 1;
+            }
+            
+        }
+        
+        $data['final'] = array(
+            'sale' => $sale,
+            'rent' => $rent,
+            'appratment' => $appratment,
+            'commercial' => $commercial,
+            'residential' => $residential,
+            'shop' => $shop,
+            'villa' => $villa,
+            'office' => $office,
+        );
+        
         $objPropertyDetails = new PropertyDetails();
         $data['property_type'] = $objPropertyDetails->getPropertyType();
         
