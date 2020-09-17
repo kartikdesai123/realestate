@@ -2,7 +2,7 @@
 @section('content')
 <!--=================================
 about -->
-<section class="space-ptb">
+<section class="space-ptb mt-100">
   <div class="container">
     <div class="row">
       <div class="col-md-6">
