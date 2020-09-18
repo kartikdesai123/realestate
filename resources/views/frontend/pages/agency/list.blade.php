@@ -19,7 +19,7 @@ about -->
       </div>
     </div>
     <div class="row">
-      <div class="col-lg-3 col-md-4 mb-5 mb-md-0">
+      <div class="col-lg-3 col-md-4 mb-5 mb-md-0 order-lg-1 order-md-1 order-2 ">
         <div class="sidebar agent_sidebar">
           <div class="widget feat-prop">
             <div class="widget-title">
@@ -84,7 +84,7 @@ about -->
           </div>
         </div>
       </div>
-      <div class="col-lg-9 col-md-8">
+      <div class="col-lg-9 col-md-8 order-lg-2 order-md-2 order-1 ">
         <div class="property-filter d-sm-flex">
          
         </div>

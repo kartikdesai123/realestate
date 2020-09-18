@@ -31,7 +31,7 @@ Feature box -->
         }
       @endphp
       @if($value->planname != 'FREE Property Publications')
-        <div class="col-lg-3 col-md-3 col-sm-6 mb-4">
+        <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
           <div class="feature-info feature-info-02">
             <div class="feature-info-detail">
               <div class="feature-info-icon">

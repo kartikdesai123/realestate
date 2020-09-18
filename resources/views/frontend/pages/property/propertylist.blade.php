@@ -33,7 +33,7 @@ Listing – grid view -->
 <section class="space-ptb mt-100">
     <div class="container">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6 ">
           <div class="section-title mb-3 mb-lg-4">
             <h2><span class="text-primary">{{ count ($property) }}</span> Results</h2>
           </div>
@@ -48,7 +48,7 @@ Listing – grid view -->
         </div>
       </div>
       <div class="row">
-        <div class="col-lg-3 mb-5 mb-lg-0">
+        <div class="col-lg-3 mb-5 mb-lg-0 order-lg-1 col-md-12 order-md-12 order-2">
           <div class="sidebar">
             <div class="widget">
               <div class="widget-title widget-collapse">
@@ -187,7 +187,7 @@ Listing – grid view -->
             </div>
           </div>
         </div>
-        <div class="col-lg-9">
+        <div class="col-lg-9 order-lg-2 col-md-12 order-md-1 order-1 ">
           <div class="property-filter d-sm-flex">
             <ul class="property-short list-unstyled d-sm-flex mb-0">
               <li>
@@ -265,7 +265,7 @@ Listing – grid view -->
                         <li class="flex-fill property-bath"><i class="fas fa-bath"></i>Bath<span>{{ $value['bathroom'] }}</span></li>
                         <li class="flex-fill property-m-sqft"><i class="far fa-square"></i>Sqft<span>{{ $value['area'] }}</span></li>
                       </ul>
-                      <div class="property-price" style='font-size: 35px !important;'>${{ $value['price'] }}<span class="d-block"> </span> </div>
+                      <div class="property-price" style=''>${{ $value['price'] }}<span class="d-block"> </span> </div>
                       </div>
                         </div>
                       
