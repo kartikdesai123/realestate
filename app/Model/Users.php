@@ -8,6 +8,7 @@ use App\Model\Emailverify;
 use App\Model\Forgotpassword;
 use App\Model\Sendmail;
 use App\Model\AssignAgent;
+use App\Model\UsersPayment;
 use DB;
 class Users extends Model
 {
@@ -30,6 +31,9 @@ class Users extends Model
                 return "emailexits";
             }else{
                 $objUser = new Users();
+                $days = $request->input('plan_days');
+                $expiredate = date('Y-m-d', strtotime('+'.$days.' days'));
+                
                 // if ($request->file('userimage')) {
                     
                 //     $image = $request->file('userimage');
@@ -47,11 +51,22 @@ class Users extends Model
                 $objUser->phoneno = $request->input('phoneno');
                 $objUser->roles = "U";
                 $objUser->email_verfied = "0";
+                $objUser->expiry_date = $expiredate;
                 $objUser->created_at = date("Y-m-d h:i:s");
                 $objUser->updated_at = date("Y-m-d h:i:s");
                 if($objUser->save()){
+                   
                     $id = $objUser->id;
-                    $token = bin2hex(random_bytes(10));
+                    
+                    $objPayment = new UsersPayment();
+                    $objPayment->user_id = $id;
+                    $objPayment->plan_id = $request->input('plan_id');
+                    $objPayment->amount = $request->input('amount');;
+                    $objPayment->transaction_id = (@$request->input('transactionId')) ? $request->input('transactionId') : "";
+                    $objPayment->created_at = date("Y-m-d h:i:s");
+                    $objPayment->updated_at = date("Y-m-d h:i:s");
+                    if($objPayment->save()){
+                        $token = bin2hex(random_bytes(10));
 
                     $objEmailverify = new Emailverify();
                     $result = $objEmailverify->saveToken($id,$token);
@@ -66,6 +81,8 @@ class Users extends Model
                     }else{
                         return "wrong";  
                     }
+                    }
+                    
                 }else{
                     return "wrong";
                 }

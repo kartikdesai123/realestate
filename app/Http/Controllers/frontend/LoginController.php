@@ -171,36 +171,11 @@ class LoginController extends Controller
     }
     
     public function userregister(Request $request){
-        // if ($request->isMethod("post")) {
-        //     $objUsers = new Users();
-        //     $result = $objUsers->addUser($request);
-        //     if($result == "true"){
-        //         $return['status'] = 'success';
-        //         $return['message'] = 'Well done your registration succesfully completed';
-        //         $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
-        //         $return['redirect'] = route('user-register');
-        //     }else{
-        //         if($result == "usernameexits"){
-        //             $return['status'] = 'error';
-        //             $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
-        //             $return['message'] = 'username already exits';
-                    
-        //         }else{
-        //             if($result == "emailexits"){
-        //                 $return['status'] = 'error';
-        //                 $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
-        //                 $return['message'] = 'email already exits';
-                        
-        //             }else{
-        //                 $return['status'] = 'error';
-        //                 $return['jscode'] = '$("#loader").hide();$(".btnsubmit:visible").removeAttr("disabled");$(".btnsubmit:visible").text("Register");';
-        //                 $return['message'] = 'Something goes to wrong';
-        //             }
-        //         }
-        //     }
-        //     return json_encode($return);
-        //     exit();
-        // }
+         if ($request->isMethod("post")) {
+             $objUsers = new Users();
+             $result = $objUsers->addUser($request);
+             return redirect()->route('signin')->with('success', 'Account Activation Request has been submitted Successfully! Please check mail and verify your email');
+         }
         
         if ($request->cookie('planId')) {
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Register ';
@@ -238,9 +213,10 @@ class LoginController extends Controller
             'Register.init()'
         );
         $data['plan_id'] = $request->cookie('planId');
-        // $data['plan_detail'] = Plandetails::where('id','=',$data['plan_id'])->get()->toArray();
-        // $amount = $data['plan_detail'][0]['amount'];
-        // $data['time'] = time();
+         $data['plan_detail'] = Plandetails::where('id','=',$data['plan_id'])->get()->toArray();
+//         print_r($data['plan_detail']); exit();
+//         $amount = $data['plan_detail'][0]['amount'];
+//         $data['time'] = time();
         // $data['signature'] = md5('4Vj8eK4rloUd272L48hsrarnUA~508029~'.time().'~'.$amount.'~COP');
 
         return view('frontend.pages.login.userregister', $data);
@@ -1391,7 +1367,7 @@ class LoginController extends Controller
             }else{
                 $routeRedirect = 'user-register';
             }
-            return redirect()->route($routeRedirect)->with('unsuccess', 'Payment made not successfully done please try again later');
+            return redirect()->route('signin')->with('fail', 'Payment made not successfully done please try again later');
         }
         
     }
