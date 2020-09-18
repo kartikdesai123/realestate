@@ -359,7 +359,7 @@
                                  @endif
                               </div>
                               <div class="agent-info">
-                              <h5 class="mb-0"> <a href="{{ route('agent-details', $value['id']) }}">{{ $value['username'] }}</a></h5>
+                              <h5 class="mb-0"> <a href="{{ route("agent-details", $value['id']) }}">{{ $value['username'] }}</a></h5>
                                  <!--<span class="text-primary">{{ $value['designation'] }}</span>-->
                                  <p class=" mb-0">{{ $value['about'] }}</p>
                                   <div class="agent-button">
