@@ -492,6 +492,69 @@ var address = '<?php echo $propertyDetail[0]['address']?>';
               </div>
             </div>
             @endif
+            @if($propertyDetail[0]['tour_view'] != '')
+            <hr class="mt-4 mb-4 mb-sm-5 mt-sm-5">
+            <div class="property-video">
+              <div class="row">
+                <div class="col-sm-3 mb-3 mb-sm-0">
+                  <ul class="nav nav-tabs " style="border: 0px" id="pills-tab" role="tablist">
+                     @php
+                    $i=1;
+                   @endphp
+                   @foreach($propertyDetail[0]['tour_view'] as $value)
+                   @php
+                     if($i == 1){
+                         $class = 'active';
+                     }else{
+                         $class = '';
+                     }
+                   @endphp  
+                    <li class="nav-item">
+                      <a class="nav-link {{ $class }}" id="360-{{$i}}-tab" data-toggle="pill" href="#360-{{$i}}" role="tab" aria-controls="360-{{$i}}" aria-selected="true">360 View {{ $i }}</a>
+                    </li>
+                     @php
+                   $i++;
+                  @endphp
+                @endforeach
+                  </ul>
+                </div>
+
+                <div class="col-sm-9">
+                  <div class="tab-content" id="pills-tabContent">
+                    @php
+                  $j=1;
+                  @endphp
+                  @foreach($propertyDetail[0]['tour_view'] as $value)
+                  @php
+                    if($j == 1){
+                        $class = 'show active';
+                    }else{
+                        $class = '';
+                    }
+                  @endphp
+                    <div class="tab-pane fade {{ $class }}" id="360-{{$j}}" role="tabpanel" aria-labelledby="360-{{$j}}-tab">
+                        <img src="{{ asset('public/upload/property_tour_view/'.$value['name']) }}" width="500" height="349"
+                        class="reel"
+                        id="image2"
+                        data-image="{{ asset('public/upload/property_tour_view/'.$value['name']) }}"
+                        data-stitched="796"
+                        data-frames="50"
+                        data-frame="30"
+                        data-spacing="5"
+                        data-rows="3"
+                        data-row="2"
+                        data-loops="false">
+                    </div>
+                  @php
+                   $j++;
+                  @endphp
+                @endforeach
+                  </div>
+                </div>
+              </div>
+            </div>
+            @endif
+            
             @if($propertyDetail[0]['audio'] != '')
             <hr class="mt-4 mb-4 mb-sm-5 mt-sm-5">
               <ul class="nav nav-tabs mb-4" id="pills-tab" role="tablist">
@@ -540,8 +603,7 @@ var address = '<?php echo $propertyDetail[0]['address']?>';
                 @endforeach
               </div>
             @endif
-
-
+            
             <hr class="mt-4 mb-4 mb-sm-5 mt-sm-5">
             <div class="property-schedule">
                 <ul class="nav nav-tabs nav-tabs-02 mb-4" id="pills-tab" role="tablist">

@@ -161,6 +161,7 @@ class PropertyController extends Controller
             'datetimepicker/datetimepicker.min.js',
             'fancybox/source/jquery.fancybox.js',
             'select2/select2.full.js',
+            'jquery.reel.js',
         );
         $data['header'] = array(
             'title' => 'About Us',
@@ -197,7 +198,7 @@ class PropertyController extends Controller
         $objPropetyDetail = new PropertyDetails();
         $data['propertyDetail'] = $objPropetyDetail->getPropertyDetail($slug);
 
-        
+//        echo "<pre/>"; print_r($data['propertyDetail']); exit();
 
         $image = explode(',',$data['propertyDetail'][0]['images']);
         $url = route("property-details",$data['propertyDetail'][0]['slug']);
